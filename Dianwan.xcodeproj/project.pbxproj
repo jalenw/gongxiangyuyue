@@ -53,6 +53,7 @@
 		8E5589C622379AF50058EE80 /* MarketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5589C422379AF50058EE80 /* MarketViewController.xib */; };
 		8E5589CA22379B020058EE80 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5589C822379B020058EE80 /* MineViewController.m */; };
 		8E5589CB22379B020058EE80 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5589C922379B020058EE80 /* MineViewController.xib */; };
+		8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */; };
 		8E7ABFB2211ACBD800EADF76 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFB0211ACBD800EADF76 /* FeedbackViewController.m */; };
 		8E7ABFB3211ACBD800EADF76 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFB1211ACBD800EADF76 /* FeedbackViewController.xib */; };
 		8E7ABFC7211AD9CC00EADF76 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC5211AD9CC00EADF76 /* SettingViewController.m */; };
@@ -517,6 +518,7 @@
 		8E5589C722379B020058EE80 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		8E5589C822379B020058EE80 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		8E5589C922379B020058EE80 /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		8E7ABFAF211ACBD800EADF76 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		8E7ABFB0211ACBD800EADF76 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		8E7ABFB1211ACBD800EADF76 /* FeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
@@ -1226,6 +1228,7 @@
 				CD6323BA1EE54C1100D033F4 /* CopyConnector.framework in Frameworks */,
 				CD6323BE1EE54C1100D033F4 /* SMSConnector.framework in Frameworks */,
 				CD6323BC1EE54C1100D033F4 /* QQConnector.framework in Frameworks */,
+				8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */,
 				8EEF4BC2211D8CB500DE1E36 /* libopencore-amrnb.a in Frameworks */,
 				CD6323BD1EE54C1100D033F4 /* SinaWeiboConnector.framework in Frameworks */,
 				CD6323C81EE54C1100D033F4 /* ShareSDKConnector.framework in Frameworks */,
@@ -1965,6 +1968,7 @@
 		8EEF4A78211D8C9500DE1E36 /* EaseMobClientSDK */ = {
 			isa = PBXGroup;
 			children = (
+				8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */,
 				8EEF4A79211D8C9500DE1E36 /* EaseMobHeaders.h */,
 				8EEF4A7A211D8C9500DE1E36 /* EaseMob.h */,
 			);
@@ -3509,6 +3513,7 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.boweiuser;
@@ -3561,6 +3566,7 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.boweiuser;
