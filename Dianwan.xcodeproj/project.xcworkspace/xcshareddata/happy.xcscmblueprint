@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "f3b9e9ed-dafd-7949-b721-40ebf99f86a1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "f3b9e9ed-dafd-7949-b721-40ebf99f86a1" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "f3b9e9ed-dafd-7949-b721-40ebf99f86a1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D07BD2C-C260-4621-B6F1-B1026FA3BFBE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "f3b9e9ed-dafd-7949-b721-40ebf99f86a1" : "hellosteel-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "happy",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "happy\/happy.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/121.201.8.207:8080\/svn\/hellosteel-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f3b9e9ed-dafd-7949-b721-40ebf99f86a1"
+    }
+  ]
+}

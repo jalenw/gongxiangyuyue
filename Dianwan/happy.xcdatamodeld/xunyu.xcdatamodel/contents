@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chat_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chat_password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_host" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="is_set" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="jpush_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="member_areaid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="member_cityid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="member_provinceid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="viptype" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="270"/>
+    </elements>
+</model>
