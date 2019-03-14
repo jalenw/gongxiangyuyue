@@ -255,6 +255,8 @@
 		8EDA41411F22F731000CBA40 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA413F1F22F731000CBA40 /* LoginViewController.xib */; };
 		8EDA41521F22F85C000CBA40 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA41501F22F85C000CBA40 /* FriendsViewController.m */; };
 		8EDA41531F22F85C000CBA40 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */; };
+		8EE2DCA92239ED2A00DF2DFE /* MenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCA62239ED2A00DF2DFE /* MenuCollectionViewCell.m */; };
+		8EE2DCAA2239ED2A00DF2DFE /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */; };
 		8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5693F20FDC8450048EB38 /* WSTextView.m */; };
 		8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */; };
 		8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF4A98211D8CB400DE1E36 /* UIViewController+HUD.m */; };
@@ -767,6 +769,9 @@
 		8EDA414F1F22F85C000CBA40 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		8EDA41501F22F85C000CBA40 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
+		8EE2DCA62239ED2A00DF2DFE /* MenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCollectionViewCell.m; sourceTree = "<group>"; };
+		8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		8EE2DCA82239ED2A00DF2DFE /* MenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCollectionViewCell.h; sourceTree = "<group>"; };
 		8EE5693E20FDC8450048EB38 /* WSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTextView.h; sourceTree = "<group>"; };
 		8EE5693F20FDC8450048EB38 /* WSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTextView.m; sourceTree = "<group>"; };
 		8EEF4A28211D8C9500DE1E36 /* IChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManager.h; sourceTree = "<group>"; };
@@ -1714,6 +1719,7 @@
 		8EDA41421F22F813000CBA40 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
+				8EE2DCA52239ED1500DF2DFE /* Cell */,
 				8EF8B39F211989AA00687B7F /* QRFrameView.h */,
 				8EF8B39E211989A900687B7F /* QRFrameView.m */,
 				8EF8B39C211989A600687B7F /* QRViewController.h */,
@@ -1769,6 +1775,16 @@
 				8E059A25212174B10047A07D /* PayViewController.xib */,
 			);
 			name = My;
+			sourceTree = "<group>";
+		};
+		8EE2DCA52239ED1500DF2DFE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8EE2DCA82239ED2A00DF2DFE /* MenuCollectionViewCell.h */,
+				8EE2DCA62239ED2A00DF2DFE /* MenuCollectionViewCell.m */,
+				8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		8EE5693320FDBA690048EB38 /* Cell */ = {
@@ -3070,6 +3086,7 @@
 				8EB4E50D21201FAE00BC563B /* VoiceSearchFeedback016.png in Resources */,
 				8EB4E53021201FAE00BC563B /* chatBar_colorMore_photo@2x.png in Resources */,
 				8EB4E4DA21201FAE00BC563B /* faceDelete@2x.png in Resources */,
+				8EE2DCAA2239ED2A00DF2DFE /* MenuCollectionViewCell.xib in Resources */,
 				8EB4E52F21201FAE00BC563B /* chatBar_colorMore_audioCall@2x.png in Resources */,
 				CD6323C71EE54C1100D033F4 /* ShareSDK.bundle in Resources */,
 				8EB4E53E21201FAE00BC563B /* chatBar_keyboardSelected@2x.png in Resources */,
@@ -3168,6 +3185,7 @@
 				CD6B83031E542F420082F5EB /* JsonHelper.m in Sources */,
 				CD06662A1E8CB53700CCD49A /* MainViewController.m in Sources */,
 				04EBFC381F25D79C00C4DE83 /* LZHAreaPickerView.m in Sources */,
+				8EE2DCA92239ED2A00DF2DFE /* MenuCollectionViewCell.m in Sources */,
 				8EB4E3F8212009AD00BC563B /* EMSDWebImageCompat.m in Sources */,
 				8EB4E3EC212009AD00BC563B /* NSData+EMImageContentType.m in Sources */,
 				CDC88FFA1D8698BF00CE03CE /* HTTPClient.m in Sources */,

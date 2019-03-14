@@ -25,13 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addChildVc:[[FirstViewController alloc] init] title:@"首页" image:@"" selectedImage:@""];
-    [self addChildVc:[[MarketViewController alloc] init] title:@"市场" image:@"" selectedImage:@""];
+    [self addChildVc:[[FirstViewController alloc] init] title:@"首页" image:@"tabbar_menu1_normal" selectedImage:@"tabbar_menu1_selected"];
+    [self addChildVc:[[MarketViewController alloc] init] title:@"市场" image:@"tabbar_menu2_normal" selectedImage:@"tabbar_menu2_selected"];
     EaseConversationListViewController *chatVc = [[EaseConversationListViewController alloc] init];
     chatVc.delegate = self;
-    [self addChildVc:chatVc title:@"聊天" image:@"" selectedImage:@""];
-    [self addChildVc:[[MineViewController alloc] init]  title:@"挖矿" image:@"" selectedImage:@""];
-    [self addChildVc:[[MyViewController alloc] init] title:@"我的" image:@"" selectedImage:@""];
+    [self addChildVc:chatVc title:@"聊天" image:@"tabbar_menu3_normal" selectedImage:@"tabbar_menu3_selected"];
+    [self addChildVc:[[MineViewController alloc] init]  title:@"挖矿" image:@"tabbar_menu4_normal" selectedImage:@"tabbar_menu4_selected"];
+    [self addChildVc:[[MyViewController alloc] init] title:@"我的" image:@"tabbar_menu5_normal" selectedImage:@"tabbar_menu5_selected"];
     
 //   tabbar中间按钮
 //    ZTTabBar *tabBar = [[ZTTabBar alloc] init];

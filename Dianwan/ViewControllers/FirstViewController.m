@@ -7,9 +7,11 @@
 //
 
 #import "FirstViewController.h"
+#import "MenuCollectionViewCell.h"
 @interface FirstViewController ()
 {
     NSArray *adArray;
+    NSArray *menuList;
 }
 @end
 
@@ -25,11 +27,20 @@
         controller.showNav = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }];
+    
+    UICollectionViewFlowLayout *_layout = [[UICollectionViewFlowLayout alloc]init];
+    _layout.itemSize = CGSizeMake(ScreenWidth/4,180/2);
+    _layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    _layout.minimumLineSpacing = 0;
+    _layout.minimumInteritemSpacing = 0;
+    [self.collectionView setCollectionViewLayout:_layout];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setLeftBarButtonWithImage:[UIImage imageNamed:@"first_qr"]];
+    [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
 }
 
 //获取首页
@@ -38,6 +49,8 @@
     [[ServiceForUser manager]postMethodName:@"index" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             adArray = [[data safeDictionaryForKey:@"result"] safeArrayForKey:@"adv_list"];
+            menuList = [[data safeDictionaryForKey:@"result"] safeArrayForKey:@"nav_list"];
+            [self.collectionView reloadData];
             NSMutableArray *picArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dict in adArray) {
                 [picArray addObject:[dict safeStringForKey:@"adv_code"]];
@@ -45,6 +58,34 @@
             [self.adView setArray:picArray];
         }
     }];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return menuList.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UINib *nib = [UINib nibWithNibName:@"MenuCollectionViewCell"
+                                bundle: [NSBundle mainBundle]];
+    [collectionView registerNib:nib forCellWithReuseIdentifier:@"MenuCollectionViewCell"];
+    MenuCollectionViewCell *cell = [[MenuCollectionViewCell alloc]init];
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"MenuCollectionViewCell"
+                                                     forIndexPath:indexPath];
+    NSDictionary *dict = [menuList objectAtIndex:indexPath.row];
+    [cell.pic sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"adv_code"]]];
+    cell.name.text = [dict safeStringForKey:@"adv_title"];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dict = menuList[indexPath.row];
+    NSString *typename = [[dict safeStringForKey:@"nav_name"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+//    controller.address = [NSString stringWithFormat:@"%@classfiyList?uid=%@&sp_url=%@&typename=%@",web_url,HTTPClientInstance.uid,[dict safeStringForKey:@"sp_url"],typename];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,4 +11,5 @@
 @interface FirstViewController : BaseViewController
 @property (strong, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet AdView *adView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
