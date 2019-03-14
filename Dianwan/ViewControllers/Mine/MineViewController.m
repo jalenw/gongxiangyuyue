@@ -7,8 +7,15 @@
 //
 
 #import "MineViewController.h"
+#import "DigTableViewCell.h"
+#import "MyDigViewController.h"
 
-@interface MineViewController ()
+@interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *dataList;
+    int page;
+}
+@property (weak, nonatomic) IBOutlet UITableView *digTableview;
 
 @end
 
@@ -17,17 +24,65 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"挖矿";
-    // Do any additional setup after loading the view from its nib.
+    [self setRightBarButtonWithTitle:@"我的矿机"];
+    dataList = [[NSMutableArray alloc]init];
+    page = 1;
+    self.digTableview.dataSource =self;
+    self.digTableview.delegate =self;
+    self.digTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.digTableview registerNib:[UINib nibWithNibName:@"DigTableViewCell" bundle:nil] forCellReuseIdentifier:@"DigTableViewCell"];
+    [self.digTableview addLegendFooterWithRefreshingBlock:^{
+        page ++;
+        [self requestMarkdataAct];
+    }];
+    [self.digTableview addLegendHeaderWithRefreshingBlock:^{
+        page = 1;
+        [self requestMarkdataAct];
+    }];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)rightbarButtonDidTap:(UIButton *)button{
+    MyDigViewController *mydig = [[MyDigViewController alloc]init];
+    [self.navigationController pushViewController:mydig animated:YES];
 }
-*/
 
+-(void)requestMarkdataAct{
+    NSDictionary *params = @{
+                             
+                             };
+    
+    [[ServiceForUser manager] postMethodName:@"" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (page == 1) {
+            [self.digTableview.header endRefreshing];
+        }else{
+            [self.digTableview.footer endRefreshing];
+        }
+        if (status) {
+            
+        }
+        [self.digTableview reloadData];
+        
+    }];
+    
+}
+
+#pragma mark -代理
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+    //    return dataList.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DigTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"DigTableViewCell"];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 172;
+}
 @end

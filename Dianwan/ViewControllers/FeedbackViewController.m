@@ -33,7 +33,7 @@
 }
 
 - (IBAction)doneAct:(UIButton *)sender {
-    [[ServiceForUser manager]postMethodName:@"" params:@{@"content":self.textView.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"/wap/member/member_feedback.html" params:@{@"content":self.textView.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             [AlertHelper showAlertWithTitle:@"提交成功"];
             [self.navigationController popViewControllerAnimated:YES];

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的推荐码";
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[ServiceForUser manager]postMethodName:@"index/get_inviter_id" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];

@@ -11,6 +11,8 @@
 @interface SetPayPwViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *pw;
 @property (weak, nonatomic) IBOutlet UITextField *rpw;
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
+
 - (IBAction)doneAct:(UIButton *)sender;
 
 @end

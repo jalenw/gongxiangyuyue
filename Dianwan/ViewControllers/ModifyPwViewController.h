@@ -10,9 +10,9 @@
 
 @interface ModifyPwViewController : BaseViewController
 @property (nonatomic)BOOL forPayPw;
-@property (weak, nonatomic) IBOutlet UITextField *pw;
 @property (weak, nonatomic) IBOutlet UITextField *npw;
 @property (weak, nonatomic) IBOutlet UITextField *reNewPw;
+@property (weak, nonatomic) IBOutlet UITextField *codeTF;
 - (IBAction)doneAct:(UIButton *)sender;
 
 @end

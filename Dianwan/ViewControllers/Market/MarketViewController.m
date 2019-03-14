@@ -7,8 +7,14 @@
 //
 
 #import "MarketViewController.h"
+#import "MarketTableViewCell.h"
 
-@interface MarketViewController ()
+@interface MarketViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *dataList;
+    int page;
+}
+@property (weak, nonatomic) IBOutlet UITableView *marketTableview;
 
 @end
 
@@ -17,17 +23,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"市场";
-    // Do any additional setup after loading the view from its nib.
+    dataList = [[NSMutableArray alloc]init];
+    page = 1;
+    self.marketTableview.dataSource =self;
+    self.marketTableview.delegate =self;
+    self.marketTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.marketTableview registerNib:[UINib nibWithNibName:@"MarketTableViewCell" bundle:nil] forCellReuseIdentifier:@"MarketTableViewCell"];
+    [self.marketTableview addLegendFooterWithRefreshingBlock:^{
+         page ++;
+          [self requestMarkdataAct];
+    }];
+    [self.marketTableview addLegendHeaderWithRefreshingBlock:^{
+        page = 1;
+        [self requestMarkdataAct];
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)requestMarkdataAct{
+    NSDictionary *params = @{
+                             
+                             };
+    
+    [[ServiceForUser manager] postMethodName:@"" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (page == 1) {
+            [self.marketTableview.header endRefreshing];
+        }else{
+            [self.marketTableview.footer endRefreshing];
+        }
+        if (status) {
+            
+        }
+        [self.marketTableview reloadData];
+        
+    }];
+    
 }
-*/
+
+#pragma mark -代理
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+//    return dataList.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MarketTableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"MarketTableViewCell"];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 164;
+}
 
 @end
