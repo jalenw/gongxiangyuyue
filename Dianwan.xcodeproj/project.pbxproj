@@ -268,6 +268,8 @@
 		8EE2DCCF223A2D4B00DF2DFE /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCCD223A2D4B00DF2DFE /* QRCodeViewController.m */; };
 		8EE2DCD0223A2D4B00DF2DFE /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCCE223A2D4B00DF2DFE /* QRCodeViewController.xib */; };
 		8EE2DCD3223A2FDE00DF2DFE /* SliderMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCD2223A2FDE00DF2DFE /* SliderMenuView.m */; };
+		8EE2DCD7223A419200DF2DFE /* ChatHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCD5223A419200DF2DFE /* ChatHistoryViewController.m */; };
+		8EE2DCD8223A419200DF2DFE /* ChatHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCD6223A419200DF2DFE /* ChatHistoryViewController.xib */; };
 		8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5693F20FDC8450048EB38 /* WSTextView.m */; };
 		8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */; };
 		8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF4A98211D8CB400DE1E36 /* UIViewController+HUD.m */; };
@@ -800,6 +802,9 @@
 		8EE2DCCE223A2D4B00DF2DFE /* QRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
 		8EE2DCD1223A2FDE00DF2DFE /* SliderMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderMenuView.h; sourceTree = "<group>"; };
 		8EE2DCD2223A2FDE00DF2DFE /* SliderMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderMenuView.m; sourceTree = "<group>"; };
+		8EE2DCD4223A419200DF2DFE /* ChatHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatHistoryViewController.h; sourceTree = "<group>"; };
+		8EE2DCD5223A419200DF2DFE /* ChatHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatHistoryViewController.m; sourceTree = "<group>"; };
+		8EE2DCD6223A419200DF2DFE /* ChatHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryViewController.xib; sourceTree = "<group>"; };
 		8EE5693E20FDC8450048EB38 /* WSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTextView.h; sourceTree = "<group>"; };
 		8EE5693F20FDC8450048EB38 /* WSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTextView.m; sourceTree = "<group>"; };
 		8EEF4A28211D8C9500DE1E36 /* IChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManager.h; sourceTree = "<group>"; };
@@ -2121,6 +2126,9 @@
 				8EEF4A93211D8CB400DE1E36 /* EaseUI.h */,
 				8EEF4BA4211D8CB500DE1E36 /* EaseUI.m */,
 				8EEF4BA5211D8CB500DE1E36 /* EaseUIResource.bundle */,
+				8EE2DCD4223A419200DF2DFE /* ChatHistoryViewController.h */,
+				8EE2DCD5223A419200DF2DFE /* ChatHistoryViewController.m */,
+				8EE2DCD6223A419200DF2DFE /* ChatHistoryViewController.xib */,
 			);
 			path = EaseUI;
 			sourceTree = "<group>";
@@ -3122,6 +3130,7 @@
 				8EB4E51821201FAE00BC563B /* chatBar_recordSelectedBg@2x.png in Resources */,
 				8EB4E54721201FAE00BC563B /* imageDownloadFail@2x.png in Resources */,
 				8E5589C622379AF50058EE80 /* MarketViewController.xib in Resources */,
+				8EE2DCD8223A419200DF2DFE /* ChatHistoryViewController.xib in Resources */,
 				8EB4E52821201FAE00BC563B /* chatBar_recordBg@2x.png in Resources */,
 				90A2F2101D8E7CB600AB04CF /* Assets.xcassets in Resources */,
 				8EB4E50321201FAE00BC563B /* VoiceSearchFeedback010.png in Resources */,
@@ -3264,6 +3273,7 @@
 				98C059421F2305CB007AC0B6 /* User+CoreDataProperties.m in Sources */,
 				8E9FE2CE212E72B900D26955 /* MJRefreshFooter.m in Sources */,
 				8EEF4BAD211D8CB500DE1E36 /* EaseChineseToPinyin.m in Sources */,
+				8EE2DCD7223A419200DF2DFE /* ChatHistoryViewController.m in Sources */,
 				CDC88FF91D8698BF00CE03CE /* Reachability.m in Sources */,
 				04395EDB1F233EC10074865E /* TZGifPhotoPreviewController.m in Sources */,
 				8EEF4BB3211D8CB500DE1E36 /* EaseMessageModel.m in Sources */,

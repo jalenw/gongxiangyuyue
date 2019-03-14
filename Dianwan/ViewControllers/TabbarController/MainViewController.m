@@ -12,6 +12,7 @@
 #import "FirstViewController.h"
 #import "MyViewController.h"
 #import "EaseConversationListViewController.h"
+#import "ChatHistoryViewController.h"
 #import "ChatViewController.h"
 #import "MineViewController.h"
 #import "MarketViewController.h"
@@ -27,7 +28,7 @@
     [super viewDidLoad];
     [self addChildVc:[[FirstViewController alloc] init] title:@"首页" image:@"tabbar_menu1_normal" selectedImage:@"tabbar_menu1_selected"];
     [self addChildVc:[[MarketViewController alloc] init] title:@"市场" image:@"tabbar_menu2_normal" selectedImage:@"tabbar_menu2_selected"];
-    EaseConversationListViewController *chatVc = [[EaseConversationListViewController alloc] init];
+    ChatHistoryViewController *chatVc = [[ChatHistoryViewController alloc] init];
     chatVc.delegate = self;
     [self addChildVc:chatVc title:@"聊天" image:@"tabbar_menu3_normal" selectedImage:@"tabbar_menu3_selected"];
     [self addChildVc:[[MineViewController alloc] init]  title:@"挖矿" image:@"tabbar_menu4_normal" selectedImage:@"tabbar_menu4_selected"];

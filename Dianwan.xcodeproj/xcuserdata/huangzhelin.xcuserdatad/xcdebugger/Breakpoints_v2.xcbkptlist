@@ -564,11 +564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/EaseUI/EMUIKit/ViewController/EaseConversationListViewController.m"
-            timestampString = "555843675.214177"
+            timestampString = "574245346.697256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-_latestMessageTitleForConversationModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -644,7 +644,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/Commons/SliderMenuView.m"
-            timestampString = "574242285.624033"
+            timestampString = "574245346.697932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"

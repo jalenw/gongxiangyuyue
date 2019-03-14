@@ -140,11 +140,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="ZcI-S0-5CB">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <rect key="frame" x="236" y="0.0" width="178" height="136"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" id="ofD-sr-voE" customClass="SliderMenuView">
-                                    <rect key="frame" x="244" y="8" width="162" height="120"/>
+                                    <rect key="frame" x="8" y="8" width="162" height="120"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>

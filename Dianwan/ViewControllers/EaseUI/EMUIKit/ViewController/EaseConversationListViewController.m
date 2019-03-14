@@ -26,6 +26,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setLeftBarButtonWithImage:[UIImage imageNamed:@"friends"]];
+    [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
     
     [self tableViewDidTriggerHeaderRefresh];
     [self registerNotifications];
@@ -39,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"消息";
     [self configEaseMessageHelper];
 }
 
@@ -69,6 +70,7 @@
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"MsgTableViewCell" owner:self options:nil][0];
         }
+        cell.layer.masksToBounds = YES;
         return cell;
     }
     
@@ -111,7 +113,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 64;
+        return 0;
     }
     return [EaseConversationCell cellHeightWithModel:nil];
 }
