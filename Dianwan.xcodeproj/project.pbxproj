@@ -259,6 +259,12 @@
 		8EE2DCAA2239ED2A00DF2DFE /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */; };
 		8EE2DCB02239FB6B00DF2DFE /* GYNoticeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCAC2239FB6B00DF2DFE /* GYNoticeViewCell.m */; };
 		8EE2DCB12239FB6B00DF2DFE /* GYRollingNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */; };
+		8EE2DCC1223A043000DF2DFE /* HMScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCB7223A043000DF2DFE /* HMScannerBorder.m */; };
+		8EE2DCC2223A043000DF2DFE /* HMScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCB9223A043000DF2DFE /* HMScannerMaskView.m */; };
+		8EE2DCC3223A043000DF2DFE /* HMScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBA223A043000DF2DFE /* HMScannerViewController.m */; };
+		8EE2DCC4223A043000DF2DFE /* HMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBB223A043000DF2DFE /* HMScanner.m */; };
+		8EE2DCC5223A043000DF2DFE /* HMScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBC223A043000DF2DFE /* HMScanner.bundle */; };
+		8EE2DCC6223A043000DF2DFE /* HMScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBE223A043000DF2DFE /* HMScannerController.m */; };
 		8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5693F20FDC8450048EB38 /* WSTextView.m */; };
 		8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */; };
 		8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF4A98211D8CB400DE1E36 /* UIViewController+HUD.m */; };
@@ -348,9 +354,6 @@
 		8EEF4C15211D8CB500DE1E36 /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4BA5211D8CB500DE1E36 /* EaseUIResource.bundle */; };
 		8EEF4C3A211D8DC700DE1E36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF4C39211D8DBE00DE1E36 /* MobileCoreServices.framework */; };
 		8EEF4C3C211D8DDE00DE1E36 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */; };
-		8EF8B3A1211989AB00687B7F /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8B39D211989A800687B7F /* QRViewController.m */; };
-		8EF8B3A2211989AB00687B7F /* QRFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF8B39E211989A900687B7F /* QRFrameView.m */; };
-		8EF8B3A3211989AB00687B7F /* QRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF8B3A0211989AB00687B7F /* QRViewController.xib */; };
 		8EFC60D61F25864A0088E00A /* AdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC60D51F25864A0088E00A /* AdView.m */; };
 		90A2F2101D8E7CB600AB04CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90A2F20F1D8E7CB600AB04CF /* Assets.xcassets */; };
 		9816D9691F258E39000FCD7E /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9816D9641F258E39000FCD7E /* FriendListCell.m */; };
@@ -778,6 +781,17 @@
 		8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYRollingNoticeView.m; sourceTree = "<group>"; };
 		8EE2DCAE2239FB6B00DF2DFE /* GYRollingNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYRollingNoticeView.h; sourceTree = "<group>"; };
 		8EE2DCAF2239FB6B00DF2DFE /* GYNoticeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYNoticeViewCell.h; sourceTree = "<group>"; };
+		8EE2DCB6223A043000DF2DFE /* HMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScanner.h; sourceTree = "<group>"; };
+		8EE2DCB7223A043000DF2DFE /* HMScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerBorder.m; sourceTree = "<group>"; };
+		8EE2DCB8223A043000DF2DFE /* HMScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerController.h; sourceTree = "<group>"; };
+		8EE2DCB9223A043000DF2DFE /* HMScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerMaskView.m; sourceTree = "<group>"; };
+		8EE2DCBA223A043000DF2DFE /* HMScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerViewController.m; sourceTree = "<group>"; };
+		8EE2DCBB223A043000DF2DFE /* HMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScanner.m; sourceTree = "<group>"; };
+		8EE2DCBC223A043000DF2DFE /* HMScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMScanner.bundle; sourceTree = "<group>"; };
+		8EE2DCBD223A043000DF2DFE /* HMScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerMaskView.h; sourceTree = "<group>"; };
+		8EE2DCBE223A043000DF2DFE /* HMScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerController.m; sourceTree = "<group>"; };
+		8EE2DCBF223A043000DF2DFE /* HMScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerBorder.h; sourceTree = "<group>"; };
+		8EE2DCC0223A043000DF2DFE /* HMScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerViewController.h; sourceTree = "<group>"; };
 		8EE5693E20FDC8450048EB38 /* WSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTextView.h; sourceTree = "<group>"; };
 		8EE5693F20FDC8450048EB38 /* WSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTextView.m; sourceTree = "<group>"; };
 		8EEF4A28211D8C9500DE1E36 /* IChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManager.h; sourceTree = "<group>"; };
@@ -1054,11 +1068,6 @@
 		8EEF4BA5211D8CB500DE1E36 /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		8EEF4C39211D8DBE00DE1E36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		8EF8B39C211989A600687B7F /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
-		8EF8B39D211989A800687B7F /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
-		8EF8B39E211989A900687B7F /* QRFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRFrameView.m; sourceTree = "<group>"; };
-		8EF8B39F211989AA00687B7F /* QRFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRFrameView.h; sourceTree = "<group>"; };
-		8EF8B3A0211989AB00687B7F /* QRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRViewController.xib; sourceTree = "<group>"; };
 		8EFC60D41F25864A0088E00A /* AdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdView.h; sourceTree = "<group>"; };
 		8EFC60D51F25864A0088E00A /* AdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdView.m; sourceTree = "<group>"; };
 		90A2F20F1D8E7CB600AB04CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1726,11 +1735,6 @@
 			isa = PBXGroup;
 			children = (
 				8EE2DCA52239ED1500DF2DFE /* Cell */,
-				8EF8B39F211989AA00687B7F /* QRFrameView.h */,
-				8EF8B39E211989A900687B7F /* QRFrameView.m */,
-				8EF8B39C211989A600687B7F /* QRViewController.h */,
-				8EF8B39D211989A800687B7F /* QRViewController.m */,
-				8EF8B3A0211989AB00687B7F /* QRViewController.xib */,
 				8ED4A875211197F70038E719 /* FirstViewController.h */,
 				8ED4A876211197F70038E719 /* FirstViewController.m */,
 				8ED4A877211197F70038E719 /* FirstViewController.xib */,
@@ -1802,6 +1806,24 @@
 				8EE2DCAF2239FB6B00DF2DFE /* GYNoticeViewCell.h */,
 			);
 			path = GYRollingNoticeView;
+			sourceTree = "<group>";
+		};
+		8EE2DCB5223A043000DF2DFE /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				8EE2DCB6223A043000DF2DFE /* HMScanner.h */,
+				8EE2DCB7223A043000DF2DFE /* HMScannerBorder.m */,
+				8EE2DCB8223A043000DF2DFE /* HMScannerController.h */,
+				8EE2DCB9223A043000DF2DFE /* HMScannerMaskView.m */,
+				8EE2DCBA223A043000DF2DFE /* HMScannerViewController.m */,
+				8EE2DCBB223A043000DF2DFE /* HMScanner.m */,
+				8EE2DCBC223A043000DF2DFE /* HMScanner.bundle */,
+				8EE2DCBD223A043000DF2DFE /* HMScannerMaskView.h */,
+				8EE2DCBE223A043000DF2DFE /* HMScannerController.m */,
+				8EE2DCBF223A043000DF2DFE /* HMScannerBorder.h */,
+				8EE2DCC0223A043000DF2DFE /* HMScannerViewController.h */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		8EE5693320FDBA690048EB38 /* Cell */ = {
@@ -2821,6 +2843,7 @@
 		CDC88E6E1D8698BF00CE03CE /* Externs */ = {
 			isa = PBXGroup;
 			children = (
+				8EE2DCB5223A043000DF2DFE /* QRCode */,
 				8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */,
 				8EEF4A23211D8C9500DE1E36 /* EaseMobSDK */,
 				985A8B021F94AD1900B5DDB9 /* FixSpace */,
@@ -3062,6 +3085,7 @@
 				8EEF4BF3211D8CB500DE1E36 /* MWPhotoBrowser.bundle in Resources */,
 				8EB4E4D121201FAE00BC563B /* chat_location_detail_disclosureHL@2x.png in Resources */,
 				8EB4E50721201FAE00BC563B /* VoiceSearchFeedback011.png in Resources */,
+				8EE2DCC5223A043000DF2DFE /* HMScanner.bundle in Resources */,
 				8EB4E50F21201FAE00BC563B /* VoiceSearchFeedback003.png in Resources */,
 				8E4664EB2169BF040022DF94 /* NavigationMapViewViewController.xib in Resources */,
 				8EB4E54221201FAE00BC563B /* chatBar_more.png in Resources */,
@@ -3127,7 +3151,6 @@
 				8EB4E51A21201FAE00BC563B /* chatBar_more_photoSelected.png in Resources */,
 				8EB4E53F21201FAE00BC563B /* chatBar_recordSelectedBg.png in Resources */,
 				8EB4E53321201FAE00BC563B /* chatBar_colorMore_audioCallSelected@2x.png in Resources */,
-				8EF8B3A3211989AB00687B7F /* QRViewController.xib in Resources */,
 				8EB4E53821201FAE00BC563B /* chatBar_face.png in Resources */,
 				8EB4E4DF21201FAE00BC563B /* chatBar_more_card.png in Resources */,
 				8EB4E4EB21201FAE00BC563B /* chat_sender_audio_playing_001@2x.png in Resources */,
@@ -3242,16 +3265,19 @@
 				04395EE51F233EC10074865E /* UIView+Layout.m in Sources */,
 				8EEF4C07211D8CB500DE1E36 /* EaseRecordView.m in Sources */,
 				8EEF4C13211D8CB500DE1E36 /* EaseMessageHelper+Revoke.m in Sources */,
+				8EE2DCC6223A043000DF2DFE /* HMScannerController.m in Sources */,
 				8E5589C522379AF50058EE80 /* MarketViewController.m in Sources */,
 				CDC88FFC1D8698BF00CE03CE /* AFHTTPSessionManager.m in Sources */,
 				8E9FE2D5212E72B900D26955 /* MJRefreshGifHeader.m in Sources */,
 				8EEF4BC5211D8CB500DE1E36 /* EMVoiceConverter.mm in Sources */,
+				8EE2DCC2223A043000DF2DFE /* HMScannerMaskView.m in Sources */,
 				CDC890791D8698C000CE03CE /* UIViewController+DismissKeyboard.m in Sources */,
 				8EEF4BFA211D8CB500DE1E36 /* EaseMessageViewController.m in Sources */,
 				8EB4E42921201CC500BC563B /* RemoveAfterReadCell.m in Sources */,
 				CDC88FFD1D8698BF00CE03CE /* AFNetworkReachabilityManager.m in Sources */,
 				8EEF4C06211D8CB500DE1E36 /* EaseChatToolbar.m in Sources */,
 				CDC890741D8698C000CE03CE /* pinyin.c in Sources */,
+				8EE2DCC3223A043000DF2DFE /* HMScannerViewController.m in Sources */,
 				8EB4E42521201CC500BC563B /* UserProfileManager.m in Sources */,
 				8EEF4C11211D8CB500DE1E36 /* EaseSDKHelper.m in Sources */,
 				0432ECEB1F271CB5008D7AA3 /* AliPayManager.m in Sources */,
@@ -3342,14 +3368,15 @@
 				CDC890781D8698C000CE03CE /* UIView+RSAdditions.m in Sources */,
 				04395EDD1F233EC10074865E /* TZImageManager.m in Sources */,
 				8EB4E3F6212009AD00BC563B /* UIImage+EMGIF.m in Sources */,
+				8EE2DCC1223A043000DF2DFE /* HMScannerBorder.m in Sources */,
 				8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */,
 				8EFC60D61F25864A0088E00A /* AdView.m in Sources */,
 				8EEF4BAA211D8CB500DE1E36 /* NSDateFormatter+Category.m in Sources */,
 				8ED4A873211197A10038E719 /* MyViewController.m in Sources */,
 				8EEF4BC8211D8CB500DE1E36 /* EMCDDeviceManager+Media.m in Sources */,
-				8EF8B3A1211989AB00687B7F /* QRViewController.m in Sources */,
 				8EDA41521F22F85C000CBA40 /* FriendsViewController.m in Sources */,
 				8E7ABFD6211AECE800EADF76 /* SetPayPwViewController.m in Sources */,
+				8EE2DCC4223A043000DF2DFE /* HMScanner.m in Sources */,
 				04EBFC351F25D60F00C4DE83 /* LZHActionSheetView.m in Sources */,
 				8EEF4BD7211D8CB500DE1E36 /* PSTCollectionViewFlowLayout.m in Sources */,
 				8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */,
@@ -3392,7 +3419,6 @@
 				CDC890721D8698C000CE03CE /* NSManagedObject+Helper.m in Sources */,
 				CDC8906C1D8698C000CE03CE /* BlockUIAlertView.m in Sources */,
 				0432ECF41F271CD1008D7AA3 /* WXApiManager.m in Sources */,
-				8EF8B3A2211989AB00687B7F /* QRFrameView.m in Sources */,
 				8EEF4BB1211D8CB500DE1E36 /* EaseEmotionManager.m in Sources */,
 				8EEF4BFE211D8CB500DE1E36 /* EaseMessageTimeCell.m in Sources */,
 				8EEF4BE1211D8CB500DE1E36 /* PSTCollectionViewLayout.m in Sources */,

@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "MenuCollectionViewCell.h"
 #import "GYRollingNoticeView.h"
+#import "HMScannerController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -48,6 +49,17 @@
     [self setLeftBarButtonWithImage:[UIImage imageNamed:@"first_qr"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
 }
+
+-(void)leftbarButtonDidTap:(UIButton *)button
+{
+    HMScannerController *scanner = [HMScannerController scannerWithCardName:@"" avatar:@"" completion:^(NSString *stringValue) {
+    }];
+    [scanner setTitleColor:[UIColor blackColor] tintColor:[UIColor greenColor]];
+    [self showDetailViewController:scanner sender:nil];
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{}
 
 -(void)setupAdView
 {

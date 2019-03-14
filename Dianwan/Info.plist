@@ -29,7 +29,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bowei</string>
+				<string>shareorder</string>
 			</array>
 		</dict>
 		<dict>
@@ -119,13 +119,13 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>URL_SCHEME</key>
-	<string>bowei</string>
+	<string>shareorder</string>
 	<key>base_url</key>
 	<string>http://www.public66.cn/mobile/</string>
 	<key>key_ShareSDK</key>
 	<string>260742debe833</string>
 	<key>key_easemob</key>
-	<string>1176180614177245#bowei</string>
+	<string>1105190304244765#shareorder</string>
 	<key>key_jpush</key>
 	<string>bc21098e976c3e9dca04ab26</string>
 	<key>key_qq_appid</key>
