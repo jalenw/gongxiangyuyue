@@ -32,15 +32,15 @@
     [super viewWillAppear:animated];
 }
 
-//获取首页广告
+//获取首页
 -(void)setupAdView
 {
-    [[ServiceForUser manager]postMethodName:@"" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"index" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            adArray = [[data safeDictionaryForKey:@""] safeArrayForKey:@""];
+            adArray = [[data safeDictionaryForKey:@"result"] safeArrayForKey:@"adv_list"];
             NSMutableArray *picArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dict in adArray) {
-                [picArray addObject:[dict safeStringForKey:@"pic"]];
+                [picArray addObject:[dict safeStringForKey:@"adv_code"]];
             }
             [self.adView setArray:picArray];
         }

@@ -32,7 +32,7 @@
         return;
     }
     [SVProgressHUD show];
-    [[ServiceForUser manager]postMethodName:@"Connect/sms_register.html" params:@{@"phone":self.phone.text,@"password":self.passWord.text,@"captcha":self.code.text,@"inviter_id":@"",@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"Connect/sms_register.html" params:@{@"phone":self.phone.text,@"password":self.passWord.text,@"captcha":self.code.text,@"inviter_id":self.recommendCode.text,@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             [SVProgressHUD show];

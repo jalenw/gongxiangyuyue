@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *code;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
 @property (weak, nonatomic) IBOutlet UITextField *inviteCode;
+@property (weak, nonatomic) IBOutlet UITextField *recommendCode;
 - (IBAction)doneAct:(UIButton *)sender;
 - (IBAction)getCodeAct:(UIButton *)sender;
 @end
