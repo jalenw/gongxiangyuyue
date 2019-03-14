@@ -18,6 +18,12 @@
     [super viewDidLoad];
     [self setupForDismissKeyboard];
     self.title = @"注册";
+    
+    [[ServiceForUser manager]getMethodName:@"Login/get_inviter/index.html" params:@{@"inviter_id":@"0"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            self.recommendCode.text = [[[data safeDictionaryForKey:@"result"] safeDictionaryForKey:@"member"] safeStringForKey:@"invite_code"];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
