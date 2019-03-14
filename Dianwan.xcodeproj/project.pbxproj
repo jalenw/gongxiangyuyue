@@ -257,6 +257,8 @@
 		8EDA41531F22F85C000CBA40 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */; };
 		8EE2DCA92239ED2A00DF2DFE /* MenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCA62239ED2A00DF2DFE /* MenuCollectionViewCell.m */; };
 		8EE2DCAA2239ED2A00DF2DFE /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */; };
+		8EE2DCB02239FB6B00DF2DFE /* GYNoticeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCAC2239FB6B00DF2DFE /* GYNoticeViewCell.m */; };
+		8EE2DCB12239FB6B00DF2DFE /* GYRollingNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */; };
 		8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5693F20FDC8450048EB38 /* WSTextView.m */; };
 		8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */; };
 		8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF4A98211D8CB400DE1E36 /* UIViewController+HUD.m */; };
@@ -772,6 +774,10 @@
 		8EE2DCA62239ED2A00DF2DFE /* MenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCollectionViewCell.m; sourceTree = "<group>"; };
 		8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		8EE2DCA82239ED2A00DF2DFE /* MenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCollectionViewCell.h; sourceTree = "<group>"; };
+		8EE2DCAC2239FB6B00DF2DFE /* GYNoticeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYNoticeViewCell.m; sourceTree = "<group>"; };
+		8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYRollingNoticeView.m; sourceTree = "<group>"; };
+		8EE2DCAE2239FB6B00DF2DFE /* GYRollingNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYRollingNoticeView.h; sourceTree = "<group>"; };
+		8EE2DCAF2239FB6B00DF2DFE /* GYNoticeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYNoticeViewCell.h; sourceTree = "<group>"; };
 		8EE5693E20FDC8450048EB38 /* WSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTextView.h; sourceTree = "<group>"; };
 		8EE5693F20FDC8450048EB38 /* WSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTextView.m; sourceTree = "<group>"; };
 		8EEF4A28211D8C9500DE1E36 /* IChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManager.h; sourceTree = "<group>"; };
@@ -1785,6 +1791,17 @@
 				8EE2DCA72239ED2A00DF2DFE /* MenuCollectionViewCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				8EE2DCAC2239FB6B00DF2DFE /* GYNoticeViewCell.m */,
+				8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */,
+				8EE2DCAE2239FB6B00DF2DFE /* GYRollingNoticeView.h */,
+				8EE2DCAF2239FB6B00DF2DFE /* GYNoticeViewCell.h */,
+			);
+			path = GYRollingNoticeView;
 			sourceTree = "<group>";
 		};
 		8EE5693320FDBA690048EB38 /* Cell */ = {
@@ -2804,6 +2821,7 @@
 		CDC88E6E1D8698BF00CE03CE /* Externs */ = {
 			isa = PBXGroup;
 			children = (
+				8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */,
 				8EEF4A23211D8C9500DE1E36 /* EaseMobSDK */,
 				985A8B021F94AD1900B5DDB9 /* FixSpace */,
 				0432ECF11F271CD1008D7AA3 /* WechatControl */,
@@ -3273,6 +3291,7 @@
 				8EEF4BD8211D8CB500DE1E36 /* PSTCollectionViewCell.m in Sources */,
 				8EEF4BE0211D8CB500DE1E36 /* PSTGridLayoutRow.m in Sources */,
 				9816D9891F259418000FCD7E /* happy.xcdatamodeld in Sources */,
+				8EE2DCB12239FB6B00DF2DFE /* GYRollingNoticeView.m in Sources */,
 				8E42A8BC1F26DADB0026ED07 /* CLLocation+Sino.m in Sources */,
 				8EEF4C10211D8CB500DE1E36 /* EaseMessageHelper.m in Sources */,
 				CD06663C1E8CBB6500CCD49A /* SVProgressHUD.m in Sources */,
@@ -3365,6 +3384,7 @@
 				8EEF4BCC211D8CB500DE1E36 /* EMCDDeviceManagerBase.m in Sources */,
 				04395EE01F233EC10074865E /* TZPhotoPickerController.m in Sources */,
 				8EEF4BAE211D8CB500DE1E36 /* EaseEmoji.m in Sources */,
+				8EE2DCB02239FB6B00DF2DFE /* GYNoticeViewCell.m in Sources */,
 				CDC88FFE1D8698BF00CE03CE /* AFSecurityPolicy.m in Sources */,
 				CDC88E3D1D8691E000CE03CE /* main.m in Sources */,
 				8EEF4BD4211D8CB500DE1E36 /* MWGridCell.m in Sources */,

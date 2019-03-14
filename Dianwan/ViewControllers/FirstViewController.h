@@ -12,4 +12,8 @@
 @property (strong, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet AdView *adView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *noticeView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *cashLb;
+@property (weak, nonatomic) IBOutlet UILabel *rewardLb;
 @end
