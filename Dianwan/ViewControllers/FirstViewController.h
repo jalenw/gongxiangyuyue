@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "AdView.h"
+#import "SliderMenuView.h"
 @interface FirstViewController : BaseViewController
 @property (strong, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet AdView *adView;
@@ -16,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *cashLb;
 @property (weak, nonatomic) IBOutlet UILabel *rewardLb;
+@property (weak, nonatomic) IBOutlet SliderMenuView *smView;
+@property (weak, nonatomic) IBOutlet UIView *maskView;
 @end

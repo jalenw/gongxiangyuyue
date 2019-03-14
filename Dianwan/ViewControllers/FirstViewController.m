@@ -10,6 +10,7 @@
 #import "MenuCollectionViewCell.h"
 #import "GYRollingNoticeView.h"
 #import "HMScannerController.h"
+#import "QRCodeViewController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -41,6 +42,19 @@
     
     [self setupNoticeView];
     [self setupGoldView];
+    
+    [self.smView setArray: @[@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
+    [self.smView setBlock:^(NSInteger index) {
+        self.maskView.hidden = YES;
+        if (index==0) {
+            QRCodeViewController *vc = [[QRCodeViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -59,7 +73,9 @@
 }
 
 -(void)rightbarButtonDidTap:(UIButton *)button
-{}
+{
+    self.maskView.hidden = !self.maskView.hidden;
+}
 
 -(void)setupAdView
 {

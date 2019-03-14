@@ -265,6 +265,9 @@
 		8EE2DCC4223A043000DF2DFE /* HMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBB223A043000DF2DFE /* HMScanner.m */; };
 		8EE2DCC5223A043000DF2DFE /* HMScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBC223A043000DF2DFE /* HMScanner.bundle */; };
 		8EE2DCC6223A043000DF2DFE /* HMScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCBE223A043000DF2DFE /* HMScannerController.m */; };
+		8EE2DCCF223A2D4B00DF2DFE /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCCD223A2D4B00DF2DFE /* QRCodeViewController.m */; };
+		8EE2DCD0223A2D4B00DF2DFE /* QRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE2DCCE223A2D4B00DF2DFE /* QRCodeViewController.xib */; };
+		8EE2DCD3223A2FDE00DF2DFE /* SliderMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2DCD2223A2FDE00DF2DFE /* SliderMenuView.m */; };
 		8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5693F20FDC8450048EB38 /* WSTextView.m */; };
 		8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */; };
 		8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF4A98211D8CB400DE1E36 /* UIViewController+HUD.m */; };
@@ -792,6 +795,11 @@
 		8EE2DCBE223A043000DF2DFE /* HMScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMScannerController.m; sourceTree = "<group>"; };
 		8EE2DCBF223A043000DF2DFE /* HMScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerBorder.h; sourceTree = "<group>"; };
 		8EE2DCC0223A043000DF2DFE /* HMScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMScannerViewController.h; sourceTree = "<group>"; };
+		8EE2DCCC223A2D4B00DF2DFE /* QRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		8EE2DCCD223A2D4B00DF2DFE /* QRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		8EE2DCCE223A2D4B00DF2DFE /* QRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeViewController.xib; sourceTree = "<group>"; };
+		8EE2DCD1223A2FDE00DF2DFE /* SliderMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderMenuView.h; sourceTree = "<group>"; };
+		8EE2DCD2223A2FDE00DF2DFE /* SliderMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderMenuView.m; sourceTree = "<group>"; };
 		8EE5693E20FDC8450048EB38 /* WSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSTextView.h; sourceTree = "<group>"; };
 		8EE5693F20FDC8450048EB38 /* WSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSTextView.m; sourceTree = "<group>"; };
 		8EEF4A28211D8C9500DE1E36 /* IChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChatManager.h; sourceTree = "<group>"; };
@@ -1738,6 +1746,9 @@
 				8ED4A875211197F70038E719 /* FirstViewController.h */,
 				8ED4A876211197F70038E719 /* FirstViewController.m */,
 				8ED4A877211197F70038E719 /* FirstViewController.xib */,
+				8EE2DCCC223A2D4B00DF2DFE /* QRCodeViewController.h */,
+				8EE2DCCD223A2D4B00DF2DFE /* QRCodeViewController.m */,
+				8EE2DCCE223A2D4B00DF2DFE /* QRCodeViewController.xib */,
 			);
 			name = FirstPage;
 			sourceTree = "<group>";
@@ -2928,6 +2939,8 @@
 				0413AA471F2879C5006F2743 /* ShareCommonView.m */,
 				0413AA481F2879C5006F2743 /* ShareHelper.h */,
 				0413AA491F2879C5006F2743 /* ShareHelper.m */,
+				8EE2DCD1223A2FDE00DF2DFE /* SliderMenuView.h */,
+				8EE2DCD2223A2FDE00DF2DFE /* SliderMenuView.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -3048,6 +3061,7 @@
 				8EB4E4F021201FAE00BC563B /* VoiceSearchFeedback003@2x.png in Resources */,
 				8EB4E4F221201FAE00BC563B /* VoiceSearchFeedback013@2x.png in Resources */,
 				8EB4E54B21201FAE00BC563B /* chatListCellHead@2x.png in Resources */,
+				8EE2DCD0223A2D4B00DF2DFE /* QRCodeViewController.xib in Resources */,
 				CDC88E4E1D8691E000CE03CE /* LaunchScreen.storyboard in Resources */,
 				8E7ABFD7211AECE800EADF76 /* SetPayPwViewController.xib in Resources */,
 				8EB4E52E21201FAE00BC563B /* chatBar_colorMore_location@2x.png in Resources */,
@@ -3228,6 +3242,7 @@
 				04EBFC381F25D79C00C4DE83 /* LZHAreaPickerView.m in Sources */,
 				8EE2DCA92239ED2A00DF2DFE /* MenuCollectionViewCell.m in Sources */,
 				8EB4E3F8212009AD00BC563B /* EMSDWebImageCompat.m in Sources */,
+				8EE2DCD3223A2FDE00DF2DFE /* SliderMenuView.m in Sources */,
 				8EB4E3EC212009AD00BC563B /* NSData+EMImageContentType.m in Sources */,
 				CDC88FFA1D8698BF00CE03CE /* HTTPClient.m in Sources */,
 				CD3D81A71EA9FF3600F6AC20 /* SBJsonWriter.m in Sources */,
@@ -3380,6 +3395,7 @@
 				04EBFC351F25D60F00C4DE83 /* LZHActionSheetView.m in Sources */,
 				8EEF4BD7211D8CB500DE1E36 /* PSTCollectionViewFlowLayout.m in Sources */,
 				8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */,
+				8EE2DCCF223A2D4B00DF2DFE /* QRCodeViewController.m in Sources */,
 				8EEF4BB4211D8CB500DE1E36 /* EaseConversationModel.m in Sources */,
 				8EEF4C09211D8CB500DE1E36 /* EaseBubbleView+Text.m in Sources */,
 				8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */,

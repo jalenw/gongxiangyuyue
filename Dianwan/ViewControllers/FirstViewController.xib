@@ -15,9 +15,11 @@
                 <outlet property="cashLb" destination="Cbs-G0-cTq" id="qXG-4k-kZn"/>
                 <outlet property="collectionView" destination="9wf-c3-FBo" id="sws-jN-4S2"/>
                 <outlet property="headView" destination="rf1-lk-bZT" id="fTz-XU-zrs"/>
+                <outlet property="maskView" destination="ZcI-S0-5CB" id="m5b-nE-iHN"/>
                 <outlet property="noticeView" destination="Nsq-JK-xWo" id="fCD-ad-Gqt"/>
                 <outlet property="rewardLb" destination="SgI-AJ-xjo" id="HpR-FO-rJi"/>
                 <outlet property="scrollView" destination="48i-jQ-gz3" id="qXX-Fr-aQy"/>
+                <outlet property="smView" destination="ofD-sr-voE" id="I4r-3r-HyT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -136,6 +138,18 @@
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" id="ZcI-S0-5CB">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="ofD-sr-voE" customClass="SliderMenuView">
+                                    <rect key="frame" x="244" y="8" width="162" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
