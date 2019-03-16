@@ -12,10 +12,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *avatarBt;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UITextField *name;
-@property (weak, nonatomic) IBOutlet UIButton *phone;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UIButton *city;
 @property (weak, nonatomic) IBOutlet UIButton *birthday;
-@property (weak, nonatomic) IBOutlet UIButton *realName;
+@property (weak, nonatomic) IBOutlet UITextField *realName;
 - (IBAction)avatarAct:(UIButton *)sender;
 - (IBAction)jobAct:(UIButton *)sender;
 - (IBAction)cityAct:(UIButton *)sender;

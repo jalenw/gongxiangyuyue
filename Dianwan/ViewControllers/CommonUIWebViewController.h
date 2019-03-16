@@ -26,6 +26,9 @@
 //回到主页
 - (void)home;
 
+
+
+
 //H5直接调用支付
 - (void)withdrawal:(NSString*)pay_style :(NSString*)price;
 

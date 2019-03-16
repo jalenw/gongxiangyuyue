@@ -28,6 +28,10 @@
 
 - (void)back;
 
+//-(void)goTomember;
+
+-(void)goPage;
+
 - (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
 
 - (void)share:(NSString*)shareImage :(NSString*)shareTitle :(NSString*)shareContent :(NSString*)shareUrl ;
@@ -56,6 +60,13 @@
 
 - (void)back{
     [self.webViewController performSelectorOnMainThread:@selector(back) withObject:nil waitUntilDone:NO];
+}
+
+//-(void)goTomember{
+//    [self.webViewController performSelectorOnMainThread:@selector(goTomember) withObject:nil waitUntilDone:NO];
+//}
+-(void)goPage{
+     [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
 }
 
 
@@ -315,6 +326,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+//    NSString *urlStr = request.URL.absoluteString;
+//    NSLog(@"url  =%@",urlStr);
     return YES;
 }
 
@@ -339,11 +352,19 @@
 
 - (void)back{
         if (self.webView.canGoBack) {
-            
             [self.webView goBack];
         }else{
             [self dismissWebView];
         }
+}
+
+
+//-(void)goTomember{
+//     [self dismissWebView];
+//}
+
+-(void)goPage{
+    [self dismissWebView];
 }
 
 - (void)dismissWebView{

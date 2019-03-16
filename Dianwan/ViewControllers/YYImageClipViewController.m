@@ -50,6 +50,7 @@
     [super viewDidLoad];
     [self initView];
     [self initControlBtn];
+    
     [self.navigationController.navigationBar setHidden:YES];
 }
 

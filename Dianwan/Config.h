@@ -34,3 +34,5 @@
 
 #define H5_prefix [[[NSBundle mainBundle] infoDictionary] objectForKey:@"H5_prefix"] //原生H5交互对应的前缀
 #define URL_SCHEME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"URL_SCHEME"] //APP URL
+//关闭键盘
+#define HIDE_KEY_BOARD  [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];

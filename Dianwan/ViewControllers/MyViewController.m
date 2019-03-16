@@ -12,6 +12,7 @@
 #import "UserViewController.h"
 #import "MessageParentViewcontroller.h"
 #import "QRCodeViewController.h"
+#import "LiveListViewController.h"
 
 @interface MyViewController ()
 
@@ -63,43 +64,21 @@
 - (IBAction)toQRCodeVCAct:(UIButton *)sender {
     QRCodeViewController *vc = [[QRCodeViewController alloc]init];
     vc.hidesBottomBarWhenPushed = YES;
-  
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)menuAct:(UIButton *)sender {
-    CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-    
-    if (sender.tag==101) {//钱包
-        commonweb.address =[NSString stringWithFormat:@"%@dist/person/wallet?",web_url];
-    }
-    if (sender.tag==102) {//商城订单
-        commonweb.address =[NSString stringWithFormat:@"%@wap/member/order_list.html?",web_url];
-    }
-    if (sender.tag==103) {//约家订单
-         commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
-    }
-    if (sender.tag==106) {//会员升级
-        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
-    }
-    if (sender.tag==109) {//我的推荐码
-         commonweb.address =[NSString stringWithFormat:@"%@wap/member/sharing.html?",web_url];
-    }
-    if (sender.tag==110) {//我的收藏
-         commonweb.address =[NSString stringWithFormat:@"%@wap/member/favorites.html?",web_url];
-    }
-    if (sender.tag==111) {//收货地址
-        commonweb.address =[NSString stringWithFormat:@"%@wap/member/address_list.html?",web_url];
-    }
-    commonweb.showNav = NO;
-    if (commonweb.address.length > 0) {
-        [self.navigationController pushViewController:commonweb animated:YES];
+
+    if (sender.tag == 109 ) {//我的推荐码
+        QRCodeViewController *qrcode= [[QRCodeViewController alloc]init];
+        [self.navigationController pushViewController:qrcode animated:YES];
     }
     if (sender.tag==104) {//已购课程
-        
+
     }
     if (sender.tag==105) {//付费直播
-        
+        LiveListViewController *list = [[LiveListViewController alloc]init];
+        [self.navigationController pushViewController:list  animated:YES];
     }
     if (sender.tag==107) {//消息
         MessageParentViewcontroller *messageCenter = [[MessageParentViewcontroller alloc]init];
@@ -119,7 +98,43 @@
 //        }
     }
     
-   
+    
+    if (sender.tag==101) {//钱包
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/person/wallet?",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==102) {//商城订单
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@wap/member/order_list.html?",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==103) {//约家订单
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==106) {//会员升级
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==110) {//我的收藏
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@wap/member/favorites.html?",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==111) {//收货地址
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@wap/member/address_list.html?",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
   
 }
 @end

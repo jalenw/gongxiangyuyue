@@ -168,6 +168,14 @@ static const CGFloat SVProgressHUDRingThickness = 6;
     [[self sharedView] showImage:nil status:string duration:displayInterval];
 }
 
++ (void)showrealImage:(UIImage *)image status:(NSString *)string
+{
+    [self sharedView].maskType = SVProgressHUDMaskTypeNone;
+    NSTimeInterval displayInterval = [[SVProgressHUD sharedView] displayDurationForString:string];
+    //去除X图片
+    [[self sharedView] showImage:image status:string duration:displayInterval];
+}
+
 + (void)showImage:(UIImage *)image status:(NSString *)string duration:(NSTimeInterval)displayInterval
 {
     [self sharedView].maskType = SVProgressHUDMaskTypeNone;

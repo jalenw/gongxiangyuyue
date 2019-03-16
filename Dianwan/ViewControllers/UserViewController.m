@@ -57,17 +57,6 @@
     [self editPortrait];
 }
 
-- (IBAction)jobAct:(UIButton *)sender {
-    NSArray *array = @[@{@"profession":@"护士",@"id":@"1"},@{@"profession":@"医生",@"id":@"2"},@{@"profession":@"律师",@"id":@"3"},@{@"profession":@"程序员",@"id":@"4"}];
-    LZHAreaPickerView *picker = [[LZHAreaPickerView alloc] initWithFrame:ScreenBounds];
-    picker.array = array;
-    picker.name = @"profession";//对应字典里的KEY就会显示出来
-    [picker setBlock:^(NSDictionary *dict) {
-        job_id = [dict safeStringForKey:@"id"];
-        [sender setTitle:[dict safeStringForKey:@"profession"] forState:UIControlStateNormal];
-    }];
-    [picker showPicker];
-}
 
 - (IBAction)cityAct:(UIButton *)sender {
     //同职业
@@ -82,17 +71,6 @@
     [datePicker showPicker];
 }
 
-- (IBAction)sexAct:(UIButton *)sender {
-    LZHActionSheetView *actionSheet = [LZHActionSheetView createWithTitleArray:@[@"女",@"男"]];
-    [actionSheet setBlock:^(NSInteger index, NSString *title) {
-        if (index == 0) {
-            [sender setTitle:@"女" forState:UIControlStateNormal];
-        }else if (index == 1){
-            [sender setTitle:@"男" forState:UIControlStateNormal];
-        }
-    }];
-    [actionSheet show];
-}
 
 
 - (void)editPortrait {
@@ -308,7 +286,7 @@
 - (IBAction)submitAction:(UIButton *)sender {
     
     NSDictionary *param =@{
-                           @"avatar":pic_url,
+                           @"avatar":AppDelegateInstance.defaultUser.avatar,//pic_url,
                            @"name":self.name.text,
                            @"member_areaid":@"",
                            @"member_cityid":@"",
@@ -318,7 +296,11 @@
     [[ServiceForUser manager]postMethodName:@"/mobile/member/save_info" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
-            
+//            AppDelegateInstance.defaultUser.avatar = ;
+//            AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
+            AppDelegateInstance.defaultUser.nickname =self.name.text;
+            [AlertHelper showAlertWithTitle:@"个人信息修改成功" duration:2];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
@@ -340,8 +322,8 @@
             
                 [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
                 self.name.text = AppDelegateInstance.defaultUser.nickname;
-            [self.realName setTitle:AppDelegateInstance.defaultUser.nickname forState:UIControlStateNormal];
-            [self.phone setTitle:AppDelegateInstance.defaultUser.phone forState:UIControlStateNormal];
+            self.realName.text=AppDelegateInstance.defaultUser.nickname;
+            self.phone.text=AppDelegateInstance.defaultUser.phone;
             [self.city setTitle:AppDelegateInstance.defaultUser.member_cityid forState:UIControlStateNormal];
         }else{
             [AlertHelper showAlertWithTitle:error];

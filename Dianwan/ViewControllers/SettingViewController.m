@@ -125,7 +125,7 @@
         }
         else if (cell == self.clearCacheCell){
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"清理缓存"
-                                                                           message:@"你确定要清理缓存吗"
+                                                                           message:[NSString stringWithFormat:@"确认清理%@缓存",self.clearCacheCell.textLabel.text]
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
@@ -136,7 +136,7 @@
                                                                  }];
             [alert addAction:cancelAction];
             
-            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"清理"
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定"
                                                                     style:UIAlertActionStyleDefault
                                                                   handler:^(UIAlertAction * _Nonnull action) {
                                                                       [self clearBtnAction];
