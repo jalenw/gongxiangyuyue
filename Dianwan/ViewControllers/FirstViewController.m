@@ -11,6 +11,7 @@
 #import "GYRollingNoticeView.h"
 #import "HMScannerController.h"
 #import "QRCodeViewController.h"
+#import "LiveListViewController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -166,7 +167,10 @@
         [self.navigationController pushViewController:controller animated:YES];
     }
     else
-    {}
+    {
+        LiveListViewController *list = [[LiveListViewController alloc]init];
+        [self.navigationController pushViewController:list  animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

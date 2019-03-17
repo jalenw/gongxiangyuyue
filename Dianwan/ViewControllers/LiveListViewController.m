@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"付费直播";
+    self.title = @"直播";
     page =1 ;
     dataList = [[NSMutableArray alloc]init];
     
@@ -46,6 +46,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self setRightBarButtonWithTitle:@"我要开播"];
 }
 
 -(void)requesrLiveListAct{
