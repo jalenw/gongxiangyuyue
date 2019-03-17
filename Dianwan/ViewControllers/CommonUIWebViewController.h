@@ -26,6 +26,9 @@
 //回到主页
 - (void)home;
 
+//vip支付
+-(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+
 
 
 

@@ -16,7 +16,9 @@
 }
 -(void)setCoverImage:(UIImage *)coverImage{
     _coverImage = coverImage;
-    [self.coverImageview setImage:_coverImage];
+ [self.coverImageview setImage:_coverImage];
+
+   
 }
 
 @end

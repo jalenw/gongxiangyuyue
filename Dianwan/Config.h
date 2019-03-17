@@ -34,5 +34,14 @@
 
 #define H5_prefix [[[NSBundle mainBundle] infoDictionary] objectForKey:@"H5_prefix"] //原生H5交互对应的前缀
 #define URL_SCHEME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"URL_SCHEME"] //APP URL
+
+
+
+//判断iPhoneX、Xs
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPHoneXr
+#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXs Max
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
 //关闭键盘
 #define HIDE_KEY_BOARD  [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];

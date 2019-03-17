@@ -29,14 +29,14 @@
 
 
 -(UIColor *)BtnbackgroundColor{
-    return RGB(48, 46, 58);
+    return [UIColor whiteColor];
 }
 
 - (BOOL)isAllowScroll{
     return YES;
 }
 -(UIColor *)normalTabTextColor{
-    return [UIColor whiteColor];
+    return RGB(255, 131, 83);
 }
 
 -(UIColor *)selectTabTextColor{

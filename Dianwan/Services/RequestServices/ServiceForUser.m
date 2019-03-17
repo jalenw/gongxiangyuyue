@@ -28,6 +28,10 @@
     
     [HTTPClientInstance POST:[NSString stringWithFormat:@"%@",name] parameters:param success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dict = responseObject;
+        //zyf未登录跳转登录界面
+//        if([dict safeStringForKey:@"message"],[dict safeIntForKey:@"code"]==100){//未登录状态
+//            [AppDelegateInstance logout];
+//        }
         block(dict,[dict safeStringForKey:@"message"],[dict safeIntForKey:@"code"]==200?YES:NO,nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         block(nil,nil,NO,error);
@@ -57,12 +61,10 @@
     NSMutableDictionary *requestDict = [HTTPClientInstance newDefaultParameters];
     if (params!=nil) {
         [requestDict addEntriesFromDictionary:params];
+        
     }
     
     NSURLSessionDataTask *task = [HTTPClientInstance POST:urlString parameters:requestDict constructingBodyWithBlock:^(id<AFMultipartFormData>  formData) {
-        
-        
-        
         
         //上传
         /*

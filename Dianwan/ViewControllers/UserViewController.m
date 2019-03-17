@@ -121,6 +121,9 @@
     }
 }
 
+
+
+
 #pragma mark - UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -144,12 +147,12 @@
     [self.avatar setImage:editedImage];
     NSData *imgData = UIImageJPEGRepresentation(editedImage, 1);
     [SVProgressHUD show];
-    [[ServiceForUser manager] postFileWithActionOp:@"/mobile/common/upload_header_img" andData:imgData andUploadFileName:[Tooles getUploadImageName] andUploadKeyName:@"name" and:@"image/jpeg" params:@{} progress:^(NSProgress *uploadProgress) {
+    [[ServiceForUser manager] postFileWithActionOp:@"common/upload_header_img" andData:imgData andUploadFileName:[Tooles getUploadImageName] andUploadKeyName:@"img" and:@"image/jpeg" params:@{} progress:^(NSProgress *uploadProgress) {
         NSLog(@"%f",1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
     } block:^(NSDictionary *responseObject, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
-            pic_url = [[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"datas"];
+            pic_url = [[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"];
             [self dismissViewControllerAnimated:YES completion:^{
                 [self.avatar sd_setImageWithURL:[NSURL URLWithString:pic_url]];
             }];
@@ -286,7 +289,7 @@
 - (IBAction)submitAction:(UIButton *)sender {
     
     NSDictionary *param =@{
-                           @"avatar":AppDelegateInstance.defaultUser.avatar,//pic_url,
+                           @"avatar":pic_url,
                            @"name":self.name.text,
                            @"member_areaid":@"",
                            @"member_cityid":@"",
@@ -296,7 +299,7 @@
     [[ServiceForUser manager]postMethodName:@"/mobile/member/save_info" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
-//            AppDelegateInstance.defaultUser.avatar = ;
+            AppDelegateInstance.defaultUser.avatar = pic_url;
 //            AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
             AppDelegateInstance.defaultUser.nickname =self.name.text;
             [AlertHelper showAlertWithTitle:@"个人信息修改成功" duration:2];

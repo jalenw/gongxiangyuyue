@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvDetailsViewController">
             <connections>
+                <outlet property="mainScrollview" destination="Z3A-JH-hGp" id="aJg-IG-poW"/>
                 <outlet property="moneryLabel" destination="7fO-ez-Jhl" id="RXG-KS-O5y"/>
                 <outlet property="receiveBtn" destination="KF3-Wg-hoy" id="o38-0T-6h2"/>
                 <outlet property="redbagPackageView" destination="wFv-zG-n42" id="oEc-7d-vQq"/>

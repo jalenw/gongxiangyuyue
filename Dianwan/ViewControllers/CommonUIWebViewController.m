@@ -30,6 +30,9 @@
 
 //-(void)goTomember;
 
+//vip支付
+-(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+
 -(void)goPage;
 
 - (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
@@ -69,6 +72,13 @@
      [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
 }
 
+
+
+-(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController pay:type from:frome price:price json:json];
+    });
+}
 
 - (void)share:(NSString*)shareImage :(NSString*)shareTitle :(NSString*)shareContent :(NSString*)shareUrl {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -536,4 +546,11 @@
         return;
     }
 }
+//vip支付
+-(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+{
+    
+}
+
+
 @end

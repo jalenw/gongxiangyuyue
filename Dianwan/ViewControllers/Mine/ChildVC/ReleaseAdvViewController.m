@@ -9,6 +9,7 @@
 #import "ReleaseAdvViewController.h"
 #import "ReaelseCollectionViewCell.h"
 #import "YYImageClipViewController.h"
+#import "SYPasswordView.h"
 
 
 #define Str @"请在此输入广告详情"
@@ -24,8 +25,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *countLab;
 @property (weak, nonatomic) IBOutlet UIView *advView;
 @property(nonatomic,strong)NSMutableArray *imagesArr;
+@property(nonatomic,strong)NSMutableArray *imagesStrArr;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property(nonatomic,strong)  UITextView *textview;
+@property(nonatomic,assign)NSInteger pay_type;
+
+@property (strong, nonatomic) IBOutlet UIView *pwInputView;
+@property (nonatomic, strong) SYPasswordView *pasView;
+@property (weak, nonatomic) IBOutlet UIView *pwView;
 @end
 
 @implementation ReleaseAdvViewController
@@ -33,8 +40,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"发布广告";
+
     self.remainingBtn.selected = YES;
     _imagesArr = [NSMutableArray arrayWithObjects:[UIImage imageNamed:@"add"], nil];
+    _imagesStrArr = [[NSMutableArray alloc]init];
     [self setRightBarButtonWithTitle:@"发布"];
     
     [self addtestView];
@@ -54,6 +63,11 @@
     self.imageCollectionView.showsHorizontalScrollIndicator =NO;
     [self.imageCollectionView registerNib:[UINib nibWithNibName:@"ReaelseCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReaelseCollectionViewCell"];
     
+   
+    self.pwInputView.frame = self.view.bounds;
+    self.pwInputView.hidden = YES;
+    [self.view addSubview:self.pwInputView];
+    
 }
 #pragma mark - 隐藏键盘
 -(void)viewTapped:(UITapGestureRecognizer*)tapGr {
@@ -63,16 +77,15 @@
 -(void)addtestView{
      self.textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 44, self.advView.width, 112)];
     [self.advView addSubview:self.textview];
-    self.textview.backgroundColor=[UIColor whiteColor]; //背景色
-    self.textview.scrollEnabled = YES;    //当文字超过视图的边框时是否允许滑动，默认为“YES”
-    self.textview.editable = YES;        //是否允许编辑内容，默认为“YES”
-    self.textview.delegate = self;       //设置代理方法的实现类
+    self.textview.backgroundColor=[UIColor whiteColor];
+    self.textview.scrollEnabled = YES;
+    self.textview.editable = YES;
+    self.textview.delegate = self;
     self.textview.showsVerticalScrollIndicator = NO;
-    self.textview.font=[UIFont systemFontOfSize:14]; //设置字体名字和字体大小;
-    self.textview.returnKeyType = UIReturnKeyDone;//return键的类型
-    self.textview.keyboardType = UIKeyboardAppearanceDefault;//键盘类型
-    self.textview.textAlignment = NSTextAlignmentLeft; //文本显示的位置默认为居左
-    //    self.textview.dataDetectorTypes = UIDataDetectorTypeAll; //显示数据类型的连接模式（如电话号码、网址、地址等）
+    self.textview.font=[UIFont systemFontOfSize:14]; 
+    self.textview.returnKeyType = UIReturnKeyDone;
+    self.textview.keyboardType = UIKeyboardAppearanceDefault;
+    self.textview.textAlignment = NSTextAlignmentLeft;
     self.textview.textColor = [UIColor blackColor];
     self.textview.text = Str;//设置显示的文本内容
     self.textview.textColor = [UIColor lightGrayColor];
@@ -124,31 +137,68 @@
 
 //发布广告
 -(void)rightbarButtonDidTap:(UIButton *)button{
-//        是    string    支付密码
-//        是    int    1 余额 0 金币 红包类型
-//        是    string    内容
-//        是    string    标题
-//        是    int    每个红包价值
-//    num
-    NSDictionary *params=@{
-                           @"imgs":@[@"http://www.public66.cn/uploads/home/common/default_user_portrait.gif"],//_imagesArr,
-                           @"paypwd":@"222222",
-                           @"pay_type":@(1),//1 余额 0 金币 红包类型
-                           @"content":self.textview.text,
-                           @"title":self.advTitleTF.text,
-                           @"price":@(1), //红包个数
-                           @"num":@(1)
-                           };
-    [[ServiceForUser manager] postMethodName:@"advertising/addAdv" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-        if (status) {
-             [AlertHelper showAlertWithTitle:@"红包广告发布成功"];
+    if (self.goldCoinBtn.selected) {
+        [AlertHelper showAlertWithTitle:@"暂不支持金币支付方式"];
+        return;
+    }
+    if( self.advTitleTF.text.length == 0){
+        [AlertHelper showAlertWithTitle:@"广告标题为空"];
+        return;
+    }
+    if( self.redEnvelope.text.length == 0){
+        [AlertHelper showAlertWithTitle:@"请输入红包个数"];
+        return;
+    }
+    if( self.remainingCountTF.text.length == 0){
+        [AlertHelper showAlertWithTitle:@"请输入余额"];
+        return;
+    }
+    if( self.imagesArr.count == 0){
+        [AlertHelper showAlertWithTitle:@"请添加封面图片"];
+        return;
+    }
+    
+    self.pwInputView.hidden = NO;
+    [self.pasView.textField becomeFirstResponder];
+    //创建密码输入控价
+    self.pasView.layer.cornerRadius = 5;
+    self.pasView.layer.masksToBounds =YES;
+    [self.pwView addSubview:_pasView];
+    __weak typeof(self) weakSelf = self;
+    self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
+        //支付操作
+            [weakSelf.pasView clearUpPassword];
+            [weakSelf.pasView.textField resignFirstResponder];
+            weakSelf.pwInputView.hidden = YES;
+            [SVProgressHUD dismiss];
+        
+                NSDictionary *params=@{
+                                       @"imgs":weakSelf.imagesStrArr,
+                                       @"paypwd":pwNumber,
+                                       @"pay_type":@(weakSelf.pay_type),//1 余额 0 金币 红包类型
+                                       @"content":weakSelf.textview.text,
+                                       @"title":weakSelf.advTitleTF.text,
+                                       @"price":@([weakSelf.remainingCountTF.text intValue]), //红包个数
+                                       @"num":@([weakSelf.remainingCountTF.text intValue])
+                                       };
+                [[ServiceForUser manager] postMethodName:@"advertising/addAdv" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+                    weakSelf.inputView.hidden = YES;
+                    [weakSelf.pasView clearUpPassword];
+                    [weakSelf.pasView resignFirstResponder];
+                    if (status) {
+                        [AlertHelper showAlertWithTitle:@"红包广告发布成功"];
+                        [weakSelf.navigationController popViewControllerAnimated:YES];
+                    }else
+                    {
+                        [AlertHelper showAlertWithTitle:error];
+                    }
+                    
+                }];
             
-        }else
-        {
-            [AlertHelper showAlertWithTitle:error];
-        }
-                               
-    }];
+    };
+  
+
+    
     
 }
 
@@ -161,8 +211,8 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
         ReaelseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ReaelseCollectionViewCell" forIndexPath:indexPath];
-        cell.coverImage =self.imagesArr[indexPath.row];
-        return cell;
+            cell.coverImage =self.imagesArr[indexPath.row];
+            return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -248,8 +298,21 @@
 
 #pragma mark - YYImageCropperDelegate
 - (void)imageCropper:(YYImageClipViewController *)cropperViewController didFinished:(UIImage *)editedImage {
-        [_imagesArr insertObject:editedImage atIndex:0];
-        [self.imageCollectionView reloadData];
+        NSData *imgData = UIImageJPEGRepresentation(editedImage, 0.5);
+        [SVProgressHUD show];
+        [[ServiceForUser manager] postFileWithActionOp:@"common/upload_header_img" andData:imgData andUploadFileName:[Tooles getUploadImageName] andUploadKeyName:@"img" and:@"image/jpeg" params:@{} progress:^(NSProgress *uploadProgress) {
+//            [SVProgressHUD showProgress:(1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount) status:@"正在上传中"];
+            NSLog(@"%f",1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+        } block:^(NSDictionary *responseObject, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                 [SVProgressHUD dismiss];
+                  [_imagesArr insertObject:editedImage atIndex:0];
+                  [_imagesStrArr insertObject:[[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"] atIndex:0];
+            }else { [AlertHelper showAlertWithTitle:error];}
+            [self.imageCollectionView reloadData];
+        }];
+
+    
         [cropperViewController dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -325,9 +388,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //显示f导航栏
+    //显示导航栏
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self.navigationController.navigationBar setHidden:NO];
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside=YES;
+
 }
 
 
@@ -397,10 +463,22 @@
     if (sender.tag == 101) {
         self.goldCoinBtn.selected = YES;
         self.remainingBtn.selected =NO;
+        self.pay_type=0;
     }else{
-            self.goldCoinBtn.selected = NO;
-            self.remainingBtn.selected =YES;
+        self.goldCoinBtn.selected = NO;
+        self.remainingBtn.selected =YES;
+        self.pay_type=1;
     }
 }
-
+- (SYPasswordView *)pasView{
+    if (!_pasView) {
+        _pasView =  [[SYPasswordView alloc] initWithFrame:CGRectMake(20, 93, 288, 48)];
+    }
+    return _pasView;
+}
+- (IBAction)hiddpwInputViewAct:(UIButton *)sender {
+    [self.pasView clearUpPassword];
+    [self.pasView.textField resignFirstResponder];
+    self.pwInputView.hidden = YES;
+}
 @end

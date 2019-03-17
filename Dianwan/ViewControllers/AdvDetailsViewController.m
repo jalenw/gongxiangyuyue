@@ -9,6 +9,7 @@
 #import "AdvDetailsViewController.h"
 
 @interface AdvDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollview;
 @property(nonatomic,strong)NSArray *AdsData;
 @property(nonatomic,strong)NSDictionary *result;
 @property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
@@ -26,7 +27,7 @@
     [self requestData];
     
     self.seeTimeBtn.enabled =NO;
-   
+     _mainScrollview.showsVerticalScrollIndicator = NO;
    
 }
 
@@ -74,11 +75,14 @@
 -(void)setupUI{
     self.title =[self.result safeStringForKey:@"title"];
     self.moneryLabel.text = [NSString stringWithFormat:@"%@元",[self.result safeStringForKey:@"price"]];
+    //测试
+//    self.AdsData = @[@"http://www.public66.cn/uploads/home/common/default_user_portrait.gif",@"http://www.public66.cn/uploads/home/common/default_user_portrait.gif",@"http://www.public66.cn/uploads/home/common/default_user_portrait.gif"];
+ 
     UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
     backScrollView.backgroundColor = [UIColor whiteColor];
     backScrollView.contentSize = CGSizeMake(self.AdsData.count * (ScreenWidth - 40) + 40, 170);
     backScrollView.showsHorizontalScrollIndicator = NO;
-    [self.view addSubview:backScrollView];
+    [self.mainScrollview addSubview:backScrollView];
     self.backScrollView = backScrollView;
     for (int i = 0; i < self.AdsData.count; i++)
     {
@@ -100,6 +104,26 @@
         [self.backScrollView addSubview:shadowView];
         
     }
+    //解析内容
+    UILabel *contentLabel = [[UILabel alloc]init];
+    //测试
+    NSString * content =@"温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。";
+    
+//    NSString *content =[_result safeStringForKey:@"content"];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:content attributes: @{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
+    
+    contentLabel.attributedText = string;
+    contentLabel.textAlignment = NSTextAlignmentJustified;
+    contentLabel .alpha = 1.0;
+    contentLabel.numberOfLines=0;
+    CGFloat height = [Tooles calculateTextHeight:(ScreenWidth -32) Content:content fontSize:15];
+    contentLabel.frame = CGRectMake(16, backScrollView.height +16, ScreenWidth-32, height);
+    
+    [self.mainScrollview addSubview:contentLabel];
+    if(height > self.mainScrollview.contentSize.height - backScrollView.bottom -16){
+        self.mainScrollview.contentSize = CGSizeMake(ScreenWidth, height+backScrollView.bottom + 16);
+    }
+    
 }
 
 - (IBAction)receiveRedenvelope:(UIButton *)sender {

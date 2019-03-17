@@ -29,7 +29,7 @@
     [self setRightBarButtonWithTitle:@"发布广告"];
     dataList = [[NSMutableArray alloc]init];
     page = 1;
-    [self requestMarkdataAct];
+   
     self.marketTableview.dataSource =self;
     self.marketTableview.delegate =self;
     self.marketTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -43,6 +43,11 @@
         [dataList removeAllObjects];
         [self requestMarkdataAct];
     }];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [self requestMarkdataAct];
 }
 
 //重写右按钮

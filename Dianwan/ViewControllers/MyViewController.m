@@ -13,8 +13,13 @@
 #import "MessageParentViewcontroller.h"
 #import "QRCodeViewController.h"
 #import "LiveListViewController.h"
+#import "AlreadybuyViewController.h"
+#import "OrderParentViewcontroller.h"
 
 @interface MyViewController ()
+@property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
+@property (weak, nonatomic) IBOutlet UIView *settingBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -22,7 +27,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    //适配大屏幕
+    if(IS_IPHONE_Xr||IS_IPHONE_X||IS_IPHONE_Xs_Max){
+        CGRect frome = self.userCoverimageView.frame;
+        frome.origin.y =  85;
+        self.userCoverimageView.frame = frome;
+        
+        CGRect codebtnfrome = self.qrcodeBtn.frame;
+        codebtnfrome.origin.y = 49;
+        self.qrcodeBtn.frame = codebtnfrome;
+        
+        CGRect setbtnfrome = self.settingBtn.frame;
+        setbtnfrome.origin.y = 49;
+        self.settingBtn.frame = setbtnfrome;
+        
+        CGRect nameLabelFrame = self.nameLabel.frame;
+        nameLabelFrame.origin.y = self.userCoverimageView.bottom +16;
+        self.nameLabel.frame = nameLabelFrame;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -74,7 +97,8 @@
         [self.navigationController pushViewController:qrcode animated:YES];
     }
     if (sender.tag==104) {//已购课程
-
+        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
+        [self.navigationController pushViewController:alreadBuy animated:YES];
     }
     if (sender.tag==105) {//付费直播
         LiveListViewController *list = [[LiveListViewController alloc]init];
@@ -112,10 +136,12 @@
         [self.navigationController pushViewController:commonweb animated:YES];
     }
     if (sender.tag==103) {//约家订单
-        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
-        commonweb.showNav = NO;
-        [self.navigationController pushViewController:commonweb animated:YES];
+        OrderParentViewcontroller * OrderParent =[[OrderParentViewcontroller alloc]init];
+        [self.navigationController pushViewController: OrderParent animated:YES];
+//        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+//        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
+//        commonweb.showNav = NO;
+//        [self.navigationController pushViewController:commonweb animated:YES];
     }
     if (sender.tag==106) {//会员升级
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];

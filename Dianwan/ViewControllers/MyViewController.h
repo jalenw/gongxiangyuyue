@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 - (IBAction)loginAct:(UIButton *)sender;
 - (IBAction)menuAct:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIView *userCoverimageView;
 @end

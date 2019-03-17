@@ -35,5 +35,6 @@
 #import "EaseMob.h"
 #import "AppDelegate+EaseMob.h"
 #import "EaseSDKHelper.h"
+#import "IQKeyboardManager.h"
 #define IosAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #endif

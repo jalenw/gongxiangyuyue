@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReaelseCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong)  UIImage *coverImage;
+
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageview;
 @end
 
