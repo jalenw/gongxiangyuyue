@@ -145,7 +145,7 @@
                             <rect key="frame" x="0.0" y="34" width="61" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <attributedString key="attributedText">
-                                <fragment content="付费直播">
+                                <fragment content="我要开播">
                                     <attributes>
                                         <font key="NSFont" size="11" name="PingFangSC-Regular"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>

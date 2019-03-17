@@ -11,6 +11,7 @@
 #import "GYRollingNoticeView.h"
 #import "HMScannerController.h"
 #import "QRCodeViewController.h"
+#import "LiveListViewController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -52,7 +53,9 @@
         }
         else
         {
-            
+            CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+            controller.address = [NSString stringWithFormat:@"%@wap/mall/info.html?article_id=51",web_url];
+            [self.navigationController pushViewController:controller animated:YES];
         }
     }];
 }
@@ -157,14 +160,32 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dict = menuList[indexPath.row];
-    NSString *typename = [[dict safeStringForKey:@"nav_name"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-//    controller.address = [NSString stringWithFormat:@"%@classfiyList?uid=%@&sp_url=%@&typename=%@",web_url,HTTPClientInstance.uid,[dict safeStringForKey:@"sp_url"],typename];
-    [self.navigationController pushViewController:controller animated:YES];
+    NSString *link = [dict safeStringForKey:@"adv_link"];
+    if (link.length>0) {
+        CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+        controller.address = [NSString stringWithFormat:@"%@%@",web_url,link];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else
+    {
+        LiveListViewController *list = [[LiveListViewController alloc]init];
+        [self.navigationController pushViewController:list  animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)noticeAct:(UIButton *)sender {
+    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+    controller.address = [NSString stringWithFormat:@"%@dist/text/list",web_url];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (IBAction)goldAct:(UIButton *)sender {
+    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+    controller.address = [NSString stringWithFormat:@"%@wap/mall/text_ul.html",web_url];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

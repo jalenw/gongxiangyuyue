@@ -310,6 +310,7 @@
 		8EB4E54B21201FAE00BC563B /* chatListCellHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB4E4C621201FAD00BC563B /* chatListCellHead@2x.png */; };
 		8EB4E54F21202A3200BC563B /* MsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB4E54D21202A3200BC563B /* MsgTableViewCell.m */; };
 		8EB4E55021202A3200BC563B /* MsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB4E54E21202A3200BC563B /* MsgTableViewCell.xib */; };
+		8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC0A223E6820002B0D86 /* Accelerate.framework */; };
 		8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5C89720F884030041A34A /* UIView+XibLayout.m */; };
 		8ED176F21F0B458700105584 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD06664D1E8CD70000CCD49A /* libsqlite3.tbd */; };
 		8ED176F31F0B459800105584 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0666491E8CD6D200CCD49A /* libresolv.tbd */; };
@@ -948,6 +949,7 @@
 		8EB4E54C21202A3200BC563B /* MsgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgTableViewCell.h; sourceTree = "<group>"; };
 		8EB4E54D21202A3200BC563B /* MsgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgTableViewCell.m; sourceTree = "<group>"; };
 		8EB4E54E21202A3200BC563B /* MsgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgTableViewCell.xib; sourceTree = "<group>"; };
+		8EC2CC0A223E6820002B0D86 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8EC5C89620F884030041A34A /* UIView+XibLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XibLayout.h"; sourceTree = "<group>"; };
 		8EC5C89720F884030041A34A /* UIView+XibLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XibLayout.m"; sourceTree = "<group>"; };
 		8ED4A870211197A10038E719 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -1416,6 +1418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */,
 				8E4664E52169BBCB0022DF94 /* libstdc++.6.0.9.tbd in Frameworks */,
 				8EEF4C3C211D8DDE00DE1E36 /* CFNetwork.framework in Frameworks */,
 				2F3F8557223AB96F00A46086 /* libEaseMobClientSDK.a in Frameworks */,
@@ -3369,6 +3372,7 @@
 		CDED11621DB07BA800BC81F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EC2CC0A223E6820002B0D86 /* Accelerate.framework */,
 				8E4664E42169BBCB0022DF94 /* libstdc++.6.0.9.tbd */,
 				8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */,
 				8EEF4C39211D8DBE00DE1E36 /* MobileCoreServices.framework */,
@@ -4056,6 +4060,7 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/AlipaySDK",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/Parse",
+					"$(PROJECT_DIR)/Dianwan/Externs",
 				);
 				GCC_PREFIX_HEADER = "Dianwan/Dianwan-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Dianwan/Info.plist";
@@ -4110,6 +4115,7 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/AlipaySDK",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/Parse",
+					"$(PROJECT_DIR)/Dianwan/Externs",
 				);
 				GCC_PREFIX_HEADER = "Dianwan/Dianwan-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Dianwan/Info.plist";
