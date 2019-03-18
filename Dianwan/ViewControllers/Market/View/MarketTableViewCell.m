@@ -25,12 +25,13 @@
     self.titleLabel.text = [dict safeStringForKey:@"title"];
     self.subtitleLabel.text = [dict safeStringForKey:@"content"];
     self.nameLabel.text = [dict safeStringForKey:@"member_name"];
-    @try {
-          [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"imgs"]]];
-    } @catch (NSException *exception) {
+
+    if([dict safeArrayForKey:@"imgs"].count>0){
         [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeArrayForKey:@"imgs"][0]]];
-    } @finally {
-        NSLog(@"正常解析图像");
+    }
+    else
+    {
+        [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"imgs"]]];
     }
   
     self.countLabel.text = [NSString stringWithFormat:@"%d /%d",[dict safeIntForKey:@"receive"],[dict safeIntForKey:@"num"]];

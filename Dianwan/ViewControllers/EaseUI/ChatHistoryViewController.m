@@ -9,6 +9,7 @@
 #import "ChatHistoryViewController.h"
 #import "QRCodeViewController.h"
 #import "FriendsViewController.h"
+#import "ChatViewController.h"
 @interface ChatHistoryViewController ()
 
 @end
@@ -21,6 +22,8 @@
     [self.smView setBlock:^(NSInteger index) {
         self.maskView.hidden = YES;
         if (index==0) {
+            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"ftoo150911" conversationType:eConversationTypeChat];
+            [self.navigationController pushViewController:chatController animated:YES];
         }
         else if (index==1) {
             QRCodeViewController *vc = [[QRCodeViewController alloc]init];

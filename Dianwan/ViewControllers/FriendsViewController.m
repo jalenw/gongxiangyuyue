@@ -8,6 +8,7 @@
 
 #import "FriendsViewController.h"
 #import "FriendListCell.h"
+#import "ChatViewController.h"
 @interface FriendsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -23,6 +24,8 @@
     [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
         if (!error) {
             NSLog(@"获取成功 -- %@",buddyList);
+            self.data = buddyList;
+            [self.tableView reloadData];
         }
     } onQueue:nil];
 }
@@ -30,6 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,14 +57,17 @@
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"FriendListCell" owner:self options:nil][0];
     }
-    NSDictionary *dict = [self.data objectAtIndex:indexPath.row];
-    cell.name.text = [dict safeStringForKey:@"member_name"];
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"member_avatar"]]];
+    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
+    cell.name.text = buddy.username;
+//    [cell.image sd_setImageWithURL:[NSURL URLWithString:buddy.]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:buddy.username conversationType:eConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 @end

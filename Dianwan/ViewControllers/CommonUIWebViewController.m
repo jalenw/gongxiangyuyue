@@ -36,7 +36,7 @@
 -(void)goPage;
 
 //- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
-- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
+- (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
 
 -(void)toClassDetail:(NSString*)goodId;
 
@@ -64,10 +64,10 @@
 //    });
 //}
 
-- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
+- (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController toChat:toUserId :toUserNickName :toUserAvatar :toUserChatId];
+        [self.webViewController tochat:toUserId :toUserNickName :toUserAvatar :toUserChatId];
     });
 }
 
@@ -564,7 +564,7 @@
 //    }
 //}
 
-- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
+- (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
 {
     if (HTTPClientInstance.isLogin == NO) {
         [AlertHelper showAlertWithTitle:@"请登录后再进行操作"];

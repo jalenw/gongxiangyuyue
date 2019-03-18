@@ -117,45 +117,45 @@
     [_scrollview addSubview:_takePicButton];
 
     CGRect frame = self.frame;
-    if (type == EMChatToolbarTypeChat) {
-        frame.size.height = 150;
-        _audioCallButton =[UIButton buttonWithType:UIButtonTypeCustom];
-        [_audioCallButton setFrame:CGRectMake(insets * 4 + CHAT_BUTTON_SIZE * 3, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-        [_audioCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_audioCall"] forState:UIControlStateNormal];
-        [_audioCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_audioCallSelected"] forState:UIControlStateHighlighted];
-        [_audioCallButton addTarget:self action:@selector(takeAudioCallAction) forControlEvents:UIControlEventTouchUpInside];
-        _audioCallButton.tag = MOREVIEW_BUTTON_TAG + 3;
-        [_scrollview addSubview:_audioCallButton];
-        
-        _videoCallButton =[UIButton buttonWithType:UIButtonTypeCustom];
-        [_videoCallButton setFrame:CGRectMake(insets, 10 * 2 + CHAT_BUTTON_SIZE + 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-        [_videoCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCall"] forState:UIControlStateNormal];
-        [_videoCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCallSelected"] forState:UIControlStateHighlighted];
-        [_videoCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
-        _videoCallButton.tag =MOREVIEW_BUTTON_TAG + 4;
-        _maxIndex = 4;
-        [_scrollview addSubview:_videoCallButton];
-        
-        //阅后即焚
-        _removeAfterReadButton =[UIButton buttonWithType:UIButtonTypeCustom];
-        [_removeAfterReadButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10 * 2 + CHAT_BUTTON_SIZE + 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-        [_removeAfterReadButton setBackgroundColor:[UIColor orangeColor]];
-        _removeAfterReadButton.titleLabel.font = [UIFont systemFontOfSize:12];
-        [_removeAfterReadButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_removeAfterReadButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
-        [_removeAfterReadButton setTitle:@"阅后即焚" forState:UIControlStateNormal];
-        [_removeAfterReadButton setTitle:@"阅后即焚" forState:UIControlStateHighlighted];
-        _removeAfterReadButton.layer.cornerRadius = 10;
-        [_removeAfterReadButton addTarget:self action:@selector(removeAfterReadAction) forControlEvents:UIControlEventTouchUpInside];
-        _removeAfterReadButton.tag =MOREVIEW_BUTTON_TAG + 5;
-        _maxIndex = 5;
-        [_scrollview addSubview:_removeAfterReadButton];
-        
-    }
-    else if (type == EMChatToolbarTypeGroup)
-    {
-        frame.size.height = 80;
-    }
+//    if (type == EMChatToolbarTypeChat) {
+//        frame.size.height = 150;
+//        _audioCallButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//        [_audioCallButton setFrame:CGRectMake(insets * 4 + CHAT_BUTTON_SIZE * 3, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//        [_audioCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_audioCall"] forState:UIControlStateNormal];
+//        [_audioCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_audioCallSelected"] forState:UIControlStateHighlighted];
+//        [_audioCallButton addTarget:self action:@selector(takeAudioCallAction) forControlEvents:UIControlEventTouchUpInside];
+//        _audioCallButton.tag = MOREVIEW_BUTTON_TAG + 3;
+//        [_scrollview addSubview:_audioCallButton];
+//        
+//        _videoCallButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//        [_videoCallButton setFrame:CGRectMake(insets, 10 * 2 + CHAT_BUTTON_SIZE + 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//        [_videoCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCall"] forState:UIControlStateNormal];
+//        [_videoCallButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_videoCallSelected"] forState:UIControlStateHighlighted];
+//        [_videoCallButton addTarget:self action:@selector(takeVideoCallAction) forControlEvents:UIControlEventTouchUpInside];
+//        _videoCallButton.tag =MOREVIEW_BUTTON_TAG + 4;
+//        _maxIndex = 4;
+//        [_scrollview addSubview:_videoCallButton];
+//        
+//        //阅后即焚
+//        _removeAfterReadButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//        [_removeAfterReadButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10 * 2 + CHAT_BUTTON_SIZE + 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//        [_removeAfterReadButton setBackgroundColor:[UIColor orangeColor]];
+//        _removeAfterReadButton.titleLabel.font = [UIFont systemFontOfSize:12];
+//        [_removeAfterReadButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//        [_removeAfterReadButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+//        [_removeAfterReadButton setTitle:@"阅后即焚" forState:UIControlStateNormal];
+//        [_removeAfterReadButton setTitle:@"阅后即焚" forState:UIControlStateHighlighted];
+//        _removeAfterReadButton.layer.cornerRadius = 10;
+//        [_removeAfterReadButton addTarget:self action:@selector(removeAfterReadAction) forControlEvents:UIControlEventTouchUpInside];
+//        _removeAfterReadButton.tag =MOREVIEW_BUTTON_TAG + 5;
+//        _maxIndex = 5;
+//        [_scrollview addSubview:_removeAfterReadButton];
+//    }
+//    else if (type == EMChatToolbarTypeGroup)
+//    {
+//        frame.size.height = 80;
+//    }
+    frame.size.height = 80;
     self.frame = frame;
     _scrollview.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
     _pageControl.frame = CGRectMake(0, CGRectGetHeight(frame) - 20, CGRectGetWidth(frame), 20);

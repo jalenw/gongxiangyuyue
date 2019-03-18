@@ -239,7 +239,7 @@
                 _statusButton.hidden = YES;
                 [_activity stopAnimating];
                 if (self.model.isMessageRead) {
-                    _hasRead.hidden = NO;
+//                    _hasRead.hidden = NO;//已读标志隐藏
                 }
             }
                 break;

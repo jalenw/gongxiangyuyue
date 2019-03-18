@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface FriendsViewController : BaseViewController
-@property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) NSArray *data;
 @end
