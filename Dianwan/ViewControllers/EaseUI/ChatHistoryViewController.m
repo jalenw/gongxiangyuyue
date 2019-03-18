@@ -8,6 +8,7 @@
 
 #import "ChatHistoryViewController.h"
 #import "QRCodeViewController.h"
+#import "FriendsViewController.h"
 @interface ChatHistoryViewController ()
 
 @end
@@ -35,7 +36,8 @@
 
 -(void)leftbarButtonDidTap:(UIButton *)button
 {
-
+    FriendsViewController *vc = [[FriendsViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)rightbarButtonDidTap:(UIButton *)button

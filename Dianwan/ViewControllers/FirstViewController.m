@@ -65,11 +65,23 @@
     [super viewWillAppear:animated];
     [self setLeftBarButtonWithImage:[UIImage imageNamed:@"first_qr"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
+    
+    [[ServiceForUser manager] postMethodName:@"/mobile/member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            NSDictionary *result = [data safeDictionaryForKey:@"result"];
+            AppDelegateInstance.defaultUser.avatar = [result safeStringForKey:@"member_avatar"];
+            AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
+            AppDelegateInstance.defaultUser.nickname =[result safeStringForKey:@"member_name"];
+            AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
+            [AppDelegateInstance saveContext];
+        }else{
+        }
+    }];
 }
 
 -(void)leftbarButtonDidTap:(UIButton *)button
 {
-    HMScannerController *scanner = [HMScannerController scannerWithCardName:@"" avatar:@"" completion:^(NSString *stringValue) {
+    HMScannerController *scanner = [HMScannerController scannerWithCardName:@"" avatar:nil completion:^(NSString *stringValue) {
     }];
     [scanner setTitleColor:[UIColor blackColor] tintColor:[UIColor greenColor]];
     [self showDetailViewController:scanner sender:nil];

@@ -19,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"群成员";
+    self.title = @"通讯录";
+    [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+        if (!error) {
+            NSLog(@"获取成功 -- %@",buddyList);
+        }
+    } onQueue:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

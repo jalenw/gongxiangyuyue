@@ -108,15 +108,7 @@
     if (self.conversation.conversationType == eConversationTypeChat) {
     }
     else{//群聊
-        [self setRightBarButtonWithTitle:@"群成员"];
     }
-}
-
--(void)rightbarButtonDidTap:(UIButton *)button
-{
-    FriendsViewController *vc = [[FriendsViewController alloc]init];
-    vc.data = memberList;
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIAlertViewDelegate

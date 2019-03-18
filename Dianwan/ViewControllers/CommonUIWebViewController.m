@@ -35,7 +35,10 @@
 
 -(void)goPage;
 
-- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
+//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
+- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
+
+-(void)toClassDetail:(NSString*)goodId;
 
 - (void)share:(NSString*)shareImage :(NSString*)shareTitle :(NSString*)shareContent :(NSString*)shareUrl ;
 
@@ -55,9 +58,23 @@
 
 //与H5交互协议具体方法
 
-- (void)go2Chat:(NSString *)member_chat_id :(NSString *)member_id :(NSString*)member_name :(NSString*)member_avatar{
+//- (void)go2Chat:(NSString *)member_chat_id :(NSString *)member_id :(NSString*)member_name :(NSString*)member_avatar{
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.webViewController go2Chat:member_chat_id :member_id :member_name :member_avatar];
+//    });
+//}
+
+- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
+{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController go2Chat:member_chat_id :member_id :member_name :member_avatar];
+        [self.webViewController toChat:toUserId :toUserNickName :toUserAvatar :toUserChatId];
+    });
+}
+
+-(void)toClassDetail:(NSString*)goodId
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController toClassDetail:goodId];
     });
 }
 
@@ -533,19 +550,40 @@
     
 }
 
-- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar{
+//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar{
+//    if (HTTPClientInstance.isLogin == NO) {
+//        [AlertHelper showAlertWithTitle:@"请登录后再进行操作"];
+//        return;
+//    }
+//    if (member_chat_id.length > 0) {
+//        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:member_chat_id conversationType:eConversationTypeGroupChat];
+//        [self.navigationController pushViewController:chatController animated:YES];
+//    }else{
+//        [AlertHelper showAlertWithTitle:@"聊天信息有误"];
+//        return;
+//    }
+//}
+
+- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
+{
     if (HTTPClientInstance.isLogin == NO) {
         [AlertHelper showAlertWithTitle:@"请登录后再进行操作"];
         return;
     }
-    if (member_chat_id.length > 0) {
-        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:member_chat_id conversationType:eConversationTypeGroupChat];
+    if (toUserChatId.length > 0) {
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:toUserChatId conversationType:eConversationTypeChat];
         [self.navigationController pushViewController:chatController animated:YES];
     }else{
         [AlertHelper showAlertWithTitle:@"聊天信息有误"];
         return;
     }
 }
+
+-(void)toClassDetail:(NSString*)goodId
+{
+    
+}
+
 //vip支付
 -(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
 {

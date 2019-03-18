@@ -46,7 +46,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-    [self setRightBarButtonWithTitle:@"我要开播"];
+    if (AppDelegateInstance.defaultUser.viptype==2) {
+        [self setRightBarButtonWithTitle:@"我要开播"];
+    }
 }
 
 -(void)requesrLiveListAct{

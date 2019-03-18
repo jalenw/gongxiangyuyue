@@ -15,8 +15,10 @@
 @property (nonatomic,assign)BOOL showNav;//是否使用原生导航栏
 
 //跳转聊天
-- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
-
+//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
+- (void)toChat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
+//跳转课程详情
+-(void)toClassDetail:(NSString*)goodId;
 //消失WebView
 - (void)dismissWebView;
 

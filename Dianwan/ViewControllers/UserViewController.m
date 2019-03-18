@@ -322,7 +322,8 @@
             AppDelegateInstance.defaultUser.avatar = [result safeStringForKey:@"member_avatar"];
             AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
             AppDelegateInstance.defaultUser.nickname =[result safeStringForKey:@"member_name"];
-            
+            AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
+            [AppDelegateInstance saveContext];
                 [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
                 self.name.text = AppDelegateInstance.defaultUser.nickname;
             self.realName.text=AppDelegateInstance.defaultUser.nickname;
