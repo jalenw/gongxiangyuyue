@@ -74,7 +74,7 @@
 -(void)requestCityAction:(NSNumber *)area_id{
     
     [SVProgressHUD show];
-    [[ServiceForUser manager]postMethodName:@"mobile/area/area_list" params:@{ @"client":@"ios",@"area_id":area_id}  block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"area/area_list" params:@{ @"client":@"ios",@"area_id":area_id}  block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             if ([data safeIntForKey:@"code"]==200) {

@@ -54,7 +54,7 @@
 -(void)getdata{
     
     [SVProgressHUD show];
-    [[ServiceForUser manager]postMethodName:@"http://gongxiang.cn/mobile/area/area_list" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"area/area_list" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
                 NSDictionary *result= [data safeDictionaryForKey:@"result"];

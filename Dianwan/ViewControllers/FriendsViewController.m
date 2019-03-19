@@ -22,17 +22,27 @@
     [super viewDidLoad];
     self.title = @"通讯录";
     
-    [[ServiceForUser manager] postMethodName:@"/mobile/friend/friend_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"friend/friend_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
+            self.data = [data safeArrayForKey:@"result"];
+            [self.tableView reloadData];
         }else{
+            [AlertHelper showAlertWithTitle:error];
         }
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+    controller.address = [NSString stringWithFormat:@"%@%@",web_url,@"dist/chat"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,16 +67,16 @@
         cell = [[NSBundle mainBundle]loadNibNamed:@"FriendListCell" owner:self options:nil][0];
     }
     NSDictionary *buddy = [self.data objectAtIndex:indexPath.row];
-//    cell.name.text = buddy.username;
-//    [cell.image sd_setImageWithURL:[NSURL URLWithString:buddy.]];
+    cell.name.text = [buddy safeStringForKey:@"member_name"];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:[buddy safeStringForKey:@"member_avatar"]]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
-//    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:buddy.username conversationType:eConversationTypeChat];
-//    [self.navigationController pushViewController:chatController animated:YES];
+    NSDictionary *buddy = [self.data objectAtIndex:indexPath.row];
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[buddy safeStringForKey:@"friend_id"] conversationType:eConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 @end

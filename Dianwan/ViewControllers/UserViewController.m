@@ -306,7 +306,7 @@
                            @"member_provinceid":@""
                            };
     [SVProgressHUD show];
-    [[ServiceForUser manager]postMethodName:@"/mobile/member/save_info" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"member/save_info" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             AppDelegateInstance.defaultUser.avatar = pic_url;
@@ -323,7 +323,7 @@
 
 //获取个人信息
 -(void)requestUserinfo{
-    [[ServiceForUser manager] postMethodName:@"/mobile/member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             //设置UI
             self.oss_url = [data safeStringForKey:@"oss_url"];

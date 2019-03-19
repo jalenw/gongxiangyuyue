@@ -18,7 +18,7 @@ static HTTPClient *_instance = nil;
 {
     if (!_instance)
     {
-        _instance = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:base_url]]];
+        _instance = [[HTTPClient alloc] initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", base_url]]];
         _instance.responseSerializer = [AFJSONResponseSerializer serializer];
         _instance.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"text/plain", nil];
         [_instance readLoginData];

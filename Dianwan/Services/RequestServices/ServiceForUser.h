@@ -12,6 +12,7 @@ typedef void (^GetRequestBlock)(NSDictionary *data,NSString *error,BOOL status,N
 + (id)manager;
 //post请求方式
 -(void)postMethodName:(NSString*)name params:(NSDictionary*)params block:(GetRequestBlock)block;
+-(void)postMethodName2:(NSString*)name params:(NSDictionary*)params block:(GetRequestBlock)block;
 //get请求方式
 -(void)getMethodName:(NSString*)name params:(NSDictionary*)params block:(GetRequestBlock)block;
 //上传文件

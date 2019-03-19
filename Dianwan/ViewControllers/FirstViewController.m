@@ -66,7 +66,7 @@
     [self setLeftBarButtonWithImage:[UIImage imageNamed:@"first_qr"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
     
-    [[ServiceForUser manager] postMethodName:@"/mobile/member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             NSDictionary *result = [data safeDictionaryForKey:@"result"];
             AppDelegateInstance.defaultUser.avatar = [result safeStringForKey:@"member_avatar"];

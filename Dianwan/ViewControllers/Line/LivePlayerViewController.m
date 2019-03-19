@@ -11,6 +11,7 @@
 @interface LivePlayerViewController ()
 {
     TXLivePlayer *txLivePlayer;
+    TXLivePush *txLivePush;
 }
 @end
 
@@ -18,9 +19,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    txLivePlayer = [[TXLivePlayer alloc] init];
-    [txLivePlayer setupVideoWidget:CGRectMake(0, 0, ScreenWidth, ScreenHeight) containView:self.view insertIndex:0];
-    [txLivePlayer startPlay:self.url type:PLAY_TYPE_LIVE_RTMP];
+    [self setupForDismissKeyboard];
+    if (self.forPush) {
+        TXLivePushConfig* _config = [[TXLivePushConfig alloc] init];
+        txLivePush = [[TXLivePush alloc] initWithConfig: _config];
+        [txLivePush startPreview:self.view];
+        [txLivePush startPush:self.url];
+    }
+    else
+    {
+        txLivePlayer = [[TXLivePlayer alloc] init];
+        [txLivePlayer setupVideoWidget:CGRectMake(0, 0, ScreenWidth, ScreenHeight) containView:self.view insertIndex:0];
+        [txLivePlayer startPlay:self.url type:PLAY_TYPE_LIVE_RTMP];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -28,4 +39,26 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (self.forPush) {
+        [self stopRtmpPublish];
+    }
+}
+
+- (void)stopRtmpPublish {
+    [txLivePush stopPreview];
+    [txLivePush stopPush];
+    txLivePush.delegate = nil;
+}
+- (IBAction)closeAct:(UIButton *)sender {
+    [super back];
+}
+
+- (IBAction)shareAct:(UIButton *)sender {
+}
+
+- (IBAction)sendAct:(UIButton *)sender {
+}
 @end

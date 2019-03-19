@@ -31,7 +31,9 @@
         }
         else
         {
-            
+            CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+            controller.address = [NSString stringWithFormat:@"%@%@",web_url,@"dist/appointment"];
+            [self.navigationController pushViewController:controller animated:YES];
         }
     }];
     [self.view addSubview:self.maskView];
