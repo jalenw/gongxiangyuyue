@@ -563,22 +563,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/EaseUI/EMUIKit/ViewController/EaseConversationListViewController.m"
-            timestampString = "574247547.802442"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-_latestMessageTitleForConversationModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Dianwan/Commons/LZHAreaPickerView.m"
             timestampString = "560608037.9758151"
             startingColumnNumber = "9223372036854775807"
@@ -644,7 +628,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/FirstViewController.m"
-            timestampString = "574589735.653108"
+            timestampString = "574660835.087509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
@@ -660,7 +644,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/FirstViewController.m"
-            timestampString = "574589735.653199"
+            timestampString = "574660835.087625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
@@ -676,7 +660,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "574589735.653313"
+            timestampString = "574660835.0877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -739,7 +723,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "574589735.653419"
+            timestampString = "574660835.087773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "569"
@@ -755,7 +739,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "574589735.653492"
+            timestampString = "574660835.087839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "584"
@@ -771,7 +755,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "574589735.653621"
+            timestampString = "574660835.0879019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -787,7 +771,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.925383"
+                  timestampString = "574660837.40801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -802,7 +786,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.929675"
+                  timestampString = "574660837.413463"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -817,7 +801,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.933323"
+                  timestampString = "574660837.4180779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -834,7 +818,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "574589735.6537271"
+            timestampString = "574660835.087966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -850,7 +834,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.944646"
+                  timestampString = "574660839.255466"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -865,7 +849,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.947825"
+                  timestampString = "574660839.263247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -880,7 +864,7 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574589735.951311"
+                  timestampString = "574660839.2719949"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -888,22 +872,6 @@
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/FriendsViewController.m"
-            timestampString = "574589735.653811"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,7 +8,7 @@
 
 #import "LiveListViewController.h"
 #import "LiveListTableViewCell.h"
-
+#import "AddLineViewController.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -42,13 +42,18 @@
     
 }
 
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     if (AppDelegateInstance.defaultUser.viptype==2) {
         [self setRightBarButtonWithTitle:@"我要开播"];
     }
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    AddLineViewController *vc = [[AddLineViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)requesrLiveListAct{
