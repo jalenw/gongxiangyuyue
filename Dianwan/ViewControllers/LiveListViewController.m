@@ -9,6 +9,7 @@
 #import "LiveListViewController.h"
 #import "LiveListTableViewCell.h"
 #import "AddLineViewController.h"
+#import "LivePlayerViewController.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -89,7 +90,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    NSDictionary *dict =dataList[indexPath.row];
+    LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+    vc.url = [dict safeStringForKey:@"play"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 312;

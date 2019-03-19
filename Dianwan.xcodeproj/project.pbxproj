@@ -313,6 +313,9 @@
 		8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC0A223E6820002B0D86 /* Accelerate.framework */; };
 		8EC2CC1122409866002B0D86 /* AddLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC0F22409866002B0D86 /* AddLineViewController.m */; };
 		8EC2CC1222409866002B0D86 /* AddLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC2CC1022409866002B0D86 /* AddLineViewController.xib */; };
+		8EC2CC152240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */; };
+		8EC2CC192240A332002B0D86 /* LivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */; };
+		8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */; };
 		8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5C89720F884030041A34A /* UIView+XibLayout.m */; };
 		8ED176F21F0B458700105584 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD06664D1E8CD70000CCD49A /* libsqlite3.tbd */; };
 		8ED176F31F0B459800105584 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0666491E8CD6D200CCD49A /* libresolv.tbd */; };
@@ -955,6 +958,10 @@
 		8EC2CC0E22409866002B0D86 /* AddLineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddLineViewController.h; sourceTree = "<group>"; };
 		8EC2CC0F22409866002B0D86 /* AddLineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddLineViewController.m; sourceTree = "<group>"; };
 		8EC2CC1022409866002B0D86 /* AddLineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLineViewController.xib; sourceTree = "<group>"; };
+		8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
+		8EC2CC162240A332002B0D86 /* LivePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePlayerViewController.h; sourceTree = "<group>"; };
+		8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePlayerViewController.m; sourceTree = "<group>"; };
+		8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LivePlayerViewController.xib; sourceTree = "<group>"; };
 		8EC5C89620F884030041A34A /* UIView+XibLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XibLayout.h"; sourceTree = "<group>"; };
 		8EC5C89720F884030041A34A /* UIView+XibLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XibLayout.m"; sourceTree = "<group>"; };
 		8ED4A870211197A10038E719 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -1449,6 +1456,7 @@
 				CD6323B41EE54C1100D033F4 /* ShareSDK.framework in Frameworks */,
 				CD6323B71EE54C1100D033F4 /* ShareSDKExtension.framework in Frameworks */,
 				CD6323B61EE54C1100D033F4 /* ShareSDKConfigFile.framework in Frameworks */,
+				8EC2CC152240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 				CD6323B91EE54C1100D033F4 /* ShareSDKUI.framework in Frameworks */,
 				CD6323BA1EE54C1100D033F4 /* CopyConnector.framework in Frameworks */,
 				CD6323BE1EE54C1100D033F4 /* SMSConnector.framework in Frameworks */,
@@ -2121,6 +2129,9 @@
 				8EC2CC0E22409866002B0D86 /* AddLineViewController.h */,
 				8EC2CC0F22409866002B0D86 /* AddLineViewController.m */,
 				8EC2CC1022409866002B0D86 /* AddLineViewController.xib */,
+				8EC2CC162240A332002B0D86 /* LivePlayerViewController.h */,
+				8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */,
+				8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -3282,6 +3293,7 @@
 		CDC88E6E1D8698BF00CE03CE /* Externs */ = {
 			isa = PBXGroup;
 			children = (
+				8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */,
 				2F17D9C5223E5FB9008E0E94 /* IQKeyboardManager */,
 				8EE2DCB5223A043000DF2DFE /* QRCode */,
 				8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */,
@@ -3515,6 +3527,7 @@
 				8EB4E50C21201FAE00BC563B /* VoiceSearchFeedback002.png in Resources */,
 				8EB4E4E721201FAE00BC563B /* call_out@2x.png in Resources */,
 				8EB4E4F521201FAE00BC563B /* VoiceSearchFeedback019.png in Resources */,
+				8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */,
 				8EB4E52721201FAE00BC563B /* chatBar_recordSelected.png in Resources */,
 				2F3F8727223AB9E500A46086 /* MineViewController.xib in Resources */,
 				8EB4E4F721201FAE00BC563B /* VoiceSearchFeedback018.png in Resources */,
@@ -3842,6 +3855,7 @@
 				2F6AE62E223CD881002400CF /* ReaelseCollectionViewCell.m in Sources */,
 				04395EE41F233EC10074865E /* TZVideoPlayerController.m in Sources */,
 				8EEF4C0C211D8CB500DE1E36 /* EaseBubbleView.m in Sources */,
+				8EC2CC192240A332002B0D86 /* LivePlayerViewController.m in Sources */,
 				8EEF4BDA211D8CB500DE1E36 /* PSTCollectionViewData.m in Sources */,
 				8EEF4BFD211D8CB500DE1E36 /* EaseConversationCell.m in Sources */,
 				8EEF4C0D211D8CB500DE1E36 /* EaseBubbleView+Video.m in Sources */,
