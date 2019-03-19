@@ -50,8 +50,15 @@
                     weakSelf.pwInputView.hidden = YES;
                     [SVProgressHUD dismiss];
                     if (status) {
-                        PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-                        [weakSelf.navigationController pushViewController:paysuc animated:YES];
+                        if ([weakSelf.type isEqualToString:@"vip"]) {
+                            //跳转vip详情页
+                            CommonUIWebViewController *deatils = [[CommonUIWebViewController alloc]init];
+                            [weakSelf.navigationController pushViewController:deatils animated:YES];
+                        }else{
+                            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+                            [weakSelf.navigationController pushViewController:paysuc animated:YES];
+                        }
+                    
                     //把自己从视图栈删除
         //            NSMutableArray *tempMarray = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
         //            [tempMarray removeObject:self];

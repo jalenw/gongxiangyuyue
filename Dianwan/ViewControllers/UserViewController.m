@@ -13,6 +13,7 @@
 #import "NSDate+Helper.h"
 #import "LZHActionSheetView.h"
 #import "YYImageClipViewController.h"
+#import "CityTableviewViewController.h"
 
 #define ORIGINAL_MAX_WIDTH [UIScreen mainScreen].bounds.size.width
 @interface UserViewController ()<YYImageClipDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
@@ -23,6 +24,7 @@
 }
 @property(nonatomic,strong)NSString *oss_url;
 @property(nonatomic,strong)NSString *location_url;
+@property(nonatomic,strong)NSString *city_id;
 @end
 
 @implementation UserViewController
@@ -59,7 +61,15 @@
 
 
 - (IBAction)cityAct:(UIButton *)sender {
-    //同职业
+    CityTableviewViewController *cityselect = [[CityTableviewViewController alloc]init];
+    
+    cityselect.cityBlock = ^(cityModel * model){
+        
+        [self.city setTitle: model.area_name forState:UIControlStateNormal];
+        self.city_id =[NSString stringWithFormat:@"%@", model.area_id];
+    };
+    [self.navigationController pushViewController:cityselect animated:YES];
+    
 }
 
 - (IBAction)dateAct:(UIButton *)sender {
@@ -292,7 +302,7 @@
                            @"avatar":pic_url,
                            @"name":self.name.text,
                            @"member_areaid":@"",
-                           @"member_cityid":@"",
+                           @"member_cityid":self.city_id,
                            @"member_provinceid":@""
                            };
     [SVProgressHUD show];
@@ -336,5 +346,9 @@
     
 }
 
+
+-(void)gwtCityIdAct{
+   
+}
 
 @end
