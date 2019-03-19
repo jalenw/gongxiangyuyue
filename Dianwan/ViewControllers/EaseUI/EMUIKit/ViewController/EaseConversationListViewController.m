@@ -90,8 +90,8 @@
     cell.model = model;
     EMMessage *lastMessage = [model.conversation latestMessage];
     if (lastMessage) {
-        cell.titleLabel.text = [[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"groupName"];
-        [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"groupAvatar"]] placeholderImage:model.avatarImage];
+        cell.titleLabel.text = [[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"nickName"];
+        [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
     }
     if (_dataSource && [_dataSource respondsToSelector:@selector(conversationListViewController:latestMessageTitleForConversationModel:)]) {
         cell.detailLabel.text = [_dataSource conversationListViewController:self latestMessageTitleForConversationModel:model];

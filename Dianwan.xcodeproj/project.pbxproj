@@ -314,6 +314,8 @@
 		8EB4E54F21202A3200BC563B /* MsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB4E54D21202A3200BC563B /* MsgTableViewCell.m */; };
 		8EB4E55021202A3200BC563B /* MsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB4E54E21202A3200BC563B /* MsgTableViewCell.xib */; };
 		8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC0A223E6820002B0D86 /* Accelerate.framework */; };
+		8EC2CC1122409866002B0D86 /* AddLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC0F22409866002B0D86 /* AddLineViewController.m */; };
+		8EC2CC1222409866002B0D86 /* AddLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC2CC1022409866002B0D86 /* AddLineViewController.xib */; };
 		8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5C89720F884030041A34A /* UIView+XibLayout.m */; };
 		8ED176F21F0B458700105584 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD06664D1E8CD70000CCD49A /* libsqlite3.tbd */; };
 		8ED176F31F0B459800105584 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0666491E8CD6D200CCD49A /* libresolv.tbd */; };
@@ -958,6 +960,9 @@
 		8EB4E54D21202A3200BC563B /* MsgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgTableViewCell.m; sourceTree = "<group>"; };
 		8EB4E54E21202A3200BC563B /* MsgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgTableViewCell.xib; sourceTree = "<group>"; };
 		8EC2CC0A223E6820002B0D86 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8EC2CC0E22409866002B0D86 /* AddLineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddLineViewController.h; sourceTree = "<group>"; };
+		8EC2CC0F22409866002B0D86 /* AddLineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddLineViewController.m; sourceTree = "<group>"; };
+		8EC2CC1022409866002B0D86 /* AddLineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLineViewController.xib; sourceTree = "<group>"; };
 		8EC5C89620F884030041A34A /* UIView+XibLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XibLayout.h"; sourceTree = "<group>"; };
 		8EC5C89720F884030041A34A /* UIView+XibLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XibLayout.m"; sourceTree = "<group>"; };
 		8ED4A870211197A10038E719 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -2133,6 +2138,16 @@
 			path = chatListCell;
 			sourceTree = "<group>";
 		};
+		8EC2CC0D22409779002B0D86 /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				8EC2CC0E22409866002B0D86 /* AddLineViewController.h */,
+				8EC2CC0F22409866002B0D86 /* AddLineViewController.m */,
+				8EC2CC1022409866002B0D86 /* AddLineViewController.xib */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
 		8EDA41421F22F813000CBA40 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -3248,6 +3263,7 @@
 		CDC88E561D8698BF00CE03CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EC2CC0D22409779002B0D86 /* Line */,
 				2F3F855B223AB9DF00A46086 /* Mine */,
 				2F3F8560223AB9E000A46086 /* Market */,
 				8EDA41441F22F82C000CBA40 /* My */,
@@ -3609,6 +3625,7 @@
 				8EB4E4ED21201FAE00BC563B /* chat_sender_audio_playing_002@2x.png in Resources */,
 				8EB4E52B21201FAE00BC563B /* chatBar_colorMore_videoSelected@2x.png in Resources */,
 				8EB4E4CC21201FAE00BC563B /* chat_location_annotation_someone@2x.png in Resources */,
+				8EC2CC1222409866002B0D86 /* AddLineViewController.xib in Resources */,
 				8EB4E4EA21201FAE00BC563B /* chat_sender_bg.png in Resources */,
 				8EB4E4FB21201FAE00BC563B /* VoiceSearchFeedback008.png in Resources */,
 				8EB4E50621201FAE00BC563B /* VoiceSearchFeedback005.png in Resources */,
@@ -3687,6 +3704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				985A8B0B1F94AD7C00B5DDB9 /* NSObject+SXRuntime.m in Sources */,
+				8EC2CC1122409866002B0D86 /* AddLineViewController.m in Sources */,
 				8E980B5E211035FC00C7B6DA /* SystemMsgViewController.m in Sources */,
 				2F17D97D223E2B13008E0E94 /* AlertBuyTableViewCell.m in Sources */,
 				8EEF4BF8211D8CB500DE1E36 /* EaseUsersListViewController.m in Sources */,

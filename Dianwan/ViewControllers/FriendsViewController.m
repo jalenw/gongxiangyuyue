@@ -21,13 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"通讯录";
-    [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
-        if (!error) {
-            NSLog(@"获取成功 -- %@",buddyList);
-            self.data = buddyList;
-            [self.tableView reloadData];
+    
+    [[ServiceForUser manager] postMethodName:@"/mobile/friend/friend_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+        }else{
         }
-    } onQueue:nil];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,8 +56,8 @@
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"FriendListCell" owner:self options:nil][0];
     }
-    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
-    cell.name.text = buddy.username;
+    NSDictionary *buddy = [self.data objectAtIndex:indexPath.row];
+//    cell.name.text = buddy.username;
 //    [cell.image sd_setImageWithURL:[NSURL URLWithString:buddy.]];
     return cell;
 }
@@ -66,8 +65,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:buddy.username conversationType:eConversationTypeChat];
-    [self.navigationController pushViewController:chatController animated:YES];
+//    EMBuddy *buddy = [self.data objectAtIndex:indexPath.row];
+//    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:buddy.username conversationType:eConversationTypeChat];
+//    [self.navigationController pushViewController:chatController animated:YES];
 }
 @end
