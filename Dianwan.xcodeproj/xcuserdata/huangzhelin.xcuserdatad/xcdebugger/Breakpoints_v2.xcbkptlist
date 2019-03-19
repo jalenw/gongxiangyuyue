@@ -628,27 +628,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/FirstViewController.m"
-            timestampString = "574662094.510962"
+            timestampString = "574673824.909189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/FirstViewController.m"
-            timestampString = "574662094.511089"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -762,53 +746,6 @@
             endingLineNumber = "69"
             landmarkName = "-tochat::::"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[JSBridge tochat::::]"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.001055"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "158">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__22-[JSBridge tochat::::]_block_invoke"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.004957"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.008415"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -825,53 +762,6 @@
             endingLineNumber = "76"
             landmarkName = "-toClassDetail:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[JSBridge toClassDetail:]"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.016596"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "50">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__26-[JSBridge toClassDetail:]_block_invoke"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.019401"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.6"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "574662095.022334"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

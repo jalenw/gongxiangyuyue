@@ -64,26 +64,21 @@
 }
 
 - (UIButton *)setRightBarButtonWithImage:(UIImage *)image{
-    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    leftSpace.width = -15;
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightbarButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.rightBarButtonItems = @[leftSpace,rightBarItem];
+    [self.navigationItem sx_setRightBarButtonItem:rightBarItem];
     return button;
 }
 
 - (UIButton*)setLeftBarButtonWithImage:(UIImage*)image
 {
-    UIBarButtonItem *leftSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    leftSpace.width = -15;
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
     [button setImage:image forState:UIControlStateNormal];
-    
     [button addTarget:self action:@selector(leftbarButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.leftBarButtonItems = @[leftSpace,rightBarItem];
+    [self.navigationItem sx_setLeftBarButtonItem:rightBarItem];
     return button;
 }
 
