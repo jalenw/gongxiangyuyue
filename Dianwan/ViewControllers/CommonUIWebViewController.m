@@ -23,12 +23,14 @@
 
 #import "PayViewController.h"
 
+#import "WaitPayViewController.h"
+
 @protocol JSBridgeExport <JSExport>
 //与H5交互协议
 
 - (void)back;
 
-//-(void)goTomember;
+
 
 //vip支付
 -(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
@@ -82,9 +84,7 @@
     [self.webViewController performSelectorOnMainThread:@selector(back) withObject:nil waitUntilDone:NO];
 }
 
-//-(void)goTomember{
-//    [self.webViewController performSelectorOnMainThread:@selector(goTomember) withObject:nil waitUntilDone:NO];
-//}
+
 -(void)goPage{
      [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
 }
@@ -386,9 +386,7 @@
 }
 
 
-//-(void)goTomember{
-//     [self dismissWebView];
-//}
+
 
 -(void)goPage{
     [self dismissWebView];
@@ -587,6 +585,11 @@
 //vip支付
 -(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
 {
+    WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+    waitpay.moneryNum =price;
+    waitpay.order_id =@"";//订单号
+    waitpay.type = @"vip";
+    [self.navigationController pushViewController:waitpay animated:YES];
     
 }
 

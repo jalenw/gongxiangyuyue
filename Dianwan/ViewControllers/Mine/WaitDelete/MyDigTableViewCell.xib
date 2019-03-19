@@ -110,14 +110,33 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro5-pc-Mxo">
+                        <rect key="frame" x="263.5" y="45" width="16" height="16"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.23921568630000001" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="FrY-F2-cTY"/>
+                            <constraint firstAttribute="width" constant="16" id="iio-BT-OfG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ro5-pc-Mxo" firstAttribute="leading" secondItem="HKW-3I-RlS" secondAttribute="trailing" constant="4" id="3Oy-DT-B9t"/>
                     <constraint firstItem="qZE-Qf-5II" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="BlI-kB-ROf"/>
                     <constraint firstItem="HKW-3I-RlS" firstAttribute="leading" secondItem="5jH-dq-f3H" secondAttribute="trailing" id="Fyn-5l-sN8"/>
                     <constraint firstItem="HKW-3I-RlS" firstAttribute="bottom" secondItem="5jH-dq-f3H" secondAttribute="bottom" id="GD8-cr-u7B"/>
                     <constraint firstItem="Wo6-Ar-jdA" firstAttribute="top" secondItem="5jH-dq-f3H" secondAttribute="bottom" constant="9.5" id="H6w-J5-3hc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Bfn-XR-beD" secondAttribute="trailing" constant="18" id="OHS-eE-fiH"/>
                     <constraint firstItem="qZE-Qf-5II" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="SBG-9B-e49"/>
+                    <constraint firstItem="ro5-pc-Mxo" firstAttribute="centerY" secondItem="HKW-3I-RlS" secondAttribute="centerY" id="bmH-lf-ghr"/>
                     <constraint firstItem="5jH-dq-f3H" firstAttribute="top" secondItem="I5R-dY-ZVQ" secondAttribute="bottom" constant="4" id="cPO-Rz-KzK"/>
                     <constraint firstItem="Wo6-Ar-jdA" firstAttribute="leading" secondItem="5jH-dq-f3H" secondAttribute="leading" id="f6q-IS-NXt"/>
                     <constraint firstItem="I5R-dY-ZVQ" firstAttribute="top" secondItem="qZE-Qf-5II" secondAttribute="top" id="k0p-qD-OWT"/>
@@ -130,6 +149,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="TypeLabel" destination="ro5-pc-Mxo" id="nid-Hy-gch"/>
                 <outlet property="cionNumLabel" destination="HKW-3I-RlS" id="1qh-OF-k9K"/>
                 <outlet property="coverImageView" destination="qZE-Qf-5II" id="Gx6-c6-9Eg"/>
                 <outlet property="remainingLabel" destination="Bfn-XR-beD" id="ohP-wb-5Jb"/>

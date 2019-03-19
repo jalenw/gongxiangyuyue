@@ -8,7 +8,6 @@
 
 #import "MarketViewController.h"
 #import "MarketTableViewCell.h"
-#import "MarketModel.h"
 #import "ReleaseAdvViewController.h"
 #import "AdvDetailsViewController.h"
 

@@ -15,6 +15,7 @@
                 <outlet property="coinLabel" destination="adm-uZ-zxx" id="Lfd-sI-pji"/>
                 <outlet property="deatialsLabel" destination="Y11-hB-K91" id="VSA-3r-rsP"/>
                 <outlet property="iconInputTF" destination="eW6-rn-oa9" id="6Tk-xf-w7g"/>
+                <outlet property="recoviewBtn" destination="bdA-Ic-79C" id="AtR-kO-Ftp"/>
                 <outlet property="settlementView" destination="azS-TX-d2B" id="VRz-Pz-1qN"/>
                 <outlet property="shareMoneryLabel" destination="94n-dq-H0Z" id="WP3-lC-IBm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

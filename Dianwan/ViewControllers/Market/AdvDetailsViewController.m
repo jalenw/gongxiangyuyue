@@ -42,10 +42,13 @@
     [[ServiceForUser manager] postMethodName:@"advertising/advInfo" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             self.result = [data safeDictionaryForKey:@"result"];
-            @try {
-                  self.AdsData = [[self.result safeStringForKey:@"imgs"] componentsSeparatedByString:@","];
-            } @catch (NSException *exception) {
-                  self.AdsData = [self.result safeArrayForKey:@"imgs"];
+    
+            if([self.result safeArrayForKey:@"imgs"].count>0){
+                self.AdsData = [self.result safeArrayForKey:@"imgs"];
+            }
+            else
+            {
+               self.AdsData = [[self.result safeStringForKey:@"imgs"] componentsSeparatedByString:@","];
             }
             if([self.result safeIntForKey:@"receive"]==[self.result safeIntForKey:@"num"]){
                 self.seeTimeBtn.hidden = YES;

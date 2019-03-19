@@ -15,9 +15,6 @@
     // Initialization code
 }
 
-//-(void)setModel:(MarketModel *)model{
-//    _model = model;
-//}
 
 -(void)setDict:(NSDictionary *)dict{
     _dict = dict;
@@ -31,7 +28,7 @@
     }
     else
     {
-        [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"imgs"]]];
+        [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[[dict safeStringForKey:@"imgs"] componentsSeparatedByString:@","][0]]];
     }
   
     self.countLabel.text = [NSString stringWithFormat:@"%d /%d",[dict safeIntForKey:@"receive"],[dict safeIntForKey:@"num"]];

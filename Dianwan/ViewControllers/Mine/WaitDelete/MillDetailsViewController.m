@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *shareMoneryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *coinLabel;
 @property(nonatomic,strong)NSDictionary *result;
+@property (weak, nonatomic) IBOutlet UIButton *recoviewBtn;
 
 @end
 
@@ -55,10 +56,8 @@
     NSDictionary *params =@{};
     [[ServiceForUser manager] postMethodName:@"minemachine/oneKeyCoinCollection" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            
-            
-            
-            
+            [AlertHelper showAlertWithTitle:[data safeStringForKey:@"result"]];
+            self.recoviewBtn.hidden = YES;
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
