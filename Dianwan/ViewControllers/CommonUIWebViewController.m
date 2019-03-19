@@ -30,7 +30,7 @@
 
 - (void)back;
 
-//-(void)goTomember;
+
 
 //vip支付
 -(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
@@ -84,9 +84,7 @@
     [self.webViewController performSelectorOnMainThread:@selector(back) withObject:nil waitUntilDone:NO];
 }
 
-//-(void)goTomember{
-//    [self.webViewController performSelectorOnMainThread:@selector(goTomember) withObject:nil waitUntilDone:NO];
-//}
+
 -(void)goPage{
      [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
 }
@@ -388,9 +386,7 @@
 }
 
 
-//-(void)goTomember{
-//     [self dismissWebView];
-//}
+
 
 -(void)goPage{
     [self dismissWebView];
