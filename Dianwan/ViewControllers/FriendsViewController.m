@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.title = @"通讯录";
     
-    [[ServiceForUser manager] postMethodName:@"mobile/friend/friend_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"friend/friend_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             self.data = [data safeArrayForKey:@"result"];
             [self.tableView reloadData];

@@ -628,7 +628,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/FirstViewController.m"
-            timestampString = "574673824.909189"
+            timestampString = "574688061.945395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
@@ -728,8 +728,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "584"
             endingLineNumber = "584"
-            landmarkName = "-toClassDetail:"
-            landmarkType = "7">
+            landmarkName = "CommonUIWebViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -771,7 +771,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/LiveListViewController.m"
-            timestampString = "574662094.511417"
+            timestampString = "574686930.439808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"

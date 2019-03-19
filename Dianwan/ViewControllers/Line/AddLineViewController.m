@@ -141,7 +141,7 @@
         return;
     }
     [SVProgressHUD show];
-    [[ServiceForUser manager] postMethodName:@"mobile/channels/startLive" params:@{@"title":self.nameTf.text,@"cover":pic_url,@"channel_type":@(type+1),@"channel_price":self.priceTf.text,@"cost_price":self.costTf.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"channels/startLive" params:@{@"title":self.nameTf.text,@"cover":pic_url,@"channel_type":@(type+1),@"channel_price":self.priceTf.text,@"cost_price":self.costTf.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
