@@ -13,18 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="MarketTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="189" id="U62-kb-tYT" customClass="MarketTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="266" height="189"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U62-kb-tYT" id="RfQ-Fw-yRg">
-                <rect key="frame" x="0.0" y="0.0" width="266" height="188.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="188.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYL-Lo-HOW">
-                        <rect key="frame" x="18" y="12" width="230" height="176.5"/>
+                        <rect key="frame" x="18" y="12" width="339" height="176.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rou-nC-5YN">
                                 <rect key="frame" x="12" y="12" width="80" height="80"/>
-                                <color key="backgroundColor" red="0.98431372549999996" green="0.73725490199999999" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="8Sl-RI-LVI"/>
                                     <constraint firstAttribute="width" constant="80" id="ddp-Vu-Jat"/>
@@ -37,27 +36,28 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-Lv-gC7">
-                                <rect key="frame" x="104" y="12" width="114" height="20"/>
+                                <rect key="frame" x="104" y="12" width="223" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="P6g-0K-TfT"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Label">
+                                    <fragment content="   ">
                                         <attributes>
                                             <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="14" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Doz-HD-IsU">
-                                <rect key="frame" x="104" y="36" width="114" height="67.5"/>
+                                <rect key="frame" x="104" y="36" width="223" height="17"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLab">
+                                    <fragment content="     ">
                                         <attributes>
                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -65,14 +65,14 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Re3-HV-Srt">
-                                <rect key="frame" x="12" y="104" width="206" height="1"/>
+                                <rect key="frame" x="12" y="104" width="315" height="1"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="GIi-FX-4Aa"/>
                                     <constraint firstAttribute="height" constant="1" id="W2f-t7-DDK"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u89-Ln-sSx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u89-Ln-sSx">
                                 <rect key="frame" x="12" y="115" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="ccm-6Q-UBH"/>
@@ -86,15 +86,15 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsL-tS-5o4">
-                                <rect key="frame" x="48" y="119" width="102" height="17"/>
+                                <rect key="frame" x="48" y="118.5" width="186" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="8cP-Jq-7YK"/>
-                                    <constraint firstAttribute="width" constant="102" id="AZU-lb-gY8"/>
+                                    <constraint firstAttribute="width" constant="186" id="AZU-lb-gY8"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content=" label">
+                                    <fragment content="  ">
                                         <attributes>
-                                            <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="11" name="PingFangSC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -103,13 +103,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-Bz-TeZ">
-                                <rect key="frame" x="158" y="118.5" width="60" height="17"/>
+                                <rect key="frame" x="267" y="118.5" width="60" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="4HH-Ie-HZq"/>
                                     <constraint firstAttribute="width" constant="60" id="EBV-bz-ZLY"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="label">
+                                    <fragment content="  ">
                                         <attributes>
                                             <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" metaFont="smallSystem"/>
@@ -164,7 +164,7 @@
                 <outlet property="subtitleLabel" destination="Doz-HD-IsU" id="cgW-Er-tRI"/>
                 <outlet property="titleLabel" destination="Opd-Lv-gC7" id="Hbv-QJ-A9j"/>
             </connections>
-            <point key="canvasLocation" x="668.79999999999995" y="112.89355322338831"/>
+            <point key="canvasLocation" x="668" y="112.89355322338831"/>
         </tableViewCell>
     </objects>
 </document>

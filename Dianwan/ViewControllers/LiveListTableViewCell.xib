@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VV7-3G-X72">
                         <rect key="frame" x="38" y="23" width="347" height="295"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-67-dtF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-67-dtF">
                                 <rect key="frame" x="16" y="16" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="8Z2-P2-7sf"/>
@@ -36,12 +36,12 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LK-o5-NYn">
-                                <rect key="frame" x="48" y="19.5" width="26.5" height="17"/>
+                                <rect key="frame" x="48" y="19.5" width="4" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="vCq-Tf-4OO"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="label">
+                                    <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
@@ -52,9 +52,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDu-C8-Q9V">
-                                <rect key="frame" x="304.5" y="19.5" width="26.5" height="17"/>
+                                <rect key="frame" x="327" y="19.5" width="4" height="17"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="label">
+                                    <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
@@ -82,10 +82,11 @@
                                             <constraint firstAttribute="height" constant="20" id="PFG-Ov-hP9"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="Label">
+                                            <fragment content=" ">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="14" name="PingFangSC-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -99,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="19" id="aA3-bI-O71"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="label">
+                                            <fragment content=" ">
                                                 <attributes>
                                                     <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="12" name="PingFangSC-Regular"/>
@@ -151,17 +152,18 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-kP-OlI">
-                                <rect key="frame" x="80" y="237" width="48" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-kP-OlI">
+                                <rect key="frame" x="80" y="237" width="251" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="b11-yX-FP5"/>
                                     <constraint firstAttribute="height" constant="17" id="l8D-KY-H0w"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Label">
+                                    <fragment content="  ">
                                         <attributes>
                                             <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -183,16 +185,17 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-tn-Bqm">
-                                <rect key="frame" x="80" y="262" width="30.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-tn-Bqm">
+                                <rect key="frame" x="80" y="262" width="251" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="MS3-WB-IbE"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Label">
+                                    <fragment content="  ">
                                         <attributes>
                                             <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -245,7 +248,7 @@
                 <outlet property="typeLabel" destination="ypL-df-hRu" id="xBB-Zd-D9x"/>
                 <outlet property="viewerCount" destination="FDu-C8-Q9V" id="cOA-dM-4wv"/>
             </connections>
-            <point key="canvasLocation" x="122.40000000000001" y="138.53073463268368"/>
+            <point key="canvasLocation" x="-31.199999999999999" y="138.53073463268368"/>
         </tableViewCell>
     </objects>
 </document>

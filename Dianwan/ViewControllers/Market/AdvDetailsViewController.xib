@@ -74,8 +74,8 @@
                                 <constraint firstAttribute="width" constant="300" id="fU6-l3-8gO"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fO-ez-Jhl">
-                            <rect key="frame" x="80.5" y="111" width="139" height="102"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fO-ez-Jhl">
+                            <rect key="frame" x="125" y="111" width="50.5" height="102"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="102" id="pQB-pS-HhK"/>
                             </constraints>
