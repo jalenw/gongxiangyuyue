@@ -74,20 +74,6 @@
            
        
     }];
-//    [HTTPTOOL registerCityListByKey:UserManagerInstance.userInfoModel.key
-//                            success:^(id response) {
-//                                NSDictionary *result= [response objectForKey:@"result"];
-//                                NSArray *area_list  = [result objectForKey:@"area_list"];
-//                                for (int i=0; i<area_list.count;i++) {
-//                                    cityModel *model = [cityModel mj_objectWithKeyValues:area_list[i]];
-//                                    [self.cityArr addObject:model];
-//                                }
-//
-//                                NSLog(@"%d",self.cityArr.count);
-//                                [self.maintableview reloadData];
-//    } failure:^(NSError *err) {
-//        NSLog(@"%@",err);
-//    }];
 }
 
 
@@ -103,9 +89,7 @@
         _cityBlock(model);
     };
     [self.navigationController pushViewController:city animated:YES];
-    
-//    [self.navigationController popViewControllerAnimated:YES];
-    
+   
 }
 
 //请求城市

@@ -35,6 +35,9 @@
         default:
             break;
     }
+    if([dict safeIntForKey:@"settlement_state"]== 0){
+        self.TypeLabel.hidden = NO;
+    }
     self.typeLabel.text =type;
 }
 

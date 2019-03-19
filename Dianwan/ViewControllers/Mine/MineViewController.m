@@ -60,8 +60,13 @@
 
 -(void)rightbarButtonDidTap:(UIButton *)button{
 //    MillDetailsViewController *mydig=[[MillDetailsViewController alloc]init];
-    MyDigViewController *mydig = [[MyDigViewController alloc]init];
-    [self.navigationController pushViewController:mydig animated:YES];
+//    MyDigViewController *mydig = [[MyDigViewController alloc]init];
+//    [self.navigationController pushViewController:mydig animated:YES];
+    CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+    commonweb.address =[NSString stringWithFormat:@"%@dist/dig/mill",web_url];
+    commonweb.showNav = NO;
+    [self.navigationController pushViewController:commonweb animated:YES];
+    
 }
 
 -(void)requestMarkdataAct{

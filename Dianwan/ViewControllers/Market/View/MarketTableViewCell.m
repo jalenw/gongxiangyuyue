@@ -15,9 +15,6 @@
     // Initialization code
 }
 
-//-(void)setModel:(MarketModel *)model{
-//    _model = model;
-//}
 
 -(void)setDict:(NSDictionary *)dict{
     _dict = dict;

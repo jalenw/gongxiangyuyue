@@ -18,7 +18,7 @@
     _dict = dict;
     [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"mine_machine_image"]]];
     self.titleLabel.text = [dict safeStringForKey:@"mine_machine_name"];
-    self.digCountLabel.text = [NSString stringWithFormat:@"日产币%d枚",[dict safeIntForKey:@"coin_num"]];
+    self.digCountLabel.text = [NSString stringWithFormat:@"每小时产币%d枚",[dict safeIntForKey:@"coin_num"]];
      self.timeLabel.text = [NSString stringWithFormat:@"时长%d天",[dict safeIntForKey:@"production_day"]];
     self.moneryLabel.text = [NSString stringWithFormat:@"¥%d",[dict safeIntForKey:@"mine_machine_price"]];
 }

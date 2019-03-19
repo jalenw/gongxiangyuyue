@@ -15,6 +15,7 @@
 #import "LiveListViewController.h"
 #import "AlreadybuyViewController.h"
 #import "OrderParentViewcontroller.h"
+#import "ChatViewController.h"
 
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
@@ -97,12 +98,17 @@
         [self.navigationController pushViewController:qrcode animated:YES];
     }
     if (sender.tag==104) {//已购课程
-        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
-        [self.navigationController pushViewController:alreadBuy animated:YES];
+       
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@d dist/course/buyedDetail?",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+//        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
+//        [self.navigationController pushViewController:alreadBuy animated:YES];
     }
     if (sender.tag==105) {//付费直播
-        LiveListViewController *list = [[LiveListViewController alloc]init];
-        [self.navigationController pushViewController:list  animated:YES];
+//        LiveListViewController *list = [[LiveListViewController alloc]init];
+//        [self.navigationController pushViewController:list  animated:YES];
     }
     if (sender.tag==107) {//消息
         MessageParentViewcontroller *messageCenter = [[MessageParentViewcontroller alloc]init];
@@ -113,13 +119,9 @@
             [AlertHelper showAlertWithTitle:@"请登录后再进行操作"];
             return;
         }
-//        if (member_chat_id.length > 0) {
-//            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:member_chat_id conversationType:eConversationTypeGroupChat];
-//            [self.navigationController pushViewController:chatController animated:YES];
-//        }else{
-//            [AlertHelper showAlertWithTitle:@"聊天信息有误"];
-//            return;
-//        }
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"" conversationType:eConversationTypeGroupChat];
+            [self.navigationController pushViewController:chatController animated:YES];
+
     }
     
     
@@ -136,10 +138,8 @@
         [self.navigationController pushViewController:commonweb animated:YES];
     }
     if (sender.tag==103) {//约家订单
-//        OrderParentViewcontroller * OrderParent =[[OrderParentViewcontroller alloc]init];
-//        [self.navigationController pushViewController: OrderParent animated:YES];
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/order",web_url];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
     }
