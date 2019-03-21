@@ -9,7 +9,9 @@
 #import "RegViewController.h"
 
 @interface RegViewController ()
-
+{
+    NSString *inviteId;
+}
 @end
 
 @implementation RegViewController
@@ -22,6 +24,7 @@
     [[ServiceForUser manager]getMethodName:@"Login/get_inviter/index.html" params:@{@"inviter_id":@"0"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             self.recommendCode.text = [[[data safeDictionaryForKey:@"result"] safeDictionaryForKey:@"member"] safeStringForKey:@"invite_code"];
+            inviteId = [[[data safeDictionaryForKey:@"result"] safeDictionaryForKey:@"member"] safeStringForKey:@"member_id"];
         }
     }];
 }
@@ -38,7 +41,7 @@
         return;
     }
     [SVProgressHUD show];
-    [[ServiceForUser manager]postMethodName:@"Connect/sms_register.html" params:@{@"phone":self.phone.text,@"password":self.passWord.text,@"captcha":self.code.text,@"inviter_id":self.recommendCode.text,@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"Connect/sms_register.html" params:@{@"phone":self.phone.text,@"password":self.passWord.text,@"captcha":self.code.text,@"inviter_id":inviteId,@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             [SVProgressHUD show];
