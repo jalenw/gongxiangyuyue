@@ -24,7 +24,11 @@
 +(CGFloat)heightForLiveMsgTableViewCell:(EMMessage*)message
 {
     CGFloat height = 21;
-    
+    EMTextMessageBody *body = message.messageBodies.firstObject;
+    NSString *text = body.text;
+    NSDictionary *dict = [Tooles stringToJson:text];
+    NSString *string = [NSString stringWithFormat:@"%@:%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"content"]];
+    height += [Tooles calculateTextHeight:ScreenWidth-32 Content:string fontSize:16];
     return height;
 }
 @end

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LiveMsgTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *contentBgView;
-@property (weak, nonatomic) IBOutlet UILabel *content;
+@property (weak, nonatomic) IBOutlet UILabel *contentLb;
 +(CGFloat)heightForLiveMsgTableViewCell:(EMMessage*)message;
 @end
 

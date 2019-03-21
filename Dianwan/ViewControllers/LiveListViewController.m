@@ -10,6 +10,7 @@
 #import "LiveListTableViewCell.h"
 #import "AddLineViewController.h"
 #import "LivePlayerViewController.h"
+#import "LZHAlertView.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -91,11 +92,26 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *dict =dataList[indexPath.row];
+    
+    
     LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
     vc.url = [dict safeStringForKey:@"play"];
     vc.dict = dict;
     [self.navigationController pushViewController:vc animated:YES];
+    
+//    LZHAlertView *alertView = [LZHAlertView createWithTitleArray:@[@"取消",@"确定支付"]];
+//    alertView.titleLabel.text = @"付费直播";
+//    alertView.contentLabel.text = @"";
+//    __weak LZHAlertView *weakAlertView = alertView;
+//    [alertView setBlock:^(NSInteger index, NSString *title) {
+//        if (index == 1) {
+//           
+//        }
+//        [weakAlertView hide];
+//    }];
+//    [alertView show];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 312;
 }
