@@ -122,11 +122,21 @@
 {
     LiveMsgTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LiveMsgTableViewCell"];
     if (!cell) {
-        cell = [[NSBundle mainBundle]loadNibNamed:@"FriendListCell" owner:self options:nil][0];
+        cell = [[NSBundle mainBundle]loadNibNamed:@"LiveMsgTableViewCell" owner:self options:nil][0];
     }
     if (msgList.count>0) {
         EMMessage *message = [msgList objectAtIndex:indexPath.row];
-    
+        EMTextMessageBody *body = message.messageBodies.firstObject;
+        NSString *text = body.text;
+        NSDictionary *dict = [Tooles stringToJson:text];
+        cell.contentLb.text = [NSString stringWithFormat:@"%@:%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"content"]];
+        [cell.contentLb sizeToFit];
+        if (cell.contentLb.width>=ScreenWidth-32) {
+            cell.contentLb.width = ScreenWidth-32;
+            cell.contentLb.height = [Tooles calculateTextHeight:ScreenWidth-32 Content:cell.contentLb.text fontSize:16];
+        }
+        cell.contentBgView.width = cell.contentLb.width + 16;
+        cell.contentBgView.height = cell.contentLb.height + 16;
     }
     return cell;
 }
@@ -154,6 +164,26 @@
 }
 
 - (IBAction)sendAct:(UIButton *)sender {
+    [self.contentTf resignFirstResponder];
+    
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
+    [parm setValue:@(AppDelegateInstance.defaultUser.user_id) forKey:@"userId"];
+    [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
+    [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
+    [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
+    [parm setValue:self.contentTf.text forKey:@"content"];
+    [parm setValue:[self.dict safeStringForKey:@"chatroom_id"] forKey:@"room_id"];
+    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+    EMMessage *message = [EaseSDKHelper sendTextMessage:[Tooles jsonToString:parm]
+                                                     to:[self.dict safeStringForKey:@"chatroom_id"]
+                                            messageType:eMessageTypeChatRoom
+                                      requireEncryption:NO
+                                             messageExt:p];
+    
+    [msgList addObject:message];
+    [self.tableView reloadData];
+    [self scrollToBottom];
+    self.contentTf.text = @"";
 }
 
 -(void)inputKeyboardWillShow:(NSNotification*)notification
@@ -169,11 +199,7 @@
 
 - (void)scrollToBottom
 {
-    CGFloat yOffset = CGFLOAT_MAX;
-    if (self.tableView.contentSize.height > self.tableView.bounds.size.height) {
-        yOffset = self.tableView.contentSize.height - self.tableView.bounds.size.height;
-    }
-    [self.tableView setContentOffset:CGPointMake(0, yOffset) animated:YES];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[msgList count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 -(void)dealloc
