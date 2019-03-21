@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *birthday;
 @property (weak, nonatomic) IBOutlet UITextField *realName;
 - (IBAction)avatarAct:(UIButton *)sender;
-- (IBAction)jobAct:(UIButton *)sender;
 - (IBAction)cityAct:(UIButton *)sender;
 - (IBAction)dateAct:(UIButton *)sender;
-- (IBAction)sexAct:(UIButton *)sender;
 @end

@@ -15,9 +15,14 @@
                 <outlet property="avatarBt" destination="3Ez-gt-Vob" id="1NZ-6W-Wz3"/>
                 <outlet property="birthday" destination="ced-DU-2b1" id="gbb-xG-b43"/>
                 <outlet property="city" destination="gFy-Jb-qiU" id="g8u-5K-WeW"/>
+                <outlet property="cityBtn" destination="gFy-Jb-qiU" id="9gn-Rh-vGd"/>
+                <outlet property="citySelectView" destination="o5m-Uj-jRn" id="dSp-DY-t9E"/>
+                <outlet property="maskView" destination="9xN-vt-aC0" id="9dL-ZT-cKX"/>
                 <outlet property="name" destination="JJV-vi-7RC" id="xGQ-yI-CMQ"/>
                 <outlet property="phone" destination="ZQ9-nI-u3M" id="JRA-ve-J9D"/>
+                <outlet property="provinceTableview" destination="qhP-aA-o3j" id="WxW-dR-6U4"/>
                 <outlet property="realName" destination="pMz-qi-TOs" id="s15-Ch-Yfb"/>
+                <outlet property="titleScrollview" destination="ys5-eh-1bC" id="N0s-GD-I9x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -230,8 +235,55 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <point key="canvasLocation" x="52" y="90.404797601199405"/>
         </view>
+        <view contentMode="scaleToFill" id="9xN-vt-aC0">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="o5m-Uj-jRn">
+                    <rect key="frame" x="0.0" y="310" width="375" height="357"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="nhW-ns-URl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RVa-rh-lWG">
+                                    <rect key="frame" x="17" y="19" width="16" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="Group 2"/>
+                                    <connections>
+                                        <action selector="hiddSelectViewACT:" destination="-1" eventType="touchUpInside" id="PgA-sa-GIy"/>
+                                    </connections>
+                                </button>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ys5-eh-1bC">
+                                    <rect key="frame" x="47" y="4" width="285" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </scrollView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qhP-aA-o3j">
+                            <rect key="frame" x="0.0" y="58" width="375" height="299"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MZK-79-z9t">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <connections>
+                        <action selector="hiddSelectViewACT:" destination="-1" eventType="touchUpInside" id="Son-4d-BOZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <point key="canvasLocation" x="-830" y="79"/>
+        </view>
     </objects>
     <resources>
+        <image name="Group 2" width="16" height="16"/>
         <image name="login_wechat" width="50" height="50"/>
         <image name="select_selected" width="22" height="22"/>
     </resources>

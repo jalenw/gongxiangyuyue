@@ -13,18 +13,30 @@
 #import "NSDate+Helper.h"
 #import "LZHActionSheetView.h"
 #import "YYImageClipViewController.h"
-#import "CityTableviewViewController.h"
+#import "cityModel.h"
 
 #define ORIGINAL_MAX_WIDTH [UIScreen mainScreen].bounds.size.width
-@interface UserViewController ()<YYImageClipDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface UserViewController ()<YYImageClipDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSString *job_id;
     NSString *area_id;
     NSString *pic_url;
+    NSArray *SelecttitleArr;
 }
+@property (weak, nonatomic) IBOutlet UIButton *cityBtn;
+@property (strong, nonatomic) IBOutlet UIView *citySelectView;
+@property (weak, nonatomic) IBOutlet UITableView *provinceTableview;
+@property (strong, nonatomic) IBOutlet UIView *maskView;
+@property (weak, nonatomic) IBOutlet UIScrollView *titleScrollview;
+@property(nonatomic,strong) NSString *province_id;
+@property(nonatomic,strong) NSString *city_id;
+@property(nonatomic,strong) NSString *aree_id;
 @property(nonatomic,strong)NSString *oss_url;
 @property(nonatomic,strong)NSString *location_url;
-@property(nonatomic,strong)NSString *city_id;
+@property(nonatomic,strong)NSMutableArray<cityModel *> *provinceArr;
+@property(nonatomic,strong)NSMutableArray<cityModel *> *cityArr;
+@property(nonatomic,strong)NSMutableArray<cityModel *> *areaArr;
+@property(nonatomic,assign)NSInteger index;
 @end
 
 @implementation UserViewController
@@ -33,7 +45,141 @@
     [super viewDidLoad];
     self.title = @"个人信息";
     [self requestUserinfo];
+    self.index = 1;
+    [self getCityData:@""];
+    self.maskView.frame =self.view.bounds;
+    self.maskView.hidden = YES;
+    [self.view addSubview:_maskView];
+    self.province_id=@"";
+    self.city_id=@"";
+    self.aree_id=@"";
+    SelecttitleArr = @[@"请选择",@"请选择",@"请选择"];
+    for(int i=0;i<SelecttitleArr.count;i++){
+      UIButton *button =   [[UIButton alloc]init];
+        button.frame = CGRectMake(i * _titleScrollview.width/3, 0, _titleScrollview.width/3, 45);
+        button.tag = i+1;
+        [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:RGB(254, 129, 10) forState:UIControlStateNormal];
+        [button setTitle:SelecttitleArr[i]  forState:UIControlStateNormal];
+        [_titleScrollview addSubview:button];
+    }
+    self.provinceTableview.dataSource =self;
+    self.provinceTableview.delegate =self;
+//    self.citySelectView.frame = CGRectMake(0, ScreenHeight-357, ScreenWidth, 357);
+//    [self.view addSubview:self.citySelectView];
     [self setupForDismissKeyboard];//只要controller加上此方法，点击空白地方就能收起键盘
+}
+
+
+-(void)btnClick:(UIButton *)btn{
+    
+   
+    if(self.index == btn.tag ||self.index < btn.tag ){
+        //下一级
+        return;
+    }
+     self.index =  btn.tag;
+   
+    if (self.index == 1) {
+        [(UIButton *)_titleScrollview.subviews[self.index] setTitle:@"请选择" forState:UIControlStateNormal];
+        [(UIButton *)_titleScrollview.subviews[self.index +1] setTitle:@"请选择" forState:UIControlStateNormal];
+        self.city_id = @"";
+        self.aree_id = @"";
+    }else if(self.index == 2){
+        [(UIButton *)_titleScrollview.subviews[self.index] setTitle:@"请选择" forState:UIControlStateNormal];
+        self.city_id = @"";
+    }
+  
+    [self.provinceTableview reloadData];
+}
+#pragma mark dalegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (self.index == 1) {
+        return self.provinceArr.count;
+    }else if(self.index == 2){
+          return self.cityArr.count;
+    }else{
+          return self.areaArr.count;
+    }
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellstr =@"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellstr];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellstr];
+    }
+    cityModel *model;
+    if(self.index == 1){
+         model=self.provinceArr[indexPath.row];
+    }else if(self.index == 2){
+         model =self.cityArr[indexPath.row];
+    } else{
+        model =self.areaArr[indexPath.row];
+    }
+    cell.textLabel.textColor =RGB(51, 51, 51);
+    cell.textLabel.text =model.area_name;
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.index==1) {
+        self.province_id  = [NSString stringWithFormat:@"%@",self.provinceArr[indexPath.row].area_id];
+         [(UIButton *)_titleScrollview.subviews[self.index -1] setTitle:self.provinceArr[indexPath.row].area_name forState:UIControlStateNormal];
+    }else if(self.index==2){
+        self.city_id  = [NSString stringWithFormat:@"%@",self.cityArr[indexPath.row].area_id];
+         [(UIButton *)_titleScrollview.subviews[self.index -1] setTitle:self.cityArr[indexPath.row].area_name forState:UIControlStateNormal];
+    }else{
+        self.aree_id  = [NSString stringWithFormat:@"%@",self.areaArr[indexPath.row].area_id];
+         [(UIButton *)_titleScrollview.subviews[self.index -1] setTitle:self.areaArr[indexPath.row].area_name forState:UIControlStateNormal];
+    }
+    if (self.index == 3) {
+        return;
+    }
+    self.index ++;
+    cityModel *model;
+    if (self.index == 2) {
+        [self.cityArr removeAllObjects];
+        model = self.provinceArr[indexPath.row];
+    }else if(self.index == 3){
+        [self.areaArr removeAllObjects];
+        model = self.cityArr[indexPath.row];
+    }
+   
+    [self getCityData:[NSString stringWithFormat:@"%@",model.area_id]];
+}
+
+
+-(void)getCityData:(NSString *)area_id{
+    [SVProgressHUD show];
+    [[ServiceForUser manager]postMethodName:@"area/area_list" params:(self.index==1?nil: @{@"area_id":area_id}) block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [SVProgressHUD dismiss];
+        if (status) {
+            NSDictionary *result= [data safeDictionaryForKey:@"result"];
+            NSArray *area_list  = [result objectForKey:@"area_list"];
+            for (int i=0; i<area_list.count;i++) {
+                cityModel *model =[[cityModel alloc]init];
+                model.area_id = [area_list[i] safeNumberForKey:@"area_id"];
+                model.area_name = [area_list[i] safeStringForKey:@"area_name"];
+                if(self.index==1){
+                    [self.provinceArr addObject:model];
+                    
+                }else if(self.index==2){
+                    [self.cityArr addObject:model];
+                    
+                }else{
+                      [self.areaArr addObject:model];
+                }
+            }
+            [self.provinceTableview reloadData];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
 }
 
 -(void)rightbarButtonDidTap:(UIButton *)button
@@ -61,15 +207,8 @@
 
 
 - (IBAction)cityAct:(UIButton *)sender {
-    CityTableviewViewController *cityselect = [[CityTableviewViewController alloc]init];
-    
-    cityselect.cityBlock = ^(cityModel * model){
-        
-        [self.city setTitle: model.area_name forState:UIControlStateNormal];
-        self.city_id =[NSString stringWithFormat:@"%@", model.area_id];
-    };
-    [self.navigationController pushViewController:cityselect animated:YES];
-    
+    self.maskView.hidden = NO;
+//    self.citySelectView.hidden =NO;
 }
 
 - (IBAction)dateAct:(UIButton *)sender {
@@ -297,20 +436,18 @@
 
 //提交用户资料
 - (IBAction)submitAction:(UIButton *)sender {
-    
     NSDictionary *param =@{
-                           @"avatar":pic_url,
+                           @"avatar":pic_url.length>0?pic_url:AppDelegateInstance.defaultUser.avatar,
                            @"name":self.name.text,
-                           @"member_areaid":@"",
+                           @"member_areaid":self.aree_id,
                            @"member_cityid":self.city_id,
-                           @"member_provinceid":@""
+                           @"member_provinceid":self.province_id
                            };
     [SVProgressHUD show];
     [[ServiceForUser manager]postMethodName:@"member/save_info" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
-            AppDelegateInstance.defaultUser.avatar = pic_url;
-//            AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
+            AppDelegateInstance.defaultUser.avatar = pic_url.length>0?pic_url:AppDelegateInstance.defaultUser.avatar,
             AppDelegateInstance.defaultUser.nickname =self.name.text;
             [AlertHelper showAlertWithTitle:@"个人信息修改成功" duration:2];
             [self.navigationController popViewControllerAnimated:YES];
@@ -334,8 +471,8 @@
             AppDelegateInstance.defaultUser.nickname =[result safeStringForKey:@"member_name"];
             AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
             [AppDelegateInstance saveContext];
-                [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
-                self.name.text = AppDelegateInstance.defaultUser.nickname;
+            [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
+            self.name.text = AppDelegateInstance.defaultUser.nickname;
             self.realName.text=AppDelegateInstance.defaultUser.nickname;
             self.phone.text=AppDelegateInstance.defaultUser.phone;
             [self.city setTitle:AppDelegateInstance.defaultUser.member_cityid forState:UIControlStateNormal];
@@ -345,10 +482,32 @@
     }];
     
 }
-
-
--(void)gwtCityIdAct{
+- (IBAction)hiddSelectViewACT:(UIButton *)sender {
    
+    [self.cityBtn setTitle:[NSString stringWithFormat:@"%@ %@ %@", ((UIButton*) _titleScrollview.subviews[0]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[1]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[2]).titleLabel.text] forState:UIControlStateNormal];
+//    self.citySelectView.hidden = YES;
+    self.maskView.hidden = YES;
+}
+
+
+-(NSMutableArray *)provinceArr{
+    if (!_provinceArr) {
+        _provinceArr = [NSMutableArray array];
+    }
+    return _provinceArr;
+}
+
+-(NSMutableArray *)cityArr{
+    if (!_cityArr) {
+        _cityArr = [NSMutableArray array];
+    }
+    return _cityArr;
+}
+-(NSMutableArray *)areaArr{
+    if (!_areaArr) {
+        _areaArr = [NSMutableArray array];
+    }
+    return _areaArr;
 }
 
 @end
