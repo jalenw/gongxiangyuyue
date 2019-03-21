@@ -147,6 +147,7 @@
             LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
             vc.forPush = true;
             vc.url = [[data safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
+            vc.dict = [data safeDictionaryForKey:@"result"];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             [AlertHelper showAlertWithTitle:error];

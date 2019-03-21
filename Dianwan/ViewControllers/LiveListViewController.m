@@ -93,6 +93,7 @@
     NSDictionary *dict =dataList[indexPath.row];
     LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
     vc.url = [dict safeStringForKey:@"play"];
+    vc.dict = dict;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
