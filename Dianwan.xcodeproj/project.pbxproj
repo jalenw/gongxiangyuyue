@@ -4115,8 +4115,11 @@
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/Parse",
 					"$(PROJECT_DIR)/Dianwan/Externs",
+					"$(PROJECT_DIR)/Dianwan/ViewControllers/Market",
+					"$(PROJECT_DIR)/Dianwan/Externs/YYImage/Vendor",
 				);
 				GCC_PREFIX_HEADER = "Dianwan/Dianwan-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = "$(SRCROOT)/Dianwan/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4170,6 +4173,8 @@
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/Parse",
 					"$(PROJECT_DIR)/Dianwan/Externs",
+					"$(PROJECT_DIR)/Dianwan/ViewControllers/Market",
+					"$(PROJECT_DIR)/Dianwan/Externs/YYImage/Vendor",
 				);
 				GCC_PREFIX_HEADER = "Dianwan/Dianwan-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Dianwan/Info.plist";

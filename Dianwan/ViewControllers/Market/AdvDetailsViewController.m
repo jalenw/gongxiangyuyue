@@ -26,7 +26,8 @@
     [super viewDidLoad];
     [self requestData];
     
-    self.seeTimeBtn.enabled =NO;
+     self.seeTimeBtn.enabled =YES;
+    [self.seeTimeBtn setTitle:@"领取红包" forState:UIControlStateNormal];
      _mainScrollview.showsVerticalScrollIndicator = NO;
    
 }
@@ -50,22 +51,22 @@
             {
                self.AdsData = [[self.result safeStringForKey:@"imgs"] componentsSeparatedByString:@","];
             }
-            if([self.result safeIntForKey:@"receive"]==[self.result safeIntForKey:@"num"]){
-                self.seeTimeBtn.hidden = YES;
-            }else{
-                __block int i = 10;
-                _codeTimer= [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-                    i--;
-                    self.seeTimeBtn.titleLabel.text = [NSString stringWithFormat:@"观看倒计时%d秒",i];
-                    [self.seeTimeBtn setTitle:[NSString stringWithFormat:@"观看倒计时%d秒",i] forState:UIControlStateNormal];
-                    if (i==0) {
-                        [timer invalidate];
-                        self.seeTimeBtn.enabled = YES;
-                        [self.seeTimeBtn setTitle:@"领取红包" forState:UIControlStateNormal];
-                    }
-                }];
-                [[NSRunLoop mainRunLoop] addTimer:_codeTimer forMode:NSDefaultRunLoopMode];
-            }
+//            if([self.result safeIntForKey:@"receive"]==[self.result safeIntForKey:@"num"]){
+//                self.seeTimeBtn.hidden = YES;
+//            }else{
+//                __block int i = 10;
+//                _codeTimer= [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//                    i--;
+//                    self.seeTimeBtn.titleLabel.text = [NSString stringWithFormat:@"观看倒计时%d秒",i];
+//                    [self.seeTimeBtn setTitle:[NSString stringWithFormat:@"观看倒计时%d秒",i] forState:UIControlStateNormal];
+//                    if (i==0) {
+//                        [timer invalidate];
+//                        self.seeTimeBtn.enabled = YES;
+//                        [self.seeTimeBtn setTitle:@"领取红包" forState:UIControlStateNormal];
+//                    }
+//                }];
+//                [[NSRunLoop mainRunLoop] addTimer:_codeTimer forMode:NSDefaultRunLoopMode];
+//            }
             [self setupUI];
             
         }else{
@@ -109,9 +110,7 @@
     }
     //解析内容
     UILabel *contentLabel = [[UILabel alloc]init];
-    //测试
-//    NSString * content =@"温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。温馨提示 \n 1.矿机产币周期为100天，每日上午11：00——下午22：00每小时产币6枚，产币后随时可以收取，产币达到198枚未收取时矿机暂停产币，收取后继续产币。\n 2.从第一台矿机售出起，每100天为一个结算日，结算日暂停产币，结算日在首页有提示。";
-    
+   
     NSString *content =[_result safeStringForKey:@"content"];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:content attributes: @{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
     
@@ -132,11 +131,6 @@
 - (IBAction)receiveRedenvelope:(UIButton *)sender {
     self.redbagPackageView.frame = self.view.bounds;
     [self.view addSubview:self.redbagPackageView];
-    
-    
-    
-    
-    
 }
 
 - (IBAction)receiveAct:(UIButton *)sender {
@@ -149,8 +143,10 @@
             [AlertHelper showAlertWithTitle:@"领取红包成功" duration:2];
             self.redbagPackageView.hidden = YES;
             self.receiveBtn.enabled = NO;
+//            self.seeTimeBtn.enabled = NO;
             self.seeTimeBtn.hidden = YES;
         }else{
+             self.redbagPackageView.hidden = YES;
             [AlertHelper showAlertWithTitle:error];
         }
     }];

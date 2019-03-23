@@ -27,14 +27,13 @@
     self.title = @"市场";
     [self setRightBarButtonWithTitle:@"发布广告"];
     dataList = [[NSMutableArray alloc]init];
-    page = 1;
    
     self.marketTableview.dataSource =self;
     self.marketTableview.delegate =self;
     self.marketTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.marketTableview registerNib:[UINib nibWithNibName:@"MarketTableViewCell" bundle:nil] forCellReuseIdentifier:@"MarketTableViewCell"];
     [self.marketTableview addLegendFooterWithRefreshingBlock:^{
-         page ++;
+          page ++;
           [self requestMarkdataAct];
     }];
     [self.marketTableview addLegendHeaderWithRefreshingBlock:^{
@@ -45,7 +44,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+     [super viewWillAppear:animated];
+     page =1;
      [self requestMarkdataAct];
 }
 
@@ -64,8 +64,14 @@
 
 
 -(void)rightbarButtonDidTap:(UIButton *)button{
+    if (![HTTPClientInstance isLogin]) {
+        [AppDelegateInstance showLoginView];
+    }
+    else
+    {
     ReleaseAdvViewController *mydig = [[ReleaseAdvViewController alloc]init];
     [self.navigationController pushViewController:mydig animated:YES];
+    }
 }
 
 
@@ -81,7 +87,10 @@
             [self.marketTableview.footer endRefreshing];
         }
         if (status) {
-          [dataList addObjectsFromArray:[data safeArrayForKey:@"result"]];
+            if (page == 1) {
+                [dataList removeAllObjects];
+            }
+            [dataList addObjectsFromArray:[data safeArrayForKey:@"result"]];
             [self.marketTableview reloadData];
         }else
         {

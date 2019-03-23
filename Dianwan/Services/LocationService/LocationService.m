@@ -201,7 +201,7 @@
     LOCATIONSERVICE_LOG(@"LOCATION6 %@ %@", NSStringFromSelector(_cmd), location);
     
     self.lastLocation = location;
-    
+    NSLog(@"latitude=%f longitude=%ff  ",self.lastLocation.coordinate.latitude,self.lastLocation.coordinate.longitude);
      NSTimeInterval dTime = [location.timestamp
                             timeIntervalSinceDate:self.prevLocation.timestamp];
     CLLocationDistance distance = [self.prevLocation distanceFromLocation:location];

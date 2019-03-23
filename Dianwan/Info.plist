@@ -121,7 +121,7 @@
 	<key>URL_SCHEME</key>
 	<string>shareorder</string>
 	<key>base_url</key>
-	<string>http://www.public66.cn/mobile/</string>
+	<string>http://www.public66.com/mobile/</string>
 	<key>key_ShareSDK</key>
 	<string>260742debe833</string>
 	<key>key_easemob</key>
@@ -141,6 +141,6 @@
 	<key>key_weibo_secret</key>
 	<string>020d806d58bdb7910c51e2cf17dac89b</string>
 	<key>web_url</key>
-	<string>http://www.public66.cn/</string>
+	<string>http://www.public66.com/</string>
 </dict>
 </plist>

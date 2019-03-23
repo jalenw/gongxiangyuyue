@@ -65,7 +65,8 @@
     [self.view endEditing:YES];
     [[ServiceForUser manager]postMethodName:@"Connect/find_password.html" params:@{@"phone":self.phone.text,@"password":self.password.text,@"captcha":self.code.text,@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            [AlertHelper showAlertWithTitle:@"修改成功"];
+            [AlertHelper showAlertWithTitle:@"修改密码成功，请登录" duration:3];
+            [self.navigationController popViewControllerAnimated:YES];
         }
         else [AlertHelper showAlertWithTitle:error];
     }];

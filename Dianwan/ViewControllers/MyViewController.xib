@@ -33,7 +33,7 @@
                     <rect key="frame" x="154" y="69" width="68" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixinIcon" id="fJv-dz-0aU">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_user" id="fJv-dz-0aU">
                             <rect key="frame" x="4" y="4" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <userDefinedRuntimeAttributes>
@@ -488,6 +488,6 @@
         <image name="ICON／我的／约家订单" width="24" height="24"/>
         <image name="ICON／我的／设置" width="20" height="19"/>
         <image name="ICON／我的／钱包" width="24" height="24"/>
-        <image name="weixinIcon" width="20" height="20"/>
+        <image name="login_user" width="44" height="50"/>
     </resources>
 </document>
