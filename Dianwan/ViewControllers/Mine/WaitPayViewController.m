@@ -53,6 +53,8 @@
                         if ([weakSelf.type isEqualToString:@"vip"]) {
                             //跳转vip详情页
                             CommonUIWebViewController *deatils = [[CommonUIWebViewController alloc]init];
+                            deatils.address =[NSString stringWithFormat:@"",web_url];
+                            deatils.showNav = NO;
                             [weakSelf.navigationController pushViewController:deatils animated:YES];
                         }else{
                             PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];

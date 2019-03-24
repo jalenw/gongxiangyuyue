@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *countLab;
 @property (weak, nonatomic) IBOutlet UIView *advView;
 @property(nonatomic,strong)NSMutableArray *imagesArr;
-@property(nonatomic,strong)NSMutableArray *imagesStrArr;
+@property(nonatomic,strong)NSMutableString *imagesStr;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property(nonatomic,strong)  UITextView *textview;
 @property(nonatomic,assign)NSInteger pay_type;
@@ -43,7 +43,7 @@
 
     self.remainingBtn.selected = YES;
     _imagesArr = [NSMutableArray arrayWithObjects:[UIImage imageNamed:@"add"], nil];
-    _imagesStrArr = [[NSMutableArray alloc]init];
+    _imagesStr = [[NSMutableString alloc]init];
     [self setRightBarButtonWithTitle:@"发布"];
     
     [self addtestView];
@@ -171,9 +171,8 @@
             [weakSelf.pasView.textField resignFirstResponder];
             weakSelf.pwInputView.hidden = YES;
             [SVProgressHUD dismiss];
-        
                 NSDictionary *params=@{
-                                       @"imgs":weakSelf.imagesStrArr,
+                                       @"imgs":[weakSelf.imagesStr substringToIndex:_imagesStr.length -1],
                                        @"paypwd":pwNumber,
                                        @"pay_type":@(weakSelf.pay_type),//1 余额 0 金币 红包类型
                                        @"content":weakSelf.textview.text,
@@ -307,7 +306,7 @@
             if (status) {
                  [SVProgressHUD dismiss];
                   [_imagesArr insertObject:editedImage atIndex:0];
-                  [_imagesStrArr insertObject:[[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"] atIndex:0];
+                  [_imagesStr appendString:[NSString stringWithFormat:@"%@,",[[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"]]];
             }else { [AlertHelper showAlertWithTitle:error];}
             [self.imageCollectionView reloadData];
         }];

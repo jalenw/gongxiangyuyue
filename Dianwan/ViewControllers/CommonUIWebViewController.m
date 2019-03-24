@@ -33,7 +33,10 @@
 
 
 //vip支付
--(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+//-(void)toPay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+
+//前往支付页面
+-(void)toPay:(NSInteger )type :(NSString *)frome :(NSString *)price :(NSString *)json;
 
 -(void)goPage;
 

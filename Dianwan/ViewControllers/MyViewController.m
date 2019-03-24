@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     
     //适配大屏幕
     if(IS_IPHONE_Xr||IS_IPHONE_X||IS_IPHONE_Xs_Max){
@@ -79,9 +80,15 @@
     }
 }
 - (IBAction)toSetingVC:(UIButton *)sender {
-    SettingViewController *vc = [[SettingViewController alloc]init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    if(![HTTPClientInstance isLogin]){
+         [AppDelegateInstance showLoginView];
+    }else{
+        SettingViewController *vc = [[SettingViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+ 
 }
 
 //二维码页面
@@ -92,7 +99,11 @@
 }
 
 - (IBAction)menuAct:(UIButton *)sender {
-
+    //是否已经登录
+    if (![HTTPClientInstance isLogin]) {
+        [AppDelegateInstance showLoginView];
+        return;
+    }
     if (sender.tag == 109 ) {//我的推荐码
         QRCodeViewController *qrcode= [[QRCodeViewController alloc]init];
         [self.navigationController pushViewController:qrcode animated:YES];
@@ -139,7 +150,7 @@
     }
     if (sender.tag==103) {//约家订单
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/order",web_url];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/order?vipType=2&longitude=%f&latitude=%f",web_url,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
     }

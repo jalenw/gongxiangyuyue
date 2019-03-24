@@ -28,8 +28,18 @@
     }
     else
     {
-        [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[[dict safeStringForKey:@"imgs"] componentsSeparatedByString:@","][0]]];
+//        [NSURL URLWithString:[[dict safeStringForKey:@"imgs"] componentsSeparatedByString:@","][0]]
+        if([[[dict safeStringForKey:@"imgs"] componentsSeparatedByString:@","][0] containsString:@"webp"]){
+//            [self.coverImageview yy_setImageWithURL :[NSURL URLWithString:@""] placeholderImage:nil];
+//            [imgView :url placeholder:nil];
+//            [self.coverImageview setImage:[UIImage ]]
+        }else{
+            [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[[dict safeStringForKey:@"imgs"] componentsSeparatedByString:@","][0]]];
+        }
+        
     }
+    
+   
   
     self.countLabel.text = [NSString stringWithFormat:@"%d /%d",[dict safeIntForKey:@"receive"],[dict safeIntForKey:@"num"]];
     

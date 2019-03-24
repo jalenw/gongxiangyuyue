@@ -51,7 +51,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_wechat" id="Wkp-hU-Xyo">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_user" id="Wkp-hU-Xyo">
                                     <rect key="frame" x="288" y="20" width="64" height="64"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <userDefinedRuntimeAttributes>
@@ -284,7 +284,7 @@
     </objects>
     <resources>
         <image name="Group 2" width="16" height="16"/>
-        <image name="login_wechat" width="50" height="50"/>
+        <image name="login_user" width="44" height="50"/>
         <image name="select_selected" width="22" height="22"/>
     </resources>
 </document>
