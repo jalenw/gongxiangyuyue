@@ -122,6 +122,13 @@
     }
 }
 
+- (IBAction)liveProtocol:(UIButton *)sender {
+    CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+    commonweb.address =[NSString stringWithFormat:@"%@%@",web_url,@"wap/member/document.html?type=live"];
+    commonweb.showNav = NO;
+    [self.navigationController pushViewController:commonweb animated:YES];
+}
+
 
 - (IBAction)doneAct:(UIButton *)sender {
     if (pic_url.length==0) {

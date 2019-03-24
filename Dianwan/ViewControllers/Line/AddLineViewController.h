@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)backAct:(UIButton *)sender;
 - (IBAction)doneAct:(UIButton *)sender;
 - (IBAction)menuAct:(UIButton *)sender;
+- (IBAction)liveProtocol:(UIButton *)sender;
 @end
 
 NS_ASSUME_NONNULL_END

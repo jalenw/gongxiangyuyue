@@ -81,11 +81,8 @@
     }];
 }
 - (IBAction)toUserdelegateAct:(UIButton *)sender {
-    //用户c协议地址
-    [AlertHelper showAlertWithTitle:@"补充用户协议地址"];
-    return;
     CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-    commonweb.address =[NSString stringWithFormat:@"%@",web_url];
+    commonweb.address =[NSString stringWithFormat:@"%@%@",web_url,@"wap/member/document.html"];
     commonweb.showNav = NO;
     [self.navigationController pushViewController:commonweb animated:YES];
 }

@@ -628,11 +628,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575102750.2672859"
+            timestampString = "575109198.994946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "JSBridge"
             landmarkType = "3">
             <Locations>
@@ -691,11 +691,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575102750.267959"
+            timestampString = "575109198.99502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "JSBridge"
             landmarkType = "3">
          </BreakpointContent>
@@ -722,13 +722,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/LiveListViewController.m"
-            timestampString = "575104693.81236"
+            filePath = "Dianwan/ViewControllers/Class/ClassDetailViewController.m"
+            timestampString = "575109198.995095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-requesrLiveListAct"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-playAct:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

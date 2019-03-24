@@ -232,7 +232,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="qEg-EL-eui">
-                    <rect key="frame" x="122" y="479" width="112" height="32"/>
+                    <rect key="frame" x="122" y="484" width="112" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">

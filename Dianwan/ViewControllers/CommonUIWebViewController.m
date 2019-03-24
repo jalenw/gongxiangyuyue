@@ -584,7 +584,9 @@
 
 -(void)toClassDetail:(NSString*)goodId
 {
-    
+    ClassDetailViewController *vc = [[ClassDetailViewController alloc]init];
+    vc.classId = goodId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //vip支付
