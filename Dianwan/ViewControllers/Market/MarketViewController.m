@@ -80,7 +80,7 @@
                              @"page":@(page)
                              };
     
-    [[ServiceForUser manager] postMethodName:@"/mobile/advertising/advlist" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"advertising/advlist" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [self.marketTableview.header endRefreshing];
         }else{

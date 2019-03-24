@@ -109,6 +109,8 @@
 		2F6B306E223D003000BD686B /* WaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B306C223D003000BD686B /* WaitPayViewController.m */; };
 		8E059A28212174B30047A07D /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E059A25212174B10047A07D /* PayViewController.xib */; };
 		8E059A29212174B30047A07D /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E059A26212174B20047A07D /* PayViewController.m */; };
+		8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1823892247605C001511ED /* ClassDetailViewController.m */; };
+		8E18238C2247605C001511ED /* ClassDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E18238A2247605C001511ED /* ClassDetailViewController.xib */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
 		8E412B851F23572100A40CE6 /* CodeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */; };
 		8E412B861F23572100A40CE6 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7F1F23572100A40CE6 /* ForgetViewController.m */; };
@@ -701,6 +703,9 @@
 		8E059A25212174B10047A07D /* PayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		8E059A26212174B20047A07D /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		8E059A27212174B20047A07D /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		8E1823882247605C001511ED /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
+		8E1823892247605C001511ED /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
+		8E18238A2247605C001511ED /* ClassDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassDetailViewController.xib; sourceTree = "<group>"; };
 		8E412B7B1F23572100A40CE6 /* CodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeLoginViewController.h; sourceTree = "<group>"; };
 		8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeLoginViewController.m; sourceTree = "<group>"; };
 		8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeLoginViewController.xib; sourceTree = "<group>"; };
@@ -1772,6 +1777,16 @@
 				2F6AE619223C0B92002400CF /* ClassListTableViewCell.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		8E1823872247603C001511ED /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				8E1823882247605C001511ED /* ClassDetailViewController.h */,
+				8E1823892247605C001511ED /* ClassDetailViewController.m */,
+				8E18238A2247605C001511ED /* ClassDetailViewController.xib */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		8E42A8B71F26DADB0026ED07 /* LocationService */ = {
@@ -3272,6 +3287,7 @@
 		CDC88E561D8698BF00CE03CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8E1823872247603C001511ED /* Class */,
 				8EC2CC0D22409779002B0D86 /* Line */,
 				2F3F855B223AB9DF00A46086 /* Mine */,
 				2F3F8560223AB9E000A46086 /* Market */,
@@ -3606,6 +3622,7 @@
 				8EB4E4FD21201FAE00BC563B /* VoiceSearchFeedback009.png in Resources */,
 				8EB4E4D021201FAE00BC563B /* chat_location_preview.png in Resources */,
 				8EB4E51F21201FAE00BC563B /* chatBar_more_locationSelected.png in Resources */,
+				8E18238C2247605C001511ED /* ClassDetailViewController.xib in Resources */,
 				8EB4E4DE21201FAE00BC563B /* chatBar_more_faceSelected.png in Resources */,
 				2F17D98D223E46D6008E0E94 /* AboutHomeTableViewCell2.xib in Resources */,
 				8EB4E51621201FAE00BC563B /* VoiceSearchFeedback014@2x.png in Resources */,
@@ -3849,6 +3866,7 @@
 				CD3D81A21EA9FF3600F6AC20 /* NSObject+SBJSON.m in Sources */,
 				CD06662D1E8CB53700CCD49A /* ZTTabBar.m in Sources */,
 				8E9FE2D2212E72B900D26955 /* UIScrollView+MJExtension.m in Sources */,
+				8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */,
 				2F17D9F3223E5FBA008E0E94 /* IQToolbar.m in Sources */,
 				CDC890011D8698BF00CE03CE /* AFURLSessionManager.m in Sources */,
 				8EEF4BFB211D8CB500DE1E36 /* EaseViewController.m in Sources */,

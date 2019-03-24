@@ -83,18 +83,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (self.conversation.conversationType == eConversationTypeGroupChat) {
-        if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
-        {
-            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
-        }
-    }
-    
-    //获取群组成员，若没有可注释
-    [[ServiceForUser manager]postMethodName:@"" params:@{@"chat_group_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    //获取聊天对象信息
+    [[ServiceForUser manager]postMethodName:@"member/chatToMember" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            memberList = [[data safeDictionaryForKey:@"datas"] safeArrayForKey:@"memberInfo"];
-            self.ower = [[data safeDictionaryForKey:@"datas"] safeDictionaryForKey:@"ownerInfo"];
+            memberList = [data safeArrayForKey:@"result"];
+            self.ower = [memberList firstObject];
             self.title = [self.ower safeStringForKey:@"member_name"];
         }
     }];

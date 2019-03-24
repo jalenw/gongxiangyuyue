@@ -25,6 +25,8 @@
 
 #import "WaitPayViewController.h"
 
+#import "ClassDetailViewController.h"
+
 @protocol JSBridgeExport <JSExport>
 //与H5交互协议
 

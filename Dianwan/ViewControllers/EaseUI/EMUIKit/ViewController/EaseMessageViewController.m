@@ -1696,8 +1696,8 @@
     [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
     [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
     if (self.ower) {
-        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"groupAvatar"];
-        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"groupName"];
+        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
+        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:ext
@@ -1743,8 +1743,8 @@
     [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
     [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
     if (self.ower) {
-        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"groupAvatar"];
-        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"groupName"];
+        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
+        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
@@ -1775,8 +1775,8 @@
     [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
     [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
     if (self.ower) {
-        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"groupAvatar"];
-        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"groupName"];
+        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
+        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
@@ -1809,8 +1809,8 @@
     [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
     [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
     if (self.ower) {
-        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"groupAvatar"];
-        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"groupName"];
+        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
+        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil

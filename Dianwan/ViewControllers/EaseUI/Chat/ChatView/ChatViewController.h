@@ -9,5 +9,6 @@
 #define KNOTIFICATIONNAME_DELETEALLMESSAGE @"RemoveAllMessages"
 
 @interface ChatViewController : EaseMessageViewController <EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource>
-
+@property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *avatar;
 @end

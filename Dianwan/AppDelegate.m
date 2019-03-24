@@ -164,7 +164,7 @@ didFinishLaunchingWithOptions:launchOptions
         [cookieProperties setObject:[NSString stringWithFormat:@"key=%@",HTTPClientInstance.token] forKey:NSHTTPCookieValue];
         [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
         [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
-        [cookieProperties setObject:@".intexh.com" forKey:NSHTTPCookieDomain];
+        [cookieProperties setObject:@".public66.com" forKey:NSHTTPCookieDomain];
         NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];
         NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
         [cookieStorage setCookie:cookie];

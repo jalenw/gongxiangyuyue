@@ -63,6 +63,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self setLeftBarButtonWithImage:[UIImage imageNamed:@"first_qr"]];
     [self setRightBarButtonWithImage:[UIImage imageNamed:@"first_add"]];
     
@@ -82,6 +83,9 @@
 -(void)leftbarButtonDidTap:(UIButton *)button
 {
     HMScannerController *scanner = [HMScannerController scannerWithCardName:@"" avatar:nil completion:^(NSString *stringValue) {
+        CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+        controller.address = stringValue;
+        [self.navigationController pushViewController:controller animated:YES];
     }];
     [scanner setTitleColor:[UIColor blackColor] tintColor:[UIColor greenColor]];
     [self showDetailViewController:scanner sender:nil];
@@ -174,9 +178,24 @@
     NSDictionary *dict = menuList[indexPath.row];
     NSString *link = [dict safeStringForKey:@"adv_link"];
     if (link.length>0) {
-        CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-        controller.address = [NSString stringWithFormat:@"%@%@",web_url,link];
-        [self.navigationController pushViewController:controller animated:YES];
+        if (indexPath.row==3||indexPath.row==5||indexPath.row==6) {
+            if (indexPath.row==6)
+            {
+                CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+                controller.address = [NSString stringWithFormat:@"%@%@?vip_type=%d&longitude=%f&latitude=%f",web_url,link,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+            else {
+                CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+                controller.address = [NSString stringWithFormat:@"%@%@?longitude=%f&latitude=%f",web_url,link,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+        }
+        else {
+            CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+            controller.address = [NSString stringWithFormat:@"%@%@",web_url,link];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     }
     else
     {

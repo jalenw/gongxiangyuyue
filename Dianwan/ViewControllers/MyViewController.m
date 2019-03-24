@@ -111,7 +111,7 @@
     if (sender.tag==104) {//已购课程
        
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@d dist/course/buyedDetail?",web_url];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/course/buyedDetail?",web_url];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
 //        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
@@ -150,7 +150,7 @@
     }
     if (sender.tag==103) {//约家订单
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/order?vipType=2&longitude=%f&latitude=%f",web_url,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/order?vipType=%d&longitude=%f&latitude=%f",web_url,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
     }
