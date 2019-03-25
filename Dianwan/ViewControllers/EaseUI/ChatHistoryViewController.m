@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.smView setArray: @[@{@"name":@"发起群聊",@"image":@"friend_group_chat"},@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"约家列表",@"image":@"friend_date"}]];
+    [self.smView setArray: @[@{@"name":@"发起群聊",@"image":@"friend_group_chat"},@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
     [self.smView setBlock:^(NSInteger index) {
         self.maskView.hidden = YES;
         if (index==0) {
@@ -32,8 +32,11 @@
         else
         {
             CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-            controller.address = [NSString stringWithFormat:@"%@%@",web_url,@"dist/appointment"];
+            controller.address = [NSString stringWithFormat:@"%@wap/mall/info.html?article_id=51",web_url];
             [self.navigationController pushViewController:controller animated:YES];
+//            CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+//            controller.address = [NSString stringWithFormat:@"%@%@",web_url,@"dist/appointment"];
+//            [self.navigationController pushViewController:controller animated:YES];
         }
     }];
     [self.view addSubview:self.maskView];

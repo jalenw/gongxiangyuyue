@@ -35,18 +35,18 @@
 
 - (void)back;
 
+//前往支付页面
+-(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+
+-(void)yuePay:(NSString*)orderId :(NSString*)price;
+
 //钱包提现
 -(void)withDrawal:(NSString *)json;
 
-//vip支付
-//-(void)toPay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
-
-//前往支付页面
--(void)toPay:(NSInteger )type :(NSString *)frome :(NSString *)price :(NSString *)json;
+-(void)resetPay:(NSString*)sn :(NSString*)payment_code;
 
 -(void)goPage;
 
-//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
 - (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
 
 -(void)toClassDetail:(NSString*)goodId;
@@ -107,9 +107,23 @@
 
 
 
--(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json{
+-(void)toPay:(NSInteger )type :(NSString *)frome :(NSString *)price :(NSString *)json{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController pay:type from:frome price:price json:json];
+        [self.webViewController toPay:type :frome :price :json];
+    });
+}
+
+-(void)yuePay:(NSString*)orderId :(NSString*)price
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController yuePay:orderId :price];
+    });
+}
+
+-(void)resetPay:(NSString*)sn :(NSString*)payment_code
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController resetPay:sn :payment_code];
     });
 }
 
@@ -608,20 +622,6 @@
     
 }
 
-//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar{
-//    if (HTTPClientInstance.isLogin == NO) {
-//        [AlertHelper showAlertWithTitle:@"请登录后再进行操作"];
-//        return;
-//    }
-//    if (member_chat_id.length > 0) {
-//        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:member_chat_id conversationType:eConversationTypeGroupChat];
-//        [self.navigationController pushViewController:chatController animated:YES];
-//    }else{
-//        [AlertHelper showAlertWithTitle:@"聊天信息有误"];
-//        return;
-//    }
-//}
-
 - (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId
 {
     if (HTTPClientInstance.isLogin == NO) {
@@ -645,16 +645,39 @@
 }
 
 //vip支付
--(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+-(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
 {
     WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
     waitpay.moneryNum =price;
-    waitpay.order_id =@"";//订单号
-    waitpay.type = @"vip";
+    waitpay.order_id =@"";
+    waitpay.json = json;
+    waitpay.type = [NSString stringWithFormat:@"%ld",(long)type];
     [self.navigationController pushViewController:waitpay animated:YES];
     
 }
 
+-(void)yuePay:(NSString*)orderId :(NSString*)price
+{
+    
+}
+
+-(void)resetPay:(NSString*)sn :(NSString*)payment_code
+{
+    NSString *code = @"";
+    if ([payment_code isEqualToString:@"1"]) {
+        code = @"alipay_app";
+    }
+    else if ([payment_code isEqualToString:@"2"]) {
+        code = @"wxpay_app";
+    }
+    [[ServiceForUser manager] postMethodName:@"index.php?s=mobile/Memberpayment/pd_pay" params:@{@"pay_sn":sn,@"payment_code":code} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
 
 - (SYPasswordView *)pasView{
     if (!_pasView) {
@@ -662,5 +685,4 @@
     }
     return _pasView;
 }
-
 @end
