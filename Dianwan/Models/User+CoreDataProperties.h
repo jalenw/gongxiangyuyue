@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *member_areaid;
 @property (nullable, nonatomic, retain) NSString *member_cityid;
 @property (nullable, nonatomic, retain) NSString *member_provinceid;
+@property (nullable, nonatomic, retain) NSString *area;
 @end
 
 @interface User (CoreDataGeneratedAccessors)

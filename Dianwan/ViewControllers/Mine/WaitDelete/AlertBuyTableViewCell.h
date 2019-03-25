@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AlertBuyTableViewCell : UITableViewCell
 @property(nonatomic,strong) NSDictionary *dict;
+@property(nonatomic,strong)NSString *ossurl;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;

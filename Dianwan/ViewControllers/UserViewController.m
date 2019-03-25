@@ -65,8 +65,6 @@
     }
     self.provinceTableview.dataSource =self;
     self.provinceTableview.delegate =self;
-//    self.citySelectView.frame = CGRectMake(0, ScreenHeight-357, ScreenWidth, 357);
-//    [self.view addSubview:self.citySelectView];
     [self setupForDismissKeyboard];//只要controller加上此方法，点击空白地方就能收起键盘
 }
 
@@ -470,12 +468,15 @@
             AppDelegateInstance.defaultUser.phone =[result safeStringForKey:@"member_mobile"];
             AppDelegateInstance.defaultUser.nickname =[result safeStringForKey:@"member_name"];
             AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
+            AppDelegateInstance.defaultUser.area =[result safeStringForKey:@"area"].length>0?[result safeStringForKey:@"area"]:AppDelegateInstance.defaultUser.area;
             [AppDelegateInstance saveContext];
             [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
             self.name.text = AppDelegateInstance.defaultUser.nickname;
             self.realName.text=AppDelegateInstance.defaultUser.nickname;
             self.phone.text=AppDelegateInstance.defaultUser.phone;
-            [self.city setTitle:AppDelegateInstance.defaultUser.member_cityid forState:UIControlStateNormal];
+            NSLog(@"%@",AppDelegateInstance.defaultUser.area);
+            [self.cityBtn setTitle:AppDelegateInstance.defaultUser.area forState:UIControlStateNormal];
+         
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
@@ -483,9 +484,17 @@
     
 }
 - (IBAction)hiddSelectViewACT:(UIButton *)sender {
-   
-    [self.cityBtn setTitle:[NSString stringWithFormat:@"%@ %@ %@", ((UIButton*) _titleScrollview.subviews[0]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[1]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[2]).titleLabel.text] forState:UIControlStateNormal];
-//    self.citySelectView.hidden = YES;
+    if( ![((UIButton*)_titleScrollview.subviews[0]).titleLabel.text containsString:@"请选择"] ){
+        
+    }
+    if([((UIButton*)_titleScrollview.subviews[1]).titleLabel.text containsString:@"请选择"] ){
+        
+    }
+    if([((UIButton*)_titleScrollview.subviews[2]).titleLabel.text containsString:@"请选择"]){
+        
+     }else{
+         [self.cityBtn setTitle:[NSString stringWithFormat:@"%@ %@ %@", ((UIButton*) _titleScrollview.subviews[0]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[1]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[2]).titleLabel.text] forState:UIControlStateNormal];
+     }
     self.maskView.hidden = YES;
 }
 
@@ -503,6 +512,7 @@
     }
     return _cityArr;
 }
+
 -(NSMutableArray *)areaArr{
     if (!_areaArr) {
         _areaArr = [NSMutableArray array];
