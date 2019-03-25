@@ -33,6 +33,9 @@
 //约家订单支付
 -(void)yuePay:(NSString*)orderId :(NSString*)price;
 
+//钱包提现
+-(void)withDrawal:(NSString *)json;
+
 //第三方支付充值
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
 
