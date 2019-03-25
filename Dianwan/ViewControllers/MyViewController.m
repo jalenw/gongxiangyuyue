@@ -161,7 +161,7 @@
     }
     if (sender.tag==106) {//会员升级
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0",web_url];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/mall/shopping?shop_id=0&vip_type=%d&longitude=%f&latitude=%f",web_url,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
     }

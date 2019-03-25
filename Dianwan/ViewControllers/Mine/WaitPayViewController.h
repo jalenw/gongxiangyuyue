@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WaitPayViewController : BaseViewController
 @property(nonatomic,strong)NSString *moneryNum;
 @property(nonatomic,strong)NSString *order_id;
-@property(nonatomic,strong)NSString *type;
+@property(nonatomic)int type;//0购买vip 1购买矿机 2购买课程
 @property(nonatomic,strong)NSString *json;
 @property (weak, nonatomic) IBOutlet UIButton *weichatPayBtn;
 @property (weak, nonatomic) IBOutlet UIButton *aliPayBtn;

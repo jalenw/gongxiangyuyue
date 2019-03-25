@@ -182,7 +182,7 @@
             if (indexPath.row==6)
             {
                 CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-                controller.address = [NSString stringWithFormat:@"%@%@?vip_type=%d&longitude=%f&latitude=%f",web_url,link,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+                controller.address = [NSString stringWithFormat:@"%@%@&vip_type=%d&longitude=%f&latitude=%f",web_url,link,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
                 [self.navigationController pushViewController:controller animated:YES];
             }
             else {
