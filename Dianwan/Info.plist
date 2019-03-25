@@ -29,7 +29,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>shareorder</string>
+				<string>gongxiangyuyue</string>
 			</array>
 		</dict>
 		<dict>
@@ -53,7 +53,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx0070a9a5bbfef3a0</string>
+				<string>wxfe0f187c2f075717</string>
 			</array>
 		</dict>
 	</array>
@@ -133,9 +133,9 @@
 	<key>key_qq_appkey</key>
 	<string>8sVESEfPdSe1YZ79</string>
 	<key>key_wechat_appid</key>
-	<string>wx0070a9a5bbfef3a0</string>
+	<string>wxfe0f187c2f075717</string>
 	<key>key_wechat_secret</key>
-	<string>369b6270d50e1f88aa644db3c22ab9b0</string>
+	<string>395d6c51e4227f59b8124af7791e432e</string>
 	<key>key_weibo</key>
 	<string>1842117588</string>
 	<key>key_weibo_secret</key>

@@ -199,6 +199,8 @@
     }
     else
     {
+        [AlertHelper showAlertWithTitle:@"功能暂没开通"];
+        return;
         LiveListViewController *list = [[LiveListViewController alloc]init];
         [self.navigationController pushViewController:list  animated:YES];
     }

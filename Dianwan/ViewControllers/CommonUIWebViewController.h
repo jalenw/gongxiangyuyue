@@ -15,7 +15,6 @@
 @property (nonatomic,assign)BOOL showNav;//是否使用原生导航栏
 
 //跳转聊天
-//- (void)go2Chat:(NSString*)member_chat_id :(NSString*)member_id :(NSString*)member_name :(NSString*)member_avatar;
 - (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
 //跳转课程详情
 -(void)toClassDetail:(NSString*)goodId;
@@ -29,10 +28,13 @@
 - (void)home;
 
 //vip支付
--(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
+-(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
 
+//约家订单支付
+-(void)yuePay:(NSString*)orderId :(NSString*)price;
 
-
+//第三方支付充值
+-(void)resetPay:(NSString*)sn :(NSString*)payment_code;
 
 //H5直接调用支付
 - (void)withdrawal:(NSString*)pay_style :(NSString*)price;
