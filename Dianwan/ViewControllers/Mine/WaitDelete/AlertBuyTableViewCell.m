@@ -16,7 +16,7 @@
     self.accountLabel.userInteractionEnabled = YES;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
   
-    longPress.numberOfTapsRequired = 1;
+//    longPress.numberOfTapsRequired = 1;
     [self.accountLabel addGestureRecognizer:longPress];
     
 }
