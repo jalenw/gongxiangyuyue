@@ -31,7 +31,8 @@
 //vip支付
 -(void)pay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
 
-
+//钱包提现
+-(void)withDrawal:(NSString *)json;
 
 
 //H5直接调用支付

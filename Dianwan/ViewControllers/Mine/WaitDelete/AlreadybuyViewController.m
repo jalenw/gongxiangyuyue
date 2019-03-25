@@ -53,7 +53,7 @@
 //                            @"pagesize":@"5",
 //                            @"page":@(page)
                             };
-    [[ServiceForUser manager]postMethodName:@"Channels/getLive" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"coursesgoods/myPurchasedCourses" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [dataList removeAllObjects];
             [self.classListTableview.header endRefreshing];
@@ -71,8 +71,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-      return 5;
-//    return dataList.count;
+//      return 5;
+    return dataList.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -80,21 +80,21 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AlertBuyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AlertBuyTableViewCell"];
-    cell.dict = @{
-        @"id": @(1),
-        @"order_sn": @"19030810554827723381",
-        @"courses_goods_name": @"课程名称",
-        @"courses_price": @"200",
-        @"courses_goods_image": @"http://shengbafang.oss-cn-shenzhen.aliyuncs.com/mine_machine/oss_uploads/home/common/mine-machine-pic-4.jpg",
-        @"courses_skydrive_link": @"http://www.baidu.com",
-        @"courses_skydrive_code":@"4",
-        @"order_state": @"0",
-        @"store_id": @(23),
-        @"member_id": @(10381),
-        @"pay_time": @"2019-03-08",
-        @"courses_goods_id": @(4),
-        @"member_name": @"222"
-    };//dataList[indexPath.row];
+    cell.dict =dataList[indexPath.row]  ;//@{
+//        @"id": @(1),
+//        @"order_sn": @"19030810554827723381",
+//        @"courses_goods_name": @"课程名称",
+//        @"courses_price": @"200",
+//        @"courses_goods_image": @"http://shengbafang.oss-cn-shenzhen.aliyuncs.com/mine_machine/oss_uploads/home/common/mine-machine-pic-4.jpg",
+//        @"courses_skydrive_link": @"http://www.baidu.com",
+//        @"courses_skydrive_code":@"4",
+//        @"order_state": @"0",
+//        @"store_id": @(23),
+//        @"member_id": @(10381),
+//        @"pay_time": @"2019-03-08",
+//        @"courses_goods_id": @(4),
+//        @"member_name": @"222"
+//    };//dataList[indexPath.row];
     return cell;
 }
 

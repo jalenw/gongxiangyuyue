@@ -24,15 +24,15 @@
 }
 @property (weak, nonatomic) IBOutlet UILabel *countLab;
 @property (weak, nonatomic) IBOutlet UIView *advView;
+@property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property(nonatomic,strong)NSMutableArray *imagesArr;
 @property(nonatomic,strong)NSMutableString *imagesStr;
-@property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property(nonatomic,strong)  UITextView *textview;
 @property(nonatomic,assign)NSInteger pay_type;
 
 @property (strong, nonatomic) IBOutlet UIView *pwInputView;
-@property (nonatomic, strong) SYPasswordView *pasView;
 @property (weak, nonatomic) IBOutlet UIView *pwView;
+@property (nonatomic, strong) SYPasswordView *pasView;
 @end
 
 @implementation ReleaseAdvViewController
@@ -225,11 +225,6 @@
         }
     }
 }
-
-
-
-
-
 
 
 - (void)editPortrait {

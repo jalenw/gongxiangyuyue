@@ -27,12 +27,16 @@
 
 #import "ClassDetailViewController.h"
 
+
+#import "SYPasswordView.h"
+
 @protocol JSBridgeExport <JSExport>
 //与H5交互协议
 
 - (void)back;
 
-
+//钱包提现
+-(void)withDrawal:(NSString *)json;
 
 //vip支付
 //-(void)toPay:(NSInteger )type from:(NSString *)frome price:(NSString *)price json:(NSString *)json;
@@ -90,6 +94,13 @@
 }
 
 
+-(void)withDrawal:(NSString *)json{
+      dispatch_async(dispatch_get_main_queue(), ^{
+          [self.webViewController withDrawal:json];
+      });
+}
+
+
 -(void)goPage{
      [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
 }
@@ -137,7 +148,10 @@
 @property (nonatomic, strong) UIButton *backButton;
 
 @property (nonatomic, strong) JSContext *jsContext;
+@property (strong, nonatomic) IBOutlet UIView *pwInputView;
+@property (weak, nonatomic) IBOutlet UIView *pwView;
 
+@property (nonatomic, strong) SYPasswordView *pasView;
 @end
 
 @implementation CommonUIWebViewController
@@ -198,6 +212,10 @@
     [self.view addSubview:backButton];
     backButton.hidden = YES;
     self.backButton = backButton;
+    
+    self.pwInputView.frame = self.view.bounds;
+    self.pwInputView.hidden = YES;
+    [self.view addSubview:self.pwInputView];
 }
 
 //若果地址参数没有带key，自动补全
@@ -358,8 +376,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-//    NSString *urlStr = request.URL.absoluteString;
-//    NSLog(@"url  =%@",urlStr);
     return YES;
 }
 
@@ -388,6 +404,45 @@
         }else{
             [self dismissWebView];
         }
+}
+
+-(void)withDrawal:(NSString *)json{
+    
+    
+    self.pwInputView.hidden = NO;
+    [self.pasView.textField becomeFirstResponder];
+    //创建密码输入控价
+    self.pasView.layer.cornerRadius = 5;
+    self.pasView.layer.masksToBounds =YES;
+    [self.pwView addSubview:_pasView];
+    __weak typeof(self) weakSelf = self;
+    self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
+        //支付操作
+        [weakSelf.pasView clearUpPassword];
+        [weakSelf.pasView.textField resignFirstResponder];
+        weakSelf.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        NSDictionary *requeatParams =  [Tooles stringToJson:json];
+        NSDictionary *params =@{
+                                @"pdc_amount":[requeatParams safeStringForKey:@"pdc_amount"],
+                                @"pdc_bank_name":[requeatParams safeStringForKey:@"pdc_bank_name"],
+                                @"pdc_bank_no":[requeatParams safeStringForKey:@"pdc_bank_no"],
+                                @"pdc_bank_user":[requeatParams safeStringForKey:@"pdc_bank_user"],
+                                @"mobilenum":@([requeatParams safeIntForKey:@"mobilenum"]),
+                                @"password":pwNumber
+                                };
+        [[ServiceForUser manager] postMethodName:@"Recharge/pd_cash_add.html" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                 weakSelf.pwInputView.hidden = YES;
+            }else{
+                [AlertHelper showAlertWithTitle:error];
+                weakSelf.pwInputView.hidden = YES;
+            }
+        }];
+        
+    };
+        
+ 
 }
 
 
@@ -600,5 +655,12 @@
     
 }
 
+
+- (SYPasswordView *)pasView{
+    if (!_pasView) {
+        _pasView =  [[SYPasswordView alloc] initWithFrame:CGRectMake(20, 93, 288, 48)];
+    }
+    return _pasView;
+}
 
 @end

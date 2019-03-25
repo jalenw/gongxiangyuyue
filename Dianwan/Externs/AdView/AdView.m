@@ -67,6 +67,7 @@
     
     [self.timer invalidate];
     self.timer = nil;
+    
     self.timer =[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(timerAct) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }

@@ -107,6 +107,7 @@
 		2F6B3069223D000D00BD686B /* PaySucessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3066223D000C00BD686B /* PaySucessViewController.m */; };
 		2F6B306D223D003000BD686B /* WaitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B306A223D002F00BD686B /* WaitPayViewController.xib */; };
 		2F6B306E223D003000BD686B /* WaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B306C223D003000BD686B /* WaitPayViewController.m */; };
+		2FCF93A52248BAFE00683978 /* CommonUIWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */; };
 		8E059A28212174B30047A07D /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E059A25212174B10047A07D /* PayViewController.xib */; };
 		8E059A29212174B30047A07D /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E059A26212174B20047A07D /* PayViewController.m */; };
 		8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1823892247605C001511ED /* ClassDetailViewController.m */; };
@@ -700,6 +701,7 @@
 		2F6B306A223D002F00BD686B /* WaitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitPayViewController.xib; sourceTree = "<group>"; };
 		2F6B306B223D002F00BD686B /* WaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitPayViewController.h; sourceTree = "<group>"; };
 		2F6B306C223D003000BD686B /* WaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitPayViewController.m; sourceTree = "<group>"; };
+		2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonUIWebViewController.xib; sourceTree = "<group>"; };
 		8E059A25212174B10047A07D /* PayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
 		8E059A26212174B20047A07D /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		8E059A27212174B20047A07D /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
@@ -1816,6 +1818,7 @@
 			isa = PBXGroup;
 			children = (
 				0432ECF51F271F0B008D7AA3 /* CommonUIWebViewController.h */,
+				2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */,
 				0432ECF61F271F0B008D7AA3 /* CommonUIWebViewController.m */,
 			);
 			name = WebViewController;
@@ -3484,8 +3487,8 @@
 				TargetAttributes = {
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2KWAH85S26;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = SYKDB6MBYW;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -3681,6 +3684,7 @@
 				8EB4E4E521201FAE00BC563B /* chatBar_more_face@2x.png in Resources */,
 				8EB4E53921201FAE00BC563B /* chatBar_more@2x.png in Resources */,
 				8EB4E51321201FAE00BC563B /* VoiceSearchFeedback004@2x.png in Resources */,
+				2FCF93A52248BAFE00683978 /* CommonUIWebViewController.xib in Resources */,
 				8EB4E50221201FAE00BC563B /* VoiceSearchFeedback010@2x.png in Resources */,
 				8EB4E4D821201FAE00BC563B /* chat_receiver_audio_playing001@2x.png in Resources */,
 				8EB4E50A21201FAE00BC563B /* VoiceSearchFeedback001.png in Resources */,
@@ -4114,8 +4118,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4157,10 +4161,10 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4172,8 +4176,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4214,10 +4218,10 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

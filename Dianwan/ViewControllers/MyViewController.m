@@ -110,20 +110,24 @@
     }
     if (sender.tag==104) {//已购课程
        
-        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/course/buyedDetail?",web_url];
-        commonweb.showNav = NO;
-        [self.navigationController pushViewController:commonweb animated:YES];
-//        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
-//        [self.navigationController pushViewController:alreadBuy animated:YES];
+//        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+//        commonweb.address =[NSString stringWithFormat:@"%@dist/course/buyedDetail?",web_url];
+//        commonweb.showNav = NO;
+//        [self.navigationController pushViewController:commonweb animated:YES];
+        AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
+        [self.navigationController pushViewController:alreadBuy animated:YES];
     }
     if (sender.tag==105) {//付费直播
 //        LiveListViewController *list = [[LiveListViewController alloc]init];
 //        [self.navigationController pushViewController:list  animated:YES];
     }
     if (sender.tag==107) {//消息
-        MessageParentViewcontroller *messageCenter = [[MessageParentViewcontroller alloc]init];
-        [self.navigationController pushViewController:messageCenter animated:YES];
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/text/list",web_url];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+//        MessageParentViewcontroller *messageCenter = [[MessageParentViewcontroller alloc]init];
+//        [self.navigationController pushViewController:messageCenter animated:YES];
     }
     if (sender.tag==108) {//客服中心
         if (HTTPClientInstance.isLogin == NO) {
