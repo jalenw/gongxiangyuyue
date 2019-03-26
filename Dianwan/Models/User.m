@@ -90,5 +90,9 @@
     [object tryUpdateFromDict:dict forKey:@"member_areaid" propertyType:PropertyTypeString];
     [object tryUpdateFromDict:dict forKey:@"member_cityid" propertyType:PropertyTypeString];
     [object tryUpdateFromDict:dict forKey:@"member_provinceid" propertyType:PropertyTypeString];
+    [object tryUpdateFromDict:dict forKey:@"area" propertyType:PropertyTypeString];
+    
+    
+    
 }
 @end
