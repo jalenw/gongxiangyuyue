@@ -33,8 +33,9 @@
 
 - (void)back;
 
-//前往支付页面
 -(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+
+-(void)buyGold:(NSString*)t_id :(NSString*)price;
 
 -(void)yuePay:(NSString*)orderId :(NSString*)price;
 
@@ -105,6 +106,13 @@
 -(void)toPay:(NSInteger )type :(NSString *)frome :(NSString *)price :(NSString *)json{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.webViewController toPay:type :frome :price :json];
+    });
+}
+
+-(void)buyGold:(NSString*)t_id :(NSString*)price
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController buyGold:t_id :price];
     });
 }
 
@@ -561,6 +569,11 @@
     waitpay.type = 0;
     waitpay.vipType = type;
     [self.navigationController pushViewController:waitpay animated:YES];
+    
+}
+
+-(void)buyGold:(NSString*)t_id :(NSString*)price
+{
     
 }
 

@@ -27,8 +27,11 @@
 //回到主页
 - (void)home;
 
-//vip支付
+//支付
 -(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+
+//购买金币
+-(void)buyGold:(NSString*)t_id :(NSString*)price;
 
 //约家订单支付
 -(void)yuePay:(NSString*)orderId :(NSString*)price;

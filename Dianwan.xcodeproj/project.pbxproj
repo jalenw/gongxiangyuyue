@@ -1787,8 +1787,8 @@
 			isa = PBXGroup;
 			children = (
 				0432ECF51F271F0B008D7AA3 /* CommonUIWebViewController.h */,
-				2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */,
 				0432ECF61F271F0B008D7AA3 /* CommonUIWebViewController.m */,
+				2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */,
 			);
 			name = WebViewController;
 			sourceTree = "<group>";
