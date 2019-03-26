@@ -16,6 +16,7 @@
                 <outlet property="pic" destination="fJv-dz-0aU" id="OHE-IN-CbY"/>
                 <outlet property="qrcodeBtn" destination="JDp-wp-fcI" id="cv0-7k-bcI"/>
                 <outlet property="settingBtn" destination="Z7y-cU-aue" id="wxo-V9-7cl"/>
+                <outlet property="typeLabel" destination="yyc-LH-CVt" id="YVy-YR-Nbf"/>
                 <outlet property="userCoverimageView" destination="Leq-2L-xlI" id="dtJ-0D-ogL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -412,6 +413,19 @@
                         <action selector="menuAct:" destination="-1" eventType="touchUpInside" id="u5T-6m-wEf"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyc-LH-CVt">
+                    <rect key="frame" x="220" y="154" width="27" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Label">
+                            <attributes>
+                                <color key="NSColor" red="1" green="0.4392156862745098" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="10" name=".AppleSystemUIFont"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X8E-bj-7cH">
                     <rect key="frame" x="83" y="150" width="210" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
 @property (weak, nonatomic) IBOutlet UIView *settingBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end
 
@@ -28,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+ 
     
     //适配大屏幕
     if(IS_IPHONE_Xr||IS_IPHONE_X||IS_IPHONE_Xs_Max){
@@ -58,6 +59,7 @@
     if (AppDelegateInstance.defaultUser!=nil) {
         [self.pic sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
         self.name.text = AppDelegateInstance.defaultUser.nickname;
+        [self requestUserinfo];
     }
     else
     {
@@ -138,9 +140,8 @@
         ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"" conversationType:eConversationTypeGroupChat];
             [self.navigationController pushViewController:chatController animated:YES];
 
-    }
-    
-    
+  }
+
     if (sender.tag==101) {//钱包
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
         commonweb.address =[NSString stringWithFormat:@"%@dist/person/wallet?",web_url];
@@ -178,5 +179,29 @@
         [self.navigationController pushViewController:commonweb animated:YES];
     }
   
+}
+
+
+//获取个人信息
+-(void)requestUserinfo{
+    [[ServiceForUser manager] postMethodName:@"member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            NSDictionary *result = [data safeDictionaryForKey:@"result"];
+           if([result safeIntForKey:@"viptype"] == 2){
+            
+               self.typeLabel.frame =CGRectMake(self.nameLabel.left + [Tooles sizeWithFont:[UIFont systemFontOfSize:14.0] maxSize:CGSizeMake(210, 21) string:self.nameLabel.text].width +(210-[Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:self.nameLabel.text].width)/2 +10 , self.nameLabel.top+2, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 会员 "].width, self.nameLabel.height-4);
+               self.typeLabel.textColor =RGB(255, 112, 55);
+               self.typeLabel.text =@"  会员 ";
+               self.typeLabel.cornerRadius = 4;
+               self.typeLabel.layer.masksToBounds = YES;
+               self.typeLabel.layer.borderWidth = 1;
+               self.typeLabel.layer.borderColor = RGB(255, 112, 55).CGColor;
+                }
+            
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+    
 }
 @end
