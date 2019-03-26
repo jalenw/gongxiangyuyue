@@ -247,7 +247,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Market/AdvDetailsViewController.m"
-            timestampString = "575216163.149557"
+            timestampString = "575218084.349508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -263,7 +263,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Market/AdvDetailsViewController.m"
-            timestampString = "575216163.14991"
+            timestampString = "575218084.350088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -279,7 +279,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Market/AdvDetailsViewController.m"
-            timestampString = "575216163.1499799"
+            timestampString = "575218084.350245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -291,16 +291,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlertBuyTableViewCell.m"
-            timestampString = "575216163.150049"
+            filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlreadybuyViewController.m"
+            timestampString = "575218084.350378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-setDict:"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-requesrLiveListAct"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -311,12 +311,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlertBuyTableViewCell.m"
-            timestampString = "575216163.150283"
+            timestampString = "575218084.350805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-setDict:"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "-awakeFromNib"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -327,44 +327,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlertBuyTableViewCell.m"
-            timestampString = "575216163.15036"
+            timestampString = "575218084.35182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-setDict:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlertBuyTableViewCell.m"
-            timestampString = "575216163.150445"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-setDict:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/Mine/WaitDelete/AlreadybuyViewController.m"
-            timestampString = "575216163.1505179"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-requesrLiveListAct"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-handleTap:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

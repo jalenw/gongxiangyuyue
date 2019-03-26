@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pwLabel;
 
+@property (nonatomic, strong) UIPasteboard *pasteBoard;
 @end
 
 NS_ASSUME_NONNULL_END
