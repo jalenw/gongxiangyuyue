@@ -8,6 +8,7 @@
 
 #import "ClassDetailViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "WaitPayViewController.h"
 @interface ClassDetailViewController ()
 {
     NSDictionary *dict;
@@ -25,6 +26,7 @@
             dict = [data safeDictionaryForKey:@"result"];
             self.nameLb.text = [dict safeStringForKey:@"courses_name"];
             [self.nameLb sizeToFit];
+            self.nameLb.width = ScreenWidth-16;
             self.timeLb.text = [dict safeStringForKey:@"courses_time"];
             self.timeLb.top = self.nameLb.bottom + 8;
             [self.img sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"courses_image"]]];
@@ -52,5 +54,21 @@
     mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"course_video"]]];
     mPMoviePlayerViewController.view.frame = ScreenBounds;
     [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+}
+
+- (IBAction)buyAct:(UIButton *)sender {
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"coursesgoods/immedPay" params:@{@"courses_goods_id":self.classId} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [SVProgressHUD dismiss];
+        if (status) {
+            WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+            waitpay.type = 2;
+            waitpay.moneryNum =[dict safeStringForKey:@"courses_price"];
+            waitpay.order_id = [data safeStringForKey:@"result"];
+            [self.navigationController pushViewController:waitpay animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
 }
 @end

@@ -16,20 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-- (IBAction)toRootVCAct:(UIButton *)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (self.btText) {
+        [self.bt setTitle:self.btText forState:UIControlStateNormal];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)toWhereAct:(UIButton *)sender {
+    if (self.block) {
+        self.block();
+    }
+    else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
-*/
-
 @end

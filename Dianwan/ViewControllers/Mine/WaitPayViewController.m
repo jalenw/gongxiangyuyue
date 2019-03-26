@@ -9,7 +9,7 @@
 #import "WaitPayViewController.h"
 #import "PaySucessViewController.h"
 #import "SYPasswordView.h"
-
+#import "AlreadybuyViewController.h"
 @interface WaitPayViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *moneyCountLabel;
 @property(nonatomic,strong)NSString *pay_type;
@@ -36,41 +36,15 @@
     self.pasView.layer.masksToBounds =YES;
       __weak typeof(self) weakSelf = self;
     self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
-        //支付操作
-        
-                NSDictionary *params=@{
-                                       @"pay_type":weakSelf.pay_type,
-                                       @"order_id":weakSelf.order_id,
-                                       @"member_paypwd":pwNumber
-                                       };
-                [SVProgressHUD show];
-                [[ServiceForUser manager] postMethodName:@"minemachine/payMineMachineOrder" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-                    [weakSelf.pasView clearUpPassword];
-                    [weakSelf.pasView.textField resignFirstResponder];
-                    weakSelf.pwInputView.hidden = YES;
-                    [SVProgressHUD dismiss];
-                    if (status) {
-                        if ([weakSelf.type isEqualToString:@"vip"]) {
-                            //跳转vip详情页
-                            CommonUIWebViewController *deatils = [[CommonUIWebViewController alloc]init];
-                            deatils.address =[NSString stringWithFormat:@"",web_url];
-                            deatils.showNav = NO;
-                            [weakSelf.navigationController pushViewController:deatils animated:YES];
-                        }else{
-                            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-                            [weakSelf.navigationController pushViewController:paysuc animated:YES];
-                        }
-                    
-                    //把自己从视图栈删除
-        //            NSMutableArray *tempMarray = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-        //            [tempMarray removeObject:self];
-        //            [self.navigationController setViewControllers:tempMarray animated:YES];
-        //            [self removeFromParentViewController];
-        
-                    }else{
-                        [AlertHelper showAlertWithTitle:error];
-                    }
-                }];
+        if (weakSelf.type==0) {
+            
+        }
+        if (weakSelf.type==1) {
+            [weakSelf payForMine:pwNumber];
+        }
+        if (weakSelf.type==2) {
+            [weakSelf payForClass:pwNumber];
+        }
     };
     [self.pwView addSubview:_pasView];
     self.pwInputView.frame = self.view.bounds;
@@ -113,4 +87,51 @@
     }
 }
 
+-(void)payForMine:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"pay_type":self.pay_type,
+                           @"order_id":self.order_id,
+                           @"member_paypwd":pwNumber
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"minemachine/payMineMachineOrder" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
+
+-(void)payForClass:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"order_sn":self.order_id,
+                           @"member_paypwd":pwNumber
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"coursesgoods/coursesGoodsBalancePay" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买课程";
+            [paysuc setBlock:^{
+                AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
+                [self.navigationController pushViewController:alreadBuy animated:YES];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
 @end

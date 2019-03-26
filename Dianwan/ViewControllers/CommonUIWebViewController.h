@@ -27,8 +27,11 @@
 //回到主页
 - (void)home;
 
-//vip支付
+//支付
 -(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+
+//购买金币
+-(void)buyGold:(NSString*)t_id :(NSString*)price;
 
 //约家订单支付
 -(void)yuePay:(NSString*)orderId :(NSString*)price;
@@ -38,10 +41,4 @@
 
 //第三方支付充值
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
-
-//H5直接调用支付
-- (void)withdrawal:(NSString*)pay_style :(NSString*)price;
-
-//根据订单号打开选择支付方式，包含钱包支付
-- (void)pay_style:(NSString*)pay_sn;
 @end

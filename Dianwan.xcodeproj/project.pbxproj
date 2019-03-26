@@ -108,8 +108,6 @@
 		2F6B306D223D003000BD686B /* WaitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B306A223D002F00BD686B /* WaitPayViewController.xib */; };
 		2F6B306E223D003000BD686B /* WaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B306C223D003000BD686B /* WaitPayViewController.m */; };
 		2FCF93A52248BAFE00683978 /* CommonUIWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */; };
-		8E059A28212174B30047A07D /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E059A25212174B10047A07D /* PayViewController.xib */; };
-		8E059A29212174B30047A07D /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E059A26212174B20047A07D /* PayViewController.m */; };
 		8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1823892247605C001511ED /* ClassDetailViewController.m */; };
 		8E18238C2247605C001511ED /* ClassDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E18238A2247605C001511ED /* ClassDetailViewController.xib */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
@@ -127,12 +125,8 @@
 		8E4664F3216A2EC90022DF94 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E4664F0216A2EC90022DF94 /* UserViewController.xib */; };
 		8E4664F4216A2EC90022DF94 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4664F2216A2EC90022DF94 /* UserViewController.m */; };
 		8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */; };
-		8E7ABFB2211ACBD800EADF76 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFB0211ACBD800EADF76 /* FeedbackViewController.m */; };
-		8E7ABFB3211ACBD800EADF76 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFB1211ACBD800EADF76 /* FeedbackViewController.xib */; };
 		8E7ABFC7211AD9CC00EADF76 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC5211AD9CC00EADF76 /* SettingViewController.m */; };
 		8E7ABFC8211AD9CC00EADF76 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC6211AD9CC00EADF76 /* SettingViewController.xib */; };
-		8E7ABFCC211AE29300EADF76 /* BindingPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC9211AE29300EADF76 /* BindingPhoneViewController.m */; };
-		8E7ABFCD211AE29300EADF76 /* BindingPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFCA211AE29300EADF76 /* BindingPhoneViewController.xib */; };
 		8E7ABFD1211AE3FB00EADF76 /* ModifyPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFCF211AE3FB00EADF76 /* ModifyPwViewController.m */; };
 		8E7ABFD2211AE3FB00EADF76 /* ModifyPwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFD0211AE3FB00EADF76 /* ModifyPwViewController.xib */; };
 		8E7ABFD6211AECE800EADF76 /* SetPayPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFD4211AECE800EADF76 /* SetPayPwViewController.m */; };
@@ -702,9 +696,6 @@
 		2F6B306B223D002F00BD686B /* WaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitPayViewController.h; sourceTree = "<group>"; };
 		2F6B306C223D003000BD686B /* WaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitPayViewController.m; sourceTree = "<group>"; };
 		2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonUIWebViewController.xib; sourceTree = "<group>"; };
-		8E059A25212174B10047A07D /* PayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
-		8E059A26212174B20047A07D /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
-		8E059A27212174B20047A07D /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		8E1823882247605C001511ED /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
 		8E1823892247605C001511ED /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		8E18238A2247605C001511ED /* ClassDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassDetailViewController.xib; sourceTree = "<group>"; };
@@ -731,16 +722,10 @@
 		8E4664F1216A2EC90022DF94 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		8E4664F2216A2EC90022DF94 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
-		8E7ABFAF211ACBD800EADF76 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
-		8E7ABFB0211ACBD800EADF76 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
-		8E7ABFB1211ACBD800EADF76 /* FeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		8E7ABFB6211AD30F00EADF76 /* Dianwan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dianwan.entitlements; sourceTree = "<group>"; };
 		8E7ABFC4211AD9CB00EADF76 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		8E7ABFC5211AD9CC00EADF76 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		8E7ABFC6211AD9CC00EADF76 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
-		8E7ABFC9211AE29300EADF76 /* BindingPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneViewController.m; sourceTree = "<group>"; };
-		8E7ABFCA211AE29300EADF76 /* BindingPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindingPhoneViewController.xib; sourceTree = "<group>"; };
-		8E7ABFCB211AE29300EADF76 /* BindingPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingPhoneViewController.h; sourceTree = "<group>"; };
 		8E7ABFCE211AE3FB00EADF76 /* ModifyPwViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyPwViewController.h; sourceTree = "<group>"; };
 		8E7ABFCF211AE3FB00EADF76 /* ModifyPwViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyPwViewController.m; sourceTree = "<group>"; };
 		8E7ABFD0211AE3FB00EADF76 /* ModifyPwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyPwViewController.xib; sourceTree = "<group>"; };
@@ -1672,22 +1657,6 @@
 			path = WaitDelete;
 			sourceTree = "<group>";
 		};
-		2F23C53C2240CA6D0044C0F4 /* unUse */ = {
-			isa = PBXGroup;
-			children = (
-				8E7ABFCB211AE29300EADF76 /* BindingPhoneViewController.h */,
-				8E7ABFC9211AE29300EADF76 /* BindingPhoneViewController.m */,
-				8E7ABFCA211AE29300EADF76 /* BindingPhoneViewController.xib */,
-				8E7ABFAF211ACBD800EADF76 /* FeedbackViewController.h */,
-				8E7ABFB0211ACBD800EADF76 /* FeedbackViewController.m */,
-				8E7ABFB1211ACBD800EADF76 /* FeedbackViewController.xib */,
-				8E059A27212174B20047A07D /* PayViewController.h */,
-				8E059A26212174B20047A07D /* PayViewController.m */,
-				8E059A25212174B10047A07D /* PayViewController.xib */,
-			);
-			name = unUse;
-			sourceTree = "<group>";
-		};
 		2F23C53D2240CACD0044C0F4 /* MessageCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1818,8 +1787,8 @@
 			isa = PBXGroup;
 			children = (
 				0432ECF51F271F0B008D7AA3 /* CommonUIWebViewController.h */,
-				2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */,
 				0432ECF61F271F0B008D7AA3 /* CommonUIWebViewController.m */,
+				2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */,
 			);
 			name = WebViewController;
 			sourceTree = "<group>";
@@ -2238,7 +2207,6 @@
 			isa = PBXGroup;
 			children = (
 				2F23C53D2240CACD0044C0F4 /* MessageCenter */,
-				2F23C53C2240CA6D0044C0F4 /* unUse */,
 				2F23C52C224099B70044C0F4 /* citrySelect */,
 				2F6AE60C223BFEB1002400CF /* View */,
 				2F6AE607223BFBDF002400CF /* LiveListViewController.h */,
@@ -3488,7 +3456,7 @@
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2KWAH85S26;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -3601,7 +3569,6 @@
 				8EB4E4D921201FAE00BC563B /* callBg@2x.png in Resources */,
 				8EB4E4C821201FAE00BC563B /* call_out_h@2x.png in Resources */,
 				8EB4E50E21201FAE00BC563B /* VoiceSearchFeedback017.png in Resources */,
-				8E059A28212174B30047A07D /* PayViewController.xib in Resources */,
 				04395EDE1F233EC10074865E /* TZImagePickerController.bundle in Resources */,
 				8EB4E4F421201FAE00BC563B /* VoiceSearchFeedback017@2x.png in Resources */,
 				8EB4E4F921201FAE00BC563B /* VoiceSearchFeedback019@2x.png in Resources */,
@@ -3612,7 +3579,6 @@
 				8EB4E52021201FAE00BC563B /* chatBar_more_photo.png in Resources */,
 				8EB4E50821201FAE00BC563B /* VoiceSearchFeedback012@2x.png in Resources */,
 				2F17D97E223E2B13008E0E94 /* AlertBuyTableViewCell.xib in Resources */,
-				8E7ABFB3211ACBD800EADF76 /* FeedbackViewController.xib in Resources */,
 				CD6323C31EE54C1100D033F4 /* WeiboSDK.bundle in Resources */,
 				8EB4E54521201FAE00BC563B /* call_out_h.png in Resources */,
 				8EB4E51821201FAE00BC563B /* chatBar_recordSelectedBg@2x.png in Resources */,
@@ -3632,7 +3598,6 @@
 				8EB4E51521201FAE00BC563B /* VoiceSearchFeedback006@2x.png in Resources */,
 				8EB4E52C21201FAE00BC563B /* chatBar_colorMore_cameraSelected@2x.png in Resources */,
 				8EB4E50021201FAE00BC563B /* VoiceSearchFeedback012.png in Resources */,
-				8E7ABFCD211AE29300EADF76 /* BindingPhoneViewController.xib in Resources */,
 				8EB4E53721201FAE00BC563B /* messageToolbarBg@2x.png in Resources */,
 				2F3F8835223ABADC00A46086 /* MarketTableViewCell.xib in Resources */,
 				8EB4E4F821201FAE00BC563B /* VoiceSearchFeedback007@2x.png in Resources */,
@@ -3799,7 +3764,6 @@
 				8E4664EE2169BFD70022DF94 /* MKAnnotation.m in Sources */,
 				8EEF4BD6211D8CB500DE1E36 /* PSTCollectionViewController.m in Sources */,
 				2F6AE615223C0AA9002400CF /* AlreadybuyViewController.m in Sources */,
-				8E7ABFB2211ACBD800EADF76 /* FeedbackViewController.m in Sources */,
 				8EB4E3EF212009AD00BC563B /* MKAnnotationView+EMWebCache.m in Sources */,
 				04395EE51F233EC10074865E /* UIView+Layout.m in Sources */,
 				8EEF4C07211D8CB500DE1E36 /* EaseRecordView.m in Sources */,
@@ -3834,7 +3798,6 @@
 				2F6AE629223CA51E002400CF /* AdvDetailsViewController.m in Sources */,
 				04395EDC1F233EC10074865E /* TZImageCropManager.m in Sources */,
 				8EEF4BC3211D8CB500DE1E36 /* wav.mm in Sources */,
-				8E7ABFCC211AE29300EADF76 /* BindingPhoneViewController.m in Sources */,
 				8E9FE2D3212E72B900D26955 /* MJRefreshComponent.m in Sources */,
 				8E9FE2D4212E72B900D26955 /* UIView+MJExtension.m in Sources */,
 				8EEF4BDD211D8CB500DE1E36 /* PSTGridLayoutSection.m in Sources */,
@@ -3849,7 +3812,6 @@
 				8EEF4C12211D8CB500DE1E36 /* EaseMessageHelper+RemoveAfterRead.m in Sources */,
 				8E7ABFC7211AD9CC00EADF76 /* SettingViewController.m in Sources */,
 				2F6AE61A223C0B92002400CF /* ClassListTableViewCell.m in Sources */,
-				8E059A29212174B30047A07D /* PayViewController.m in Sources */,
 				CD06662B1E8CB53700CCD49A /* UIBarButtonItem+Extension.m in Sources */,
 				8E9FE2CC212E72B900D26955 /* UIScrollView+MJRefresh.m in Sources */,
 				04395EE31F233EC10074865E /* TZProgressView.m in Sources */,
@@ -4118,7 +4080,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -4161,10 +4123,10 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = yuyue_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4176,7 +4138,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -4218,10 +4180,10 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = yuyue_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaySucessViewController">
             <connections>
+                <outlet property="bt" destination="SQ6-4Q-ghh" id="vH5-by-xkt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +45,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="toRootVCAct:" destination="-1" eventType="touchUpInside" id="CoR-Gz-pHO"/>
+                        <action selector="toWhereAct:" destination="-1" eventType="touchUpInside" id="Amc-vj-qbw"/>
                     </connections>
                 </button>
             </subviews>

@@ -115,6 +115,7 @@
         [SVProgressHUD dismiss];
         if (status) {
             WaitPayViewController *wait = [[WaitPayViewController alloc]init];
+            wait.type = 1;
             wait.moneryNum =[NSString stringWithFormat:@"%d", [dataList[indexPath.row] safeIntForKey:@"mine_machine_price"]];
             wait.order_id =[[data safeDictionaryForKey:@"result"] safeStringForKey:@"order_id"];
             [self.navigationController pushViewController:wait animated:YES];
@@ -123,7 +124,6 @@
         }
         
     }];
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

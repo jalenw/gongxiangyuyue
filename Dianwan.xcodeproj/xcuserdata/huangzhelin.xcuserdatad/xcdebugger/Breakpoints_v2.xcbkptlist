@@ -628,13 +628,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575212376.055526"
+            timestampString = "575263791.512657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "JSBridge"
-            landmarkType = "3">
+            landmarkType = "2">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -687,27 +687,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575212376.056073"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "JSBridge"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/LiveListViewController.m"
-            timestampString = "574835597.065764"
+            timestampString = "575263791.513297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -723,11 +707,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Class/ClassDetailViewController.m"
-            timestampString = "575109198.995095"
+            timestampString = "575216820.363284"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-playAct:"
             landmarkType = "7">
          </BreakpointContent>
@@ -739,12 +723,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575212376.056352"
+            timestampString = "575263791.5134439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
-            landmarkName = "-yuePay::"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
+            landmarkName = "-toPay::::"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -755,61 +739,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575212376.056643"
+            timestampString = "575264370.318596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
-            landmarkName = "-resetPay::"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
+            landmarkName = "-buyGold::"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dianwan/ViewControllers/CommonUIWebViewController.m"
-            timestampString = "575212396.2737271"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
-            landmarkName = "-resetPay::"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CommonUIWebViewController resetPay::]"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "575212397.102397"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "630"
-                  endingLineNumber = "630"
-                  offsetFromSymbolStart = "272">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[CommonUIWebViewController resetPay::]_block_invoke"
-                  moduleName = "Dianwan"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huangzhelin/Desktop/git/gongxiangyuyue/Dianwan/ViewControllers/CommonUIWebViewController.m"
-                  timestampString = "575212397.10824"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "631"
-                  endingLineNumber = "631"
-                  offsetFromSymbolStart = "124">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
