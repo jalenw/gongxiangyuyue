@@ -128,8 +128,6 @@
         commonweb.address =[NSString stringWithFormat:@"%@dist/text/list",web_url];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
-//        MessageParentViewcontroller *messageCenter = [[MessageParentViewcontroller alloc]init];
-//        [self.navigationController pushViewController:messageCenter animated:YES];
     }
     if (sender.tag==108) {//客服中心
         if (HTTPClientInstance.isLogin == NO) {
@@ -187,7 +185,7 @@
         if (status) {
             NSDictionary *result = [data safeDictionaryForKey:@"result"];
            if([result safeIntForKey:@"viptype"] == 1){
-
+               self.typeLabel.hidden = NO;
                self.typeLabel.frame =CGRectMake(self.nameLabel.left + [Tooles sizeWithFont:[UIFont systemFontOfSize:14.0] maxSize:CGSizeMake(210, 21) string:self.nameLabel.text].width +(210-[Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:self.nameLabel.text].width)/2 +10 , self.nameLabel.top+2, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 会员 "].width, self.nameLabel.height-4);
                self.typeLabel.textColor =RGB(255, 112, 55);
                self.typeLabel.text =@"  会员 ";
