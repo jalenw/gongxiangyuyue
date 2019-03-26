@@ -247,7 +247,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Market/AdvDetailsViewController.m"
-            timestampString = "575269146.772108"
+            timestampString = "575272572.880473"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -263,7 +263,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dianwan/ViewControllers/Market/AdvDetailsViewController.m"
-            timestampString = "575269146.772801"
+            timestampString = "575272572.880569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -317,6 +317,22 @@
             startingLineNumber = "46"
             endingLineNumber = "46"
             landmarkName = "-handleTap:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dianwan/ViewControllers/FirstViewController.m"
+            timestampString = "575272745.141556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "-didClickRollingNoticeView:forIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
