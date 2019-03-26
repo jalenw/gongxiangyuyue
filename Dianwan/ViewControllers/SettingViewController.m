@@ -11,10 +11,8 @@
 #import "CommonUIWebViewController.h"
 #import "ModifyPwViewController.h"
 #import "SetPayPwViewController.h"
-#import "BindingPhoneViewController.h"
 #import "SetPayPwViewController.h"
 #import "UserViewController.h"
-#import "FeedbackViewController.h"
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *feedbackCell;
@@ -150,11 +148,6 @@
         privacyPolicy.address = [NSString stringWithFormat:@"%@wap/member/member_feedback.html?",web_url];
         privacyPolicy.showNav = NO;
         [self.navigationController pushViewController:privacyPolicy animated:YES];
-    
-//        //原生
-//        FeedbackViewController *vc = [[FeedbackViewController alloc]init];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (cell==self.pwCell)
     {

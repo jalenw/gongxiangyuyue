@@ -38,10 +38,4 @@
 
 //第三方支付充值
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
-
-//H5直接调用支付
-- (void)withdrawal:(NSString*)pay_style :(NSString*)price;
-
-//根据订单号打开选择支付方式，包含钱包支付
-- (void)pay_style:(NSString*)pay_sn;
 @end

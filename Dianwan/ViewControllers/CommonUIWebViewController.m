@@ -21,8 +21,6 @@
 
 #import "ChatViewController.h"
 
-#import "PayViewController.h"
-
 #import "WaitPayViewController.h"
 
 #import "ClassDetailViewController.h"
@@ -55,9 +53,6 @@
 
 - (void)home;
 
-- (void)withdrawal:(NSString*)pay_style :(NSString*)price;
-
-- (void)pay_style:(NSString*)pay_sn;
 @end
 
 @interface JSBridge : NSObject <JSBridgeExport>
@@ -137,20 +132,6 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.webViewController home];
-    });
-}
-
-- (void)withdrawal:(NSString*)pay_style :(NSString*)price
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController withdrawal:pay_style :price];
-    });
-}
-
-- (void)pay_style:(NSString*)pay_sn
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController pay_style:pay_sn];
     });
 }
 @end
@@ -306,81 +287,6 @@
 - (void)home
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (void)withdrawal:(NSString*)pay_style :(NSString*)price
-{
-    if ([pay_style isEqualToString:@"ali_pay"]) {
-        [AliPayManager sharedManager].delegate = self;
-        NSDictionary *param = @{@"price":price};
-        [SVProgressHUD show];
-        [[ServiceForUser manager] postMethodName:@"" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-            [SVProgressHUD dismiss];
-            if (status) {
-                NSDictionary *dict = [data safeDictionaryForKey:@"datas"];
-                NSString *signStr = [dict safeStringForKey:@"signStr"];
-                NSString *appScheme = URL_SCHEME;
-                [[AlipaySDK defaultService] payOrder:signStr fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-                    long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
-                    if (errorCode == 9000) {
-                        [AlertHelper showAlertWithTitle:@"支付成功"];
-                        [self reloadWebview];
-                    }else{
-                        if (errorCode == 6001){
-                            [AlertHelper showAlertWithTitle:@"支付失败"];
-                        }else{
-                            NSString *errorString = [resultDic safeStringForKey:@"memo"];
-                            [AlertHelper showAlertWithTitle:errorString];
-                        }
-                    }
-                }];
-            }else{
-                [AlertHelper showAlertWithTitle:error];
-            }
-        }];
-    }
-    if ([pay_style isEqualToString:@"weChat_pay"]) {
-        if (![WXApi isWXAppInstalled]) {
-            [AlertHelper showAlertWithTitle:@"未安装微信"];
-            return;
-        }
-        [WXApiManager sharedManager].delegate = self;
-        NSDictionary *param = @{@"price":price};
-        [SVProgressHUD show];
-        [[ServiceForUser manager] postMethodName:@"" params:param block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-            [SVProgressHUD dismiss];
-            if (status) {
-                NSDictionary *dict = [data safeDictionaryForKey:@"datas"];
-                dict = [dict safeDictionaryForKey:@"sgin_info"];
-                PayReq *payReq = [[PayReq alloc] init];
-                payReq.partnerId = [dict safeStringForKey:@"partnerid"];
-                payReq.prepayId= [dict safeStringForKey:@"prepayid"];
-                payReq.package = [dict safeStringForKey:@"package"];
-                payReq.nonceStr= [dict safeStringForKey:@"noncestr"];
-                long long stamp  = [[dict safeStringForKey:@"timestamp"] longLongValue];
-                payReq.timeStamp= (UInt32)stamp;
-                
-                payReq.sign= [dict safeStringForKey:@"sign"];
-                BOOL isSuccess = [WXApi sendReq:payReq];
-                if (isSuccess == NO) {
-                    [AlertHelper showAlertWithTitle:@"微信支付调用失败"];
-                }
-            }else{
-                [AlertHelper showAlertWithTitle:error];
-            }
-        }];
-    }
-}
-
-- (void)pay_style:(NSString*)pay_sn
-{
-    PayViewController *payViewController = [[PayViewController alloc]init];
-    [self addChildViewController:payViewController];
-    payViewController.pay_sn = pay_sn;
-    [payViewController setBlock:^{
-        [self reloadWebview];
-    }];
-    [self.view addSubview:payViewController.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -611,6 +517,7 @@
         //服务器端查询支付通知或查询API返回的结果再提示成功
         //NSLog(@"支付成功");
         [AlertHelper showAlertWithTitle:@"支付成功"];
+        [self reloadWebview];
     }else{
         //NSLog(@"支付失败，retcode=%d",response.errCode);
         if (response.errStr) {
@@ -651,7 +558,8 @@
     waitpay.moneryNum =price;
     waitpay.order_id =@"";
     waitpay.json = json;
-    waitpay.type = [NSString stringWithFormat:@"%ld",(long)type];
+    waitpay.type = 0;
+    waitpay.vipType = type;
     [self.navigationController pushViewController:waitpay animated:YES];
     
 }
@@ -670,9 +578,48 @@
     else if ([payment_code isEqualToString:@"2"]) {
         code = @"wxpay_app";
     }
-    [[ServiceForUser manager] postMethodName:@"index.php?s=mobile/Memberpayment/pd_pay" params:@{@"pay_sn":sn,@"payment_code":code} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"Memberpayment/pd_pay" params:@{@"pay_sn":sn,@"payment_code":code} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            
+            if ([code isEqualToString:@"wxpay_app"]) {
+                if (![WXApi isWXAppInstalled]) {
+                    [AlertHelper showAlertWithTitle:@"未安装微信"];
+                    return;
+                }
+                [WXApiManager sharedManager].delegate = self;
+                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                PayReq *payReq = [[PayReq alloc] init];
+                payReq.partnerId = [dict safeStringForKey:@"partner_id"];
+                payReq.prepayId= [dict safeStringForKey:@"prepay_id"];
+                payReq.package = [dict safeStringForKey:@"package"];
+                payReq.nonceStr= [dict safeStringForKey:@"nonce_str"];
+                long long stamp  = [[dict safeStringForKey:@"timestamp"] longLongValue];
+                payReq.timeStamp= (UInt32)stamp;
+                payReq.sign= [dict safeStringForKey:@"sign"];
+                BOOL isSuccess = [WXApi sendReq:payReq];
+                if (isSuccess == NO) {
+                    [AlertHelper showAlertWithTitle:@"微信支付调用失败"];
+                }
+            }
+            if ([code isEqualToString:@"alipay_app"]) {
+                [AliPayManager sharedManager].delegate = self;
+                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                NSString *signStr = [dict safeStringForKey:@"content"];
+                NSString *appScheme = URL_SCHEME;
+                [[AlipaySDK defaultService] payOrder:signStr fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                    long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
+                    if (errorCode == 9000) {
+                        [AlertHelper showAlertWithTitle:@"支付成功"];
+                        [self reloadWebview];
+                    }else{
+                        if (errorCode == 6001){
+                            [AlertHelper showAlertWithTitle:@"支付失败"];
+                        }else{
+                            NSString *errorString = [resultDic safeStringForKey:@"memo"];
+                            [AlertHelper showAlertWithTitle:errorString];
+                        }
+                    }
+                }];
+            }
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

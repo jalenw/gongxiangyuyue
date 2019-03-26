@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *moneryNum;
 @property(nonatomic,strong)NSString *order_id;
 @property(nonatomic)int type;//0购买vip 1购买矿机 2购买课程
+@property(nonatomic)NSInteger vipType;
 @property(nonatomic,strong)NSString *json;
 @property (weak, nonatomic) IBOutlet UIButton *weichatPayBtn;
 @property (weak, nonatomic) IBOutlet UIButton *aliPayBtn;
