@@ -57,6 +57,28 @@
 		2F17D9F3223E5FBA008E0E94 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D9E3223E5FB9008E0E94 /* IQToolbar.m */; };
 		2F17D9F4223E5FBA008E0E94 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F17D9E5223E5FB9008E0E94 /* IQUIView+IQKeyboardToolbar.m */; };
 		2F17D9F5223E5FBA008E0E94 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F17D9E7223E5FB9008E0E94 /* IQKeyboardManager.bundle */; };
+		2F232DE0225262D200B327A9 /* JPGCDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DB4225262D200B327A9 /* JPGCDExtensions.m */; };
+		2F232DE1225262D200B327A9 /* JPMethodInjecting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DB6225262D200B327A9 /* JPMethodInjecting.m */; };
+		2F232DE2225262D200B327A9 /* JPResourceLoadingRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DB8225262D200B327A9 /* JPResourceLoadingRequestTask.m */; };
+		2F232DE3225262D200B327A9 /* JPReusePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DBA225262D200B327A9 /* JPReusePool.m */; };
+		2F232DE4225262D200B327A9 /* JPVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F232DBB225262D200B327A9 /* JPVideoPlayer.bundle */; };
+		2F232DE5225262D200B327A9 /* JPVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DBD225262D200B327A9 /* JPVideoPlayer.m */; };
+		2F232DE6225262D200B327A9 /* JPVideoPlayerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DBF225262D200B327A9 /* JPVideoPlayerCache.m */; };
+		2F232DE7225262D200B327A9 /* JPVideoPlayerCacheFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DC1225262D200B327A9 /* JPVideoPlayerCacheFile.m */; };
+		2F232DE8225262D200B327A9 /* JPVideoPlayerCachePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DC3225262D200B327A9 /* JPVideoPlayerCachePath.m */; };
+		2F232DE9225262D200B327A9 /* JPVideoPlayerCellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DC5225262D200B327A9 /* JPVideoPlayerCellProtocol.m */; };
+		2F232DEA225262D200B327A9 /* JPVideoPlayerCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DC7225262D200B327A9 /* JPVideoPlayerCompat.m */; };
+		2F232DEB225262D200B327A9 /* JPVideoPlayerControlViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DC9225262D200B327A9 /* JPVideoPlayerControlViews.m */; };
+		2F232DEC225262D200B327A9 /* JPVideoPlayerDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DCB225262D200B327A9 /* JPVideoPlayerDownloader.m */; };
+		2F232DED225262D200B327A9 /* JPVideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DCE225262D200B327A9 /* JPVideoPlayerManager.m */; };
+		2F232DEE225262D200B327A9 /* JPVideoPlayerResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DD1225262D200B327A9 /* JPVideoPlayerResourceLoader.m */; };
+		2F232DEF225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DD3225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.m */; };
+		2F232DF0225262D200B327A9 /* JPVideoPlayerSupportUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DD5225262D200B327A9 /* JPVideoPlayerSupportUtils.m */; };
+		2F232DF1225262D200B327A9 /* UICollectionView+WebVideoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DD7225262D200B327A9 /* UICollectionView+WebVideoCache.m */; };
+		2F232DF2225262D200B327A9 /* UICollectionViewCell+WebVideoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DD9225262D200B327A9 /* UICollectionViewCell+WebVideoCache.m */; };
+		2F232DF3225262D200B327A9 /* UITableView+WebVideoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DDB225262D200B327A9 /* UITableView+WebVideoCache.m */; };
+		2F232DF4225262D200B327A9 /* UITableViewCell+WebVideoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DDD225262D200B327A9 /* UITableViewCell+WebVideoCache.m */; };
+		2F232DF5225262D200B327A9 /* UIView+WebVideoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F232DDF225262D200B327A9 /* UIView+WebVideoCache.m */; };
 		2F23C535224099CA0044C0F4 /* cityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F23C52D224099C80044C0F4 /* cityModel.m */; };
 		2F23C536224099CA0044C0F4 /* City2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F23C52E224099C80044C0F4 /* City2ViewController.m */; };
 		2F23C537224099CA0044C0F4 /* City2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C531224099C80044C0F4 /* City2ViewController.xib */; };
@@ -107,6 +129,8 @@
 		2F6B3069223D000D00BD686B /* PaySucessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B3066223D000C00BD686B /* PaySucessViewController.m */; };
 		2F6B306D223D003000BD686B /* WaitPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6B306A223D002F00BD686B /* WaitPayViewController.xib */; };
 		2F6B306E223D003000BD686B /* WaitPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B306C223D003000BD686B /* WaitPayViewController.m */; };
+		2F7F3343225257D70061CB62 /* ReleaseVideoAdvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F3341225257D70061CB62 /* ReleaseVideoAdvViewController.m */; };
+		2F7F3344225257D70061CB62 /* ReleaseVideoAdvViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7F3342225257D70061CB62 /* ReleaseVideoAdvViewController.xib */; };
 		2FCF93A52248BAFE00683978 /* CommonUIWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */; };
 		8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1823892247605C001511ED /* ClassDetailViewController.m */; };
 		8E18238C2247605C001511ED /* ClassDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E18238A2247605C001511ED /* ClassDetailViewController.xib */; };
@@ -449,6 +473,7 @@
 		98AEBAB21F18676700E6483B /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AEBAB11F18676700E6483B /* NSDate+Helper.m */; };
 		98C059411F2305CB007AC0B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C0593E1F2305CB007AC0B6 /* User.m */; };
 		98C059421F2305CB007AC0B6 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C059401F2305CB007AC0B6 /* User+CoreDataProperties.m */; };
+		A2B0F84E7D86394596F56BC3 /* libPods-Dianwan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */; };
 		CD06662A1E8CB53700CCD49A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666231E8CB53700CCD49A /* MainViewController.m */; };
 		CD06662B1E8CB53700CCD49A /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666251E8CB53700CCD49A /* UIBarButtonItem+Extension.m */; };
 		CD06662C1E8CB53700CCD49A /* ZTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666271E8CB53700CCD49A /* ZTNavigationController.m */; };
@@ -619,6 +644,51 @@
 		2F17D9E4223E5FB9008E0E94 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
 		2F17D9E5223E5FB9008E0E94 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		2F17D9E7223E5FB9008E0E94 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		2F232DB3225262D200B327A9 /* JPGCDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGCDExtensions.h; sourceTree = "<group>"; };
+		2F232DB4225262D200B327A9 /* JPGCDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGCDExtensions.m; sourceTree = "<group>"; };
+		2F232DB5225262D200B327A9 /* JPMethodInjecting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMethodInjecting.h; sourceTree = "<group>"; };
+		2F232DB6225262D200B327A9 /* JPMethodInjecting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMethodInjecting.m; sourceTree = "<group>"; };
+		2F232DB7225262D200B327A9 /* JPResourceLoadingRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPResourceLoadingRequestTask.h; sourceTree = "<group>"; };
+		2F232DB8225262D200B327A9 /* JPResourceLoadingRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPResourceLoadingRequestTask.m; sourceTree = "<group>"; };
+		2F232DB9225262D200B327A9 /* JPReusePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPReusePool.h; sourceTree = "<group>"; };
+		2F232DBA225262D200B327A9 /* JPReusePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPReusePool.m; sourceTree = "<group>"; };
+		2F232DBB225262D200B327A9 /* JPVideoPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JPVideoPlayer.bundle; sourceTree = "<group>"; };
+		2F232DBC225262D200B327A9 /* JPVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayer.h; sourceTree = "<group>"; };
+		2F232DBD225262D200B327A9 /* JPVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayer.m; sourceTree = "<group>"; };
+		2F232DBE225262D200B327A9 /* JPVideoPlayerCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerCache.h; sourceTree = "<group>"; };
+		2F232DBF225262D200B327A9 /* JPVideoPlayerCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerCache.m; sourceTree = "<group>"; };
+		2F232DC0225262D200B327A9 /* JPVideoPlayerCacheFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerCacheFile.h; sourceTree = "<group>"; };
+		2F232DC1225262D200B327A9 /* JPVideoPlayerCacheFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerCacheFile.m; sourceTree = "<group>"; };
+		2F232DC2225262D200B327A9 /* JPVideoPlayerCachePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerCachePath.h; sourceTree = "<group>"; };
+		2F232DC3225262D200B327A9 /* JPVideoPlayerCachePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerCachePath.m; sourceTree = "<group>"; };
+		2F232DC4225262D200B327A9 /* JPVideoPlayerCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerCellProtocol.h; sourceTree = "<group>"; };
+		2F232DC5225262D200B327A9 /* JPVideoPlayerCellProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerCellProtocol.m; sourceTree = "<group>"; };
+		2F232DC6225262D200B327A9 /* JPVideoPlayerCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerCompat.h; sourceTree = "<group>"; };
+		2F232DC7225262D200B327A9 /* JPVideoPlayerCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerCompat.m; sourceTree = "<group>"; };
+		2F232DC8225262D200B327A9 /* JPVideoPlayerControlViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerControlViews.h; sourceTree = "<group>"; };
+		2F232DC9225262D200B327A9 /* JPVideoPlayerControlViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerControlViews.m; sourceTree = "<group>"; };
+		2F232DCA225262D200B327A9 /* JPVideoPlayerDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerDownloader.h; sourceTree = "<group>"; };
+		2F232DCB225262D200B327A9 /* JPVideoPlayerDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerDownloader.m; sourceTree = "<group>"; };
+		2F232DCC225262D200B327A9 /* JPVideoPlayerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerKit.h; sourceTree = "<group>"; };
+		2F232DCD225262D200B327A9 /* JPVideoPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerManager.h; sourceTree = "<group>"; };
+		2F232DCE225262D200B327A9 /* JPVideoPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerManager.m; sourceTree = "<group>"; };
+		2F232DCF225262D200B327A9 /* JPVideoPlayerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerProtocol.h; sourceTree = "<group>"; };
+		2F232DD0225262D200B327A9 /* JPVideoPlayerResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerResourceLoader.h; sourceTree = "<group>"; };
+		2F232DD1225262D200B327A9 /* JPVideoPlayerResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerResourceLoader.m; sourceTree = "<group>"; };
+		2F232DD2225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerScrollViewProtocol.h; sourceTree = "<group>"; };
+		2F232DD3225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerScrollViewProtocol.m; sourceTree = "<group>"; };
+		2F232DD4225262D200B327A9 /* JPVideoPlayerSupportUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoPlayerSupportUtils.h; sourceTree = "<group>"; };
+		2F232DD5225262D200B327A9 /* JPVideoPlayerSupportUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoPlayerSupportUtils.m; sourceTree = "<group>"; };
+		2F232DD6225262D200B327A9 /* UICollectionView+WebVideoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WebVideoCache.h"; sourceTree = "<group>"; };
+		2F232DD7225262D200B327A9 /* UICollectionView+WebVideoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WebVideoCache.m"; sourceTree = "<group>"; };
+		2F232DD8225262D200B327A9 /* UICollectionViewCell+WebVideoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+WebVideoCache.h"; sourceTree = "<group>"; };
+		2F232DD9225262D200B327A9 /* UICollectionViewCell+WebVideoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+WebVideoCache.m"; sourceTree = "<group>"; };
+		2F232DDA225262D200B327A9 /* UITableView+WebVideoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WebVideoCache.h"; sourceTree = "<group>"; };
+		2F232DDB225262D200B327A9 /* UITableView+WebVideoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WebVideoCache.m"; sourceTree = "<group>"; };
+		2F232DDC225262D200B327A9 /* UITableViewCell+WebVideoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+WebVideoCache.h"; sourceTree = "<group>"; };
+		2F232DDD225262D200B327A9 /* UITableViewCell+WebVideoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WebVideoCache.m"; sourceTree = "<group>"; };
+		2F232DDE225262D200B327A9 /* UIView+WebVideoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebVideoCache.h"; sourceTree = "<group>"; };
+		2F232DDF225262D200B327A9 /* UIView+WebVideoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebVideoCache.m"; sourceTree = "<group>"; };
 		2F23C52D224099C80044C0F4 /* cityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cityModel.m; sourceTree = "<group>"; };
 		2F23C52E224099C80044C0F4 /* City2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City2ViewController.m; sourceTree = "<group>"; };
 		2F23C52F224099C80044C0F4 /* CityTableviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableviewViewController.h; sourceTree = "<group>"; };
@@ -695,7 +765,13 @@
 		2F6B306A223D002F00BD686B /* WaitPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitPayViewController.xib; sourceTree = "<group>"; };
 		2F6B306B223D002F00BD686B /* WaitPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitPayViewController.h; sourceTree = "<group>"; };
 		2F6B306C223D003000BD686B /* WaitPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitPayViewController.m; sourceTree = "<group>"; };
+		2F7F3340225257D70061CB62 /* ReleaseVideoAdvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReleaseVideoAdvViewController.h; sourceTree = "<group>"; };
+		2F7F3341225257D70061CB62 /* ReleaseVideoAdvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReleaseVideoAdvViewController.m; sourceTree = "<group>"; };
+		2F7F3342225257D70061CB62 /* ReleaseVideoAdvViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseVideoAdvViewController.xib; sourceTree = "<group>"; };
 		2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonUIWebViewController.xib; sourceTree = "<group>"; };
+		4336F5DCCEFB7FC06CF6C8E3 /* Pods-Dianwan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dianwan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dianwan/Pods-Dianwan.release.xcconfig"; sourceTree = "<group>"; };
+		4A82508B9E7B53F80F319B82 /* Pods-Dianwan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dianwan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dianwan/Pods-Dianwan.debug.xcconfig"; sourceTree = "<group>"; };
+		866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dianwan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1823882247605C001511ED /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
 		8E1823892247605C001511ED /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		8E18238A2247605C001511ED /* ClassDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassDetailViewController.xib; sourceTree = "<group>"; };
@@ -1466,6 +1542,7 @@
 				CD6323C81EE54C1100D033F4 /* ShareSDKConnector.framework in Frameworks */,
 				0432ECF01F271CC4008D7AA3 /* AlipaySDK.framework in Frameworks */,
 				CD6323C01EE54C1100D033F4 /* TencentOpenAPI.framework in Frameworks */,
+				A2B0F84E7D86394596F56BC3 /* libPods-Dianwan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1609,6 +1686,58 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2F232DB2225262D200B327A9 /* JPVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2F232DB3225262D200B327A9 /* JPGCDExtensions.h */,
+				2F232DB4225262D200B327A9 /* JPGCDExtensions.m */,
+				2F232DB5225262D200B327A9 /* JPMethodInjecting.h */,
+				2F232DB6225262D200B327A9 /* JPMethodInjecting.m */,
+				2F232DB7225262D200B327A9 /* JPResourceLoadingRequestTask.h */,
+				2F232DB8225262D200B327A9 /* JPResourceLoadingRequestTask.m */,
+				2F232DB9225262D200B327A9 /* JPReusePool.h */,
+				2F232DBA225262D200B327A9 /* JPReusePool.m */,
+				2F232DBB225262D200B327A9 /* JPVideoPlayer.bundle */,
+				2F232DBC225262D200B327A9 /* JPVideoPlayer.h */,
+				2F232DBD225262D200B327A9 /* JPVideoPlayer.m */,
+				2F232DBE225262D200B327A9 /* JPVideoPlayerCache.h */,
+				2F232DBF225262D200B327A9 /* JPVideoPlayerCache.m */,
+				2F232DC0225262D200B327A9 /* JPVideoPlayerCacheFile.h */,
+				2F232DC1225262D200B327A9 /* JPVideoPlayerCacheFile.m */,
+				2F232DC2225262D200B327A9 /* JPVideoPlayerCachePath.h */,
+				2F232DC3225262D200B327A9 /* JPVideoPlayerCachePath.m */,
+				2F232DC4225262D200B327A9 /* JPVideoPlayerCellProtocol.h */,
+				2F232DC5225262D200B327A9 /* JPVideoPlayerCellProtocol.m */,
+				2F232DC6225262D200B327A9 /* JPVideoPlayerCompat.h */,
+				2F232DC7225262D200B327A9 /* JPVideoPlayerCompat.m */,
+				2F232DC8225262D200B327A9 /* JPVideoPlayerControlViews.h */,
+				2F232DC9225262D200B327A9 /* JPVideoPlayerControlViews.m */,
+				2F232DCA225262D200B327A9 /* JPVideoPlayerDownloader.h */,
+				2F232DCB225262D200B327A9 /* JPVideoPlayerDownloader.m */,
+				2F232DCC225262D200B327A9 /* JPVideoPlayerKit.h */,
+				2F232DCD225262D200B327A9 /* JPVideoPlayerManager.h */,
+				2F232DCE225262D200B327A9 /* JPVideoPlayerManager.m */,
+				2F232DCF225262D200B327A9 /* JPVideoPlayerProtocol.h */,
+				2F232DD0225262D200B327A9 /* JPVideoPlayerResourceLoader.h */,
+				2F232DD1225262D200B327A9 /* JPVideoPlayerResourceLoader.m */,
+				2F232DD2225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.h */,
+				2F232DD3225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.m */,
+				2F232DD4225262D200B327A9 /* JPVideoPlayerSupportUtils.h */,
+				2F232DD5225262D200B327A9 /* JPVideoPlayerSupportUtils.m */,
+				2F232DD6225262D200B327A9 /* UICollectionView+WebVideoCache.h */,
+				2F232DD7225262D200B327A9 /* UICollectionView+WebVideoCache.m */,
+				2F232DD8225262D200B327A9 /* UICollectionViewCell+WebVideoCache.h */,
+				2F232DD9225262D200B327A9 /* UICollectionViewCell+WebVideoCache.m */,
+				2F232DDA225262D200B327A9 /* UITableView+WebVideoCache.h */,
+				2F232DDB225262D200B327A9 /* UITableView+WebVideoCache.m */,
+				2F232DDC225262D200B327A9 /* UITableViewCell+WebVideoCache.h */,
+				2F232DDD225262D200B327A9 /* UITableViewCell+WebVideoCache.m */,
+				2F232DDE225262D200B327A9 /* UIView+WebVideoCache.h */,
+				2F232DDF225262D200B327A9 /* UIView+WebVideoCache.m */,
+			);
+			path = JPVideoPlayer;
+			sourceTree = "<group>";
+		};
 		2F23C52C224099B70044C0F4 /* citrySelect */ = {
 			isa = PBXGroup;
 			children = (
@@ -1698,6 +1827,7 @@
 		2F3F8560223AB9E000A46086 /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				2F232DB2225262D200B327A9 /* JPVideoPlayer */,
 				2F6AE626223CA51E002400CF /* AdvDetailsViewController.h */,
 				2F6AE627223CA51E002400CF /* AdvDetailsViewController.m */,
 				2F6AE628223CA51E002400CF /* AdvDetailsViewController.xib */,
@@ -1707,6 +1837,9 @@
 				2F6AE621223C9072002400CF /* ReleaseAdvViewController.h */,
 				2F6AE622223C9072002400CF /* ReleaseAdvViewController.m */,
 				2F6AE623223C9072002400CF /* ReleaseAdvViewController.xib */,
+				2F7F3340225257D70061CB62 /* ReleaseVideoAdvViewController.h */,
+				2F7F3341225257D70061CB62 /* ReleaseVideoAdvViewController.m */,
+				2F7F3342225257D70061CB62 /* ReleaseVideoAdvViewController.xib */,
 				2F3F882F223ABADB00A46086 /* View */,
 			);
 			path = Market;
@@ -3021,6 +3154,15 @@
 			path = FixSpace;
 			sourceTree = "<group>";
 		};
+		B9276F584E8E0F521BDAEAD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A82508B9E7B53F80F319B82 /* Pods-Dianwan.debug.xcconfig */,
+				4336F5DCCEFB7FC06CF6C8E3 /* Pods-Dianwan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CD0666211E8CB53700CCD49A /* TabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3212,6 +3354,7 @@
 				CDC88E3A1D8691E000CE03CE /* Dianwan */,
 				CDC88E391D8691DF00CE03CE /* Products */,
 				CDED11621DB07BA800BC81F7 /* Frameworks */,
+				B9276F584E8E0F521BDAEAD9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3419,6 +3562,7 @@
 				CD06664B1E8CD6EB00CCD49A /* libstdc++.6.0.9.tbd */,
 				CD0666491E8CD6D200CCD49A /* libresolv.tbd */,
 				CD0666471E8CD69700CCD49A /* libz.1.2.5.tbd */,
+				866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3430,6 +3574,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDC88E521D8691E000CE03CE /* Build configuration list for PBXNativeTarget "Dianwan" */;
 			buildPhases = (
+				FADA41106FB14A887D62D0F2 /* [CP] Check Pods Manifest.lock */,
 				CDC88E341D8691DF00CE03CE /* Sources */,
 				CDC88E351D8691DF00CE03CE /* Frameworks */,
 				CDC88E361D8691DF00CE03CE /* Resources */,
@@ -3455,7 +3600,7 @@
 				TargetAttributes = {
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2KWAH85S26;
+						DevelopmentTeam = SYKDB6MBYW;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -3585,6 +3730,7 @@
 				8EB4E54721201FAE00BC563B /* imageDownloadFail@2x.png in Resources */,
 				8EE2DCD8223A419200DF2DFE /* ChatHistoryViewController.xib in Resources */,
 				8EB4E52821201FAE00BC563B /* chatBar_recordBg@2x.png in Resources */,
+				2F232DE4225262D200B327A9 /* JPVideoPlayer.bundle in Resources */,
 				90A2F2101D8E7CB600AB04CF /* Assets.xcassets in Resources */,
 				8EB4E50321201FAE00BC563B /* VoiceSearchFeedback010.png in Resources */,
 				8EB4E4CE21201FAE00BC563B /* chat_location_detail_disclosure.png in Resources */,
@@ -3640,6 +3786,7 @@
 				8EB4E53421201FAE00BC563B /* chatBar_colorMore_photoSelected@2x.png in Resources */,
 				2F3F8729223AB9E500A46086 /* MarketViewController.xib in Resources */,
 				8EB4E53121201FAE00BC563B /* chatBar_colorMore_camera@2x.png in Resources */,
+				2F7F3344225257D70061CB62 /* ReleaseVideoAdvViewController.xib in Resources */,
 				8EB4E4D521201FAE00BC563B /* chat_receiver_audio_playing000@2x.png in Resources */,
 				8EB4E4D721201FAE00BC563B /* chat_receiver_audio_playing003@2x.png in Resources */,
 				8EB4E52121201FAE00BC563B /* chatBar_more_camera@2x.png in Resources */,
@@ -3696,6 +3843,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FADA41106FB14A887D62D0F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dianwan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CDC88E341D8691DF00CE03CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -3706,9 +3878,11 @@
 				8E980B5E211035FC00C7B6DA /* SystemMsgViewController.m in Sources */,
 				2F17D97D223E2B13008E0E94 /* AlertBuyTableViewCell.m in Sources */,
 				8EEF4BF8211D8CB500DE1E36 /* EaseUsersListViewController.m in Sources */,
+				2F232DF1225262D200B327A9 /* UICollectionView+WebVideoCache.m in Sources */,
 				8EB4E3F9212009AD00BC563B /* UIImage+EMMultiFormat.m in Sources */,
 				985A8B0C1F94AD7C00B5DDB9 /* UIBarButtonItem+SXCreate.m in Sources */,
 				2F6AE60A223BFBDF002400CF /* LiveListViewController.m in Sources */,
+				2F7F3343225257D70061CB62 /* ReleaseVideoAdvViewController.m in Sources */,
 				985A8B0D1F94AD7C00B5DDB9 /* UINavigationController+SXFullScreen.m in Sources */,
 				985A8B0E1F94AD7C00B5DDB9 /* UINavigationItem+SXFixSpace.m in Sources */,
 				8EEF4BC9211D8CB500DE1E36 /* EMCDDeviceManager+Microphone.m in Sources */,
@@ -3732,6 +3906,7 @@
 				CD3D81A71EA9FF3600F6AC20 /* SBJsonWriter.m in Sources */,
 				8E4664EA2169BF040022DF94 /* NavigationMapViewViewController.m in Sources */,
 				8E4664F4216A2EC90022DF94 /* UserViewController.m in Sources */,
+				2F232DF0225262D200B327A9 /* JPVideoPlayerSupportUtils.m in Sources */,
 				8EEF4BDF211D8CB500DE1E36 /* PSTCollectionView.m in Sources */,
 				2F3F8842223ABB1E00A46086 /* MyDigViewController.m in Sources */,
 				2F23C535224099CA0044C0F4 /* cityModel.m in Sources */,
@@ -3754,10 +3929,13 @@
 				8EE2DCD7223A419200DF2DFE /* ChatHistoryViewController.m in Sources */,
 				CDC88FF91D8698BF00CE03CE /* Reachability.m in Sources */,
 				04395EDB1F233EC10074865E /* TZGifPhotoPreviewController.m in Sources */,
+				2F232DEF225262D200B327A9 /* JPVideoPlayerScrollViewProtocol.m in Sources */,
 				8EEF4BB3211D8CB500DE1E36 /* EaseMessageModel.m in Sources */,
 				8EEF4BAF211D8CB500DE1E36 /* EaseEmotionEscape.m in Sources */,
 				8EEF4BB0211D8CB500DE1E36 /* EaseEmojiEmoticons.m in Sources */,
+				2F232DEB225262D200B327A9 /* JPVideoPlayerControlViews.m in Sources */,
 				8EEF4C0B211D8CB500DE1E36 /* EaseBubbleView+File.m in Sources */,
+				2F232DE3225262D200B327A9 /* JPReusePool.m in Sources */,
 				CD3D81A51EA9FF3600F6AC20 /* SBJsonBase.m in Sources */,
 				8EEF4C04211D8CB500DE1E36 /* EaseFaceView.m in Sources */,
 				8EEF4BA6211D8CB500DE1E36 /* UIViewController+HUD.m in Sources */,
@@ -3785,6 +3963,7 @@
 				8EB4E42521201CC500BC563B /* UserProfileManager.m in Sources */,
 				8EEF4C11211D8CB500DE1E36 /* EaseSDKHelper.m in Sources */,
 				2F17D9ED223E5FBA008E0E94 /* IQKeyboardManager.m in Sources */,
+				2F232DE8225262D200B327A9 /* JPVideoPlayerCachePath.m in Sources */,
 				0432ECEB1F271CB5008D7AA3 /* AliPayManager.m in Sources */,
 				CDC8906E1D8698C000CE03CE /* DBHelper.m in Sources */,
 				CDC8906B1D8698C000CE03CE /* AlertHelper.m in Sources */,
@@ -3802,13 +3981,16 @@
 				8E9FE2D4212E72B900D26955 /* UIView+MJExtension.m in Sources */,
 				8EEF4BDD211D8CB500DE1E36 /* PSTGridLayoutSection.m in Sources */,
 				8EEF4BDE211D8CB500DE1E36 /* PSTCollectionViewItemKey.m in Sources */,
+				2F232DED225262D200B327A9 /* JPVideoPlayerManager.m in Sources */,
 				8EEF4C0A211D8CB500DE1E36 /* EaseBubbleView+Location.m in Sources */,
+				2F232DF3225262D200B327A9 /* UITableView+WebVideoCache.m in Sources */,
 				8EB4E3FA212009AD00BC563B /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				8EEF4BC7211D8CB500DE1E36 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				CDC890761D8698C000CE03CE /* Tooles.m in Sources */,
 				8EB4E3EB212009AD00BC563B /* EMSDWebImageDownloader.m in Sources */,
 				8E412B881F23572100A40CE6 /* RegViewController.m in Sources */,
 				8EEF4C02211D8CB500DE1E36 /* EaseImageView.m in Sources */,
+				2F232DE0225262D200B327A9 /* JPGCDExtensions.m in Sources */,
 				8EEF4C12211D8CB500DE1E36 /* EaseMessageHelper+RemoveAfterRead.m in Sources */,
 				8E7ABFC7211AD9CC00EADF76 /* SettingViewController.m in Sources */,
 				2F6AE61A223C0B92002400CF /* ClassListTableViewCell.m in Sources */,
@@ -3820,9 +4002,11 @@
 				8EEF4BD3211D8CB500DE1E36 /* MWGridViewController.m in Sources */,
 				8EEF4BAC211D8CB500DE1E36 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				8EEF4C00211D8CB500DE1E36 /* EaseBaseMessageCell.m in Sources */,
+				2F232DF4225262D200B327A9 /* UITableViewCell+WebVideoCache.m in Sources */,
 				8EEF4BAB211D8CB500DE1E36 /* EaseMessageReadManager.m in Sources */,
 				8EEF4BD8211D8CB500DE1E36 /* PSTCollectionViewCell.m in Sources */,
 				8EEF4BE0211D8CB500DE1E36 /* PSTGridLayoutRow.m in Sources */,
+				2F232DEA225262D200B327A9 /* JPVideoPlayerCompat.m in Sources */,
 				9816D9891F259418000FCD7E /* happy.xcdatamodeld in Sources */,
 				8EE2DCB12239FB6B00DF2DFE /* GYRollingNoticeView.m in Sources */,
 				2F17D9EC223E5FBA008E0E94 /* IQUIViewController+Additions.m in Sources */,
@@ -3883,6 +4067,8 @@
 				2F17D9EE223E5FBA008E0E94 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				8EEF4BD5211D8CB500DE1E36 /* DACircularProgressView.m in Sources */,
 				2F17D990223E4A48008E0E94 /* OrderParentViewcontroller.m in Sources */,
+				2F232DF2225262D200B327A9 /* UICollectionViewCell+WebVideoCache.m in Sources */,
+				2F232DE5225262D200B327A9 /* JPVideoPlayer.m in Sources */,
 				8EB4E3F4212009AD00BC563B /* EMSDWebImageManager.m in Sources */,
 				8EEF4BA9211D8CB500DE1E36 /* UIViewController+DismissKeyboard.m in Sources */,
 				8EEF4BD1211D8CB500DE1E36 /* MWPhoto.m in Sources */,
@@ -3890,6 +4076,7 @@
 				CDC890781D8698C000CE03CE /* UIView+RSAdditions.m in Sources */,
 				04395EDD1F233EC10074865E /* TZImageManager.m in Sources */,
 				8EB4E3F6212009AD00BC563B /* UIImage+EMGIF.m in Sources */,
+				2F232DEE225262D200B327A9 /* JPVideoPlayerResourceLoader.m in Sources */,
 				8EE2DCC1223A043000DF2DFE /* HMScannerBorder.m in Sources */,
 				8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */,
 				8EFC60D61F25864A0088E00A /* AdView.m in Sources */,
@@ -3906,10 +4093,13 @@
 				8EEF4BD7211D8CB500DE1E36 /* PSTCollectionViewFlowLayout.m in Sources */,
 				8EC5C89820F884040041A34A /* UIView+XibLayout.m in Sources */,
 				2F3F8728223AB9E500A46086 /* MarketViewController.m in Sources */,
+				2F232DE6225262D200B327A9 /* JPVideoPlayerCache.m in Sources */,
 				8EE2DCCF223A2D4B00DF2DFE /* QRCodeViewController.m in Sources */,
+				2F232DF5225262D200B327A9 /* UIView+WebVideoCache.m in Sources */,
 				8EEF4BB4211D8CB500DE1E36 /* EaseConversationModel.m in Sources */,
 				2F17D9EB223E5FBA008E0E94 /* IQUIView+Hierarchy.m in Sources */,
 				2F3F853F223AB8AE00A46086 /* SystemTableViewCell.m in Sources */,
+				2F232DE7225262D200B327A9 /* JPVideoPlayerCacheFile.m in Sources */,
 				8EEF4C09211D8CB500DE1E36 /* EaseBubbleView+Text.m in Sources */,
 				2F3F872A223AB9E500A46086 /* MessageParentViewcontroller.m in Sources */,
 				8EE5694020FDC8450048EB38 /* WSTextView.m in Sources */,
@@ -3927,6 +4117,7 @@
 				2F17D982223E3CD5008E0E94 /* AboutHomeViewController.m in Sources */,
 				0432ECF81F271F0B008D7AA3 /* CommonUIWebViewController.m in Sources */,
 				CD0666301E8CB97A00CCD49A /* BaseViewController.m in Sources */,
+				2F232DEC225262D200B327A9 /* JPVideoPlayerDownloader.m in Sources */,
 				CDC88FFF1D8698BF00CE03CE /* AFURLRequestSerialization.m in Sources */,
 				2F6B306E223D003000BD686B /* WaitPayViewController.m in Sources */,
 				0413AA4B1F2879C5006F2743 /* ShareHelper.m in Sources */,
@@ -3941,6 +4132,7 @@
 				8EB4E54F21202A3200BC563B /* MsgTableViewCell.m in Sources */,
 				8EB4E3F3212009AD00BC563B /* UIImageView+EMWebCache.m in Sources */,
 				8EEF4C0F211D8CB500DE1E36 /* EaseBubbleView+Image.m in Sources */,
+				2F232DE9225262D200B327A9 /* JPVideoPlayerCellProtocol.m in Sources */,
 				8EEF4BD9211D8CB500DE1E36 /* PSTGridLayoutInfo.m in Sources */,
 				CD3D81A61EA9FF3600F6AC20 /* SBJsonParser.m in Sources */,
 				8EEF4BCC211D8CB500DE1E36 /* EMCDDeviceManagerBase.m in Sources */,
@@ -3951,7 +4143,9 @@
 				CDC88E3D1D8691E000CE03CE /* main.m in Sources */,
 				8EEF4BD4211D8CB500DE1E36 /* MWGridCell.m in Sources */,
 				2F3F8724223AB9E500A46086 /* LZHTabScrollViewController.m in Sources */,
+				2F232DE1225262D200B327A9 /* JPMethodInjecting.m in Sources */,
 				8EEF4BF7211D8CB500DE1E36 /* EaseConversationListViewController.m in Sources */,
+				2F232DE2225262D200B327A9 /* JPResourceLoadingRequestTask.m in Sources */,
 				CDC890721D8698C000CE03CE /* NSManagedObject+Helper.m in Sources */,
 				CDC8906C1D8698C000CE03CE /* BlockUIAlertView.m in Sources */,
 				0432ECF41F271CD1008D7AA3 /* WXApiManager.m in Sources */,
@@ -4075,13 +4269,14 @@
 		};
 		CDC88E531D8691E000CE03CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A82508B9E7B53F80F319B82 /* Pods-Dianwan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2KWAH85S26;
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4123,23 +4318,24 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.indexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = yuyue_dis;
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		CDC88E541D8691E000CE03CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4336F5DCCEFB7FC06CF6C8E3 /* Pods-Dianwan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4180,10 +4376,10 @@
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.indexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

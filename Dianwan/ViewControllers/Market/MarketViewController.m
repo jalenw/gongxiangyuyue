@@ -10,6 +10,7 @@
 #import "MarketTableViewCell.h"
 #import "ReleaseAdvViewController.h"
 #import "AdvDetailsViewController.h"
+#import "ReleaseVideoAdvViewController.h"
 
 @interface MarketViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -17,6 +18,7 @@
     int page;
 }
 @property (weak, nonatomic) IBOutlet UITableView *marketTableview;
+@property (weak, nonatomic) IBOutlet UIView *addAdvSelectView;
 
 @end
 
@@ -41,6 +43,9 @@
         [dataList removeAllObjects];
         [self requestMarkdataAct];
     }];
+    self.addAdvSelectView.frame = [UIScreen mainScreen].bounds;
+    self.addAdvSelectView.hidden = YES;
+    [self.view addSubview:self.addAdvSelectView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -64,16 +69,24 @@
 
 
 -(void)rightbarButtonDidTap:(UIButton *)button{
+    self.addAdvSelectView.hidden = NO;
+}
+
+- (IBAction)addAdvAction:(UIButton *)sender {
     if (![HTTPClientInstance isLogin]) {
         [AppDelegateInstance showLoginView];
     }
-    else
-    {
-    ReleaseAdvViewController *mydig = [[ReleaseAdvViewController alloc]init];
-    [self.navigationController pushViewController:mydig animated:YES];
+    if (sender.tag == 1) {
+            ReleaseAdvViewController *mydig = [[ReleaseAdvViewController alloc]init];
+            [self.navigationController pushViewController:mydig animated:YES];
+        
+    }else{
+        ReleaseVideoAdvViewController *videoAdv = [[ReleaseVideoAdvViewController alloc]init];
+        [self.navigationController pushViewController:videoAdv animated:YES];
+        
     }
+    self.addAdvSelectView.hidden = YES;
 }
-
 
 -(void)requestMarkdataAct{
     NSDictionary *params = @{
