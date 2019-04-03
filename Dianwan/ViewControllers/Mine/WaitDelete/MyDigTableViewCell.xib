@@ -33,12 +33,12 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5R-dY-ZVQ">
-                        <rect key="frame" x="150" y="16.5" width="36.5" height="20"/>
+                        <rect key="frame" x="150" y="16.5" width="9.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="yJI-FG-7nb"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment content="Label">
+                            <fragment content="  ">
                                 <attributes>
                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <font key="NSFont" size="14" name="PingFangSC-Medium"/>
@@ -68,10 +68,10 @@
                             <constraint firstAttribute="width" constant="60" id="2kO-Lc-Zag"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment content=" label">
+                            <fragment content="  ">
                                 <attributes>
                                     <color key="NSColor" red="1" green="0.28627450980392155" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                    <font key="NSFont" size="18" name="PingFangSC-Regular"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
@@ -79,12 +79,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wo6-Ar-jdA">
-                        <rect key="frame" x="150" y="75" width="26.5" height="17"/>
+                        <rect key="frame" x="150" y="75" width="8" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="Pe0-0Z-oeO"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment content="label">
+                            <fragment content="  ">
                                 <attributes>
                                     <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="12" name="PingFangSC-Regular"/>
@@ -95,12 +95,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfn-XR-beD">
-                        <rect key="frame" x="314.5" y="75" width="26.5" height="17"/>
+                        <rect key="frame" x="330" y="75" width="11" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="ES0-Ij-Gso"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment content="label">
+                            <fragment content="l  ">
                                 <attributes>
                                     <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="12" name="PingFangSC-Regular"/>
