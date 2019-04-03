@@ -11,7 +11,7 @@
 #import "GYRollingNoticeView.h"
 #import "HMScannerController.h"
 #import "QRCodeViewController.h"
-#import "LiveListViewController.h"
+#import "LiveAndVideoViewController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -199,9 +199,7 @@
     }
     else
     {
-        [AlertHelper showAlertWithTitle:@"功能暂没开通"];
-        return;
-        LiveListViewController *list = [[LiveListViewController alloc]init];
+        LiveAndVideoViewController *list = [[LiveAndVideoViewController alloc]init];
         [self.navigationController pushViewController:list  animated:YES];
     }
 }

@@ -13,6 +13,7 @@
 {
     int page;
     NSMutableArray *dataList;
+    EMGroup *group;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -32,7 +33,14 @@
         page =1;
         [self getData];
     }];
-    
+
+    [[EaseMob sharedInstance].chatManager asyncFetchMyGroupsListWithCompletion:^(NSArray *groups, EMError *error) {
+        if (groups.count>0) {
+            group = [groups firstObject];
+            self.groupName.text = group.groupSubject;
+            self.tableView.tableHeaderView = self.headView;
+        }
+    } onQueue:nil];
 
 }
 
@@ -102,6 +110,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *buddy = [dataList objectAtIndex:indexPath.row];
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[buddy safeStringForKey:@"friend_id"] conversationType:eConversationTypeChat];
+    [self.navigationController pushViewController:chatController animated:YES];
+}
+- (IBAction)groupChatAct:(UIButton *)sender {
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:group.groupId conversationType:eConversationTypeGroupChat];
     [self.navigationController pushViewController:chatController animated:YES];
 }
 @end

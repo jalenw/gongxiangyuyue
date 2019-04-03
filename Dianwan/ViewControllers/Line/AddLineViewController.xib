@@ -204,7 +204,7 @@
                             <attributedString key="attributedText">
                                 <fragment content="开始直播代表同意">
                                     <attributes>
-                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="14" name="PingFangSC-Medium"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>

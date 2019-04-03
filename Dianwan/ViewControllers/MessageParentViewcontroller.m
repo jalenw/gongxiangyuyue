@@ -35,17 +35,18 @@
 - (BOOL)isAllowScroll{
     return YES;
 }
+
 -(UIColor *)normalTabTextColor{
-    return RGB(255, 131, 83);
+    return [UIColor blackColor];
 }
 
 -(UIColor *)selectTabTextColor{
-    return  [UIColor colorWithPatternImage:[UIImage imageNamed:@"btt_1"]];//RGB(241, 228, 142);
+    return ThemeColor;
 }
 
-
 -(UIColor *)indicatorColor{
-    return  RGB(251, 185, 55);}
+    return  ThemeColor;
+}
 
 -(CGFloat)indicatorWidth{
     return 80;
