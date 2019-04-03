@@ -89,18 +89,15 @@
     [self.view addSubview:_mainScrollview];
     
     [self requestVIdeoUpurl];
+    [self palyvideoAct];
 }
 -(void)videoSelectTapped{
     TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
     
-    // 是否显示可选原图按钮
     imagePicker.allowPickingOriginalPhoto = YES;
-    // 是否允许显示视频
     imagePicker.allowPickingVideo = YES;
-    // 是否允许显示图片
     imagePicker.allowPickingImage = YES;
     
-    // 这是一个navigation 只能present
     [self presentViewController:imagePicker animated:YES completion:nil];
     
 }

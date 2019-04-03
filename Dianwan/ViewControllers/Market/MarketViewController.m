@@ -127,6 +127,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AdvDetailsViewController *advdetail = [[AdvDetailsViewController alloc]init];
     advdetail.adv_id =[dataList[indexPath.row] safeIntForKey:@"id"];
     [self.navigationController pushViewController:advdetail animated:YES];

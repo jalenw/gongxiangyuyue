@@ -8,7 +8,8 @@
 
 #import "AdvDetailsViewController.h"
 #import "AdView.h"
-@interface AdvDetailsViewController ()
+#import "JPVideoPlayerKit.h"
+@interface AdvDetailsViewController ()<JPVideoPlayerControlViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollview;
 @property(nonatomic,strong)NSArray *AdsData;
 @property(nonatomic,strong)NSDictionary *result;
@@ -80,37 +81,57 @@
 -(void)setupUI{
     self.title =[self.result safeStringForKey:@"title"];
     self.moneryLabel.text = [NSString stringWithFormat:@"%@元",[self.result safeStringForKey:@"price"]];
-    AdView *view= [[AdView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
-//    view.frame =CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40);
-    [self.mainScrollview addSubview:view];
-     [view setArray:self.AdsData];
+//    AdView *view= [[AdView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
+////    view.frame =CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40);
+//    [self.mainScrollview addSubview:view];
+//     [view setArray:self.AdsData];
     
-//    UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
-//    backScrollView.backgroundColor = [UIColor whiteColor];
-//    backScrollView.contentSize = CGSizeMake(self.AdsData.count * (ScreenWidth - 40) + 40, 170);
-//    backScrollView.showsHorizontalScrollIndicator = NO;
-//    [self.mainScrollview addSubview:backScrollView];
-//    self.backScrollView = backScrollView;
-//    for (int i = 0; i < self.AdsData.count; i++)
-//    {
-//        UIImageView *shadowView = [[UIImageView alloc] init];
-//        shadowView.backgroundColor = [UIColor redColor];
-//        shadowView.frame = CGRectMake(25 + (ScreenWidth - 40) * i, 15, ScreenWidth - 50, (ScreenWidth - 50) * 0.53125);
-//        shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
-//        shadowView.layer.shadowRadius = 5.0;
-//        shadowView.layer.shadowOpacity = 0.3;
-//        shadowView.layer.shadowOffset = CGSizeMake(-4, 4);
-//        shadowView.userInteractionEnabled = YES;
-//        shadowView.tag = i;
-//        shadowView.layer.cornerRadius  = 4;
-//        shadowView.layer.masksToBounds = YES;
-//        CALayer *AdsView = [[CALayer alloc] init];
-//        AdsView.frame = CGRectMake(0, 0, ScreenWidth - 50, (ScreenWidth - 50) * 0.53125);
-//        [shadowView sd_setImageWithURL:[NSURL URLWithString:self.AdsData[i]]];
-//        [shadowView.layer addSublayer:AdsView];
-//        [self.backScrollView addSubview:shadowView];
-//
-//    }
+    UIScrollView *backScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
+    backScrollView.backgroundColor = [UIColor whiteColor];
+    backScrollView.contentSize = CGSizeMake(self.AdsData.count * (ScreenWidth - 40) + 40, 170);
+    backScrollView.showsHorizontalScrollIndicator = NO;
+    [self.mainScrollview addSubview:backScrollView];
+    self.backScrollView = backScrollView;
+    if([self.result safeIntForKey:@"type"] == 1){
+        NSURL *url = [NSURL URLWithString:[self.result safeStringForKey:@""]];
+        JPVideoPlayerControlView *contentView =  [[JPVideoPlayerControlView alloc] initWithControlBar:nil blurImage:nil];
+        contentView.delegate =self;
+        self.backScrollView.userInteractionEnabled = YES;
+        [self.backScrollView jp_playVideoWithURL:url
+                                          bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
+                                                 controlView:contentView
+                                                progressView:nil
+                                               configuration:nil];
+    }else{
+        for (int i = 0; i < self.AdsData.count; i++)
+        {
+            UIImageView *shadowView = [[UIImageView alloc] init];
+            //        shadowView.backgroundColor = [UIColor redColor];
+            shadowView.frame = CGRectMake(25 + (ScreenWidth - 40) * i, 15, ScreenWidth - 50, (ScreenWidth - 50) * 0.53125);
+            shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
+            shadowView.layer.shadowRadius = 5.0;
+            shadowView.layer.shadowOpacity = 0.3;
+            shadowView.layer.shadowOffset = CGSizeMake(-4, 4);
+            shadowView.userInteractionEnabled = YES;
+            shadowView.tag = i;
+            shadowView.layer.cornerRadius  = 4;
+            shadowView.layer.masksToBounds = YES;
+            CALayer *AdsView = [[CALayer alloc] init];
+            AdsView.frame = CGRectMake(0, 0, ScreenWidth - 50, (ScreenWidth - 50) * 0.53125);
+            [shadowView sd_setImageWithURL:[NSURL URLWithString:self.AdsData[i]]];
+            [shadowView.layer addSublayer:AdsView];
+            [self.backScrollView addSubview:shadowView];
+        }
+        
+    }
+   
+    
+    
+    
+    
+    
+    
+    
     //解析内容
     UILabel *contentLabel = [[UILabel alloc]init];
    
@@ -122,17 +143,28 @@
     contentLabel .alpha = 1.0;
     contentLabel.numberOfLines=0;
     CGFloat height = [Tooles calculateTextHeight:(ScreenWidth -32) Content:content fontSize:15];
-//    contentLabel.frame = CGRectMake(16, backScrollView.height +16, ScreenWidth-32, height);
-     contentLabel.frame = CGRectMake(16, view.height +16, ScreenWidth-32, height);
+    contentLabel.frame = CGRectMake(16, backScrollView.height +16, ScreenWidth-32, height);
+//     contentLabel.frame = CGRectMake(16, view.height +16, ScreenWidth-32, height);
     
     [self.mainScrollview addSubview:contentLabel];
 //    if(height > self.mainScrollview.contentSize.height - backScrollView.bottom -16){
 //        self.mainScrollview.contentSize = CGSizeMake(ScreenWidth, height+backScrollView.bottom + 16);
+////    }
+//    if(height > self.mainScrollview.contentSize.height - view.bottom -16){
+//        self.mainScrollview.contentSize = CGSizeMake(ScreenWidth, height+view.bottom + 16);
 //    }
-    if(height > self.mainScrollview.contentSize.height - view.bottom -16){
-        self.mainScrollview.contentSize = CGSizeMake(ScreenWidth, height+view.bottom + 16);
-    }
     
+}
+
+//-(void)playerControlViewBtnClick{
+//    [self.videoPlayView jp_pause];
+//}
+
+
+- (void)dealloc {
+    if (self.backScrollView.subviews[0] && [self.result safeIntForKey:@"type"] == 1) {
+        [self.backScrollView.subviews[0] jp_stopPlay];
+    }
 }
 
 - (IBAction)receiveRedenvelope:(UIButton *)sender {
