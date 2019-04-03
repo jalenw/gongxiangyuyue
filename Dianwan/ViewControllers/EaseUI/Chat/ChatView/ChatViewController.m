@@ -83,14 +83,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //获取聊天对象信息
-    [[ServiceForUser manager]postMethodName:@"member/chatToMember" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-        if (status) {
-            memberList = [data safeArrayForKey:@"result"];
-            self.ower = [memberList firstObject];
-            self.title = [self.ower safeStringForKey:@"member_name"];
-        }
-    }];
 }
 
 #pragma mark - setup subviews
@@ -99,8 +91,17 @@
 {
     //单聊
     if (self.conversation.conversationType == eConversationTypeChat) {
+        //获取聊天对象信息
+        [[ServiceForUser manager]postMethodName:@"member/chatToMember" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                memberList = [data safeArrayForKey:@"result"];
+                self.ower = [memberList firstObject];
+                self.title = [self.ower safeStringForKey:@"member_name"];
+            }
+        }];
     }
     else{//群聊
+        self.title = @"群聊";
     }
 }
 

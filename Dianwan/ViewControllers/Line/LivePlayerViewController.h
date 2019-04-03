@@ -20,9 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *count;
+@property (weak, nonatomic) IBOutlet UIView *msgContentView;
+@property (weak, nonatomic) IBOutlet UIButton *rewardBt;
+@property (weak, nonatomic) IBOutlet UIView *rewardContentView;
+@property (weak, nonatomic) IBOutlet UITextField *rewardTf;
+
 - (IBAction)closeAct:(UIButton *)sender;
 - (IBAction)shareAct:(UIButton *)sender;
 - (IBAction)sendAct:(UIButton *)sender;
+- (IBAction)rewardAct:(UIButton *)sender;
 @end
 
 NS_ASSUME_NONNULL_END

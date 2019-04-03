@@ -23,6 +23,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     if (AppDelegateInstance.defaultUser.viptype==2) {
         [self setRightBarButtonWithTitle:@"我要开播"];
     }
