@@ -110,6 +110,12 @@
 		2FCF93A52248BAFE00683978 /* CommonUIWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */; };
 		8E18238B2247605C001511ED /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1823892247605C001511ED /* ClassDetailViewController.m */; };
 		8E18238C2247605C001511ED /* ClassDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E18238A2247605C001511ED /* ClassDetailViewController.xib */; };
+		8E3C775B225435040050E5DA /* LiveAndVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7759225435040050E5DA /* LiveAndVideoViewController.m */; };
+		8E3C775C225435040050E5DA /* LiveAndVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C775A225435040050E5DA /* LiveAndVideoViewController.xib */; };
+		8E3C7760225435D70050E5DA /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C775E225435D70050E5DA /* VideoListViewController.m */; };
+		8E3C7761225435D70050E5DA /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C775F225435D70050E5DA /* VideoListViewController.xib */; };
+		8E3C7765225439ED0050E5DA /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */; };
+		8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
 		8E412B851F23572100A40CE6 /* CodeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */; };
 		8E412B861F23572100A40CE6 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7F1F23572100A40CE6 /* ForgetViewController.m */; };
@@ -699,6 +705,15 @@
 		8E1823882247605C001511ED /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
 		8E1823892247605C001511ED /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		8E18238A2247605C001511ED /* ClassDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassDetailViewController.xib; sourceTree = "<group>"; };
+		8E3C7758225435040050E5DA /* LiveAndVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveAndVideoViewController.h; sourceTree = "<group>"; };
+		8E3C7759225435040050E5DA /* LiveAndVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveAndVideoViewController.m; sourceTree = "<group>"; };
+		8E3C775A225435040050E5DA /* LiveAndVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveAndVideoViewController.xib; sourceTree = "<group>"; };
+		8E3C775D225435D70050E5DA /* VideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoListViewController.h; sourceTree = "<group>"; };
+		8E3C775E225435D70050E5DA /* VideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
+		8E3C775F225435D70050E5DA /* VideoListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoListViewController.xib; sourceTree = "<group>"; };
+		8E3C7762225439ED0050E5DA /* VideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
+		8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
+		8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		8E412B7B1F23572100A40CE6 /* CodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeLoginViewController.h; sourceTree = "<group>"; };
 		8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeLoginViewController.m; sourceTree = "<group>"; };
 		8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeLoginViewController.xib; sourceTree = "<group>"; };
@@ -1660,7 +1675,7 @@
 		2F23C53D2240CACD0044C0F4 /* MessageCenter */ = {
 			isa = PBXGroup;
 			children = (
-				2F3F8551223AB8E700A46086 /* MessageParentViewcontroller.h */,
+				2F3F855F223AB9E000A46086 /* SystemMessageViewController.h */,
 				2F3F854D223AB8E000A46086 /* SystemMessageViewController.m */,
 				2F3F854B223AB8DC00A46086 /* SystemMessageViewController.xib */,
 				2F3F8546223AB8D100A46086 /* PlatformAnnouncementCell.h */,
@@ -1672,6 +1687,7 @@
 				2F3F853E223AB8AE00A46086 /* SystemTableViewCell.h */,
 				2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */,
 				2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */,
+				2F3F8551223AB8E700A46086 /* MessageParentViewcontroller.h */,
 				2F3F8564223AB9E100A46086 /* MessageParentViewcontroller.m */,
 			);
 			name = MessageCenter;
@@ -2161,6 +2177,15 @@
 				8EC2CC162240A332002B0D86 /* LivePlayerViewController.h */,
 				8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */,
 				8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */,
+				8E3C7758225435040050E5DA /* LiveAndVideoViewController.h */,
+				8E3C7759225435040050E5DA /* LiveAndVideoViewController.m */,
+				8E3C775A225435040050E5DA /* LiveAndVideoViewController.xib */,
+				2F6AE607223BFBDF002400CF /* LiveListViewController.h */,
+				2F6AE608223BFBDF002400CF /* LiveListViewController.m */,
+				2F6AE609223BFBDF002400CF /* LiveListViewController.xib */,
+				8E3C775D225435D70050E5DA /* VideoListViewController.h */,
+				8E3C775E225435D70050E5DA /* VideoListViewController.m */,
+				8E3C775F225435D70050E5DA /* VideoListViewController.xib */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -2171,6 +2196,9 @@
 				8EC2CC1C224231CE002B0D86 /* LiveMsgTableViewCell.h */,
 				8EC2CC1D224231CE002B0D86 /* LiveMsgTableViewCell.m */,
 				8EC2CC1E224231CE002B0D86 /* LiveMsgTableViewCell.xib */,
+				8E3C7762225439ED0050E5DA /* VideoTableViewCell.h */,
+				8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */,
+				8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2209,10 +2237,6 @@
 				2F23C53D2240CACD0044C0F4 /* MessageCenter */,
 				2F23C52C224099B70044C0F4 /* citrySelect */,
 				2F6AE60C223BFEB1002400CF /* View */,
-				2F6AE607223BFBDF002400CF /* LiveListViewController.h */,
-				2F6AE608223BFBDF002400CF /* LiveListViewController.m */,
-				2F6AE609223BFBDF002400CF /* LiveListViewController.xib */,
-				2F3F855F223AB9E000A46086 /* SystemMessageViewController.h */,
 				2F3F8553223AB8F100A46086 /* YYImageClipViewController.h */,
 				2F3F8554223AB8F200A46086 /* YYImageClipViewController.m */,
 				8ED4A870211197A10038E719 /* MyViewController.h */,
@@ -3456,7 +3480,7 @@
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2KWAH85S26;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -3512,6 +3536,7 @@
 				2F6AE61B223C0B92002400CF /* ClassListTableViewCell.xib in Resources */,
 				8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */,
 				8EB4E4E121201FAE00BC563B /* chatBar_more_face.png in Resources */,
+				8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */,
 				8EB4E53221201FAE00BC563B /* chatBar_colorMore_videoCallSelected@2x.png in Resources */,
 				8EB4E4F021201FAE00BC563B /* VoiceSearchFeedback003@2x.png in Resources */,
 				8EB4E4F221201FAE00BC563B /* VoiceSearchFeedback013@2x.png in Resources */,
@@ -3600,6 +3625,7 @@
 				8EB4E50021201FAE00BC563B /* VoiceSearchFeedback012.png in Resources */,
 				8EB4E53721201FAE00BC563B /* messageToolbarBg@2x.png in Resources */,
 				2F3F8835223ABADC00A46086 /* MarketTableViewCell.xib in Resources */,
+				8E3C775C225435040050E5DA /* LiveAndVideoViewController.xib in Resources */,
 				8EB4E4F821201FAE00BC563B /* VoiceSearchFeedback007@2x.png in Resources */,
 				8EB4E54021201FAE00BC563B /* chatBar_moreSelected@2x.png in Resources */,
 				2F23C537224099CA0044C0F4 /* City2ViewController.xib in Resources */,
@@ -3614,6 +3640,7 @@
 				2F3F854E223AB8E100A46086 /* SystemMessageViewController.xib in Resources */,
 				8EB4E53E21201FAE00BC563B /* chatBar_keyboardSelected@2x.png in Resources */,
 				8EC2CC20224231CE002B0D86 /* LiveMsgTableViewCell.xib in Resources */,
+				8E3C7761225435D70050E5DA /* VideoListViewController.xib in Resources */,
 				8EB4E4EC21201FAE00BC563B /* chat_sender_bg@2x.png in Resources */,
 				8E7ABFC8211AD9CC00EADF76 /* SettingViewController.xib in Resources */,
 				8EB4E53C21201FAE00BC563B /* chatBar_keyboard.png in Resources */,
@@ -3726,6 +3753,7 @@
 				8EE2DCD3223A2FDE00DF2DFE /* SliderMenuView.m in Sources */,
 				2F3F8834223ABADC00A46086 /* MarketTableViewCell.m in Sources */,
 				2F17D9E9223E5FBA008E0E94 /* IQUIScrollView+Additions.m in Sources */,
+				8E3C7760225435D70050E5DA /* VideoListViewController.m in Sources */,
 				8EB4E3EC212009AD00BC563B /* NSData+EMImageContentType.m in Sources */,
 				2F17D9E8223E5FBA008E0E94 /* IQNSArray+Sort.m in Sources */,
 				CDC88FFA1D8698BF00CE03CE /* HTTPClient.m in Sources */,
@@ -3737,6 +3765,7 @@
 				2F23C535224099CA0044C0F4 /* cityModel.m in Sources */,
 				8EB4E3F2212009AD00BC563B /* EMSDWebImageDecoder.m in Sources */,
 				8EEF4BDB211D8CB500DE1E36 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				8E3C7765225439ED0050E5DA /* VideoTableViewCell.m in Sources */,
 				CDC88E401D8691E000CE03CE /* AppDelegate.m in Sources */,
 				CD3D81A41EA9FF3600F6AC20 /* SBJSON.m in Sources */,
 				8EEF4BB2211D8CB500DE1E36 /* EaseMessageMulticastBase.m in Sources */,
@@ -3853,6 +3882,7 @@
 				2F3F884A223ABB3100A46086 /* DigTableViewCell.m in Sources */,
 				8EEF4BF9211D8CB500DE1E36 /* EaseRefreshTableViewController.m in Sources */,
 				8EEF4BCF211D8CB500DE1E36 /* MWZoomingScrollView.m in Sources */,
+				8E3C775B225435040050E5DA /* LiveAndVideoViewController.m in Sources */,
 				8EB4E3F0212009AD00BC563B /* UIView+EMWebCacheOperation.m in Sources */,
 				CDC890001D8698BF00CE03CE /* AFURLResponseSerialization.m in Sources */,
 				2F3F854A223AB8D200A46086 /* PlatformAnnouncementCell.m in Sources */,
@@ -4078,10 +4108,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2KWAH85S26;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4126,7 +4156,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.indexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = yuyue_dis;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4138,7 +4168,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;

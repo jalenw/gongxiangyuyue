@@ -11,7 +11,7 @@
 #import "UserViewController.h"
 #import "MessageParentViewcontroller.h"
 #import "QRCodeViewController.h"
-#import "LiveListViewController.h"
+#import "AddLineViewController.h"
 #import "AlreadybuyViewController.h"
 #import "OrderParentViewcontroller.h"
 #import "ChatViewController.h"
@@ -118,8 +118,9 @@
         AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
         [self.navigationController pushViewController:alreadBuy animated:YES];
     }
-    if (sender.tag==105) {//付费直播
-        [AlertHelper showAlertWithTitle:@"功能暂没开通"];
+    if (sender.tag==105) {
+        AddLineViewController *vc = [[AddLineViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
 //        LiveListViewController *list = [[LiveListViewController alloc]init];
 //        [self.navigationController pushViewController:list  animated:YES];
     }

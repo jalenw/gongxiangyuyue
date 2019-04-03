@@ -1,32 +1,42 @@
 //
-//  MessageParentViewcontroller.m
+//  LiveAndVideoViewController.m
 //  Dianwan
 //
-//  Created by Yang on 2019/3/13.
-//  Copyright © 2019 intexh. All rights reserved.
+//  Created by 黄哲麟 on 2019/4/3.
+//  Copyright © 2019年 intexh. All rights reserved.
 //
 
-#import "OrderParentViewcontroller.h"
-#import "AboutHomeViewController.h"
-//#import "SystemMessageViewController.h"
-@interface OrderParentViewcontroller()<UITextFieldDelegate>
+#import "LiveAndVideoViewController.h"
+#import "LiveListViewController.h"
+#import "VideoListViewController.h"
+#import "AddLineViewController.h"
+@interface LiveAndVideoViewController ()
 
 @end
 
-@implementation OrderParentViewcontroller
+@implementation LiveAndVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"约家订单";
-    [self setupForDismissKeyboard];
-    [self.navigationController setNavigationBarHidden:NO];
-   
+    self.title = @"直播视频";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (AppDelegateInstance.defaultUser.viptype==2) {
+        [self setRightBarButtonWithTitle:@"我要开播"];
+    }
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    AddLineViewController *vc = [[AddLineViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSArray<NSString *> *)buttonTitleArray{
-    return @[@"约家订单",@"我的订单"];
+    return @[@"直播",@"视频"];
 }
-
 
 -(UIColor *)BtnbackgroundColor{
     return [UIColor whiteColor];
@@ -35,6 +45,7 @@
 - (BOOL)isAllowScroll{
     return YES;
 }
+
 -(UIColor *)normalTabTextColor{
     return [UIColor blackColor];
 }
@@ -70,12 +81,12 @@
     for (int i = 0; i < titleArray.count; ++i) {
         UIViewController *controller = nil;
         if(i == 0){
-            AboutHomeViewController *subController = [[AboutHomeViewController alloc] init];
+            LiveListViewController *subController = [[LiveListViewController alloc] init];
             controller = subController;
             [self addChildViewController:controller];
             self.currentController = controller;
         }else if (i == 1){
-            AboutHomeViewController *subController = [[AboutHomeViewController alloc] init];
+            VideoListViewController *subController = [[VideoListViewController alloc] init];
             controller = subController;
             [self addChildViewController:controller];
         }
@@ -103,5 +114,6 @@
     view.backgroundColor = [UIColor yellowColor];
     return view;
 }
+
 
 @end

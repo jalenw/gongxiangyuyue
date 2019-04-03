@@ -8,7 +8,6 @@
 
 #import "LiveListViewController.h"
 #import "LiveListTableViewCell.h"
-#import "AddLineViewController.h"
 #import "LivePlayerViewController.h"
 #import "LZHAlertView.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -24,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"直播";
     page =1 ;
     dataList = [[NSMutableArray alloc]init];
     
@@ -42,20 +40,6 @@
         [self requesrLiveListAct];
     }];
     
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-    if (AppDelegateInstance.defaultUser.viptype==2) {
-        [self setRightBarButtonWithTitle:@"我要开播"];
-    }
-}
-
--(void)rightbarButtonDidTap:(UIButton *)button
-{
-    AddLineViewController *vc = [[AddLineViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)requesrLiveListAct{
