@@ -18,6 +18,7 @@
 
 #import "FriendsViewController.h"
 #import "LivePlayerViewController.h"
+#import "PostYueJiaViewController.h"
 @interface ChatViewController ()<UIAlertViewDelegate>
 {
     UIMenuItem *_copyMenuItem;
@@ -267,7 +268,9 @@
     // 隐藏键盘
     [self.chatToolbar endEditing:YES];
     if (index==2) {
-        
+        PostYueJiaViewController *vc = [[PostYueJiaViewController alloc]init];
+        vc.chat_id = self.conversation.chatter;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     if (index==3) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];

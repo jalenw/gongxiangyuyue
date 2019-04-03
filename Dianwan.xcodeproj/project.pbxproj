@@ -140,6 +140,8 @@
 		8E3C7765225439ED0050E5DA /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */; };
 		8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */; };
 		8E3C776C2254F1980050E5DA /* FirstHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C776B2254F1970050E5DA /* FirstHeaderView.m */; };
+		8E3C777022550E2B0050E5DA /* PostYueJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */; };
+		8E3C777122550E2B0050E5DA /* PostYueJiaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
 		8E412B851F23572100A40CE6 /* CodeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */; };
 		8E412B861F23572100A40CE6 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7F1F23572100A40CE6 /* ForgetViewController.m */; };
@@ -791,6 +793,9 @@
 		8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		8E3C776A2254F1970050E5DA /* FirstHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstHeaderView.h; sourceTree = "<group>"; };
 		8E3C776B2254F1970050E5DA /* FirstHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstHeaderView.m; sourceTree = "<group>"; };
+		8E3C776D22550E2B0050E5DA /* PostYueJiaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostYueJiaViewController.h; sourceTree = "<group>"; };
+		8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostYueJiaViewController.m; sourceTree = "<group>"; };
+		8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostYueJiaViewController.xib; sourceTree = "<group>"; };
 		8E412B7B1F23572100A40CE6 /* CodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeLoginViewController.h; sourceTree = "<group>"; };
 		8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeLoginViewController.m; sourceTree = "<group>"; };
 		8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeLoginViewController.xib; sourceTree = "<group>"; };
@@ -2360,6 +2365,9 @@
 				8E980B5B211035FC00C7B6DA /* SystemMsgViewController.h */,
 				8E980B5C211035FC00C7B6DA /* SystemMsgViewController.m */,
 				8E980B5D211035FC00C7B6DA /* SystemMsgViewController.xib */,
+				8E3C776D22550E2B0050E5DA /* PostYueJiaViewController.h */,
+				8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */,
+				8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -3704,6 +3712,7 @@
 				8EB4E50C21201FAE00BC563B /* VoiceSearchFeedback002.png in Resources */,
 				8EB4E4E721201FAE00BC563B /* call_out@2x.png in Resources */,
 				8EB4E4F521201FAE00BC563B /* VoiceSearchFeedback019.png in Resources */,
+				8E3C777122550E2B0050E5DA /* PostYueJiaViewController.xib in Resources */,
 				8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */,
 				8EB4E52721201FAE00BC563B /* chatBar_recordSelected.png in Resources */,
 				2F3F8727223AB9E500A46086 /* MineViewController.xib in Resources */,
@@ -4002,6 +4011,7 @@
 				CDC890711D8698C000CE03CE /* NSError+Helper.m in Sources */,
 				8EB4E3F7212009AD00BC563B /* EMSDWebImageDownloaderOperation.m in Sources */,
 				2F17D9F4223E5FBA008E0E94 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				8E3C777022550E2B0050E5DA /* PostYueJiaViewController.m in Sources */,
 				98C059411F2305CB007AC0B6 /* User.m in Sources */,
 				2F17D9EF223E5FBA008E0E94 /* IQTextView.m in Sources */,
 				2F6AE629223CA51E002400CF /* AdvDetailsViewController.m in Sources */,
