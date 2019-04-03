@@ -17,7 +17,7 @@
 #import "RemoveAfterReadCell.h"
 
 #import "FriendsViewController.h"
-
+#import "LivePlayerViewController.h"
 @interface ChatViewController ()<UIAlertViewDelegate>
 {
     UIMenuItem *_copyMenuItem;
@@ -107,6 +107,12 @@
             if (status) {
                 viptype = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"viptype"];
                 store_id = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"store_id"];
+                [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"send_orderd_icon"] highlightedImage:[UIImage imageNamed:@"send_orderd_icon"]  title:@"发约单"];
+                [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"chat_special_class"] highlightedImage:[UIImage imageNamed:@"chat_special_class"]  title:@"特色课程"];
+                if (viptype==2) {
+                    [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"chat_shop"] highlightedImage:[UIImage imageNamed:@"chat_shop"]  title:@"店铺"];
+                    [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"start_live_icon"] highlightedImage:[UIImage imageNamed:@"start_live_icon"]  title:@"直播"];
+                }
             }
         }];
     }
@@ -251,8 +257,6 @@
 - (void)messageViewController:(EaseMessageViewController *)viewController
    didSelectAvatarMessageModel:(id<IMessageModel>)messageModel
 {
-//    UserProfileViewController *userprofile = [[UserProfileViewController alloc] initWithUsername:messageModel.nickname];
-//    [self.navigationController pushViewController:userprofile animated:YES];
 }
 
 
@@ -262,6 +266,34 @@
 {
     // 隐藏键盘
     [self.chatToolbar endEditing:YES];
+    if (index==2) {
+        
+    }
+    if (index==3) {
+        CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+        controller.address = [NSString stringWithFormat:@"%@dist/course？vip_type=%d&longitude=%f&latitude=%f",web_url,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    if (index==4) {
+        CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+        controller.address = [NSString stringWithFormat:@"%@wap/mall/store_goods.html?store_id=%ld",web_url,(long)store_id];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    if (index==5) {
+        [SVProgressHUD show];
+        [[ServiceForUser manager]postMethodName:@"channels/chat_get_live" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            [SVProgressHUD dismiss];
+            if (status) {
+                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+                vc.url = [dict safeStringForKey:@"play"];
+                vc.dict = dict;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else
+                [AlertHelper showAlertWithTitle:error];
+        }];
+    }
 }
 
 - (void)messageViewController:(EaseMessageViewController *)viewController

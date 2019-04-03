@@ -83,6 +83,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+     if (section==0) {
+         return groupsList.count;
+     }
+    else
     return dataList.count;
 }
 
