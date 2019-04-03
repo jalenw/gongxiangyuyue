@@ -9,11 +9,12 @@
 #import "FriendsViewController.h"
 #import "FriendListCell.h"
 #import "ChatViewController.h"
+#import "FirstHeaderView.h"
 @interface FriendsViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
     NSMutableArray *dataList;
-    EMGroup *group;
+    NSArray *groupsList;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -36,9 +37,8 @@
 
     [[EaseMob sharedInstance].chatManager asyncFetchMyGroupsListWithCompletion:^(NSArray *groups, EMError *error) {
         if (groups.count>0) {
-            group = [groups firstObject];
-            self.groupName.text = group.groupSubject;
-            self.tableView.tableHeaderView = self.headView;
+            groupsList = groups;
+            [self.tableView reloadData];
         }
     } onQueue:nil];
 
@@ -97,10 +97,19 @@
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"FriendListCell" owner:self options:nil][0];
     }
+    if (indexPath.section==0) {
+        if (groupsList.count>0) {
+            EMGroup *group = [groupsList objectAtIndex:indexPath.row];
+            cell.name.text = group.groupSubject;
+        }
+    }
+    else
+    {
     if (dataList.count>0) {
         NSDictionary *buddy = [dataList objectAtIndex:indexPath.row];
         cell.name.text = [buddy safeStringForKey:@"member_name"];
         [cell.image sd_setImageWithURL:[NSURL URLWithString:[buddy safeStringForKey:@"member_avatar"]]];
+    }
     }
     return cell;
 }
@@ -108,12 +117,47 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+      if (indexPath.section==0) {
+        EMGroup *group = [groupsList objectAtIndex:indexPath.row];
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:group.groupId conversationType:eConversationTypeGroupChat];
+        [self.navigationController pushViewController:chatController animated:YES];
+      }
+    else
+    {
     NSDictionary *buddy = [dataList objectAtIndex:indexPath.row];
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[buddy safeStringForKey:@"friend_id"] conversationType:eConversationTypeChat];
     [self.navigationController pushViewController:chatController animated:YES];
+    }
 }
-- (IBAction)groupChatAct:(UIButton *)sender {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:group.groupId conversationType:eConversationTypeGroupChat];
-    [self.navigationController pushViewController:chatController animated:YES];
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    static NSString *viewIdentfier = @"FirstHeaderView";
+    FirstHeaderView *sectionHeadView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:viewIdentfier];
+    if(!sectionHeadView){
+        sectionHeadView = [[FirstHeaderView alloc] initWithReuseIdentifier:viewIdentfier];
+    }
+    if (section==0) {
+        sectionHeadView.label.text = @"群聊";
+    }
+    if (section==1) {
+        sectionHeadView.label.text = @"好友";
+    }
+    return sectionHeadView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0;
+}
+
 @end

@@ -9,7 +9,5 @@
 #import "BaseViewController.h"
 
 @interface FriendsViewController : BaseViewController
-@property (strong, nonatomic) IBOutlet UIView *headView;
-@property (weak, nonatomic) IBOutlet UILabel *groupName;
-- (IBAction)groupChatAct:(UIButton *)sender;
+
 @end

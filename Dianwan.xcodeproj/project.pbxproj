@@ -139,6 +139,7 @@
 		8E3C7761225435D70050E5DA /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C775F225435D70050E5DA /* VideoListViewController.xib */; };
 		8E3C7765225439ED0050E5DA /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */; };
 		8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */; };
+		8E3C776C2254F1980050E5DA /* FirstHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C776B2254F1970050E5DA /* FirstHeaderView.m */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
 		8E412B851F23572100A40CE6 /* CodeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */; };
 		8E412B861F23572100A40CE6 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7F1F23572100A40CE6 /* ForgetViewController.m */; };
@@ -788,6 +789,8 @@
 		8E3C7762225439ED0050E5DA /* VideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTableViewCell.h; sourceTree = "<group>"; };
 		8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTableViewCell.m; sourceTree = "<group>"; };
 		8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		8E3C776A2254F1970050E5DA /* FirstHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstHeaderView.h; sourceTree = "<group>"; };
+		8E3C776B2254F1970050E5DA /* FirstHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstHeaderView.m; sourceTree = "<group>"; };
 		8E412B7B1F23572100A40CE6 /* CodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeLoginViewController.h; sourceTree = "<group>"; };
 		8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeLoginViewController.m; sourceTree = "<group>"; };
 		8E412B7D1F23572100A40CE6 /* CodeLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeLoginViewController.xib; sourceTree = "<group>"; };
@@ -2430,6 +2433,8 @@
 		8EE5693320FDBA690048EB38 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				8E3C776A2254F1970050E5DA /* FirstHeaderView.h */,
+				8E3C776B2254F1970050E5DA /* FirstHeaderView.m */,
 				9816D9631F258E39000FCD7E /* FriendListCell.h */,
 				9816D9641F258E39000FCD7E /* FriendListCell.m */,
 				9816D9651F258E39000FCD7E /* FriendListCell.xib */,
@@ -4125,6 +4130,7 @@
 				8EEF4BB4211D8CB500DE1E36 /* EaseConversationModel.m in Sources */,
 				2F17D9EB223E5FBA008E0E94 /* IQUIView+Hierarchy.m in Sources */,
 				2F3F853F223AB8AE00A46086 /* SystemTableViewCell.m in Sources */,
+				8E3C776C2254F1980050E5DA /* FirstHeaderView.m in Sources */,
 				2F232DE7225262D200B327A9 /* JPVideoPlayerCacheFile.m in Sources */,
 				8EEF4C09211D8CB500DE1E36 /* EaseBubbleView+Text.m in Sources */,
 				2F3F872A223AB9E500A46086 /* MessageParentViewcontroller.m in Sources */,

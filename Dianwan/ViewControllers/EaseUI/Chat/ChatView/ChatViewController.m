@@ -32,6 +32,9 @@
     BOOL _isNetConnect;
     
     NSArray *memberList;
+    
+    NSInteger store_id;
+    NSInteger viptype;
 }
 
 @property (nonatomic) BOOL isPlayingAudio;
@@ -97,6 +100,13 @@
                 memberList = [data safeArrayForKey:@"result"];
                 self.ower = [memberList firstObject];
                 self.title = [self.ower safeStringForKey:@"member_name"];
+            }
+        }];
+        
+        [[ServiceForUser manager]postMethodName:@"appoint/chat_get_info" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                viptype = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"viptype"];
+                store_id = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"store_id"];
             }
         }];
     }
