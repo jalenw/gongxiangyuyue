@@ -93,7 +93,6 @@
 		2F3F854E223AB8E100A46086 /* SystemMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F854B223AB8DC00A46086 /* SystemMessageViewController.xib */; };
 		2F3F854F223AB8E100A46086 /* SystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F854D223AB8E000A46086 /* SystemMessageViewController.m */; };
 		2F3F8555223AB8F300A46086 /* YYImageClipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F8554223AB8F200A46086 /* YYImageClipViewController.m */; };
-		2F3F8557223AB96F00A46086 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3F8556223AB96E00A46086 /* libEaseMobClientSDK.a */; };
 		2F3F8724223AB9E500A46086 /* LZHTabScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F8558223AB9DE00A46086 /* LZHTabScrollViewController.m */; };
 		2F3F8725223AB9E500A46086 /* LZHTabScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F8559223AB9DF00A46086 /* LZHTabScrollViewController.xib */; };
 		2F3F8726223AB9E500A46086 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F855D223AB9DF00A46086 /* MineViewController.m */; };
@@ -717,7 +716,6 @@
 		2F3F8551223AB8E700A46086 /* MessageParentViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageParentViewcontroller.h; sourceTree = "<group>"; };
 		2F3F8553223AB8F100A46086 /* YYImageClipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageClipViewController.h; sourceTree = "<group>"; };
 		2F3F8554223AB8F200A46086 /* YYImageClipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageClipViewController.m; sourceTree = "<group>"; };
-		2F3F8556223AB96E00A46086 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		2F3F8558223AB9DE00A46086 /* LZHTabScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHTabScrollViewController.m; sourceTree = "<group>"; };
 		2F3F8559223AB9DF00A46086 /* LZHTabScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LZHTabScrollViewController.xib; sourceTree = "<group>"; };
 		2F3F855A223AB9DF00A46086 /* LZHTabScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHTabScrollViewController.h; sourceTree = "<group>"; };
@@ -1523,7 +1521,6 @@
 				8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */,
 				8E4664E52169BBCB0022DF94 /* libstdc++.6.0.9.tbd in Frameworks */,
 				8EEF4C3C211D8DDE00DE1E36 /* CFNetwork.framework in Frameworks */,
-				2F3F8557223AB96F00A46086 /* libEaseMobClientSDK.a in Frameworks */,
 				8EEF4C3A211D8DC700DE1E36 /* MobileCoreServices.framework in Frameworks */,
 				8ED176F41F0B45AE00105584 /* libicucore.tbd in Frameworks */,
 				8ED176F61F0B45CD00105584 /* libz.tbd in Frameworks */,
@@ -2449,7 +2446,6 @@
 		8EEF4A23211D8C9500DE1E36 /* EaseMobSDK */ = {
 			isa = PBXGroup;
 			children = (
-				2F3F8556223AB96E00A46086 /* libEaseMobClientSDK.a */,
 				8EEF4A25211D8C9500DE1E36 /* include */,
 				8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */,
 			);
