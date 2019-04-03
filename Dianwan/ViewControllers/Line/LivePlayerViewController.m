@@ -31,6 +31,8 @@
         _timeTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timeTimerAction:) userInfo:nil repeats:YES];
         [self.img sd_setImageWithURL:[NSURL URLWithString:[self.dict safeStringForKey:@"member_avatar"]]];
         self.name.text = [[self.dict safeDictionaryForKey:@"msg"]safeStringForKey:@"title"];
+        self.msgContentView.width = ScreenWidth-16;
+        self.rewardBt.hidden = YES;
     }
     else
     {
@@ -44,6 +46,8 @@
                 [AlertHelper showAlertWithTitle:error];
             }
         }];
+        self.msgContentView.width = ScreenWidth-62;
+        self.rewardBt.hidden = NO;
     }
     msgList = [NSMutableArray new];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
@@ -96,8 +100,9 @@
 
 - (void)timeTimerAction:(id)sender
 {
-    [[ServiceForUser manager] postMethodName:@"channels/get_video_match" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"Channels/getLiveRoomOnlineNumEarn" params:@{@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
+            self.count.text = [NSString stringWithFormat:@"%@人",[[data safeDictionaryForKey:@"result"] safeStringForKey:@"online_num"]];
         }else{
         }
     }];
@@ -184,6 +189,47 @@
     [self.tableView reloadData];
     [self scrollToBottom];
     self.contentTf.text = @"";
+}
+
+- (IBAction)rewardAct:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self.rewardTf becomeFirstResponder];
+        self.rewardContentView.hidden = NO;
+    }
+    else
+    {
+        self.rewardContentView.hidden = YES;
+        [SVProgressHUD show];
+        [[ServiceForUser manager] postMethodName:@"channels/give_gold" params:@{@"gold":self.rewardTf.text,@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            [SVProgressHUD dismiss];
+            if (status) {
+                
+                NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
+                [parm setValue:@(AppDelegateInstance.defaultUser.user_id) forKey:@"userId"];
+                [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
+                [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
+                [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
+                [parm setValue:[NSString stringWithFormat:@"%@赠送了%@金币",AppDelegateInstance.defaultUser.nickname,self.rewardTf.text] forKey:@"content"];
+                [parm setValue:[self.dict safeStringForKey:@"chatroom_id"] forKey:@"room_id"];
+                NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+                EMMessage *message = [EaseSDKHelper sendTextMessage:[Tooles jsonToString:parm]
+                                                                 to:[self.dict safeStringForKey:@"chatroom_id"]
+                                                        messageType:eMessageTypeChatRoom
+                                                  requireEncryption:NO
+                                                         messageExt:p];
+                
+                [msgList addObject:message];
+                [self.tableView reloadData];
+                [self scrollToBottom];
+                
+                [self.rewardTf resignFirstResponder];
+                self.rewardTf.text = @"";
+            }else{
+                [AlertHelper showAlertWithTitle:error];
+            }
+        }];
+    }
 }
 
 -(void)inputKeyboardWillShow:(NSNotification*)notification
