@@ -178,7 +178,8 @@
                                        @"content":weakSelf.textview.text,
                                        @"title":weakSelf.advTitleTF.text,
                                        @"price":@([weakSelf.remainingCountTF.text intValue]), //红包个数
-                                       @"num":@([weakSelf.remainingCountTF.text intValue])
+                                       @"num":@([weakSelf.remainingCountTF.text intValue]),
+//                                       @"type":@(0),
                                        };
                 [[ServiceForUser manager] postMethodName:@"advertising/addAdv" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
                     weakSelf.inputView.hidden = YES;
