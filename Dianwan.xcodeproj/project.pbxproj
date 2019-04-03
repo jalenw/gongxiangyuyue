@@ -84,6 +84,9 @@
 		2F23C537224099CA0044C0F4 /* City2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C531224099C80044C0F4 /* City2ViewController.xib */; };
 		2F23C538224099CA0044C0F4 /* CityTableviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F23C532224099C90044C0F4 /* CityTableviewViewController.m */; };
 		2F23C539224099CA0044C0F4 /* CityTableviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C533224099C90044C0F4 /* CityTableviewViewController.xib */; };
+		2F3A64882255105C0048CC56 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3A64872255105C0048CC56 /* TXLiteAVSDK_Professional.framework */; };
+		2F3A648A2255110C0048CC56 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3A64892255110B0048CC56 /* libEaseMobClientSDK.a */; };
+		2F3A648C225511560048CC56 /* libAliyunOSSiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3A648B225511560048CC56 /* libAliyunOSSiOS.a */; };
 		2F3F853F223AB8AE00A46086 /* SystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */; };
 		2F3F8540223AB8AE00A46086 /* SystemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */; };
 		2F3F8547223AB8D200A46086 /* PlatformAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F8541223AB8C700A46086 /* PlatformAnnouncementCell.xib */; };
@@ -343,7 +346,6 @@
 		8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC0A223E6820002B0D86 /* Accelerate.framework */; };
 		8EC2CC1122409866002B0D86 /* AddLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC0F22409866002B0D86 /* AddLineViewController.m */; };
 		8EC2CC1222409866002B0D86 /* AddLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC2CC1022409866002B0D86 /* AddLineViewController.xib */; };
-		8EC2CC152240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */; };
 		8EC2CC192240A332002B0D86 /* LivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */; };
 		8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */; };
 		8EC2CC1F224231CE002B0D86 /* LiveMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC2CC1D224231CE002B0D86 /* LiveMsgTableViewCell.m */; };
@@ -705,6 +707,9 @@
 		2F23C532224099C90044C0F4 /* CityTableviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableviewViewController.m; sourceTree = "<group>"; };
 		2F23C533224099C90044C0F4 /* CityTableviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityTableviewViewController.xib; sourceTree = "<group>"; };
 		2F23C534224099C90044C0F4 /* cityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cityModel.h; sourceTree = "<group>"; };
+		2F3A64872255105C0048CC56 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
+		2F3A64892255110B0048CC56 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
+		2F3A648B225511560048CC56 /* libAliyunOSSiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAliyunOSSiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemTableViewCell.m; sourceTree = "<group>"; };
 		2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemTableViewCell.xib; sourceTree = "<group>"; };
 		2F3F853E223AB8AE00A46086 /* SystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTableViewCell.h; sourceTree = "<group>"; };
@@ -1051,7 +1056,6 @@
 		8EC2CC0E22409866002B0D86 /* AddLineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddLineViewController.h; sourceTree = "<group>"; };
 		8EC2CC0F22409866002B0D86 /* AddLineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddLineViewController.m; sourceTree = "<group>"; };
 		8EC2CC1022409866002B0D86 /* AddLineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddLineViewController.xib; sourceTree = "<group>"; };
-		8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		8EC2CC162240A332002B0D86 /* LivePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePlayerViewController.h; sourceTree = "<group>"; };
 		8EC2CC172240A332002B0D86 /* LivePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LivePlayerViewController.m; sourceTree = "<group>"; };
 		8EC2CC182240A332002B0D86 /* LivePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LivePlayerViewController.xib; sourceTree = "<group>"; };
@@ -1526,8 +1530,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3A648C225511560048CC56 /* libAliyunOSSiOS.a in Frameworks */,
 				8EC2CC0B223E6820002B0D86 /* Accelerate.framework in Frameworks */,
 				8E4664E52169BBCB0022DF94 /* libstdc++.6.0.9.tbd in Frameworks */,
+				2F3A648A2255110C0048CC56 /* libEaseMobClientSDK.a in Frameworks */,
 				8EEF4C3C211D8DDE00DE1E36 /* CFNetwork.framework in Frameworks */,
 				8EEF4C3A211D8DC700DE1E36 /* MobileCoreServices.framework in Frameworks */,
 				8ED176F41F0B45AE00105584 /* libicucore.tbd in Frameworks */,
@@ -1549,9 +1555,9 @@
 				8EB4E43521201DF300BC563B /* Bolts.framework in Frameworks */,
 				CD3C730E1ED56E6E0039B80B /* jpush-ios-3.0.5.a in Frameworks */,
 				CD6323B41EE54C1100D033F4 /* ShareSDK.framework in Frameworks */,
+				2F3A64882255105C0048CC56 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 				CD6323B71EE54C1100D033F4 /* ShareSDKExtension.framework in Frameworks */,
 				CD6323B61EE54C1100D033F4 /* ShareSDKConfigFile.framework in Frameworks */,
-				8EC2CC152240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 				CD6323B91EE54C1100D033F4 /* ShareSDKUI.framework in Frameworks */,
 				CD6323BA1EE54C1100D033F4 /* CopyConnector.framework in Frameworks */,
 				CD6323BE1EE54C1100D033F4 /* SMSConnector.framework in Frameworks */,
@@ -2412,6 +2418,7 @@
 		8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */ = {
 			isa = PBXGroup;
 			children = (
+				2F3A64892255110B0048CC56 /* libEaseMobClientSDK.a */,
 				8EE2DCAC2239FB6B00DF2DFE /* GYNoticeViewCell.m */,
 				8EE2DCAD2239FB6B00DF2DFE /* GYRollingNoticeView.m */,
 				8EE2DCAE2239FB6B00DF2DFE /* GYRollingNoticeView.h */,
@@ -3475,7 +3482,7 @@
 		CDC88E6E1D8698BF00CE03CE /* Externs */ = {
 			isa = PBXGroup;
 			children = (
-				8EC2CC142240A2A9002B0D86 /* TXLiteAVSDK_Professional.framework */,
+				2F3A64872255105C0048CC56 /* TXLiteAVSDK_Professional.framework */,
 				2F17D9C5223E5FB9008E0E94 /* IQKeyboardManager */,
 				8EE2DCB5223A043000DF2DFE /* QRCode */,
 				8EE2DCAB2239FB6B00DF2DFE /* GYRollingNoticeView */,
@@ -3582,6 +3589,7 @@
 		CDED11621DB07BA800BC81F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F3A648B225511560048CC56 /* libAliyunOSSiOS.a */,
 				8EC2CC0A223E6820002B0D86 /* Accelerate.framework */,
 				8E4664E42169BBCB0022DF94 /* libstdc++.6.0.9.tbd */,
 				8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */,
@@ -3633,7 +3641,7 @@
 				TargetAttributes = {
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2KWAH85S26;
+						DevelopmentTeam = ZCD2B597V7;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -4318,7 +4326,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZCD2B597V7;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4358,9 +4366,10 @@
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
+					"$(PROJECT_DIR)/Dianwan/Externs/GYRollingNoticeView",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intexth.xiaojiaovideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4374,10 +4383,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZCD2B597V7;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4416,12 +4425,13 @@
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Dianwan/ViewControllers/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Dianwan/Externs/EaseMobSDK/include/EaseMobClientSDK",
+					"$(PROJECT_DIR)/Dianwan/Externs/GYRollingNoticeView",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intexth.xiaojiaovideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
