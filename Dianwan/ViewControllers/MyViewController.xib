@@ -436,6 +436,7 @@
                         </fragment>
                     </attributedString>
                     <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </label>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vk2-1A-Zeh">
                     <rect key="frame" x="239" y="152" width="4" height="14"/>

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarketViewController">
             <connections>
-                <outlet property="addAdvSelectView" destination="39V-fb-b9S" id="Kwf-Ot-pk7"/>
+                <outlet property="addAdvSelectView" destination="wqN-jn-Tva" id="hxo-52-I5g"/>
                 <outlet property="marketTableview" destination="XXm-A7-75b" id="AqM-LZ-dBb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,37 +32,48 @@
         </view>
         <view contentMode="scaleToFill" id="wqN-jn-Tva">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" id="39V-fb-b9S">
                     <rect key="frame" x="0.0" y="367" width="375" height="300"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tkM-nv-mRs">
-                            <rect key="frame" x="39" y="73" width="90" height="90"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.28627450980000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dil-H5-mMv">
-                            <rect key="frame" x="239" y="73" width="90" height="90"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_market_video" id="dil-H5-mMv">
+                            <rect key="frame" x="239" y="58" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" red="0.89302093920000003" green="1" blue="0.24119572340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图文广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3dQ-b6-WQS">
-                            <rect key="frame" x="49" y="188" width="70" height="21"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_market_pic1" id="tkM-nv-mRs">
+                            <rect key="frame" x="39" y="58" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MJA-94-Ti9">
-                            <rect key="frame" x="249" y="188" width="70" height="21"/>
+                            <rect key="frame" x="249" y="173" width="70" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ktr-hc-wn1">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图文广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3dQ-b6-WQS">
+                            <rect key="frame" x="49" y="173" width="70" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ktr-hc-wn1">
                             <rect key="frame" x="0.0" y="0.0" width="188" height="300"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
@@ -76,18 +87,25 @@
                                 <action selector="addAdvAction:" destination="-1" eventType="touchUpInside" id="crM-uZ-Qva"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9ga-OH-2Nn">
-                            <rect key="frame" x="110" y="248" width="154" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9ga-OH-2Nn">
+                            <rect key="frame" x="171" y="228" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.4549019608" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="退出"/>
+                            <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="hiddAdvSelectView:" destination="-1" eventType="touchUpInside" id="lA9-Or-sIy"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67392979452054791" colorSpace="custom" customColorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="140" y="716"/>
+            <color key="backgroundColor" red="0.011764705882352941" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+            <point key="canvasLocation" x="140" y="715.59220389805103"/>
         </view>
     </objects>
+    <resources>
+        <image name="close" width="32" height="32"/>
+        <image name="iv_market_pic1" width="80" height="80"/>
+        <image name="iv_market_video" width="80" height="80"/>
+    </resources>
 </document>
