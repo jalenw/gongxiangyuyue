@@ -122,7 +122,7 @@
     if (conversationModel) {
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
-           NSDictionary *dict = [Tooles stringToJson:[conversation.latestMessage.ext safeStringForKey:@"ext"]];
+           NSDictionary *dict = conversation.latestMessage.ext;
                 ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType];
                 chatController.title = @"";
                 [AppDelegateInstance.currentNavigationController pushViewController:chatController animated:YES];

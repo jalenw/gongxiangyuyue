@@ -214,7 +214,7 @@
 - (void)setModel:(id<IMessageModel>)model
 {
     [super setModel:model];
-    NSDictionary *dict = [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]];
+    NSDictionary *dict =  model.message.ext;//[Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]];
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
     _nameLabel.text = [dict safeStringForKey:@"nickName"];
 //    if (model.avatarURLPath) {

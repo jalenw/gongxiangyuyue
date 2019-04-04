@@ -90,13 +90,13 @@
     cell.model = model;
     EMMessage *lastMessage = [model.conversation latestMessage];
     if (lastMessage) {
-        if ([[[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"nickName"] isEqualToString: AppDelegateInstance.defaultUser.nickname]) {
-            cell.titleLabel.text = [[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"toNickName"];
-            [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"toAvatar"]] placeholderImage:model.avatarImage];
+        if ([[lastMessage.ext safeStringForKey:@"nickName"] isEqualToString: AppDelegateInstance.defaultUser.nickname]) {
+            cell.titleLabel.text = [lastMessage.ext safeStringForKey:@"toNickName"];
+            [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[lastMessage.ext safeStringForKey:@"toAvatar"]] placeholderImage:model.avatarImage];
         }
         else {
-            cell.titleLabel.text = [[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"nickName"];
-            [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[[Tooles stringToJson:[lastMessage.ext safeStringForKey:@"ext"]] safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
+            cell.titleLabel.text = [lastMessage.ext safeStringForKey:@"nickName"];
+            [cell.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:[lastMessage.ext safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
         }
     }
     if (_dataSource && [_dataSource respondsToSelector:@selector(conversationListViewController:latestMessageTitleForConversationModel:)]) {
@@ -228,7 +228,11 @@
     if (lastMessage) {
         id<IEMMessageBody> messageBody = lastMessage.messageBodies.lastObject;
         BOOL me = [messageBody.message.groupSenderName isEqualToString:AppDelegateInstance.defaultUser.chat_id];
-        switch (messageBody.messageBodyType) {
+        MessageBodyType type = messageBody.messageBodyType;
+        if ([[messageBody.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
+            type = eMessageBodyType_File;
+        }
+        switch (type) {
             case eMessageBodyType_Image:{
                 latestMessageTitle = [NSString stringWithFormat:@"%@一张图片",me?@"发出":@"收到"];//NSLocalizedString(@"message.image1", @"[image]");
             } break;
@@ -247,7 +251,7 @@
                 latestMessageTitle = [NSString stringWithFormat:@"%@一段视频",me?@"发出":@"收到"];//NSLocalizedString(@"message.video1", @"[video]");
             } break;
             case eMessageBodyType_File: {
-                latestMessageTitle = NSLocalizedString(@"message.file1", @"[file]");
+                latestMessageTitle = @"发起了一张约家订单";//NSLocalizedString(@"message.file1", @"[file]");
             } break;
             default: {
             } break;

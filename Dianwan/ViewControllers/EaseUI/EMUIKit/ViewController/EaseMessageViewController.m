@@ -743,6 +743,24 @@
     }
 }
 
+- (void)_fileMessageCellSelected:(id<IMessageModel>)model
+{
+    if (!model.isSender )
+    {
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/Orderdetails?order_id=%@",web_url,model.text];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    else
+    {
+        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+        commonweb.address =[NSString stringWithFormat:@"%@dist/appointment/parOrderdetails?order_id=%@",web_url,model.text];
+        commonweb.showNav = NO;
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+}
+
 #pragma mark - pivate data
 
 - (void)_loadMessagesBefore:(long long)timestamp
@@ -992,8 +1010,11 @@
             return;
         }
     }
-    
-    switch (model.bodyType) {
+    MessageBodyType type = model.bodyType;
+    if ([[model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
+        type = eMessageBodyType_File;
+    }
+    switch (type) {
         case eMessageBodyType_Image:
         {
             _scrollToBottomWhenAppear = NO;
@@ -1017,8 +1038,9 @@
             break;
         case eMessageBodyType_File:
         {
-            _scrollToBottomWhenAppear = NO;
-            [self showHint:@"Custom implementation!"];
+            [self _fileMessageCellSelected:model];
+//            _scrollToBottomWhenAppear = NO;
+//            [self showHint:@"Custom implementation!"];
         }
             break;
         default:
@@ -1699,9 +1721,11 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
-    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
-    NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:ext
-                                                                  bodyType:eMessageBodyType_Text] mutableCopy];
+    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];//@{@"ext":[Tooles jsonToString:parm]}
+    if (ext) {
+        [p addEntriesFromDictionary:ext];
+    }
+//    NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:ext bodyType:eMessageBodyType_Text] mutableCopy];
     EMMessage *message = [EaseSDKHelper sendTextMessage:text
                                                      to:self.conversation.chatter
                                             messageType:[self _messageTypeFromConversationType]
@@ -1746,7 +1770,7 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
-    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Image] mutableCopy];
     EMMessage *message = [EaseSDKHelper sendImageMessageWithImage:image
@@ -1778,7 +1802,7 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
-    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Voice] mutableCopy];
     EMMessage *message = [EaseSDKHelper sendVoiceMessageWithLocalPath:localPath
@@ -1812,7 +1836,7 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
-    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+    NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Video] mutableCopy];
     EMMessage *message = [EaseSDKHelper sendVideoMessageWithURL:url

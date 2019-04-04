@@ -147,7 +147,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
         [self setCustomBubbleView:model];
     } else {
         MessageBodyType type = messageType;
-        if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+        if ([[model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
             type = eMessageBodyType_File;
         }
         switch (type) {
@@ -293,7 +293,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
         [self setCustomModel:model];
     } else {
         MessageBodyType type = model.bodyType;
-        if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+        if ([[model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
             type = eMessageBodyType_File;
         }
         switch (type) {
@@ -424,7 +424,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     } else {
         if (_bubbleView) {
             MessageBodyType type = _messageType;
-            if ([[ [Tooles stringToJson:[self.model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+            if ([[self.model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
                 type = eMessageBodyType_File;
             }
             switch (type) {
@@ -668,7 +668,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
 + (NSString *)cellIdentifierWithModel:(id<IMessageModel>)model
 {
     MessageBodyType type = model.bodyType;
-    if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+    if ([[model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
         type = eMessageBodyType_File;
     }
     NSString *cellIdentifier = nil;
@@ -740,7 +740,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     CGFloat height = EaseMessageCellPadding + cell.bubbleMargin.top + cell.bubbleMargin.bottom;
     
     MessageBodyType type = model.bodyType;
-    if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+    if ([[model.message.ext safeStringForKey:@"customMessageType"] isEqualToString:@"2"]) {
         type = eMessageBodyType_File;
     }
     switch (type) {
