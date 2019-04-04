@@ -483,7 +483,6 @@
 		98AEBAB21F18676700E6483B /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AEBAB11F18676700E6483B /* NSDate+Helper.m */; };
 		98C059411F2305CB007AC0B6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C0593E1F2305CB007AC0B6 /* User.m */; };
 		98C059421F2305CB007AC0B6 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C059401F2305CB007AC0B6 /* User+CoreDataProperties.m */; };
-		A2B0F84E7D86394596F56BC3 /* libPods-Dianwan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */; };
 		CD06662A1E8CB53700CCD49A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666231E8CB53700CCD49A /* MainViewController.m */; };
 		CD06662B1E8CB53700CCD49A /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666251E8CB53700CCD49A /* UIBarButtonItem+Extension.m */; };
 		CD06662C1E8CB53700CCD49A /* ZTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0666271E8CB53700CCD49A /* ZTNavigationController.m */; };
@@ -780,7 +779,6 @@
 		2FCF93A42248BAFE00683978 /* CommonUIWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonUIWebViewController.xib; sourceTree = "<group>"; };
 		4336F5DCCEFB7FC06CF6C8E3 /* Pods-Dianwan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dianwan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dianwan/Pods-Dianwan.release.xcconfig"; sourceTree = "<group>"; };
 		4A82508B9E7B53F80F319B82 /* Pods-Dianwan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dianwan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dianwan/Pods-Dianwan.debug.xcconfig"; sourceTree = "<group>"; };
-		866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dianwan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1823882247605C001511ED /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
 		8E1823892247605C001511ED /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		8E18238A2247605C001511ED /* ClassDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassDetailViewController.xib; sourceTree = "<group>"; };
@@ -1568,7 +1566,6 @@
 				CD6323C81EE54C1100D033F4 /* ShareSDKConnector.framework in Frameworks */,
 				0432ECF01F271CC4008D7AA3 /* AlipaySDK.framework in Frameworks */,
 				CD6323C01EE54C1100D033F4 /* TencentOpenAPI.framework in Frameworks */,
-				A2B0F84E7D86394596F56BC3 /* libPods-Dianwan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3603,7 +3600,6 @@
 				CD06664B1E8CD6EB00CCD49A /* libstdc++.6.0.9.tbd */,
 				CD0666491E8CD6D200CCD49A /* libresolv.tbd */,
 				CD0666471E8CD69700CCD49A /* libz.1.2.5.tbd */,
-				866B434C50DB2BFCAE8DFA43 /* libPods-Dianwan.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4326,7 +4322,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4369,7 +4365,7 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4383,10 +4379,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4428,10 +4424,10 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

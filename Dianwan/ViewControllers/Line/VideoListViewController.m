@@ -8,6 +8,7 @@
 
 #import "VideoListViewController.h"
 #import "VideoTableViewCell.h"
+#import "WaitPayViewController.h"
 @interface VideoListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -33,6 +34,14 @@
         page =1;
         [self requesrListAct];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshVideoList" object:nil];
+}
+
+-(void)refresh
+{
+    page =1;
+    [self requesrListAct];
 }
 
 -(void)requesrListAct{
@@ -86,9 +95,25 @@
 -(void)playAct:(UIButton*)sender
 {
     NSDictionary *dict = dataList[sender.tag];
-    MPMoviePlayerViewController *mPMoviePlayerViewController;
-    mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"video_url"]]];
-    mPMoviePlayerViewController.view.frame = ScreenBounds;
-    [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+    if ([dict safeBoolForkey:@"is_buy"]) {
+        MPMoviePlayerViewController *mPMoviePlayerViewController;
+        mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"video_url"]]];
+        mPMoviePlayerViewController.view.frame = ScreenBounds;
+        [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+    }
+    else
+    {
+        WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+        waitpay.dict = dict;
+        waitpay.type = 3;
+        waitpay.moneryNum =[dict safeStringForKey:@"price"];
+        waitpay.order_id = [dict safeStringForKey:@"id"];
+        [self.navigationController pushViewController:waitpay animated:YES];
+    }
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

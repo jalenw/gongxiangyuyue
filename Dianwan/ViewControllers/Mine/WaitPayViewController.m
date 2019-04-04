@@ -10,6 +10,7 @@
 #import "PaySucessViewController.h"
 #import "SYPasswordView.h"
 #import "AlreadybuyViewController.h"
+#import "LivePlayerViewController.h"
 @interface WaitPayViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *moneyCountLabel;
 @property(nonatomic,strong)NSString *pay_type;
@@ -27,8 +28,6 @@
     self.pay_type=@"money";
     self.moneyCountLabel.text =[NSString stringWithFormat:@"¥%0.2f",[_moneryNum floatValue]];
     
-    
-    
     //创建密码输入控价
     self.pasView = [[SYPasswordView alloc] initWithFrame:CGRectMake(20, 93, 288, 48)];
     //zyf
@@ -44,6 +43,12 @@
         }
         if (weakSelf.type==2) {
             [weakSelf payForClass:pwNumber];
+        }
+        if (weakSelf.type==3) {
+            [weakSelf payForVideo:pwNumber];
+        }
+        if (weakSelf.type==4) {
+            [weakSelf payForLive:pwNumber];
         }
     };
     [self.pwView addSubview:_pasView];
@@ -129,6 +134,76 @@
                 [self.navigationController pushViewController:alreadBuy animated:YES];
             }];
             [self.navigationController pushViewController:paysuc animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
+
+-(void)payForVideo:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"id":self.order_id,
+                           @"member_paypwd":pwNumber
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"storevideo/pay_video" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kRefreshVideoList" object:nil];
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买视频";
+            [paysuc setBlock:^{
+                MPMoviePlayerViewController *mPMoviePlayerViewController;
+                mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[self.dict safeStringForKey:@"video_url"]]];
+                mPMoviePlayerViewController.view.frame = ScreenBounds;
+                [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
+
+-(void)payForLive:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"chatroom_id":self.order_id,
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"channels/paymentChannelOrderInfo" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [SVProgressHUD dismiss];
+        if (status) {
+    NSDictionary *params=@{
+                           @"order_sn":[data safeStringForKey:@"result"],
+                           @"member_paypwd":pwNumber,
+                           @"pay_type":self.pay_type
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"channels/payChannelsMemberOrder" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kRefreshLiveList" object:nil];
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买直播";
+            [paysuc setBlock:^{
+                LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+                vc.url = [self.dict safeStringForKey:@"play"];
+                vc.dict = self.dict;
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

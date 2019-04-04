@@ -10,6 +10,7 @@
 #import "LiveListTableViewCell.h"
 #import "LivePlayerViewController.h"
 #import "LZHAlertView.h"
+#import "WaitPayViewController.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -40,6 +41,13 @@
         [self requesrLiveListAct];
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshLiveList" object:nil];
+}
+
+-(void)refresh
+{
+    page =1;
+    [self requesrLiveListAct];
 }
 
 -(void)requesrLiveListAct{
@@ -76,28 +84,29 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *dict =dataList[indexPath.row];
-    
-    
-    LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
-    vc.url = [dict safeStringForKey:@"play"];
-    vc.dict = dict;
-    [self.navigationController pushViewController:vc animated:YES];
-    
-//    LZHAlertView *alertView = [LZHAlertView createWithTitleArray:@[@"取消",@"确定支付"]];
-//    alertView.titleLabel.text = @"付费直播";
-//    alertView.contentLabel.text = @"";
-//    __weak LZHAlertView *weakAlertView = alertView;
-//    [alertView setBlock:^(NSInteger index, NSString *title) {
-//        if (index == 1) {
-//           
-//        }
-//        [weakAlertView hide];
-//    }];
-//    [alertView show];
+    if ([dict safeBoolForkey:@"is_buy"]||[dict safeIntForKey:@"channel_type"]==1) {
+        LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+        vc.url = [dict safeStringForKey:@"play"];
+        vc.dict = dict;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+        waitpay.dict = dict;
+        waitpay.type = 4;
+        waitpay.moneryNum =[dict safeStringForKey:@"channel_price"];
+        waitpay.order_id = [dict safeStringForKey:@"chatroom_id"];
+        [self.navigationController pushViewController:waitpay animated:YES];
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 312;
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
