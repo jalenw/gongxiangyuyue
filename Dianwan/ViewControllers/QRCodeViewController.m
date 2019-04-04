@@ -27,6 +27,7 @@
             [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
             CIImage *outPutImage = [filter outputImage];
             [self.imgView setImage:[self sencond_getHDImgWithCIImage:outPutImage size:self.imgView.size]];
+            self.code.text = [NSString stringWithFormat:@"我的推荐码:%@",[[data safeDictionaryForKey:@"result"] safeStringForKey:@"url"]];
         }
         else
             [AlertHelper showAlertWithTitle:error];

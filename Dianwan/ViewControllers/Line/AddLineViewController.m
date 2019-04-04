@@ -151,11 +151,8 @@
     [[ServiceForUser manager] postMethodName:@"channels/startLive" params:@{@"title":self.nameTf.text,@"cover":pic_url,@"channel_type":@(type+1),@"channel_price":self.priceTf.text,@"cost_price":self.costTf.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
-            LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
-            vc.forPush = true;
-            vc.url = [[data safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
-            vc.dict = [data safeDictionaryForKey:@"result"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self.navigationController popViewControllerAnimated:NO];
+            self.block(data);
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

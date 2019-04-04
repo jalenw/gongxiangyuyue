@@ -25,23 +25,23 @@
     _dict =dict;
     self.viewerCount.text = [NSString stringWithFormat:@"%d人正在观看",[dict safeIntForKey:@"online_num"]];
     self.teacherName.text = [dict safeStringForKey:@"member_name"];
-    self.payMethonLabel.text= [dict safeStringForKey:@"member_avatar"];
-    [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"member_avatar"]]];
+    self.priceLb.text = [NSString stringWithFormat:@"￥%@",[dict safeStringForKey:@"channel_price"].length>0?[dict safeStringForKey:@"channel_price"]:@"0"];
+    [self.coverImageview sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"thumb"]]];
     [self.teacherImageView sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"member_avatar"]]];
    
     self.titleLabel.text = [dict safeStringForKey:@"channel_title"];
-    switch ([dict safeIntForKey:@"channel_status"]) {
-        case 0:
+    switch ([dict safeIntForKey:@"channel_type"]) {
+        case 1:
             self.typeLabel.text=@"免费直播";
             break;
-        case 1:
+        case 2:
             self.typeLabel.text=@"余额付费直播";
             break;
-        case 2:
+        case 3:
             self.typeLabel.text=@"金币付费直播";
             break;
     }
-    
+    self.payMethonLabel.text= self.typeLabel.text;
 }
 
 @end

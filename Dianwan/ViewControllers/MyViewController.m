@@ -15,7 +15,7 @@
 #import "AlreadybuyViewController.h"
 #import "OrderParentViewcontroller.h"
 #import "ChatViewController.h"
-
+#import "LivePlayerViewController.h"
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
 @property (weak, nonatomic) IBOutlet UIView *settingBtn;
@@ -120,9 +120,14 @@
     }
     if (sender.tag==105) {
         AddLineViewController *vc = [[AddLineViewController alloc]init];
+        [vc setBlock:^(NSDictionary * _Nonnull dict) {
+            LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+            vc.forPush = true;
+            vc.url = [[dict safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
+            vc.dict = [dict safeDictionaryForKey:@"result"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         [self.navigationController pushViewController:vc animated:YES];
-//        LiveListViewController *list = [[LiveListViewController alloc]init];
-//        [self.navigationController pushViewController:list  animated:YES];
     }
     if (sender.tag==107) {//消息
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];

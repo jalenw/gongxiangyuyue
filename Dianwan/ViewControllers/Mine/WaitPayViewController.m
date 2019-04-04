@@ -27,7 +27,9 @@
     self.title = @"在线支付";
     self.pay_type=@"money";
     self.moneyCountLabel.text =[NSString stringWithFormat:@"¥%0.2f",[_moneryNum floatValue]];
-    
+    if (self.type==3) {
+        self.typeLb.text = @"金币支付";
+    }
     //创建密码输入控价
     self.pasView = [[SYPasswordView alloc] initWithFrame:CGRectMake(20, 93, 288, 48)];
     //zyf
@@ -52,7 +54,7 @@
         }
     };
     [self.pwView addSubview:_pasView];
-    self.pwInputView.frame = self.view.bounds;
+    self.pwInputView.frame = ScreenBounds;
     self.pwInputView.hidden = YES;
     [self.pasView.textField resignFirstResponder];
     [self.view addSubview:self.pwInputView];

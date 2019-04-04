@@ -83,6 +83,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *dict =dataList[indexPath.row];
     if ([dict safeBoolForkey:@"is_buy"]||[dict safeIntForKey:@"channel_type"]==1) {
         LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];

@@ -10,5 +10,6 @@
 
 @interface QRCodeViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *code;
 
 @end

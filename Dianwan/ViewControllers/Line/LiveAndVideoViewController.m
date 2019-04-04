@@ -10,6 +10,7 @@
 #import "LiveListViewController.h"
 #import "VideoListViewController.h"
 #import "AddLineViewController.h"
+#import "LivePlayerViewController.h"
 @interface LiveAndVideoViewController ()
 
 @end
@@ -32,6 +33,13 @@
 -(void)rightbarButtonDidTap:(UIButton *)button
 {
     AddLineViewController *vc = [[AddLineViewController alloc]init];
+    [vc setBlock:^(NSDictionary * _Nonnull dict) {
+        LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+        vc.forPush = true;
+        vc.url = [[dict safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
+        vc.dict = [dict safeDictionaryForKey:@"result"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

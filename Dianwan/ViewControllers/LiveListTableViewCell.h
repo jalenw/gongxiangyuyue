@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *payMethonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *freeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *viewerCount;
+@property (weak, nonatomic) IBOutlet UILabel *priceLb;
 
 
 @end

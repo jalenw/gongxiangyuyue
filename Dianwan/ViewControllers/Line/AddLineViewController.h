@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddLineViewController : BaseViewController
+@property (nonatomic,copy) void (^block)(NSDictionary *dict);
 @property (weak, nonatomic) IBOutlet UITextField *nameTf;
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *bts;

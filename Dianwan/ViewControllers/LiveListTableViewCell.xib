@@ -242,6 +242,7 @@
                 <outlet property="coverImageview" destination="H5s-o5-uYq" id="mN6-ya-Zjk"/>
                 <outlet property="freeLabel" destination="FDu-C8-Q9V" id="oVp-lQ-Akp"/>
                 <outlet property="payMethonLabel" destination="TXv-kP-OlI" id="uDp-le-5ar"/>
+                <outlet property="priceLb" destination="f7o-tn-Bqm" id="idt-vb-qaF"/>
                 <outlet property="teacherImageView" destination="r4A-67-dtF" id="m0k-mM-NoL"/>
                 <outlet property="teacherName" destination="1LK-o5-NYn" id="wus-qP-Jmc"/>
                 <outlet property="titleLabel" destination="gMS-T3-w8k" id="L6T-TY-gTn"/>
