@@ -84,6 +84,9 @@
 		2F23C537224099CA0044C0F4 /* City2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C531224099C80044C0F4 /* City2ViewController.xib */; };
 		2F23C538224099CA0044C0F4 /* CityTableviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F23C532224099C90044C0F4 /* CityTableviewViewController.m */; };
 		2F23C539224099CA0044C0F4 /* CityTableviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C533224099C90044C0F4 /* CityTableviewViewController.xib */; };
+		2F3A649022551E0E0048CC56 /* PostYueJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A648E22551E0E0048CC56 /* PostYueJiaViewController.m */; };
+		2F3A649122551E0E0048CC56 /* PostYueJiaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A648F22551E0E0048CC56 /* PostYueJiaViewController.xib */; };
+		2F3A649322551EC90048CC56 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */; };
 		2F3F853F223AB8AE00A46086 /* SystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */; };
 		2F3F8540223AB8AE00A46086 /* SystemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */; };
 		2F3F8547223AB8D200A46086 /* PlatformAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F8541223AB8C700A46086 /* PlatformAnnouncementCell.xib */; };
@@ -140,8 +143,6 @@
 		8E3C7765225439ED0050E5DA /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C7763225439ED0050E5DA /* VideoTableViewCell.m */; };
 		8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */; };
 		8E3C776C2254F1980050E5DA /* FirstHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C776B2254F1970050E5DA /* FirstHeaderView.m */; };
-		8E3C777022550E2B0050E5DA /* PostYueJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */; };
-		8E3C777122550E2B0050E5DA /* PostYueJiaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */; };
 		8E3C777622551ABC0050E5DA /* libAliyunOSSiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3C777522551AB50050E5DA /* libAliyunOSSiOS.a */; };
 		8E3C777822551AE00050E5DA /* libPods-Dianwan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3C777722551AE00050E5DA /* libPods-Dianwan.a */; };
 		8E412B841F23572100A40CE6 /* CodeLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E412B7C1F23572100A40CE6 /* CodeLoginViewController.m */; };
@@ -707,6 +708,10 @@
 		2F23C532224099C90044C0F4 /* CityTableviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableviewViewController.m; sourceTree = "<group>"; };
 		2F23C533224099C90044C0F4 /* CityTableviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityTableviewViewController.xib; sourceTree = "<group>"; };
 		2F23C534224099C90044C0F4 /* cityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cityModel.h; sourceTree = "<group>"; };
+		2F3A648D22551E0E0048CC56 /* PostYueJiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostYueJiaViewController.h; sourceTree = "<group>"; };
+		2F3A648E22551E0E0048CC56 /* PostYueJiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostYueJiaViewController.m; sourceTree = "<group>"; };
+		2F3A648F22551E0E0048CC56 /* PostYueJiaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostYueJiaViewController.xib; sourceTree = "<group>"; };
+		2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemTableViewCell.m; sourceTree = "<group>"; };
 		2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemTableViewCell.xib; sourceTree = "<group>"; };
 		2F3F853E223AB8AE00A46086 /* SystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTableViewCell.h; sourceTree = "<group>"; };
@@ -795,9 +800,6 @@
 		8E3C7764225439ED0050E5DA /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		8E3C776A2254F1970050E5DA /* FirstHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstHeaderView.h; sourceTree = "<group>"; };
 		8E3C776B2254F1970050E5DA /* FirstHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstHeaderView.m; sourceTree = "<group>"; };
-		8E3C776D22550E2B0050E5DA /* PostYueJiaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostYueJiaViewController.h; sourceTree = "<group>"; };
-		8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostYueJiaViewController.m; sourceTree = "<group>"; };
-		8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostYueJiaViewController.xib; sourceTree = "<group>"; };
 		8E3C777522551AB50050E5DA /* libAliyunOSSiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAliyunOSSiOS.a; sourceTree = "<group>"; };
 		8E3C777722551AE00050E5DA /* libPods-Dianwan.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-Dianwan.a"; sourceTree = "<group>"; };
 		8E412B7B1F23572100A40CE6 /* CodeLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeLoginViewController.h; sourceTree = "<group>"; };
@@ -1562,6 +1564,7 @@
 				CD6323BA1EE54C1100D033F4 /* CopyConnector.framework in Frameworks */,
 				CD6323BE1EE54C1100D033F4 /* SMSConnector.framework in Frameworks */,
 				CD6323BC1EE54C1100D033F4 /* QQConnector.framework in Frameworks */,
+				2F3A649322551EC90048CC56 /* libEaseMobClientSDK.a in Frameworks */,
 				8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */,
 				8EEF4BC2211D8CB500DE1E36 /* libopencore-amrnb.a in Frameworks */,
 				CD6323BD1EE54C1100D033F4 /* SinaWeiboConnector.framework in Frameworks */,
@@ -2368,12 +2371,12 @@
 				8EDA414F1F22F85C000CBA40 /* FriendsViewController.h */,
 				8EDA41501F22F85C000CBA40 /* FriendsViewController.m */,
 				8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */,
+				2F3A648D22551E0E0048CC56 /* PostYueJiaViewController.h */,
+				2F3A648E22551E0E0048CC56 /* PostYueJiaViewController.m */,
+				2F3A648F22551E0E0048CC56 /* PostYueJiaViewController.xib */,
 				8E980B5B211035FC00C7B6DA /* SystemMsgViewController.h */,
 				8E980B5C211035FC00C7B6DA /* SystemMsgViewController.m */,
 				8E980B5D211035FC00C7B6DA /* SystemMsgViewController.xib */,
-				8E3C776D22550E2B0050E5DA /* PostYueJiaViewController.h */,
-				8E3C776E22550E2B0050E5DA /* PostYueJiaViewController.m */,
-				8E3C776F22550E2B0050E5DA /* PostYueJiaViewController.xib */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -2465,6 +2468,7 @@
 		8EEF4A23211D8C9500DE1E36 /* EaseMobSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */,
 				8EEF4A25211D8C9500DE1E36 /* include */,
 				8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */,
 			);
@@ -3641,8 +3645,8 @@
 				TargetAttributes = {
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2KWAH85S26;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = SYKDB6MBYW;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -3720,7 +3724,7 @@
 				8EB4E50C21201FAE00BC563B /* VoiceSearchFeedback002.png in Resources */,
 				8EB4E4E721201FAE00BC563B /* call_out@2x.png in Resources */,
 				8EB4E4F521201FAE00BC563B /* VoiceSearchFeedback019.png in Resources */,
-				8E3C777122550E2B0050E5DA /* PostYueJiaViewController.xib in Resources */,
+				2F3A649122551E0E0048CC56 /* PostYueJiaViewController.xib in Resources */,
 				8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */,
 				8EB4E52721201FAE00BC563B /* chatBar_recordSelected.png in Resources */,
 				2F3F8727223AB9E500A46086 /* MineViewController.xib in Resources */,
@@ -4019,7 +4023,7 @@
 				CDC890711D8698C000CE03CE /* NSError+Helper.m in Sources */,
 				8EB4E3F7212009AD00BC563B /* EMSDWebImageDownloaderOperation.m in Sources */,
 				2F17D9F4223E5FBA008E0E94 /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				8E3C777022550E2B0050E5DA /* PostYueJiaViewController.m in Sources */,
+				2F3A649022551E0E0048CC56 /* PostYueJiaViewController.m in Sources */,
 				98C059411F2305CB007AC0B6 /* User.m in Sources */,
 				2F17D9EF223E5FBA008E0E94 /* IQTextView.m in Sources */,
 				2F6AE629223CA51E002400CF /* AdvDetailsViewController.m in Sources */,
@@ -4325,8 +4329,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4372,7 +4376,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4385,8 +4389,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = SYKDB6MBYW;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (

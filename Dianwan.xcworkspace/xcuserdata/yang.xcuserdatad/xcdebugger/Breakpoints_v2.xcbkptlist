@@ -148,26 +148,26 @@
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yang/gongxiangyuyue/Dianwan/ViewControllers/Market/ReleaseVideoAdvViewController.m"
-                  timestampString = "576001035.395247"
+                  timestampString = "576061300.379684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
                   offsetFromSymbolStart = "652">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.200"
+                  symbolName = "__copy_helper_block_.202"
                   moduleName = "Dianwan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yang/gongxiangyuyue/Dianwan/ViewControllers/Market/ReleaseVideoAdvViewController.m"
-                  timestampString = "576001035.399226"
+                  timestampString = "576061300.384545"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -218,6 +218,22 @@
             startingLineNumber = "102"
             endingLineNumber = "102"
             landmarkName = "-setupUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dianwan/ViewControllers/QRCodeViewController.m"
+            timestampString = "576061781.9594361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
