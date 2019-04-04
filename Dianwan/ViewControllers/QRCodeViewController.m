@@ -87,7 +87,7 @@
     
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ShareHelper showShareCommonViewWithTitle:@"我的二维码" content:@"dd" images: @[self.codeImageview.image] description:@"fff" url:self.url andViewTitle:@"bcc" andViewDes:@"abc" result:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+        [ShareHelper showShareCommonViewWithTitle:@"我的二维码" content:@"" images: @[self.codeImageview.image] description:@"和约" url:self.url andViewTitle:@"和约" andViewDes:@"合约" result:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
         switch (state) {
             case SSDKResponseStateSuccess:
             {
@@ -115,8 +115,16 @@
         
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"识别图中二维码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"识别二维码");
+//        CIContext *context = [[CIContext alloc] init];
+//        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy: CIDetectorAccuracyLow}];
+//        CIImage *imageCI = [[CIImage alloc] initWithImage:self.codeImageview.image];
+//        NSArray *features = [detector featuresInImage:imageCI];
+//        CIQRCodeFeature *codef = (CIQRCodeFeature *)features.firstObject;
+        CommonUIWebViewController *safariVC = [[CommonUIWebViewController alloc] init];
+        safariVC.address = self.url;
+        [self.navigationController pushViewController:safariVC animated:YES];
         
-        NSLog(@"识别二维码");
         
     }]];
     
