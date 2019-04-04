@@ -269,6 +269,9 @@
     [self.chatToolbar endEditing:YES];
     if (index==2) {
         PostYueJiaViewController *vc = [[PostYueJiaViewController alloc]init];
+        [vc setBlock:^(NSString * _Nonnull order_id) {
+            [self sendTextMessage:order_id withExt:@{@"customMessageType":@"2"}];
+        }];
         vc.chat_id = self.conversation.chatter;
         [self.navigationController pushViewController:vc animated:YES];
     }

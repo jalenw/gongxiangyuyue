@@ -69,6 +69,7 @@
         [SVProgressHUD dismiss];
         if (status) {
             [AlertHelper showAlertWithTitle:@"发布成功"];
+            self.block([[data safeDictionaryForKey:@"result"] safeStringForKey:@"order_id"]);
             [self.navigationController popViewControllerAnimated:YES];
         }else{
             [AlertHelper showAlertWithTitle:error];

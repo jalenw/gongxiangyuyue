@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostYueJiaViewController : BaseViewController
+@property (nonatomic,copy) void (^block)(NSString *order_id);
 @property (strong,nonatomic) NSString *chat_id;
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UIButton *bt;
