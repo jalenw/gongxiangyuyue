@@ -4325,13 +4325,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-<<<<<<< HEAD
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SYKDB6MBYW;
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2KWAH85S26;
->>>>>>> 3ec60851c28cb804917f7c2f62d3b407d576d5a8
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4374,7 +4369,7 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
@@ -4390,13 +4385,8 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-<<<<<<< HEAD
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SYKDB6MBYW;
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2KWAH85S26;
->>>>>>> 3ec60851c28cb804917f7c2f62d3b407d576d5a8
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4438,10 +4428,10 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdzuanqian.changjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = youqiang_pay_dev_123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
