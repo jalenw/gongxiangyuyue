@@ -7,8 +7,13 @@
 //
 
 #import "QRCodeViewController.h"
+#import "ShareHelper.h"
+#import <ShareSDK/ShareSDK.h>
 
 @interface QRCodeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *recommendedCodeLabel;
+@property(nonatomic,strong)NSString *url;
+@property (weak, nonatomic) IBOutlet UIImageView *codeImageview;
 
 @end
 
@@ -16,7 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"我的推荐码";
+    self.codeImageview.userInteractionEnabled = YES;
+    UILongPressGestureRecognizer *longges = [[UILongPressGestureRecognizer alloc ]initWithTarget:self action:@selector(longClick)];
+    [self.codeImageview addGestureRecognizer:longges];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[ServiceForUser manager]postMethodName:@"index/get_inviter_id" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
@@ -27,7 +36,9 @@
             [filter setValue:@"H" forKey:@"inputCorrectionLevel"];
             CIImage *outPutImage = [filter outputImage];
             [self.imgView setImage:[self sencond_getHDImgWithCIImage:outPutImage size:self.imgView.size]];
-            self.code.text = [NSString stringWithFormat:@"我的推荐码:%@",[[data safeDictionaryForKey:@"result"] safeStringForKey:@"url"]];
+            self.recommendedCodeLabel.text =[NSString stringWithFormat:@"推荐码：%@", [[data safeDictionaryForKey:@"result"] safeStringForKey:@"code"]];
+            self.url =[[data safeDictionaryForKey:@"result"] safeStringForKey:@"url"];
+            
         }
         else
             [AlertHelper showAlertWithTitle:error];
@@ -63,4 +74,59 @@
     
     return codeImage;
 }
+
+-(void)longClick{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"选择" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"点击取消");
+        
+    }]];
+    
+    
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [ShareHelper showShareCommonViewWithTitle:@"我的二维码" content:@"dd" images: @[self.codeImageview.image] description:@"fff" url:self.url andViewTitle:@"bcc" andViewDes:@"abc" result:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+        switch (state) {
+            case SSDKResponseStateSuccess:
+            {
+                [AlertHelper showAlertWithTitle:@"分享成功"];
+                break;
+            }
+            case SSDKResponseStateFail:
+            {
+                [ShareHelper showShareFailHintWithError:error];
+                break;
+            }
+            default:
+                break;
+        }
+    } block:^(NSInteger index) {
+    }];
+        
+    }]];
+    
+    
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImage *image =self.codeImageview.image  ;
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+        
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"识别图中二维码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"识别二维码");
+        
+    }]];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    [SVProgressHUD showImage:[UIImage imageNamed:@""] status:@"保存相册成功"];
+}
+
 @end
