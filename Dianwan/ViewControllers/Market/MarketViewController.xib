@@ -105,7 +105,7 @@
     </objects>
     <resources>
         <image name="close" width="32" height="32"/>
-        <image name="iv_market_pic1" width="80" height="80"/>
+        <image name="iv_market_pic1" width="40" height="40"/>
         <image name="iv_market_video" width="80" height="80"/>
     </resources>
 </document>

@@ -146,7 +146,11 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     if ([self respondsToSelector:@selector(isCustomBubbleView:)] && [self isCustomBubbleView:model]) {
         [self setCustomBubbleView:model];
     } else {
-        switch (messageType) {
+        MessageBodyType type = messageType;
+        if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+            type = eMessageBodyType_File;
+        }
+        switch (type) {
             case eMessageBodyType_Text:
             {
                 [_bubbleView setupTextBubbleView];
@@ -288,7 +292,11 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     if ([self respondsToSelector:@selector(isCustomBubbleView:)] && [self isCustomBubbleView:model]) {
         [self setCustomModel:model];
     } else {
-        switch (model.bodyType) {
+        MessageBodyType type = model.bodyType;
+        if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+            type = eMessageBodyType_File;
+        }
+        switch (type) {
             case eMessageBodyType_Text:
             {
                 _bubbleView.textLabel.text = model.text;
@@ -358,9 +366,9 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
                 break;
             case eMessageBodyType_File:
             {
-                _bubbleView.fileIconView.image = [UIImage imageNamed:_model.fileIconName];
-                _bubbleView.fileNameLabel.text = _model.fileName;
-                _bubbleView.fileSizeLabel.text = _model.fileSizeDes;
+                _bubbleView.fileIconView.image = [UIImage imageNamed:@"chat_order"];//[UIImage imageNamed:_model.fileIconName];
+                _bubbleView.fileNameLabel.text = @"发起了一张约家订单";//_model.fileName;
+//                _bubbleView.fileSizeLabel.text = _model.fileSizeDes;
             }
                 break;
             default:
@@ -415,7 +423,11 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
         [self updateCustomBubbleViewMargin:_bubbleMargin model:_model];
     } else {
         if (_bubbleView) {
-            switch (_messageType) {
+            MessageBodyType type = _messageType;
+            if ([[ [Tooles stringToJson:[self.model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+                type = eMessageBodyType_File;
+            }
+            switch (type) {
                 case eMessageBodyType_Text:
                 {
                     [_bubbleView updateTextMargin:_bubbleMargin];
@@ -655,9 +667,13 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
 
 + (NSString *)cellIdentifierWithModel:(id<IMessageModel>)model
 {
+    MessageBodyType type = model.bodyType;
+    if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+        type = eMessageBodyType_File;
+    }
     NSString *cellIdentifier = nil;
     if (model.isSender) {
-        switch (model.bodyType) {
+        switch (type) {
             case eMessageBodyType_Text:
                 cellIdentifier = EaseMessageCellIdentifierSendText;
                 break;
@@ -681,7 +697,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
         }
     }
     else{
-        switch (model.bodyType) {
+        switch (type) {
             case eMessageBodyType_Text:
                 cellIdentifier = EaseMessageCellIdentifierRecvText;
                 break;
@@ -723,7 +739,11 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     
     CGFloat height = EaseMessageCellPadding + cell.bubbleMargin.top + cell.bubbleMargin.bottom;
     
-    switch (model.bodyType) {
+    MessageBodyType type = model.bodyType;
+    if ([[ [Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]] safeStringForKey:@"type"] isEqualToString:@"2"]) {
+        type = eMessageBodyType_File;
+    }
+    switch (type) {
         case eMessageBodyType_Text:
         {
             NSString *text = model.text;

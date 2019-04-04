@@ -27,7 +27,7 @@
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"member_avatar"]]];
     self.name.text = [dict safeStringForKey:@"member_name"];
     [self.img sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"cover"]]];
-    self.cost.text = [NSString stringWithFormat:@"支付费用:%@",[[dict safeStringForKey:@"cost_price"] integerValue]>0?[NSString stringWithFormat:@"%@元",[dict safeStringForKey:@"cost_price"]]:@"免费"];
+    self.cost.text = [NSString stringWithFormat:@"支付费用:%@",[[dict safeStringForKey:@"price"] integerValue]>0?[NSString stringWithFormat:@"%@元",[dict safeStringForKey:@"price"]]:@"免费"];
     self.content.text = [dict safeStringForKey:@"title"];
 }
 @end

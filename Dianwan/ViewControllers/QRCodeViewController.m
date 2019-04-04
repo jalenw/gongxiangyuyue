@@ -121,11 +121,6 @@
     }]];
     
     
-  
-    
-    
-    // 由于它是一个控制器 直接modal出来就好了
-    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

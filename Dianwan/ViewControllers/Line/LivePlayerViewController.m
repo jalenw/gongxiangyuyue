@@ -9,6 +9,7 @@
 #import "LivePlayerViewController.h"
 #import "TXLiteAVSDK_Professional/TXLiveBase.h"
 #import "LiveMsgTableViewCell.h"
+#import "LZHAlertView.h"
 @interface LivePlayerViewController ()<IChatManagerDelegate>
 {
     TXLivePlayer *txLivePlayer;
@@ -69,11 +70,11 @@
 {
     [super viewWillDisappear:animated];
     if (self.forPush) {
+        [self stopRtmpPublish];
         if (_timeTimer) {
             [_timeTimer invalidate];
             _timeTimer = nil;
         }
-        [self stopRtmpPublish];
         [[ServiceForUser manager] postMethodName:@"channels/stopLive" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
             }else{
@@ -96,6 +97,7 @@
     [txLivePush stopPreview];
     [txLivePush stopPush];
     txLivePush.delegate = nil;
+    txLivePush = nil;
 }
 
 - (void)timeTimerAction:(id)sender
@@ -162,7 +164,17 @@
 }
 
 - (IBAction)closeAct:(UIButton *)sender {
-    [super back];
+    LZHAlertView *alertView = [LZHAlertView createWithTitleArray:@[@"取消",@"确定"]];
+    alertView.titleLabel.text = @"提示";
+    alertView.contentLabel.text = @"确定退出直播？";
+    __weak LZHAlertView *weakAlertView = alertView;
+    [alertView setBlock:^(NSInteger index, NSString *title) {
+        if (index == 1) {
+            [super back];
+        }
+        [weakAlertView hide];
+    }];
+    [alertView show];
 }
 
 - (IBAction)shareAct:(UIButton *)sender {

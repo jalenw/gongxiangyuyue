@@ -9,7 +9,8 @@
 #import "ClassDetailViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "WaitPayViewController.h"
-@interface ClassDetailViewController ()
+#import "JPVideoPlayerKit.h"
+@interface ClassDetailViewController ()<JPVideoPlayerControlViewDelegate>
 {
     NSDictionary *dict;
 }
@@ -50,10 +51,31 @@
 }
 
 - (IBAction)playAct:(UIButton *)sender {
-    MPMoviePlayerViewController *mPMoviePlayerViewController;
-    mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"course_video"]]];
-    mPMoviePlayerViewController.view.frame = ScreenBounds;
-    [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+    sender.hidden = YES;
+    NSURL *url = [NSURL URLWithString:[dict safeStringForKey:@"courses_video"]];
+    JPVideoPlayerControlView *contentView =  [[JPVideoPlayerControlView alloc] initWithControlBar:nil blurImage:nil];
+    contentView.delegate =self;
+    self.img.userInteractionEnabled = YES;
+    [self.img jp_playVideoWithURL:url
+                          bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
+                                 controlView:contentView
+                                progressView:nil
+                               configuration:nil];
+//    MPMoviePlayerViewController *mPMoviePlayerViewController;
+//    mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"course_video"]]];
+//    mPMoviePlayerViewController.view.frame = ScreenBounds;
+//    [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
+}
+
+-(void)playerControlViewBtnClick{
+    [self.img jp_pause];
+}
+
+
+- (void)dealloc {
+    if (self.img) {
+        [self.img jp_stopPlay];
+    }
 }
 
 - (IBAction)buyAct:(UIButton *)sender {

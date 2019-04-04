@@ -595,7 +595,28 @@
 
 -(void)yuePay:(NSString*)orderId :(NSString*)price
 {
-    
+    self.pwInputView.hidden = NO;
+    [self.pasView.textField becomeFirstResponder];
+    //创建密码输入控价
+    self.pasView.layer.cornerRadius = 5;
+    self.pasView.layer.masksToBounds =YES;
+    [self.pwView addSubview:_pasView];
+    __weak typeof(self) weakSelf = self;
+    self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
+        [weakSelf.pasView clearUpPassword];
+        [weakSelf.pasView.textField resignFirstResponder];
+        weakSelf.pwInputView.hidden = YES;
+        [SVProgressHUD show];
+        [[ServiceForUser manager] postMethodName:@"ordery/pay_order" params:@{@"order_id":orderId,@"paypwd":pwNumber} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            [SVProgressHUD dismiss];
+            if (status) {
+                [AlertHelper showAlertWithTitle:@"购买成功"];
+                [weakSelf reloadWebview];
+            }else{
+                [AlertHelper showAlertWithTitle:error];
+            }
+        }];
+    };
 }
 
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code
