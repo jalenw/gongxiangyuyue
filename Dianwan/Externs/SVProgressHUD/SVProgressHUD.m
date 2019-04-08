@@ -116,7 +116,7 @@ static const CGFloat SVProgressHUDRingThickness = 6;
 }
 
 + (void)showWithStatus:(NSString *)status {
-    [[self sharedView] showProgress:-1 status:status maskType:SVProgressHUDMaskTypeNone];
+    [[self sharedView] showProgress:-1 status:status maskType:SVProgressHUDMaskTypeBlack];
 }
 
 + (void)showWithMaskType:(SVProgressHUDMaskType)maskType {

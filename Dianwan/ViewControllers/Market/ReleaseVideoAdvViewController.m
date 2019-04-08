@@ -276,10 +276,10 @@
     if (self.video_url.length>0) {
         [self.videoPlayView jp_pause];
     }
-    if (self.goldCoinBtn.selected) {
-        [AlertHelper showAlertWithTitle:@"暂不支持金币支付方式"];
-        return;
-    }
+//    if (self.goldCoinBtn.selected) {
+//        [AlertHelper showAlertWithTitle:@"暂不支持金币支付方式"];
+//        return;
+//    }
     if( self.advTitleTF.text.length == 0){
         [AlertHelper showAlertWithTitle:@"广告标题为空"];
         return;
@@ -321,7 +321,7 @@
                                @"content":weakSelf.textview.text,
                                @"title":weakSelf.advTitleTF.text,
                                @"type":@(1),
-                           @"price":@([weakSelf.remainingCountTF.text intValue]),
+                           @"price":@([weakSelf.redEnvelope.text intValue]),
                                @"num":@([weakSelf.remainingCountTF.text intValue]),
                                @"video":weakSelf.video_url
                                };
