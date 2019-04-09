@@ -137,10 +137,10 @@
 
 //发布广告
 -(void)rightbarButtonDidTap:(UIButton *)button{
-    if (self.goldCoinBtn.selected) {
-        [AlertHelper showAlertWithTitle:@"暂不支持金币支付方式"];
-        return;
-    }
+//    if (self.goldCoinBtn.selected) {
+//        [AlertHelper showAlertWithTitle:@"暂不支持金币支付方式"];
+//        return;
+//    }
     if( self.advTitleTF.text.length == 0){
         [AlertHelper showAlertWithTitle:@"广告标题为空"];
         return;
@@ -177,7 +177,7 @@
                                        @"pay_type":@(weakSelf.pay_type),//1 余额 0 金币 红包类型
                                        @"content":weakSelf.textview.text,
                                        @"title":weakSelf.advTitleTF.text,
-                                       @"price":@([weakSelf.remainingCountTF.text intValue]), //红包个数
+                                       @"price":@([weakSelf.redEnvelope.text intValue]), //红包个数
                                        @"num":@([weakSelf.remainingCountTF.text intValue]),
                                        @"type":@(0),
                                        };
