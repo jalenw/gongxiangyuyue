@@ -251,7 +251,11 @@
                 latestMessageTitle = [NSString stringWithFormat:@"%@一段视频",me?@"发出":@"收到"];//NSLocalizedString(@"message.video1", @"[video]");
             } break;
             case eMessageBodyType_File: {
-                latestMessageTitle = @"发起了一张约家订单";//NSLocalizedString(@"message.file1", @"[file]");
+                if ([lastMessage.conversationChatter isEqualToString:AppDelegateInstance.defaultUser.chat_id]) {
+                    latestMessageTitle = @"发起了一张约家订单";
+                }
+                else
+                    latestMessageTitle = @"TA向你发起了一张约家订单";//NSLocalizedString(@"message.file1", @"[file]");
             } break;
             default: {
             } break;

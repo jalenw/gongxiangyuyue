@@ -367,7 +367,12 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
             case eMessageBodyType_File:
             {
                 _bubbleView.fileIconView.image = [UIImage imageNamed:@"chat_order"];//[UIImage imageNamed:_model.fileIconName];
-                _bubbleView.fileNameLabel.text = @"发起了一张约家订单";//_model.fileName;
+                if (self.model.isSender) {
+                    _bubbleView.fileNameLabel.text = @"发起了一张约家订单";
+                }
+                else
+                    _bubbleView.fileNameLabel.text = @"TA向你发起了一张约家订单";
+                //_model.fileName;
 //                _bubbleView.fileSizeLabel.text = _model.fileSizeDes;
             }
                 break;

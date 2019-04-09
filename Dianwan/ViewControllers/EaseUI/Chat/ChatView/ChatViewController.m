@@ -35,7 +35,6 @@
     NSArray *memberList;
     
     NSInteger store_id;
-    NSInteger viptype;
 }
 
 @property (nonatomic) BOOL isPlayingAudio;
@@ -106,14 +105,23 @@
         
         [[ServiceForUser manager]postMethodName:@"appoint/chat_get_info" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
-                viptype = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"viptype"];
+                self.toViptype = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"viptype"];
+                self.toSubordinat = [[data safeDictionaryForKey:@"result"] safeDoubleForKey:@"subordinate"];    
                 store_id = [[data safeDictionaryForKey:@"result"] safeIntForKey:@"store_id"];
                 [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"send_orderd_icon"] highlightedImage:[UIImage imageNamed:@"send_orderd_icon"]  title:@"发约单"];
                 [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"chat_special_class"] highlightedImage:[UIImage imageNamed:@"chat_special_class"]  title:@"特色课程"];
-                if (viptype==2) {
+                if (self.toViptype==2) {
                     [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"chat_shop"] highlightedImage:[UIImage imageNamed:@"chat_shop"]  title:@"店铺"];
                     [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"start_live_icon"] highlightedImage:[UIImage imageNamed:@"start_live_icon"]  title:@"直播"];
                 }
+            }
+        }];
+        
+        //获取自己下线人数
+        [[ServiceForUser manager] postMethodName:@"member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                NSDictionary *result = [data safeDictionaryForKey:@"result"];
+                self.subordinat = [result safeDoubleForKey:@"subordinate"];
             }
         }];
     }

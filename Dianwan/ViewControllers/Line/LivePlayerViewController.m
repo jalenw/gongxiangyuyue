@@ -10,7 +10,7 @@
 #import "TXLiteAVSDK_Professional/TXLiveBase.h"
 #import "LiveMsgTableViewCell.h"
 #import "LZHAlertView.h"
-@interface LivePlayerViewController ()<IChatManagerDelegate>
+@interface LivePlayerViewController ()<IChatManagerDelegate,TXLivePlayListener>
 {
     TXLivePlayer *txLivePlayer;
     TXLivePush *txLivePush;
@@ -38,9 +38,10 @@
     else
     {
         txLivePlayer = [[TXLivePlayer alloc] init];
+        txLivePlayer.delegate = self;
         [txLivePlayer setupVideoWidget:CGRectMake(0, 0, ScreenWidth, ScreenHeight) containView:self.view insertIndex:0];
         [txLivePlayer startPlay:self.url type:PLAY_TYPE_LIVE_RTMP];
-        
+        _timeTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timeTimerAction:) userInfo:nil repeats:YES];
         [[ServiceForUser manager] postMethodName:@"channels/enterLiveRoom" params:@{@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
             }else{
@@ -82,6 +83,10 @@
         }];
     }
     else {
+        if (_timeTimer) {
+            [_timeTimer invalidate];
+            _timeTimer = nil;
+        }
         [[ServiceForUser manager] postMethodName:@"channels/exitLiveRoom" params:@{@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
             }else{
@@ -98,6 +103,14 @@
     [txLivePush stopPush];
     txLivePush.delegate = nil;
     txLivePush = nil;
+}
+
+-(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param
+{
+    if (EvtID==3005) {
+        [AlertHelper showAlertWithTitle:@"直播已停止"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)timeTimerAction:(id)sender

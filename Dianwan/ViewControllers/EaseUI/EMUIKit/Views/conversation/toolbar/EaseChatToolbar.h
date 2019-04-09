@@ -14,8 +14,8 @@
 #import "EaseChatBarMoreView.h"
 #import "EaseChatToolbarItem.h"
 
-#define kTouchToRecord NSLocalizedString(@"message.toolBar.record.touch", @"hold down to talk")
-#define kTouchToFinish NSLocalizedString(@"message.toolBar.record.send", @"loosen to send")
+#define kTouchToRecord @"长按录音"//NSLocalizedString(@"message.toolBar.record.touch", @"hold down to talk")
+#define kTouchToFinish @"松开发送"//NSLocalizedString(@"message.toolBar.record.send", @"loosen to send")
 
 
 

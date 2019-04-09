@@ -203,6 +203,9 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
 
 @property (strong, nonatomic) NSDictionary *ower;
 
+@property (nonatomic) NSInteger toViptype;
+@property (nonatomic) NSInteger toSubordinat;
+@property (nonatomic) NSInteger subordinat;
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter
                            conversationType:(EMConversationType)conversationType;
 

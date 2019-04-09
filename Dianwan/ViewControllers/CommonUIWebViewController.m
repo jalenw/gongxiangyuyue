@@ -28,12 +28,19 @@
 
 #import "SYPasswordView.h"
 
+#import "AddLineViewController.h"
+#import "LivePlayerViewController.h"
+
 @protocol JSBridgeExport <JSExport>
 //与H5交互协议
 
 - (void)back;
 
--(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+-(void)goPage:(NSString*)index;
+
+-(void)createLiveRoom;
+
+-(void)pay:(NSString* )type :(NSString *)from :(NSString *)price :(NSString *)json;
 
 -(void)buyGold:(NSString*)t_id :(NSString*)price;
 
@@ -97,15 +104,22 @@
 }
 
 
--(void)goPage{
-     [self.webViewController performSelectorOnMainThread:@selector(goPage) withObject:nil waitUntilDone:NO];
+-(void)goPage:(NSString*)index{
+     dispatch_async(dispatch_get_main_queue(), ^{
+         [self.webViewController goPage:index];
+     });
 }
 
-
-
--(void)toPay:(NSInteger )type :(NSString *)frome :(NSString *)price :(NSString *)json{
+-(void)createLiveRoom
+{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webViewController toPay:type :frome :price :json];
+        [self.webViewController createLiveRoom];
+    });
+}
+
+-(void)pay:(NSString*)type :(NSString *)from :(NSString *)price :(NSString *)json{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController pay:type :from :price :json];
     });
 }
 
@@ -371,8 +385,8 @@
     };
 }
 
--(void)goPage{
-    [self dismissWebView];
+-(void)goPage:(NSString*)index{
+   
 }
 
 - (void)dismissWebView{
@@ -554,17 +568,38 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)createLiveRoom
+{
+    AddLineViewController *vc = [[AddLineViewController alloc]init];
+    [vc setBlock:^(NSDictionary * _Nonnull dict) {
+        LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+        vc.forPush = true;
+        vc.url = [[dict safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
+        vc.dict = [dict safeDictionaryForKey:@"result"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 //vip支付
--(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+-(void)pay:(NSString* )type :(NSString *)from :(NSString *)price :(NSString *)json
 {
     WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
     waitpay.moneryNum =price;
     waitpay.order_id =@"";
     waitpay.json = json;
-    waitpay.type = 0;
-    waitpay.vipType = type;
+    if ([from isEqualToString:@"vip"]) {
+        waitpay.type = 6;
+    }
+    if ([from isEqualToString:@"gold"]) {
+        waitpay.type = 7;
+    }
+    if ([from isEqualToString:@"ordinary"]) {
+        waitpay.type = 8;
+    }
+    waitpay.payType = [type integerValue];
+//    waitpay.vipType = [type integerValue];
     [self.navigationController pushViewController:waitpay animated:YES];
-    
 }
 
 -(void)buyGold:(NSString*)t_id :(NSString*)price

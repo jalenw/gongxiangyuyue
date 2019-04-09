@@ -216,7 +216,13 @@
     [super setModel:model];
     NSDictionary *dict =  model.message.ext;//[Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]];
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
-    _nameLabel.text = [dict safeStringForKey:@"nickName"];
+    if ([dict safeStringForKey:@"vipType"]) {
+        _nameLabel.text = [NSString stringWithFormat:@"%@_%@_%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"vipType"],[dict safeStringForKey:@"subordinat"]];
+    }
+    else
+    {
+        _nameLabel.text = [dict safeStringForKey:@"nickName"];
+    }
 //    if (model.avatarURLPath) {
 //        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURLPath] placeholderImage:model.avatarImage];
 //    } else {

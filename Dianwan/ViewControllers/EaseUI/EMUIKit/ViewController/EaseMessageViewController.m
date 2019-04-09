@@ -1721,6 +1721,16 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
+    [parm setValue:viptype forKey:@"vipType"];
+
+        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+         [parm setValue:string forKey:@"toVipType"];
+
+        [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
+
+        [parm setValue:@(self.subordinat) forKey:@"subordinat"];
+
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];//@{@"ext":[Tooles jsonToString:parm]}
     if (ext) {
         [p addEntriesFromDictionary:ext];
@@ -1770,6 +1780,16 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
+    [parm setValue:viptype forKey:@"vipType"];
+
+        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+        [parm setValue:string forKey:@"toVipType"];
+
+        [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
+
+        [parm setValue:@(self.subordinat) forKey:@"subordinat"];
+    
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Image] mutableCopy];
@@ -1802,6 +1822,16 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
+    [parm setValue:viptype forKey:@"vipType"];
+
+        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+        [parm setValue:string forKey:@"toVipType"];
+
+        [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
+
+        [parm setValue:@(self.subordinat) forKey:@"subordinat"];
+
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Voice] mutableCopy];
@@ -1836,6 +1866,16 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
+    [parm setValue:viptype forKey:@"vipType"];
+
+        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+        [parm setValue:string forKey:@"toVipType"];
+
+        [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
+
+        [parm setValue:@(self.subordinat) forKey:@"subordinat"];
+    
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:parm];
     NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
                                                                   bodyType:eMessageBodyType_Video] mutableCopy];

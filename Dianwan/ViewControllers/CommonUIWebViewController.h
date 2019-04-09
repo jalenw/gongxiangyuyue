@@ -26,9 +26,12 @@
 
 //回到主页
 - (void)home;
-
+//去指定页面
+-(void)goPage:(NSString*)index;
+//跳转我要开播
+-(void)createLiveRoom;
 //支付
--(void)toPay:(NSInteger )type :(NSString *)from :(NSString *)price :(NSString *)json;
+-(void)pay:(NSString* )type :(NSString *)from :(NSString *)price :(NSString *)json;
 
 //购买金币
 -(void)buyGold:(NSString*)t_id :(NSString*)price;
