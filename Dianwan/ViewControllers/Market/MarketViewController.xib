@@ -35,13 +35,12 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" id="39V-fb-b9S">
-                    <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_market_video" id="dil-H5-mMv">
-                            <rect key="frame" x="239" y="58" width="90" height="90"/>
+                            <rect key="frame" x="249" y="28" width="70" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" red="0.89302093920000003" green="1" blue="0.24119572340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="4"/>
@@ -50,7 +49,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_market_pic1" id="tkM-nv-mRs">
-                            <rect key="frame" x="39" y="58" width="90" height="90"/>
+                            <rect key="frame" x="49" y="28" width="70" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -60,35 +59,35 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MJA-94-Ti9">
-                            <rect key="frame" x="249" y="173" width="70" height="21"/>
+                            <rect key="frame" x="249" y="123" width="70" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图文广告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3dQ-b6-WQS">
-                            <rect key="frame" x="49" y="173" width="70" height="21"/>
+                            <rect key="frame" x="49" y="123" width="70" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ktr-hc-wn1">
-                            <rect key="frame" x="0.0" y="0.0" width="188" height="300"/>
+                            <rect key="frame" x="0.0" y="-40" width="188" height="300"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <action selector="addAdvAction:" destination="-1" eventType="touchUpInside" id="TbE-2z-WEj"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0lh-3n-bWA">
-                            <rect key="frame" x="188" y="0.0" width="187" height="300"/>
+                            <rect key="frame" x="188" y="-40" width="187" height="300"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <action selector="addAdvAction:" destination="-1" eventType="touchUpInside" id="crM-uZ-Qva"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9ga-OH-2Nn">
-                            <rect key="frame" x="171" y="228" width="32" height="32"/>
+                            <rect key="frame" x="175" y="192" width="24" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <state key="normal" image="close"/>
                             <connections>
@@ -105,7 +104,7 @@
     </objects>
     <resources>
         <image name="close" width="32" height="32"/>
-        <image name="iv_market_pic1" width="40" height="40"/>
+        <image name="iv_market_pic1" width="80" height="80"/>
         <image name="iv_market_video" width="80" height="80"/>
     </resources>
 </document>

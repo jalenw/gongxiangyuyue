@@ -22,7 +22,7 @@
 #define MaxCount 50
 #define cachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
-@interface ReleaseVideoAdvViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIPickerViewDelegate,UINavigationControllerDelegate,YYImageClipDelegate,UITextViewDelegate,JPVideoPlayerControlViewDelegate,TZImagePickerControllerDelegate>
+@interface ReleaseVideoAdvViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIPickerViewDelegate,UINavigationControllerDelegate,YYImageClipDelegate,UITextViewDelegate,JPVideoPlayerControlViewDelegate,UIImagePickerControllerDelegate>
 {
         OSSClient * client;
         BOOL isEditText;
@@ -109,76 +109,140 @@
         }
       
     }else{
-    TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-    // 是否显示可选原图按钮
-    imagePicker.allowPickingOriginalPhoto = NO;
-    // 是否允许显示视频
-    imagePicker.allowPickingVideo = YES;
-    // 是否允许显示图片
-    imagePicker.allowPickingImage = YES;
-    imagePicker.maxImagesCount = 1;
-    // 这是一个navigation 只能present
-    [self presentViewController:imagePicker animated:YES completion:nil];
+        UIImagePickerController *picker=[[UIImagePickerController alloc] init];
+        
+        picker.delegate=self;
+        picker.allowsEditing=NO;
+        picker.videoMaximumDuration = 1.0;//视频最长长度
+        picker.videoQuality = UIImagePickerControllerQualityTypeMedium;//视频质量
+        
+        //媒体类型：@"public.movie" 为视频  @"public.image" 为图片
+        //这里只选择展示视频
+        picker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", nil];
+        
+        picker.sourceType= UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        
+        [self presentViewController:picker animated:YES completion:^{
+            
+        }];
+        
     }
 }
-
 // 选择视频的回调
 -(void)imagePickerController:(TZImagePickerController *)picker
        didFinishPickingVideo:(UIImage *)coverImage
                 sourceAssets:(PHAsset *)asset{
     
-    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
-    options.version = PHImageRequestOptionsVersionCurrent;
-    options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
-      [SVProgressHUD showWithStatus:@"正在上传视频文件"];
-    PHImageManager *manager = [PHImageManager defaultManager];
-    [manager requestAVAssetForVideo:asset
-                            options:options
-                      resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-                          AVURLAsset *urlAsset = (AVURLAsset *)asset;
-                          // 视频数据
-                          NSData *vedioData = [NSData dataWithContentsOfURL:urlAsset.URL];
-                          NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
-                          id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
-                              client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
-
-                              OSSPutObjectRequest * put = [OSSPutObjectRequest new];
-
-                              put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
-                              NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
-                              put.objectKey = objectKeys;
-                              put.uploadingData = vedioData;
-                              put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
-                                  NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
-                              };
-                              OSSTask * putTask = [client putObject:put];
-                              [putTask continueWithBlock:^id(OSSTask *task) {
-                                  task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
-                                                                  withObjectKey:objectKeys];
-                                 
-                                  if (!task.error) {
-                                      self.video_url = task.result;
-                                      
-                                      NSLog(@"上传视频成功");
-                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                          
-                                          self.videoPlayView.userInteractionEnabled = YES;
-                                          [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
-                                                               bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
-                                                                      controlView:nil
-                                                                     progressView:nil
-                                                                    configuration:nil];
-                                          
-                                          [SVProgressHUD dismiss];
-                                      });
-                                     
-                                  } else {
-                                      [AlertHelper showAlertWithTitle:@"视频上传失败"];
-                                    [SVProgressHUD dismiss];
-                                  }
-                                  return nil;
-                              }];
-                      }];
+    //iOS8以后返回PHAsset
+    PHAsset *phAsset = asset;
+    
+    if (phAsset.mediaType == PHAssetMediaTypeVideo) {
+        //从PHAsset获取相册中视频的url
+        PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+        options.version = PHImageRequestOptionsVersionCurrent;
+        options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+        PHImageManager *manager = [PHImageManager defaultManager];
+        [manager requestAVAssetForVideo:phAsset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+            AVURLAsset *urlAsset = (AVURLAsset *)asset;
+            
+            // 视频数据
+            NSData *vedioData = [NSData dataWithContentsOfURL:urlAsset.URL];
+            NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
+            id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
+            client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
+            
+            OSSPutObjectRequest * put = [OSSPutObjectRequest new];
+            
+            put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
+            NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
+            put.objectKey = objectKeys;
+            put.uploadingData = vedioData;
+            put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
+                NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
+            };
+            OSSTask * putTask = [client putObject:put];
+            [putTask continueWithBlock:^id(OSSTask *task) {
+                task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
+                                                withObjectKey:objectKeys];
+                
+                if (!task.error) {
+                    self.video_url = task.result;
+                    
+                    NSLog(@"上传视频成功");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        self.videoPlayView.userInteractionEnabled = YES;
+                        [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
+                                             bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
+                                                    controlView:nil
+                                                   progressView:nil
+                                                  configuration:nil];
+                        
+                        [SVProgressHUD dismiss];
+                    });
+                    
+                } else {
+                    [AlertHelper showAlertWithTitle:@"视频上传失败"];
+                    [SVProgressHUD dismiss];
+                }
+                return nil;
+            }];
+        }];
+    }
+    
+//
+//    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+//    options.version = PHImageRequestOptionsVersionCurrent;
+//    options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+//      [SVProgressHUD showWithStatus:@"正在上传视频文件"];
+//    PHImageManager *manager = [PHImageManager defaultManager];
+//    [manager requestAVAssetForVideo:asset
+//                            options:options
+//                      resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+//                          AVURLAsset *urlAsset = (AVURLAsset *)asset;
+//                          // 视频数据
+//                          NSData *vedioData = [NSData dataWithContentsOfURL:urlAsset.URL];
+//                          NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
+//                          id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
+//                              client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
+//
+//                              OSSPutObjectRequest * put = [OSSPutObjectRequest new];
+//
+//                              put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
+//                              NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
+//                              put.objectKey = objectKeys;
+//                              put.uploadingData = vedioData;
+//                              put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
+//                                  NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
+//                              };
+//                              OSSTask * putTask = [client putObject:put];
+//                              [putTask continueWithBlock:^id(OSSTask *task) {
+//                                  task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
+//                                                                  withObjectKey:objectKeys];
+//
+//                                  if (!task.error) {
+//                                      self.video_url = task.result;
+//
+//                                      NSLog(@"上传视频成功");
+//                                      dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                                          self.videoPlayView.userInteractionEnabled = YES;
+//                                          [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
+//                                                               bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
+//                                                                      controlView:nil
+//                                                                     progressView:nil
+//                                                                    configuration:nil];
+//
+//                                          [SVProgressHUD dismiss];
+//                                      });
+//
+//                                  } else {
+//                                      [AlertHelper showAlertWithTitle:@"视频上传失败"];
+//                                    [SVProgressHUD dismiss];
+//                                  }
+//                                  return nil;
+//                              }];
+//                      }];
     
 }
 
@@ -423,10 +487,60 @@
 #pragma mark - UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    YYImageClipViewController *imgCropperVC = [[YYImageClipViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
-    imgCropperVC.delegate = self;
-    [picker pushViewController:imgCropperVC animated:NO];
+    NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqualToString:@"public.movie"]){
+        //如果是视频
+        NSURL *url = info[UIImagePickerControllerMediaURL];
+        NSData *vedioData = [NSData dataWithContentsOfURL:url];
+        NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
+        id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
+        client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
+        
+        OSSPutObjectRequest * put = [OSSPutObjectRequest new];
+        
+        put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
+        NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
+        put.objectKey = objectKeys;
+        put.uploadingData = vedioData;
+        put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
+            NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
+        };
+        OSSTask * putTask = [client putObject:put];
+        [putTask continueWithBlock:^id(OSSTask *task) {
+            task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
+                                            withObjectKey:objectKeys];
+            
+            if (!task.error) {
+                self.video_url = task.result;
+                
+                NSLog(@"上传视频成功");
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    self.videoPlayView.userInteractionEnabled = YES;
+                    [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
+                                         bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
+                                                controlView:nil
+                                               progressView:nil
+                                              configuration:nil];
+                    
+                    [SVProgressHUD dismiss];
+                });
+                
+            } else {
+                [AlertHelper showAlertWithTitle:@"视频上传失败"];
+                [SVProgressHUD dismiss];
+            }
+            return nil;
+        }];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        YYImageClipViewController *imgCropperVC = [[YYImageClipViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
+        imgCropperVC.delegate = self;
+        [picker pushViewController:imgCropperVC animated:NO];
+    }
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
