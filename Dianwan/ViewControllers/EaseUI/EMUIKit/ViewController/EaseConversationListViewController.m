@@ -245,13 +245,13 @@
                 latestMessageTitle = [NSString stringWithFormat:@"%@一段语音",me?@"发出":@"收到"];//NSLocalizedString(@"message.voice1", @"[voice]");
             } break;
             case eMessageBodyType_Location: {
-                latestMessageTitle = NSLocalizedString(@"message.location1", @"[location]");
+                latestMessageTitle = @"发送了一条定位";//NSLocalizedString(@"message.location1", @"[location]");
             } break;
             case eMessageBodyType_Video: {
                 latestMessageTitle = [NSString stringWithFormat:@"%@一段视频",me?@"发出":@"收到"];//NSLocalizedString(@"message.video1", @"[video]");
             } break;
             case eMessageBodyType_File: {
-                if ([lastMessage.conversationChatter isEqualToString:AppDelegateInstance.defaultUser.chat_id]) {
+                if (![lastMessage.conversationChatter isEqualToString:AppDelegateInstance.defaultUser.chat_id]) {
                     latestMessageTitle = @"发起了一张约家订单";
                 }
                 else

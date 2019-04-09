@@ -230,7 +230,7 @@
     backButton.hidden = YES;
     self.backButton = backButton;
     
-    self.pwInputView.frame = self.view.bounds;
+    self.pwInputView.frame = ScreenBounds;
     self.pwInputView.hidden = YES;
     [self.view addSubview:self.pwInputView];
 }
@@ -357,6 +357,7 @@
     self.pasView.layer.cornerRadius = 5;
     self.pasView.layer.masksToBounds =YES;
     [self.pwView addSubview:_pasView];
+    _pasView.centerX = self.pwView.width/2;
     __weak typeof(self) weakSelf = self;
     self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
         //支付操作
@@ -386,7 +387,8 @@
 }
 
 -(void)goPage:(NSString*)index{
-   
+    [AppDelegateInstance.mainViewController setSelectedIndex:4];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)dismissWebView{
@@ -589,13 +591,13 @@
     waitpay.order_id =@"";
     waitpay.json = json;
     if ([from isEqualToString:@"vip"]) {
-        waitpay.type = 6;
+        waitpay.type = 5;
     }
     if ([from isEqualToString:@"gold"]) {
-        waitpay.type = 7;
+        waitpay.type = 6;
     }
     if ([from isEqualToString:@"ordinary"]) {
-        waitpay.type = 8;
+        waitpay.type = 7;
     }
     waitpay.payType = [type integerValue];
 //    waitpay.vipType = [type integerValue];
@@ -610,6 +612,7 @@
     self.pasView.layer.cornerRadius = 5;
     self.pasView.layer.masksToBounds =YES;
     [self.pwView addSubview:_pasView];
+    _pasView.centerX = self.pwView.width/2;
     __weak typeof(self) weakSelf = self;
     self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
         [weakSelf.pasView clearUpPassword];
@@ -636,6 +639,7 @@
     self.pasView.layer.cornerRadius = 5;
     self.pasView.layer.masksToBounds =YES;
     [self.pwView addSubview:_pasView];
+    _pasView.centerX = self.pwView.width/2;
     __weak typeof(self) weakSelf = self;
     self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
         [weakSelf.pasView clearUpPassword];
@@ -711,6 +715,11 @@
             [AlertHelper showAlertWithTitle:error];
         }
     }];
+}
+
+- (IBAction)closePwView:(UIButton *)sender {
+    self.pwInputView.hidden = YES;
+    [_pasView resignFirstResponder];
 }
 
 - (SYPasswordView *)pasView{

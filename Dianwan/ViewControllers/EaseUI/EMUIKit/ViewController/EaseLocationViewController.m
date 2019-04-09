@@ -66,10 +66,10 @@ static EaseLocationViewController *defaultLocation = nil;
 {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"location.messageType", @"location message");
+    self.title = @"定位";//NSLocalizedString(@"location.messageType", @"location message");
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    [backButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/back"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
 //    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
@@ -86,7 +86,7 @@ static EaseLocationViewController *defaultLocation = nil;
         
         UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
         sendButton.accessibilityIdentifier = @"send_location";
-        [sendButton setTitle:NSLocalizedString(@"send", @"Send") forState:UIControlStateNormal];
+        [sendButton setTitle:@"发送" forState:UIControlStateNormal];
         [sendButton setTitleColor:[UIColor colorWithRed:32 / 255.0 green:134 / 255.0 blue:158 / 255.0 alpha:1.0] forState:UIControlStateNormal];
         [sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [sendButton addTarget:self action:@selector(sendLocation) forControlEvents:UIControlEventTouchUpInside];

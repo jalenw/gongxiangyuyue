@@ -44,4 +44,5 @@
 
 //第三方支付充值
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
+- (IBAction)closePwView:(UIButton *)sender;
 @end

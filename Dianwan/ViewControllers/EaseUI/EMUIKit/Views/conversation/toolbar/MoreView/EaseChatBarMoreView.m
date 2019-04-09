@@ -92,27 +92,29 @@
     _photoButton =[UIButton buttonWithType:UIButtonTypeCustom];
     _photoButton.accessibilityIdentifier = @"image";
     [_photoButton setFrame:CGRectMake(insets, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [_photoButton setImage:[UIImage imageNamed:@"photo_select_icon"] forState:UIControlStateNormal];
-    [_photoButton setImage:[UIImage imageNamed:@"photo_select_icon"] forState:UIControlStateHighlighted];
+//    [_photoButton setImage:[UIImage imageNamed:@"photo_select_icon"] forState:UIControlStateNormal];
+//    [_photoButton setImage:[UIImage imageNamed:@"photo_select_icon"] forState:UIControlStateHighlighted];
     [_photoButton addTarget:self action:@selector(photoAction) forControlEvents:UIControlEventTouchUpInside];
     _photoButton.tag = MOREVIEW_BUTTON_TAG;
+    [self initButton:_photoButton title:@"相册" img:[UIImage imageNamed:@"photo_select_icon"]];
     [_scrollview addSubview:_photoButton];
     
-    _locationButton =[UIButton buttonWithType:UIButtonTypeCustom];
-    _locationButton.accessibilityIdentifier = @"location";
-    [_locationButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [_locationButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_location"] forState:UIControlStateNormal];
-    [_locationButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_locationSelected"] forState:UIControlStateHighlighted];
-    [_locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
-    _locationButton.tag = MOREVIEW_BUTTON_TAG + 1;
+//    _locationButton =[UIButton buttonWithType:UIButtonTypeCustom];
+//    _locationButton.accessibilityIdentifier = @"location";
+//    [_locationButton setFrame:CGRectMake(insets * 2 + CHAT_BUTTON_SIZE, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
+//    [_locationButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_location"] forState:UIControlStateNormal];
+//    [_locationButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_colorMore_locationSelected"] forState:UIControlStateHighlighted];
+//    [_locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
+//    _locationButton.tag = MOREVIEW_BUTTON_TAG + 1;
 //    [_scrollview addSubview:_locationButton];
     
     _takePicButton =[UIButton buttonWithType:UIButtonTypeCustom];
     [_takePicButton setFrame:CGRectMake(insets *2 + CHAT_BUTTON_SIZE, 10, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [_takePicButton setImage:[UIImage imageNamed:@"take_photo_icon"] forState:UIControlStateNormal];
-    [_takePicButton setImage:[UIImage imageNamed:@"take_photo_icon"] forState:UIControlStateHighlighted];
+//    [_takePicButton setImage:[UIImage imageNamed:@"take_photo_icon"] forState:UIControlStateNormal];
+//    [_takePicButton setImage:[UIImage imageNamed:@"take_photo_icon"] forState:UIControlStateHighlighted];
     [_takePicButton addTarget:self action:@selector(takePicAction) forControlEvents:UIControlEventTouchUpInside];
     _takePicButton.tag = MOREVIEW_BUTTON_TAG + 2;
+    [self initButton:_takePicButton title:@"拍照" img:[UIImage imageNamed:@"take_photo_icon"]];
     _maxIndex = 1;
     [_scrollview addSubview:_takePicButton];
 
@@ -162,6 +164,20 @@
     _pageControl.hidden = _pageControl.numberOfPages<=1;
 }
 
+-(void)initButton:(UIButton*)button title:(NSString*)title img:(UIImage*)img
+{
+    UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, button.width-10, button.height-10)];
+    [imgView setImage:img];
+    imgView.contentMode = UIViewContentModeScaleToFill;
+    [button addSubview:imgView];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, imgView.bottom+2, button.width, 11)];
+    label.textColor = [UIColor grayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:11];
+    label.text = title;
+    [button addSubview:label];
+}
+
 - (void)insertItemWithImage:(UIImage *)image highlightedImage:(UIImage *)highLightedImage title:(NSString *)title
 {
     CGFloat insets = (self.frame.size.width - MOREVIEW_COL * CHAT_BUTTON_SIZE) / 5;
@@ -173,9 +189,10 @@
     NSInteger col = _maxIndex%MOREVIEW_COL;
     UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [moreButton setFrame:CGRectMake(page * CGRectGetWidth(self.frame) + insets * (col + 1) + CHAT_BUTTON_SIZE * col, INSETS + INSETS * 2 * row + CHAT_BUTTON_SIZE * row, CHAT_BUTTON_SIZE , CHAT_BUTTON_SIZE)];
-    [moreButton setImage:image forState:UIControlStateNormal];
-    [moreButton setImage:highLightedImage forState:UIControlStateHighlighted];
+//    [moreButton setImage:image forState:UIControlStateNormal];
+//    [moreButton setImage:highLightedImage forState:UIControlStateHighlighted];
     [moreButton addTarget:self action:@selector(moreAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self initButton:moreButton title:title img:image];
     moreButton.tag = MOREVIEW_BUTTON_TAG+_maxIndex;
     [_scrollview addSubview:moreButton];
     [_scrollview setContentSize:CGSizeMake(CGRectGetWidth(self.frame) * (page + 1), CGRectGetHeight(self.frame))];

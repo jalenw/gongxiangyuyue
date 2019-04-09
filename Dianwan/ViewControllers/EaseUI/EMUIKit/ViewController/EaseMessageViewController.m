@@ -1749,7 +1749,26 @@
                           longitude:(double)longitude
                          andAddress:(NSString *)address
 {
-    NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:nil
+    NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
+    [parm setValue:@(AppDelegateInstance.defaultUser.user_id) forKey:@"userId"];
+    [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
+    [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
+    [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
+    if (self.ower) {
+        [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
+        [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
+    }
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
+    [parm setValue:viptype forKey:@"vipType"];
+    
+    NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+    [parm setValue:string forKey:@"toVipType"];
+    
+    [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
+    
+    [parm setValue:@(self.subordinat) forKey:@"subordinat"];
+    
+    NSDictionary *_ext = [[EaseMessageHelper structureEaseMessageHelperExt:parm
                                                                   bodyType:eMessageBodyType_Location] mutableCopy];
     EMMessage *message = [EaseSDKHelper sendLocationMessageWithLatitude:latitude
                                                               longitude:longitude
