@@ -92,6 +92,7 @@
 
 - (void)_setupBarButtonItem
 {
+    [self.chatBarMoreView insertItemWithImage:[UIImage imageNamed:@"location_icon"] highlightedImage:[UIImage imageNamed:@"location_icon"]  title:@"发定位"];
     //单聊
     if (self.conversation.conversationType == eConversationTypeChat) {
         //获取聊天对象信息
@@ -276,6 +277,9 @@
     // 隐藏键盘
     [self.chatToolbar endEditing:YES];
     if (index==2) {
+        [self moreViewLocationAction:moreView];
+    }
+    if (index==3) {
         PostYueJiaViewController *vc = [[PostYueJiaViewController alloc]init];
         [vc setBlock:^(NSString * _Nonnull order_id) {
             [self sendTextMessage:order_id withExt:@{@"customMessageType":@"2"}];
@@ -283,17 +287,17 @@
         vc.chat_id = self.conversation.chatter;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (index==3) {
+    if (index==4) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
         controller.address = [NSString stringWithFormat:@"%@dist/course？vip_type=%d&longitude=%f&latitude=%f",web_url,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
         [self.navigationController pushViewController:controller animated:YES];
     }
-    if (index==4) {
+    if (index==5) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
         controller.address = [NSString stringWithFormat:@"%@wap/mall/store_goods.html?store_id=%ld",web_url,(long)store_id];
         [self.navigationController pushViewController:controller animated:YES];
     }
-    if (index==5) {
+    if (index==6) {
         [SVProgressHUD show];
         [[ServiceForUser manager]postMethodName:@"channels/chat_get_live" params:@{@"chat_id":self.conversation.chatter} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             [SVProgressHUD dismiss];
