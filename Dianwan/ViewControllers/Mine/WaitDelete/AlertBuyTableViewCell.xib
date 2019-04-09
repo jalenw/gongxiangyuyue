@@ -151,12 +151,21 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJq-j9-JdF">
+                        <rect key="frame" x="18" y="44" width="339" height="191"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="class_play"/>
+                        <connections>
+                            <action selector="playAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8nQ-fx-9nv"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="accountLabel" destination="Bcn-g5-dMs" id="8bZ-7y-YNV"/>
                 <outlet property="coverImageView" destination="q91-dk-Dga" id="KCU-5E-aqa"/>
+                <outlet property="playBtn" destination="eJq-j9-JdF" id="M3l-va-yh4"/>
                 <outlet property="pwLabel" destination="5nL-jM-SNf" id="neF-g7-pV4"/>
                 <outlet property="subImageview" destination="or5-7c-2sR" id="D9l-j4-Lja"/>
                 <outlet property="subtitleLabel" destination="uYx-Hf-pHh" id="FiL-O9-XOc"/>
@@ -165,4 +174,7 @@
             <point key="canvasLocation" x="118" y="133"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="class_play" width="40" height="40"/>
+    </resources>
 </document>

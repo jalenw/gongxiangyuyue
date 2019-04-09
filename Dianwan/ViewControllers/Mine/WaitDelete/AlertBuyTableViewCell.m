@@ -8,6 +8,8 @@
 
 #import "AlertBuyTableViewCell.h"
 
+@interface AlertBuyTableViewCell()
+@end
 @implementation AlertBuyTableViewCell
 
 - (void)awakeFromNib {
@@ -77,9 +79,12 @@
 - (void)pasteAction:(id)sender {
     self.accountLabel.text = self.pasteBoard.string;
 }
-//- (void)cutAction:(id)sender  {
-//    self.pasteBoard.string = self.accountLabel.text;
-//    self.text = nil;
-//}
+
+- (IBAction)playAct:(UIButton *)sender {
+        sender.selected = !sender.isSelected;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(cellPlayButtonDidClick:)]) {
+            [self.delegate cellPlayButtonDidClick:self];
+    }
+}
 
 @end

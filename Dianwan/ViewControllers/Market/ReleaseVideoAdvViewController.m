@@ -100,13 +100,8 @@
 - (IBAction)videoSelectTapped:(UIButton *)sender {
     if(self.video_url.length >0)
     {
-        if (!sender.isSelected) {
-              [self.videoPlayView jp_pause];
-            sender.selected = YES;
-        }else{
-            [self.videoPlayView jp_resume];
-            sender.selected = NO;
-        }
+        [self.videoPlayView jp_resume];
+        
       
     }else{
         UIImagePickerController *picker=[[UIImagePickerController alloc] init];
@@ -127,123 +122,6 @@
         }];
         
     }
-}
-// 选择视频的回调
--(void)imagePickerController:(TZImagePickerController *)picker
-       didFinishPickingVideo:(UIImage *)coverImage
-                sourceAssets:(PHAsset *)asset{
-    
-    //iOS8以后返回PHAsset
-    PHAsset *phAsset = asset;
-    
-    if (phAsset.mediaType == PHAssetMediaTypeVideo) {
-        //从PHAsset获取相册中视频的url
-        PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
-        options.version = PHImageRequestOptionsVersionCurrent;
-        options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
-        PHImageManager *manager = [PHImageManager defaultManager];
-        [manager requestAVAssetForVideo:phAsset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-            AVURLAsset *urlAsset = (AVURLAsset *)asset;
-            
-            // 视频数据
-            NSData *vedioData = [NSData dataWithContentsOfURL:urlAsset.URL];
-            NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
-            id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
-            client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
-            
-            OSSPutObjectRequest * put = [OSSPutObjectRequest new];
-            
-            put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
-            NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
-            put.objectKey = objectKeys;
-            put.uploadingData = vedioData;
-            put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
-                NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
-            };
-            OSSTask * putTask = [client putObject:put];
-            [putTask continueWithBlock:^id(OSSTask *task) {
-                task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
-                                                withObjectKey:objectKeys];
-                
-                if (!task.error) {
-                    self.video_url = task.result;
-                    
-                    NSLog(@"上传视频成功");
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        
-                        self.videoPlayView.userInteractionEnabled = YES;
-                        [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
-                                             bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
-                                                    controlView:nil
-                                                   progressView:nil
-                                                  configuration:nil];
-                        
-                        [SVProgressHUD dismiss];
-                    });
-                    
-                } else {
-                    [AlertHelper showAlertWithTitle:@"视频上传失败"];
-                    [SVProgressHUD dismiss];
-                }
-                return nil;
-            }];
-        }];
-    }
-    
-//
-//    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
-//    options.version = PHImageRequestOptionsVersionCurrent;
-//    options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
-//      [SVProgressHUD showWithStatus:@"正在上传视频文件"];
-//    PHImageManager *manager = [PHImageManager defaultManager];
-//    [manager requestAVAssetForVideo:asset
-//                            options:options
-//                      resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-//                          AVURLAsset *urlAsset = (AVURLAsset *)asset;
-//                          // 视频数据
-//                          NSData *vedioData = [NSData dataWithContentsOfURL:urlAsset.URL];
-//                          NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
-//                          id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
-//                              client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
-//
-//                              OSSPutObjectRequest * put = [OSSPutObjectRequest new];
-//
-//                              put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];
-//                              NSString *objectKeys = [NSString stringWithFormat:@"%@.mp4",[self getTimeNow]];
-//                              put.objectKey = objectKeys;
-//                              put.uploadingData = vedioData;
-//                              put.uploadProgress = ^(int64_t bytesSent, int64_t totalByteSent, int64_t totalBytesExpectedToSend) {
-//                                  NSLog(@"上传进度----- %lld, %lld, %lld", bytesSent, totalByteSent, totalBytesExpectedToSend);
-//                              };
-//                              OSSTask * putTask = [client putObject:put];
-//                              [putTask continueWithBlock:^id(OSSTask *task) {
-//                                  task = [client presignPublicURLWithBucketName:[self.aliyunDict safeStringForKey:@"BucketName"]
-//                                                                  withObjectKey:objectKeys];
-//
-//                                  if (!task.error) {
-//                                      self.video_url = task.result;
-//
-//                                      NSLog(@"上传视频成功");
-//                                      dispatch_async(dispatch_get_main_queue(), ^{
-//
-//                                          self.videoPlayView.userInteractionEnabled = YES;
-//                                          [self.videoPlayView jp_playVideoWithURL:[NSURL URLWithString:self.video_url]
-//                                                               bufferingIndicator:[JPVideoPlayerBufferingIndicator new]
-//                                                                      controlView:nil
-//                                                                     progressView:nil
-//                                                                    configuration:nil];
-//
-//                                          [SVProgressHUD dismiss];
-//                                      });
-//
-//                                  } else {
-//                                      [AlertHelper showAlertWithTitle:@"视频上传失败"];
-//                                    [SVProgressHUD dismiss];
-//                                  }
-//                                  return nil;
-//                              }];
-//                      }];
-    
 }
 
 
@@ -496,7 +374,7 @@
         NSString *endpoint = [self.aliyunDict safeStringForKey:@"Endpoint"];
         id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId: [self.aliyunDict safeStringForKey:@"AccessKeyId"] secretKeyId: [self.aliyunDict safeStringForKey:@"AccessKeySecret"] securityToken:[self.aliyunDict safeStringForKey:@"SecurityToken"]];
         client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
-        
+         [SVProgressHUD showWithStatus:@"正在上传视频文件"];
         OSSPutObjectRequest * put = [OSSPutObjectRequest new];
         
         put.bucketName = [self.aliyunDict safeStringForKey:@"BucketName"];

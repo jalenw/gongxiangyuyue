@@ -382,11 +382,11 @@
                                     <rect key="frame" x="8" y="50" width="327" height="158"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPq-3d-HLn">
-                                    <rect key="frame" x="8" y="50" width="327" height="158"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPq-3d-HLn">
+                                    <rect key="frame" x="157" y="112" width="30" height="34"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <connections>
-                                        <action selector="videoSelectTapped:" destination="-1" eventType="touchUpInside" id="ZVL-bD-bQW"/>
+                                        <action selector="videoSelectTapped:" destination="-1" eventType="touchUpInside" id="w9u-TU-Ccs"/>
                                     </connections>
                                 </button>
                             </subviews>

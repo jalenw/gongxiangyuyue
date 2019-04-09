@@ -300,4 +300,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
 }
 
+
+
 @end

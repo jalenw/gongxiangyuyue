@@ -108,6 +108,7 @@
                                                  controlView:contentView
                                                 progressView:nil
                                                configuration:nil];
+        [self.backScrollView jp_pause];
     }else{
         for (int i = 0; i < self.AdsData.count; i++)
         {
@@ -198,6 +199,10 @@
     
     
 }
+
+//- (BOOL)shouldAutoReplayForURL:(nonnull NSURL *)videoURL{
+//    return NO;
+//}
 
 
 @end

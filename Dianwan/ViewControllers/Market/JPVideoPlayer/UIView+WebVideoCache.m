@@ -753,7 +753,7 @@ NSString *const JPVideoPlayerDidResizeVideoViewToFitDeviceOrientationNotificatio
     if (self.jp_videoPlayerDelegate && [self.jp_videoPlayerDelegate respondsToSelector:@selector(shouldAutoReplayForURL:)]) {
         return [self.jp_videoPlayerDelegate shouldAutoReplayForURL:videoURL];
     }
-    return YES;
+    return NO;
 }
 
 - (void)videoPlayerManager:(JPVideoPlayerManager *)videoPlayerManager
