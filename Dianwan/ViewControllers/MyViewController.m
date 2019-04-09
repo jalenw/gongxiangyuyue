@@ -190,6 +190,8 @@
     [[ServiceForUser manager] postMethodName:@"member/get_user_info" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             NSDictionary *result = [data safeDictionaryForKey:@"result"];
+            AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
+            [AppDelegateInstance saveContext];
            if([result safeIntForKey:@"viptype"] == 1){
                self.typeLabel.hidden = NO;
               self.offlineLabel.hidden = NO;

@@ -30,6 +30,9 @@
     if (self.type==3) {
         self.typeLb.text = @"金币支付";
     }
+    if (self.payType==2) {
+        self.typeLb.text = @"金币支付";
+    }
     //创建密码输入控价
     self.pasView = [[SYPasswordView alloc] initWithFrame:CGRectMake(20, 93, 288, 48)];
     //zyf
@@ -37,9 +40,6 @@
     self.pasView.layer.masksToBounds =YES;
       __weak typeof(self) weakSelf = self;
     self.pasView.inputAllBlodk = ^(NSString *pwNumber) {
-        if (weakSelf.type==0) {
-            
-        }
         if (weakSelf.type==1) {
             [weakSelf payForMine:pwNumber];
         }
@@ -51,6 +51,15 @@
         }
         if (weakSelf.type==4) {
             [weakSelf payForLive:pwNumber];
+        }
+        if (weakSelf.type==5) {
+            
+        }
+        if (weakSelf.type==6) {
+            [weakSelf payForGoodsWithGold:pwNumber];
+        }
+        if (weakSelf.type==7) {
+            
         }
     };
     [self.pwView addSubview:_pasView];
@@ -206,6 +215,35 @@
             [AlertHelper showAlertWithTitle:error];
         }
     }];
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
+
+-(void)payForGoodsWithGold:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"pay_sn":[[Tooles stringToJson:self.json] safeStringForKey:@"pay_sn"],
+                           @"password":pwNumber
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"memberpayment/goldlog" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kRefreshVideoList" object:nil];
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买订单";
+            [paysuc setBlock:^{
+                CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+                commonweb.address =[NSString stringWithFormat:@"%@wap/member/order_list.html?",web_url];
+                commonweb.showNav = NO;
+                [self.navigationController pushViewController:commonweb animated:YES];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
