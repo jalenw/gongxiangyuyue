@@ -63,6 +63,8 @@
 	<string>app</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>iosamap</string>
+		<string>baidumap</string>
 		<string>alipay</string>
 		<string>weixin</string>
 		<string>wechat</string>

@@ -289,7 +289,7 @@
     }
     if (index==4) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-        controller.address = [NSString stringWithFormat:@"%@dist/course？vip_type=%d&longitude=%f&latitude=%f",web_url,AppDelegateInstance.defaultUser.viptype,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+        controller.address = [NSString stringWithFormat:@"%@dist/course",web_url];
         [self.navigationController pushViewController:controller animated:YES];
     }
     if (index==5) {
@@ -303,10 +303,16 @@
             [SVProgressHUD dismiss];
             if (status) {
                 NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                if ([dict safeStringForKey:@"play"].length==0) {
+                    [AlertHelper showAlertWithTitle:@"暂没开播"];
+                }
+                else
+                {
                 LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
                 vc.url = [dict safeStringForKey:@"play"];
                 vc.dict = dict;
                 [self.navigationController pushViewController:vc animated:YES];
+                }
             }
             else
                 [AlertHelper showAlertWithTitle:error];

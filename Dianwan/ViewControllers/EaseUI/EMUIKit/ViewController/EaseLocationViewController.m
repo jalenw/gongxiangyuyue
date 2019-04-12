@@ -97,6 +97,15 @@ static EaseLocationViewController *defaultLocation = nil;
     }
     else{
         [self removeToLocation:_currentLocationCoordinate];
+        
+        UIButton *sendButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+        sendButton.accessibilityIdentifier = @"to_location";
+        [sendButton setTitle:@"导航" forState:UIControlStateNormal];
+        [sendButton setTitleColor:[UIColor colorWithRed:32 / 255.0 green:134 / 255.0 blue:158 / 255.0 alpha:1.0] forState:UIControlStateNormal];
+        [sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [sendButton addTarget:self action:@selector(toLocation) forControlEvents:UIControlEventTouchUpInside];
+        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:sendButton]];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }
 }
 
@@ -231,4 +240,33 @@ static EaseLocationViewController *defaultLocation = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)toLocation
+{
+    UIActionSheet *_actionSheet= [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"使用百度地图导航",@"使用高德地图导航", nil];
+        [_actionSheet showInView:self.view.window];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+           NSURL * baidu_App = [NSURL URLWithString:@"baidumap://"];
+            if ([[UIApplication sharedApplication] canOpenURL:baidu_App]) {
+        NSString *stringURL =[[NSString stringWithFormat:@"baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=%@&mode=driving&coord_type=gcj02",_currentLocationCoordinate.latitude,_currentLocationCoordinate.longitude,_addressString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringURL]];
+            }
+        else
+        {
+            [AlertHelper showAlertWithTitle:@"请安装百度导航"];
+        }
+    } else if (buttonIndex == 1) {
+        NSURL * gaode_App = [NSURL URLWithString:@"iosamap://"];
+            if ([[UIApplication sharedApplication] canOpenURL:gaode_App]) {
+        NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=%@&sid=BGVIS1&slat=%f&slon=%f&sname=%@&did=BGVIS2&dlat=%f&dlon=%f&dname=%@&dev=0&t=0",_addressString,_currentLocationCoordinate.latitude,_currentLocationCoordinate.longitude,_addressString,_currentLocationCoordinate.latitude,_currentLocationCoordinate.longitude,_addressString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+            }
+            else
+            {
+                [AlertHelper showAlertWithTitle:@"请安装高德地图"];
+            }
+    }
+}
 @end
