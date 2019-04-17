@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *aliPayBtn;
 @property (weak, nonatomic) IBOutlet UIButton *yuePayBtn;
 @property (weak, nonatomic) IBOutlet UILabel *typeLb;
+@property (weak, nonatomic) IBOutlet UIView *aliView;
+@property (weak, nonatomic) IBOutlet UIView *wechatView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -383,7 +383,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPq-3d-HLn">
-                                    <rect key="frame" x="157" y="112" width="30" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="223"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <connections>
                                         <action selector="videoSelectTapped:" destination="-1" eventType="touchUpInside" id="w9u-TU-Ccs"/>
@@ -412,7 +412,7 @@
     <resources>
         <image name="Group" width="6" height="12"/>
         <image name="Group-1" width="18" height="16"/>
-        <image name="iv_market_upload_video" width="1029" height="579"/>
+        <image name="iv_market_upload_video" width="514" height="289"/>
         <image name="勾选_未选择" width="16" height="16"/>
         <image name="勾选_选择" width="16" height="16"/>
     </resources>

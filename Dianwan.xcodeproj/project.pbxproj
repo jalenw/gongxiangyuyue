@@ -3642,7 +3642,7 @@
 					CDC88E371D8691DF00CE03CE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2KWAH85S26;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 0;
@@ -4325,7 +4325,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -4372,7 +4372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = yuyue_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4385,7 +4385,7 @@
 				CODE_SIGN_ENTITLEMENTS = Dianwan/Dianwan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2KWAH85S26;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
@@ -4431,7 +4431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.intexh.gongxiangyuyue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = yuyue_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
