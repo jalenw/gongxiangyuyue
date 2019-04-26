@@ -72,7 +72,7 @@
         if (status) {
             self.oss_url =[data safeStringForKey:@"oss_url"];
             [dataList addObjectsFromArray:[data safeArrayForKey:@"result"]];
-            [self.classListTableview reloadData];
+             [self.classListTableview reloadData];
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

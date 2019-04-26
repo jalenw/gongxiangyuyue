@@ -206,7 +206,6 @@
 
 - (IBAction)cityAct:(UIButton *)sender {
     self.maskView.hidden = NO;
-//    self.citySelectView.hidden =NO;
 }
 
 - (IBAction)dateAct:(UIButton *)sender {
@@ -434,6 +433,14 @@
 
 //提交用户资料
 - (IBAction)submitAction:(UIButton *)sender {
+//    if([self.cityBtn.titleLabel.text isEqualToString:AppDelegateInstance.defaultUser.area] ){
+//        [AlertHelper showAlertWithTitle:@"请修改地址信息"];
+//        return;
+//    }
+    if(self.cityBtn.titleLabel.text.length==0){
+        [AlertHelper showAlertWithTitle:@"请输入地址信息"];
+                return;
+    }
     NSDictionary *param =@{
                            @"avatar":pic_url.length>0?pic_url:AppDelegateInstance.defaultUser.avatar,
                            @"name":self.name.text,
@@ -484,17 +491,21 @@
     
 }
 - (IBAction)hiddSelectViewACT:(UIButton *)sender {
+    NSMutableString *areaStr = [[NSMutableString alloc]init];
     if( ![((UIButton*)_titleScrollview.subviews[0]).titleLabel.text containsString:@"请选择"] ){
-        
+        [areaStr appendString:((UIButton*)_titleScrollview.subviews[0]).titleLabel.text ];
     }
-    if([((UIButton*)_titleScrollview.subviews[1]).titleLabel.text containsString:@"请选择"] ){
-        
+    if(![((UIButton*)_titleScrollview.subviews[1]).titleLabel.text containsString:@"请选择"] ){
+          [areaStr appendString:((UIButton*)_titleScrollview.subviews[1]).titleLabel.text ];
     }
-    if([((UIButton*)_titleScrollview.subviews[2]).titleLabel.text containsString:@"请选择"]){
-        
-     }else{
-         [self.cityBtn setTitle:[NSString stringWithFormat:@"%@ %@ %@", ((UIButton*) _titleScrollview.subviews[0]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[1]).titleLabel.text, ((UIButton*) _titleScrollview.subviews[2]).titleLabel.text] forState:UIControlStateNormal];
+    if(![((UIButton*)_titleScrollview.subviews[2]).titleLabel.text containsString:@"请选择"]){
+        [areaStr appendString:((UIButton*)_titleScrollview.subviews[2]).titleLabel.text ];
      }
+    if(![self.cityBtn.titleLabel.text isEqualToString:areaStr] && areaStr.length!=0){
+         [self.cityBtn setTitle:areaStr forState:UIControlStateNormal];
+    }else{
+         [self.cityBtn setTitle:AppDelegateInstance.defaultUser.area forState:UIControlStateNormal];
+    }
     self.maskView.hidden = YES;
 }
 

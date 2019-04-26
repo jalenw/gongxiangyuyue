@@ -14,7 +14,6 @@
                 <outlet property="avatar" destination="Wkp-hU-Xyo" id="7zY-nw-0pN"/>
                 <outlet property="avatarBt" destination="3Ez-gt-Vob" id="1NZ-6W-Wz3"/>
                 <outlet property="birthday" destination="ced-DU-2b1" id="gbb-xG-b43"/>
-                <outlet property="city" destination="gFy-Jb-qiU" id="g8u-5K-WeW"/>
                 <outlet property="cityBtn" destination="gFy-Jb-qiU" id="9gn-Rh-vGd"/>
                 <outlet property="citySelectView" destination="o5m-Uj-jRn" id="dSp-DY-t9E"/>
                 <outlet property="maskView" destination="9xN-vt-aC0" id="9dL-ZT-cKX"/>

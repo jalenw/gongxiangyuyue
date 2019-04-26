@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"挖矿";
-    [self setRightBarButtonWithTitle:@"我的矿机"];
+//    [self setRightBarButtonWithTitle:@"我的矿机"];
     dataList = [[NSMutableArray alloc]init];
     page = 1;
    
@@ -48,7 +48,9 @@
 //重写右按钮
 - (UIButton*)setRightBarButtonWithTitle:(NSString*)title{
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
-    [button setTitle:title forState:UIControlStateNormal];
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:title];
+    [attrString addAttribute:NSForegroundColorAttributeName value:ThemeColor range:NSMakeRange(5,attrString.length-6)];
+    [button setAttributedTitle:attrString forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightbarButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = DefaultFontOfSize(15);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -85,6 +87,9 @@
             [dataList removeAllObjects];
             [dataList addObjectsFromArray:[[data safeDictionaryForKey:@"result"] safeArrayForKey:@"mine_machine_list"]];
              [self setRightBarButtonWithTitle:[NSString stringWithFormat:@"我的矿机(%d)",[[data safeDictionaryForKey:@"result"] safeIntForKey:@"num"]]];
+            
+         
+            
             [self.digTableview reloadData];
         }else{
             [AlertHelper showAlertWithTitle:error];

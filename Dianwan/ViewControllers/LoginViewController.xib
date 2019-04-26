@@ -93,7 +93,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_user" id="VDh-f1-RTs">
                             <rect key="frame" x="8" y="0.0" width="55" height="45"/>
@@ -240,7 +240,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="20" height="20"/>
+        <image name="back" width="24" height="24"/>
         <image name="login_password" width="46" height="46"/>
         <image name="login_qq" width="50" height="50"/>
         <image name="login_user" width="44" height="50"/>
