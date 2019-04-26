@@ -21,7 +21,7 @@
         self.title = @"修改支付密码";
     }
     else{
-        self.title = @"修改密码";
+        self.title = @"修改登录密码";
        
     }
     
@@ -36,8 +36,8 @@
             __block int i = 60;
             NSTimer *codeTimer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
                 i--;
-                sender.titleLabel.text = [NSString stringWithFormat:@"%d秒倒计时",i];
-                [sender setTitle:[NSString stringWithFormat:@"%d秒倒计时",i] forState:UIControlStateNormal];
+                sender.titleLabel.text = [NSString stringWithFormat:@"%ds后重新获取",i];
+                [sender setTitle:[NSString stringWithFormat:@"%ds后重新获取",i] forState:UIControlStateNormal];
                 if (i==0) {
                     [timer invalidate];
                     sender.enabled = YES;

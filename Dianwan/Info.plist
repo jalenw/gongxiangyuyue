@@ -121,7 +121,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>URL_SCHEME</key>
-	<string>shareorder</string>
+	<string>gongxiangyuyue</string>
 	<key>base_url</key>
 	<string>http://www.public66.com/mobile/</string>
 	<key>key_ShareSDK</key>

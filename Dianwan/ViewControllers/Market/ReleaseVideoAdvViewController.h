@@ -20,7 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *goldCoinBtn;
 @property (weak, nonatomic) IBOutlet UIButton *remainingBtn;
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollview;
-
+@property (weak, nonatomic) IBOutlet UILabel *unitLb;
+@property (weak, nonatomic) IBOutlet UILabel *showUnitLb;
 @end
 
 NS_ASSUME_NONNULL_END

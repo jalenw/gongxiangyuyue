@@ -3644,6 +3644,9 @@
 						DevelopmentTeam = 2KWAH85S26;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.HealthKit = {
 								enabled = 0;
 							};

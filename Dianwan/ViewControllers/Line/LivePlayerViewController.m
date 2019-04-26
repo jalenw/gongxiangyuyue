@@ -34,6 +34,15 @@
         self.name.text = [[self.dict safeDictionaryForKey:@"msg"]safeStringForKey:@"title"];
         self.msgContentView.width = ScreenWidth-16;
         self.rewardBt.hidden = YES;
+        
+        //监听是否重新进入程序程序.
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidBecomeActive:)
+                                                     name:UIApplicationDidBecomeActiveNotification object:nil];
+        
+        //监听是否触发home键挂起程序.
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:)
+                                                     name:UIApplicationWillResignActiveNotification object:nil]; 
     }
     else
     {
@@ -56,8 +65,18 @@
     [[EaseMob sharedInstance].chatManager asyncJoinChatroom:[self.dict safeStringForKey:@"chatroom_id"] completion:^(EMChatroom *chatroom, EMError *error) {
         
     }];
-    
+
     self.bottomView.bottom = ScreenHeight;
+}
+
+-(void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    [txLivePush resumePush];
+}
+
+-(void)applicationWillResignActive:(NSNotification *)notification
+{
+    [txLivePush pausePush];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -87,6 +106,7 @@
             [_timeTimer invalidate];
             _timeTimer = nil;
         }
+        [txLivePlayer stopPlay];
         [[ServiceForUser manager] postMethodName:@"channels/exitLiveRoom" params:@{@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
             }else{

@@ -18,12 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.smView setArray: @[@{@"name":@"发起群聊",@"image":@"friend_group_chat"},@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
+    [self.smView setArray: @[@{@"name":@"添加好友",@"image":@"friend_group_chat"},@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
     [self.smView setBlock:^(NSInteger index) {
         self.maskView.hidden = YES;
         if (index==0) {
-            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"ftoo150911" conversationType:eConversationTypeChat];
-            [self.navigationController pushViewController:chatController animated:YES];
+            CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+            controller.address = [NSString stringWithFormat:@"%@%@",web_url,@"dist/chat"];
+            [self.navigationController pushViewController:controller animated:YES];
         }
         else if (index==1) {
             QRCodeViewController *vc = [[QRCodeViewController alloc]init];

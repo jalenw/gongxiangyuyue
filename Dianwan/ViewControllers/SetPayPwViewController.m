@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"设置支付密码";
+    self.title = @"支付密码";
     [self setupForDismissKeyboard];
     // Do any additional setup after loading the view from its nib.
 }
@@ -32,8 +32,8 @@
             __block int i = 60;
             NSTimer *codeTimer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
                 i--;
-                sender.titleLabel.text = [NSString stringWithFormat:@"%d秒倒计时",i];
-                [sender setTitle:[NSString stringWithFormat:@"%d秒倒计时",i] forState:UIControlStateNormal];
+                sender.titleLabel.text = [NSString stringWithFormat:@"%ds后重新获取",i];
+                [sender setTitle:[NSString stringWithFormat:@"%ds后重新获取",i] forState:UIControlStateNormal];
                 if (i==0) {
                     [timer invalidate];
                     sender.enabled = YES;

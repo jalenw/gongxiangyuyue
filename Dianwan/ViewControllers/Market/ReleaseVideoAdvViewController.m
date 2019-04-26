@@ -190,12 +190,16 @@
 }
 
 - (void) textViewDidChange:(UITextView *)textView {
+    if (textView.text.length > MaxCount)
+    {
+        textView.text = [textView.text substringToIndex:MaxCount];
+        self.countLab.text = [NSString stringWithFormat:@"%ld/%ld",(long)MaxCount,(long)MaxCount];
+    }
     self.countLab.text = [NSString stringWithFormat:@"%ld/%ld",textView.text.length,(long)MaxCount];
 }
 
 //结束编辑
 - (void)textViewDidEndEditing:(UITextView *)textView{
-    //该判断用于联想输入
     if (textView.text.length > MaxCount)
     {
         textView.text = [textView.text substringToIndex:MaxCount];
@@ -231,7 +235,11 @@
         return;
     }
     if( self.remainingCountTF.text.length == 0){
-        [AlertHelper showAlertWithTitle:@"请输入余额"];
+        [AlertHelper showAlertWithTitle:@"请输入金币"];
+        return;
+    }
+    if ([self.remainingCountTF.text integerValue]==0) {
+        [AlertHelper showAlertWithTitle:@"金币数量必须大于0"];
         return;
     }
     if( self.imagesArr.count == 0){
@@ -263,8 +271,8 @@
                                @"content":weakSelf.textview.text,
                                @"title":weakSelf.advTitleTF.text,
                                @"type":@(1),
-                           @"price":@([weakSelf.redEnvelope.text intValue]),
-                               @"num":@([weakSelf.remainingCountTF.text intValue]),
+                           @"num":@([weakSelf.redEnvelope.text intValue]),
+                               @"price":@([weakSelf.remainingCountTF.text intValue]),
                                @"video":weakSelf.video_url
                                };
         [[ServiceForUser manager] postMethodName:@"advertising/addAdv" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
@@ -591,10 +599,14 @@
         self.goldCoinBtn.selected = YES;
         self.remainingBtn.selected =NO;
         self.pay_type=0;
+        self.showUnitLb.text = @"金币";
+        self.unitLb.text = @"个";
     }else{
         self.goldCoinBtn.selected = NO;
         self.remainingBtn.selected =YES;
         self.pay_type=1;
+        self.showUnitLb.text = @"金额";
+        self.unitLb.text = @"元";
     }
 }
 - (SYPasswordView *)pasView{

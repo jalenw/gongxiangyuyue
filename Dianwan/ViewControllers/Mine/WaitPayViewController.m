@@ -38,7 +38,7 @@
     if (self.payType==2) {
         self.typeLb.text = @"金币支付";
     }
-    if (self.type==7) {
+    if (self.type==1||self.type==7||self.type==5) {
         self.aliView.hidden = NO;
         self.wechatView.hidden = NO;
     }
@@ -62,7 +62,7 @@
             [weakSelf payForLive:pwNumber];
         }
         if (weakSelf.type==5) {
-            
+            [weakSelf payForVip:pwNumber];
         }
         if (weakSelf.type==6) {
             [weakSelf payForGoodsWithGold:pwNumber];
@@ -114,8 +114,18 @@
 
 -(void)payForMine:(NSString*)pwNumber
 {
+    NSString *payment_code = @"";
+    if ([self.pay_type isEqualToString:@"money"]) {
+        payment_code = @"money";
+    }
+    if ([self.pay_type isEqualToString:@"alipay_app"]) {
+        payment_code = @"alipay_app";
+    }
+    if ([self.pay_type isEqualToString:@"wxpay_app"]) {
+        payment_code = @"wxpay_app";
+    }
     NSDictionary *params=@{
-                           @"pay_type":self.pay_type,
+                           @"pay_type":payment_code,
                            @"order_id":self.order_id,
                            @"member_paypwd":pwNumber
                            };
@@ -126,8 +136,51 @@
         self.pwInputView.hidden = YES;
         [SVProgressHUD dismiss];
         if (status) {
-            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-            [self.navigationController pushViewController:paysuc animated:YES];
+            if ([self.pay_type isEqualToString:@"wxpay_app"]) {
+                if (![WXApi isWXAppInstalled]) {
+                    [AlertHelper showAlertWithTitle:@"未安装微信"];
+                    return;
+                }
+                [WXApiManager sharedManager].delegate = self;
+                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                PayReq *payReq = [[PayReq alloc] init];
+                payReq.partnerId = [dict safeStringForKey:@"partner_id"];
+                payReq.prepayId= [dict safeStringForKey:@"prepay_id"];
+                payReq.package = [dict safeStringForKey:@"package"];
+                payReq.nonceStr= [dict safeStringForKey:@"nonce_str"];
+                long long stamp  = [[dict safeStringForKey:@"timestamp"] longLongValue];
+                payReq.timeStamp= (UInt32)stamp;
+                payReq.sign= [dict safeStringForKey:@"sign"];
+                BOOL isSuccess = [WXApi sendReq:payReq];
+                if (isSuccess == NO) {
+                    [AlertHelper showAlertWithTitle:@"微信支付调用失败"];
+                }
+            }
+            else if ([self.pay_type isEqualToString:@"alipay_app"]) {
+                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
+                NSString *signStr = [dict safeStringForKey:@"content"];
+                NSString *appScheme = URL_SCHEME;
+                [[AlipaySDK defaultService] payOrder:signStr fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                    long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
+                    if (errorCode == 9000) {
+                        [AlertHelper showAlertWithTitle:@"支付成功"];
+                        PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+                        [self.navigationController pushViewController:paysuc animated:YES];
+                    }else{
+                        if (errorCode == 6001){
+                            [AlertHelper showAlertWithTitle:@"支付失败"];
+                        }else{
+                            NSString *errorString = [resultDic safeStringForKey:@"memo"];
+                            [AlertHelper showAlertWithTitle:errorString];
+                        }
+                    }
+                }];
+            }
+            else
+            {
+                PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+                [self.navigationController pushViewController:paysuc animated:YES];
+            }
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
@@ -258,6 +311,99 @@
     }];
 }
 
+-(void)payForVip:(NSString*)pwNumber
+{
+    NSDictionary *params=@{
+                           @"idcard":[[Tooles stringToJson:self.json] safeStringForKey:@"idcard"],
+                           @"realname":[[Tooles stringToJson:self.json] safeStringForKey:@"realname"],
+                           @"type":[[Tooles stringToJson:self.json] safeStringForKey:@"_type"]
+                           };
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postMethodName:@"vip_goods/new_order" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        [self.pasView clearUpPassword];
+        [self.pasView.textField resignFirstResponder];
+        self.pwInputView.hidden = YES;
+        [SVProgressHUD dismiss];
+        if (status) {
+            NSString *payment_code = @"";
+            NSString *pd_pay = @"";
+            if ([self.pay_type isEqualToString:@"money"]) {
+                payment_code = @"alipay_app";
+                pd_pay = @"1";
+            }
+            if ([self.pay_type isEqualToString:@"alipay_app"]) {
+                payment_code = @"alipay_app";
+                pd_pay = @"0";
+            }
+            if ([self.pay_type isEqualToString:@"wxpay_app"]) {
+                payment_code = @"wxpay_app";
+                pd_pay = @"0";
+            }
+            NSDictionary *params1=@{
+                                   @"type":[[Tooles stringToJson:self.json] safeStringForKey:@"_type"],
+                                   @"pd_pay":pd_pay,
+                                   @"viporder_id":[[data safeDictionaryForKey:@"result"] safeStringForKey:@"viporder_id"],
+                                   @"paypwd":pwNumber,
+                                   @"payment_code":payment_code
+                                   };
+            [SVProgressHUD show];
+            [[ServiceForUser manager] postMethodName:@"vip_goods/vip_payment" params:params1 block:^(NSDictionary *data1, NSString *error1, BOOL status1, NSError *requestFailed1) {
+                [SVProgressHUD dismiss];
+                if (status1) {
+                    if ([self.pay_type isEqualToString:@"wxpay_app"]) {
+                        if (![WXApi isWXAppInstalled]) {
+                            [AlertHelper showAlertWithTitle:@"未安装微信"];
+                            return;
+                        }
+                        [WXApiManager sharedManager].delegate = self;
+                        NSDictionary *dict = [data1 safeDictionaryForKey:@"result"];
+                        PayReq *payReq = [[PayReq alloc] init];
+                        payReq.partnerId = [dict safeStringForKey:@"partner_id"];
+                        payReq.prepayId= [dict safeStringForKey:@"prepay_id"];
+                        payReq.package = [dict safeStringForKey:@"package"];
+                        payReq.nonceStr= [dict safeStringForKey:@"nonce_str"];
+                        long long stamp  = [[dict safeStringForKey:@"timestamp"] longLongValue];
+                        payReq.timeStamp= (UInt32)stamp;
+                        payReq.sign= [dict safeStringForKey:@"sign"];
+                        BOOL isSuccess = [WXApi sendReq:payReq];
+                        if (isSuccess == NO) {
+                            [AlertHelper showAlertWithTitle:@"微信支付调用失败"];
+                        }
+                    }
+                    else if ([self.pay_type isEqualToString:@"alipay_app"]) {
+                        NSDictionary *dict = [data1 safeDictionaryForKey:@"result"];
+                        NSString *signStr = [dict safeStringForKey:@"content"];
+                        NSString *appScheme = URL_SCHEME;
+                        [[AlipaySDK defaultService] payOrder:signStr fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                            long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
+                            if (errorCode == 9000) {
+                                [AlertHelper showAlertWithTitle:@"支付成功"];
+                                [self checkOrderList];
+                            }else{
+                                if (errorCode == 6001){
+                                    [AlertHelper showAlertWithTitle:@"支付失败"];
+                                }else{
+                                    NSString *errorString = [resultDic safeStringForKey:@"memo"];
+                                    [AlertHelper showAlertWithTitle:errorString];
+                                }
+                            }
+                        }];
+                    }
+                    else
+                    {
+                        [self checkOrderList];
+                    }
+                }else{
+                    [AlertHelper showAlertWithTitle:error1];
+                }
+            }];
+            
+        }else{
+            [AlertHelper showAlertWithTitle:error];
+        }
+    }];
+}
+
 -(void)payForGoods:(NSString*)pwNumber
 {
     NSString *payment_code = @"";
@@ -338,6 +484,26 @@
 
 -(void)checkOrderList
 {
+    if (self.payType==1) {
+        PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+        [self.navigationController pushViewController:paysuc animated:YES];
+    }
+    else if (self.type==5) {
+        if (self.payType==0) {
+            CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+            commonweb.address =[NSString stringWithFormat:@"%@dist/person/vip?from=pay&longitude=%f&latitude=%f",web_url,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+            commonweb.showNav = NO;
+            [self.navigationController pushViewController:commonweb animated:YES];
+        }
+        if (self.payType==1) {
+            CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+            commonweb.address =[NSString stringWithFormat:@"%@dist/person/identity?from=pay&longitude=%f&latitude=%f",web_url,[LocationService sharedInstance].lastLocation.coordinate.longitude,[LocationService sharedInstance].lastLocation.coordinate.latitude];
+            commonweb.showNav = NO;
+            [self.navigationController pushViewController:commonweb animated:YES];
+        }
+    }
+    else
+    {
     PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
     paysuc.btText = @"查看购买订单";
     [paysuc setBlock:^{
@@ -347,6 +513,7 @@
         [self.navigationController pushViewController:commonweb animated:YES];
     }];
     [self.navigationController pushViewController:paysuc animated:YES];
+    }
 }
 
 #pragma mark - WXApiManagerDelegate

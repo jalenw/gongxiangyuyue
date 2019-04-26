@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak,nonatomic) IBOutlet WSTextView *advTextView;
 @property (weak, nonatomic) IBOutlet UIButton *goldCoinBtn;
 @property (weak, nonatomic) IBOutlet UIButton *remainingBtn;
+@property (weak, nonatomic) IBOutlet UILabel *unitLb;
+@property (weak, nonatomic) IBOutlet UILabel *showUnitLb;
 
 @end
 

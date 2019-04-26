@@ -62,7 +62,7 @@
         }
         else
         {
-            self.cacheLabel.text = [NSString stringWithFormat:@"%.1fKB", totalSize / 1024.0];
+            self.cacheLabel.text = [NSString stringWithFormat:@"%.0fKB", totalSize / 1024.0];
         }
     }];
     
@@ -111,7 +111,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if (cell == self.privacyPolicyCell) {
             CommonUIWebViewController * privacyPolicy = [[CommonUIWebViewController alloc] init];
-            privacyPolicy.address = [NSString stringWithFormat:@"%@wap/mall/info.html?article_id=59",web_url];
+            privacyPolicy.address = [NSString stringWithFormat:@"%@wap/member/protocol.html",web_url];
             privacyPolicy.showNav = NO;
             [self.navigationController pushViewController:privacyPolicy animated:YES];
         }else if (cell == self.aboutUsCell)
@@ -123,7 +123,7 @@
         }
         else if (cell == self.clearCacheCell){
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"清理缓存"
-                                                                           message:[NSString stringWithFormat:@"确认清理%@缓存",self.clearCacheCell.textLabel.text]
+                                                                           message:[NSString stringWithFormat:@"确认清理%@缓存",self.cacheLabel.text]
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"

@@ -112,12 +112,16 @@
 }
 
 - (void) textViewDidChange:(UITextView *)textView {
+    if (textView.text.length > MaxCount)
+    {
+        textView.text = [textView.text substringToIndex:MaxCount];
+        self.countLab.text = [NSString stringWithFormat:@"%ld/%ld",(long)MaxCount,(long)MaxCount];
+    }
     self.countLab.text = [NSString stringWithFormat:@"%ld/%ld",textView.text.length,(long)MaxCount];
 }
 
 //结束编辑
 - (void)textViewDidEndEditing:(UITextView *)textView{
-    //该判断用于联想输入
     if (textView.text.length > MaxCount)
     {
         textView.text = [textView.text substringToIndex:MaxCount];
@@ -150,7 +154,11 @@
         return;
     }
     if( self.remainingCountTF.text.length == 0){
-        [AlertHelper showAlertWithTitle:@"请输入余额"];
+        [AlertHelper showAlertWithTitle:@"请输入金额"];
+        return;
+    }
+    if ([self.remainingCountTF.text integerValue]==0) {
+        [AlertHelper showAlertWithTitle:@"金币数量必须大于0"];
         return;
     }
     if( self.imagesArr.count == 0){
@@ -177,8 +185,8 @@
                                        @"pay_type":@(weakSelf.pay_type),//1 余额 0 金币 红包类型
                                        @"content":weakSelf.textview.text,
                                        @"title":weakSelf.advTitleTF.text,
-                                       @"price":@([weakSelf.redEnvelope.text intValue]), //红包个数
-                                       @"num":@([weakSelf.remainingCountTF.text intValue]),
+                                       @"num":@([weakSelf.redEnvelope.text intValue]), //红包个数
+                                       @"price":@([weakSelf.remainingCountTF.text intValue]),
                                        @"type":@(0),
                                        };
                 [[ServiceForUser manager] postMethodName:@"advertising/addAdv" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
@@ -217,12 +225,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row !=_imagesArr.count-1) {
-        //
     }else{
-        if(_imagesArr.count == 4){
-            [AlertHelper showAlertWithTitle:@"最多可上传3张封面图"];
-        }else{
-            [self editPortrait];
+        if([[_imagesArr objectAtIndex:indexPath.row] isEqual:[UIImage imageNamed:@"add"]]){
+             [self editPortrait];
         }
     }
 }
@@ -303,6 +308,9 @@
                  [SVProgressHUD dismiss];
                   [_imagesArr insertObject:editedImage atIndex:0];
                   [_imagesStr appendString:[NSString stringWithFormat:@"%@,",[[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"]]];
+                if (_imagesArr.count==4) {
+                    [_imagesArr removeLastObject];
+                }
             }else { [AlertHelper showAlertWithTitle:error];}
             [self.imageCollectionView reloadData];
         }];
@@ -459,10 +467,14 @@
         self.goldCoinBtn.selected = YES;
         self.remainingBtn.selected =NO;
         self.pay_type=0;
+        self.showUnitLb.text = @"金币";
+        self.unitLb.text = @"个";
     }else{
         self.goldCoinBtn.selected = NO;
         self.remainingBtn.selected =YES;
         self.pay_type=1;
+        self.showUnitLb.text = @"金额";
+        self.unitLb.text = @"元";
     }
 }
 - (SYPasswordView *)pasView{
