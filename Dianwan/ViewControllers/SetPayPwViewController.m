@@ -26,7 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)getCodeAct:(UIButton *)sender {
-    [[ServiceForUser manager] postMethodName:@"Memberaccount/modify_paypwd_step2.html" params:@{} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"Memberaccount/modify_password_step2.html" params:@{@"mobile":self.phone.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
             sender.enabled = NO;
             __block int i = 60;

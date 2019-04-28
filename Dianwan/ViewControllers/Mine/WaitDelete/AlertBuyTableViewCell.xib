@@ -93,7 +93,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-Oa-r8D">
-                        <rect key="frame" x="150" y="370" width="60" height="10"/>
+                        <rect key="frame" x="150" y="370" width="60" height="9"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <attributedString key="attributedText">
                             <fragment content="提取码">
@@ -130,8 +130,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="znl-5f-Qa2">
-                        <rect key="frame" x="26" y="252" width="50" height="25"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="znl-5f-Qa2">
+                        <rect key="frame" x="26" y="243" width="50" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.4549019608" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal">
@@ -150,6 +150,9 @@
                                 <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="downLoadAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XBC-9c-2OU"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJq-j9-JdF">
                         <rect key="frame" x="18" y="44" width="339" height="191"/>
@@ -165,6 +168,7 @@
             <connections>
                 <outlet property="accountLabel" destination="Bcn-g5-dMs" id="8bZ-7y-YNV"/>
                 <outlet property="coverImageView" destination="q91-dk-Dga" id="KCU-5E-aqa"/>
+                <outlet property="downLoadBtn" destination="znl-5f-Qa2" id="LHM-Gm-4D4"/>
                 <outlet property="playBtn" destination="eJq-j9-JdF" id="M3l-va-yh4"/>
                 <outlet property="pwLabel" destination="5nL-jM-SNf" id="neF-g7-pV4"/>
                 <outlet property="subImageview" destination="or5-7c-2sR" id="D9l-j4-Lja"/>

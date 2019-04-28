@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *rewardLb;
 @property (weak, nonatomic) IBOutlet SliderMenuView *smView;
 @property (weak, nonatomic) IBOutlet UIView *maskView;
+@property (strong, nonatomic) IBOutlet UIView *navTitleView;
+
 - (IBAction)noticeAct:(UIButton *)sender;
 - (IBAction)goldAct:(UIButton *)sender;
 @end

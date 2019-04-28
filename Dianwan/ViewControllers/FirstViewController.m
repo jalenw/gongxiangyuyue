@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.titleView = self.navTitleView;
     [self.scrollView setContentSize:CGSizeMake(ScreenWidth, 636)];
     [self setupAdView];
     [self.adView setBlock:^(NSInteger index){

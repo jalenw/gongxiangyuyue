@@ -78,7 +78,7 @@
 }
 
 -(void)requestMarkdataAct{
-    NSDictionary *params = @{};
+    NSDictionary *params = @{ @"page":@(page)};
     [[ServiceForUser manager] postMethodName:@"minemachine/mineMachineList" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [self.digTableview.header endRefreshing];
@@ -87,9 +87,6 @@
             [dataList removeAllObjects];
             [dataList addObjectsFromArray:[[data safeDictionaryForKey:@"result"] safeArrayForKey:@"mine_machine_list"]];
              [self setRightBarButtonWithTitle:[NSString stringWithFormat:@"我的矿机(%d)",[[data safeDictionaryForKey:@"result"] safeIntForKey:@"num"]]];
-            
-         
-            
             [self.digTableview reloadData];
         }else{
             [AlertHelper showAlertWithTitle:error];
