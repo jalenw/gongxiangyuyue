@@ -56,4 +56,8 @@
 //计算两个经纬度直接距离
 double LantitudeLongitudeDist(double lon1,double lat1,
                               double lon2,double lat2);
+
+
+//获取当前控制器
++ (UIViewController*)currentViewController;
 @end

@@ -291,9 +291,26 @@ double LantitudeLongitudeDist(double lon1,double lat1,
     double y2 = er * sin(radlong2) * sin(radlat2);
     double z2 = er * cos(radlat2);
     double d = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)+(z1-z2)*(z1-z2));
-    //side, side, side, law of cosines and arccos
     double theta = acos((er*er+er*er-d*d)/(2*er*er));
     double dist  = theta*er;
     return dist;
+}
+
++ (UIViewController*)currentViewController{
+    UIViewController* vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    while (1) {
+        if ([vc isKindOfClass:[UITabBarController class]]) {
+            vc = ((UITabBarController*)vc).selectedViewController;
+        }
+        if ([vc isKindOfClass:[UINavigationController class]]) {
+            vc = ((UINavigationController *)vc).visibleViewController;
+        }
+        if (vc.presentedViewController) {
+            vc = vc.presentedViewController;
+        }else{
+            break;
+        }
+    }return vc;
+    
 }
 @end
