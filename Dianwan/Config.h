@@ -45,3 +45,6 @@
 #define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
 //关闭键盘
 #define HIDE_KEY_BOARD  [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+
+//获取导航栏+状态栏的高度
+#define getRectNavAndStatusHight  [Tooles currentViewController].navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height
