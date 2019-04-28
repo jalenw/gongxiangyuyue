@@ -62,12 +62,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IKq-xb-PQm">
-                    <rect key="frame" x="18" y="214" width="60" height="21"/>
+                    <rect key="frame" x="18" y="214" width="62" height="15"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <attributedString key="attributedText">
                         <fragment content="我的服务">
                             <attributes>
-                                <font key="NSFont" size="15" name="PingFangSC-Medium"/>
+                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="15" name=".PingFangSC-Regular"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>
@@ -214,46 +215,7 @@
                                     <attributes>
                                         <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="11" name=".PingFangSC-Regular"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                            <tabStops>
-                                                <textTab alignment="left" location="28">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="56">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="84">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="112">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="140">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="168">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="196">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="224">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="252">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="280">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="308">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="336">
-                                                    <options/>
-                                                </textTab>
-                                            </tabStops>
-                                        </paragraphStyle>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
@@ -467,7 +429,7 @@
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yyc-LH-CVt">
                     <rect key="frame" x="220" y="154" width="7" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <attributedString key="attributedText">
                         <fragment content=" ">
                             <attributes>
@@ -490,7 +452,7 @@
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vk2-1A-Zeh">
                     <rect key="frame" x="239" y="152" width="4" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <attributedString key="attributedText">
                         <fragment content=" ">
                             <attributes>
@@ -500,7 +462,7 @@
                             </attributes>
                         </fragment>
                     </attributedString>
-                    <nil key="highlightedColor"/>
+                    <color key="highlightedColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X8E-bj-7cH">
                     <rect key="frame" x="83" y="150" width="210" height="21"/>
@@ -562,7 +524,7 @@
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYy-cv-Rmf">
                     <rect key="frame" x="287" y="148" width="4" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <attributedString key="attributedText">
                         <fragment content=" ">
                             <attributes>
@@ -572,7 +534,7 @@
                             </attributes>
                         </fragment>
                     </attributedString>
-                    <nil key="highlightedColor"/>
+                    <color key="highlightedColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

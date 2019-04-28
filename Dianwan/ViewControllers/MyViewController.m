@@ -110,11 +110,6 @@
         [self.navigationController pushViewController:qrcode animated:YES];
     }
     if (sender.tag==104) {//已购课程
-       
-//        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-//        commonweb.address =[NSString stringWithFormat:@"%@dist/course/buyedDetail?",web_url];
-//        commonweb.showNav = NO;
-//        [self.navigationController pushViewController:commonweb animated:YES];
         AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
         [self.navigationController pushViewController:alreadBuy animated:YES];
     }
@@ -192,42 +187,43 @@
             NSDictionary *result = [data safeDictionaryForKey:@"result"];
             AppDelegateInstance.defaultUser.viptype = [result safeIntForKey:@"viptype"];
             [AppDelegateInstance saveContext];
-           if([result safeIntForKey:@"viptype"] == 1){
+           if([ result safeIntForKey:@"viptype"] == 1){
                self.typeLabel.hidden = NO;
               self.offlineLabel.hidden = NO;
-               self.typeLabel.frame = CGRectMake(self.nameLabel.left +0.5*self.nameLabel.width - 5 - [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 会员 "].width, self.nameLabel.bottom+5, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 会员 "].width,self.nameLabel.height-4);
-               self.typeLabel.text =@" 会员 ";
+               self.typeLabel.frame = CGRectMake(self.nameLabel.left +0.5*self.nameLabel.width - 5 - [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" VIP "].width, self.nameLabel.bottom+5, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" VIP "].width,self.nameLabel.height-4);
+               self.typeLabel.text =@" VIP ";
                self.typeLabel.cornerRadius = 4;
                self.typeLabel.layer.masksToBounds = YES;
-               
-               self.offlineLabel.frame =CGRectMake(self.typeLabel.right+10 , self.typeLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:10.0] maxSize:CGSizeMake(210, 21) string: [NSString stringWithFormat:@" 下线%@人",[result safeStringForKey:@"subordinate"]]].width, self.typeLabel.height);
-               self.offlineLabel.text =[NSString stringWithFormat:@" 下线%@人",[result safeStringForKey:@"subordinate"]];
+
+               self.offlineLabel.frame =CGRectMake(self.typeLabel.right+10 , self.typeLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:10.0] maxSize:CGSizeMake(210, 21) string: [NSString stringWithFormat:@" 关联%@人",[result safeStringForKey:@"subordinate"]]].width, self.typeLabel.height);
+               self.offlineLabel.text =[NSString stringWithFormat:@" 关联%@人",[result safeStringForKey:@"subordinate"]];
                self.offlineLabel.cornerRadius = 4;
                self.offlineLabel.layer.masksToBounds = YES;
-            
+
                 }
             if([result safeIntForKey:@"viptype"] == 2){
                 self.typeLabel.hidden = NO;
                 self.rentLabel.hidden = NO;
                 self.offlineLabel.hidden = NO;
 
-                self.rentLabel.frame =CGRectMake(self.nameLabel.left +0.5*self.nameLabel.width - 5, self.nameLabel.bottom+5, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@"租用"].width,self.nameLabel.height-4);
-                self.rentLabel.text =@" 租用 ";
+                self.rentLabel.frame =CGRectMake(self.nameLabel.left +0.5*(self.nameLabel.width -  [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 约服务 "].width), self.nameLabel.bottom+5, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 约服务 "].width,self.nameLabel.height-4);
+                self.rentLabel.text =@" 约服务 ";
+                self.rentLabel.textAlignment = NSTextAlignmentCenter;
                 self.rentLabel.cornerRadius = 4;
                 self.rentLabel.layer.masksToBounds = YES;
 
-                self.typeLabel.frame =CGRectMake(self.rentLabel.left - [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:self.rentLabel.text].width - 10 , self.rentLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" 会员 "].width, self.rentLabel.height);
-                self.typeLabel.text =@" 会员 ";
+                self.typeLabel.frame =CGRectMake(self.rentLabel.left - [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" VIP "].width - 10 , self.rentLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:12.0] maxSize:CGSizeMake(210, 21) string:@" VIP "].width, self.rentLabel.height);
+                self.typeLabel.text =@" VIP ";
                 self.typeLabel.cornerRadius = 4;
                 self.typeLabel.layer.masksToBounds = YES;
 
 
-                self.offlineLabel.frame =CGRectMake(self.rentLabel.right+10 , self.rentLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:10.0] maxSize:CGSizeMake(210, 21) string: [NSString stringWithFormat:@" 下线%@人",[result safeStringForKey:@"subordinate"]]].width, self.rentLabel.height);
-                self.offlineLabel.text =[NSString stringWithFormat:@" 下线%@人",[result safeStringForKey:@"subordinate"]];
+                self.offlineLabel.frame =CGRectMake(self.rentLabel.right+10 , self.rentLabel.top, [Tooles sizeWithFont:[UIFont systemFontOfSize:10.0] maxSize:CGSizeMake(210, 21) string: [NSString stringWithFormat:@" 关联%@人",[result safeStringForKey:@"subordinate"]]].width, self.rentLabel.height);
+                self.offlineLabel.text =[NSString stringWithFormat:@" 关联%@人",[result safeStringForKey:@"subordinate"]];
                 self.offlineLabel.cornerRadius = 4;
                 self.offlineLabel.layer.masksToBounds = YES;
             }
-            
+        
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

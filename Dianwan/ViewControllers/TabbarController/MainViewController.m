@@ -65,7 +65,7 @@
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     // 设置文字的样式
-    [childVc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(173, 173, 173)} forState:UIControlStateNormal];
+    [childVc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(153, 153, 153)} forState:UIControlStateNormal];
     
     [childVc.tabBarItem setTitleTextAttributes:@{UITextAttributeFont:[UIFont systemFontOfSize:10]} forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : ThemeColor} forState:UIControlStateSelected];
