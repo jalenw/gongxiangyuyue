@@ -87,4 +87,9 @@
     }
 }
 
+- (IBAction)downLoadAct:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cellDownLoadButtonDidClick:)]) {
+        [self.delegate cellDownLoadButtonDidClick:self.dict];
+    }
+}
 @end

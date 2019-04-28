@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void)cellPlayButtonDidClick:(AlertBuyTableViewCell *)cell;
-
+- (void)cellDownLoadButtonDidClick:(NSDictionary *)dict;
 @end
 
 @interface AlertBuyTableViewCell : UITableViewCell
@@ -28,10 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *accountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pwLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (weak, nonatomic) IBOutlet UIButton *downLoadBtn;
 
 @property (nonatomic, strong) UIPasteboard *pasteBoard;
 
 @property(nonatomic, weak) id<JPVPNetEasyTableViewCellDelegate> delegate;
+- (IBAction)downLoadAct:(UIButton *)sender;
 @end
 
 NS_ASSUME_NONNULL_END

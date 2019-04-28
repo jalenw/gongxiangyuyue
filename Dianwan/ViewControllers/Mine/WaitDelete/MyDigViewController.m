@@ -41,8 +41,7 @@
 
 
 -(void)requestMarkdataAct{
-    NSDictionary *params = @{};
-    
+    NSDictionary *params = @{ @"page":@(page)};
     [[ServiceForUser manager] postMethodName:@"minemachine/myMineMachineList" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [self.mydigTableview.header endRefreshing];

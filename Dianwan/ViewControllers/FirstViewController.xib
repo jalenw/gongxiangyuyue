@@ -16,6 +16,7 @@
                 <outlet property="collectionView" destination="9wf-c3-FBo" id="sws-jN-4S2"/>
                 <outlet property="headView" destination="rf1-lk-bZT" id="fTz-XU-zrs"/>
                 <outlet property="maskView" destination="ZcI-S0-5CB" id="m5b-nE-iHN"/>
+                <outlet property="navTitleView" destination="Ncz-g5-lHx" id="1AD-4n-akL"/>
                 <outlet property="noticeView" destination="Nsq-JK-xWo" id="fCD-ad-Gqt"/>
                 <outlet property="rewardLb" destination="SgI-AJ-xjo" id="HpR-FO-rJi"/>
                 <outlet property="scrollView" destination="48i-jQ-gz3" id="qXX-Fr-aQy"/>
@@ -176,8 +177,24 @@
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="704.34782608695662" y="83.967391304347828"/>
         </view>
+        <view contentMode="scaleToFill" id="Ncz-g5-lHx">
+            <rect key="frame" x="0.0" y="0.0" width="112" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first_log" id="mho-It-J1l">
+                    <rect key="frame" x="0.0" y="0.0" width="112" height="44"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-949.27536231884062" y="83.152173913043484"/>
+        </view>
     </objects>
     <resources>
+        <image name="first_log" width="82" height="41"/>
         <image name="first_notice" width="33" height="14"/>
         <image name="rectangle_orange" width="339" height="160"/>
         <image name="rectangle_red" width="339" height="111"/>

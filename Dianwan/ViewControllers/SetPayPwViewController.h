@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *pw;
 @property (weak, nonatomic) IBOutlet UITextField *rpw;
 @property (weak, nonatomic) IBOutlet UITextField *codeTF;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
 
 - (IBAction)doneAct:(UIButton *)sender;
 
