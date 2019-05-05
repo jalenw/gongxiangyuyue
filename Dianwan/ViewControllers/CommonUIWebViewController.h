@@ -30,6 +30,8 @@
 -(void)goPage:(NSString*)index;
 //跳转我要开播
 -(void)createLiveRoom;
+//跳转已购课程
+-(void)toBuySubject;
 //支付
 -(void)pay:(NSString* )type :(NSString *)from :(NSString *)price :(NSString *)json;
 

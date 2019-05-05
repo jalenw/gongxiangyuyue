@@ -86,7 +86,6 @@
 		2F23C539224099CA0044C0F4 /* CityTableviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F23C533224099C90044C0F4 /* CityTableviewViewController.xib */; };
 		2F3A649022551E0E0048CC56 /* PostYueJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3A648E22551E0E0048CC56 /* PostYueJiaViewController.m */; };
 		2F3A649122551E0E0048CC56 /* PostYueJiaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3A648F22551E0E0048CC56 /* PostYueJiaViewController.xib */; };
-		2F3A649322551EC90048CC56 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */; };
 		2F3F853F223AB8AE00A46086 /* SystemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */; };
 		2F3F8540223AB8AE00A46086 /* SystemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */; };
 		2F3F8547223AB8D200A46086 /* PlatformAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F8541223AB8C700A46086 /* PlatformAnnouncementCell.xib */; };
@@ -722,7 +721,6 @@
 		2F3A648D22551E0E0048CC56 /* PostYueJiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostYueJiaViewController.h; sourceTree = "<group>"; };
 		2F3A648E22551E0E0048CC56 /* PostYueJiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostYueJiaViewController.m; sourceTree = "<group>"; };
 		2F3A648F22551E0E0048CC56 /* PostYueJiaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostYueJiaViewController.xib; sourceTree = "<group>"; };
-		2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		2F3F853C223AB8AD00A46086 /* SystemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemTableViewCell.m; sourceTree = "<group>"; };
 		2F3F853D223AB8AE00A46086 /* SystemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemTableViewCell.xib; sourceTree = "<group>"; };
 		2F3F853E223AB8AE00A46086 /* SystemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemTableViewCell.h; sourceTree = "<group>"; };
@@ -1592,7 +1590,6 @@
 				CD6323BA1EE54C1100D033F4 /* CopyConnector.framework in Frameworks */,
 				CD6323BE1EE54C1100D033F4 /* SMSConnector.framework in Frameworks */,
 				CD6323BC1EE54C1100D033F4 /* QQConnector.framework in Frameworks */,
-				2F3A649322551EC90048CC56 /* libEaseMobClientSDK.a in Frameworks */,
 				8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */,
 				8EEF4BC2211D8CB500DE1E36 /* libopencore-amrnb.a in Frameworks */,
 				CD6323BD1EE54C1100D033F4 /* SinaWeiboConnector.framework in Frameworks */,
@@ -2509,7 +2506,6 @@
 		8EEF4A23211D8C9500DE1E36 /* EaseMobSDK */ = {
 			isa = PBXGroup;
 			children = (
-				2F3A649222551EC90048CC56 /* libEaseMobClientSDK.a */,
 				8EEF4A25211D8C9500DE1E36 /* include */,
 				8EEF4A8F211D8C9500DE1E36 /* EaseMob.bundle */,
 			);

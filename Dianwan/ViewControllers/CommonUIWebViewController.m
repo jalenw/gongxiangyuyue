@@ -30,6 +30,7 @@
 
 #import "AddLineViewController.h"
 #import "LivePlayerViewController.h"
+#import "AlreadybuyViewController.h"
 
 @protocol JSBridgeExport <JSExport>
 //与H5交互协议
@@ -39,6 +40,8 @@
 -(void)goPage:(NSString*)index;
 
 -(void)createLiveRoom;
+
+-(void)toBuySubject;
 
 -(void)pay:(NSString* )type :(NSString *)from :(NSString *)price :(NSString *)json;
 
@@ -114,6 +117,13 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.webViewController createLiveRoom];
+    });
+}
+
+-(void)toBuySubject
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController toBuySubject];
     });
 }
 
@@ -581,6 +591,12 @@
         [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)toBuySubject
+{
+    AlreadybuyViewController *alreadBuy = [[AlreadybuyViewController alloc]init];
+    [self.navigationController pushViewController:alreadBuy animated:YES];
 }
 
 //vip支付
