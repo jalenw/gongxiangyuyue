@@ -27,18 +27,18 @@
     page =1 ;
     dataList = [[NSMutableArray alloc]init];
     
-    [self requesrLiveListAct];
+    [self requestLiveListAct];
     self.listTableview.dataSource =self;
     self.listTableview.delegate =self;
     self.listTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.listTableview registerNib:[UINib nibWithNibName:@"LiveListTableViewCell" bundle:nil] forCellReuseIdentifier:@"LiveListTableViewCell"];
     [self.listTableview addLegendFooterWithRefreshingBlock:^{
         page ++;
-        [self requesrLiveListAct];
+        [self requestLiveListAct];
     }];
     [self.listTableview addLegendHeaderWithRefreshingBlock:^{
         page =1;
-        [self requesrLiveListAct];
+        [self requestLiveListAct];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshLiveList" object:nil];
@@ -47,10 +47,10 @@
 -(void)refresh
 {
     page =1;
-    [self requesrLiveListAct];
+    [self requestLiveListAct];
 }
 
--(void)requesrLiveListAct{
+-(void)requestLiveListAct{
     NSDictionary *params =@{
                             @"pagesize":@"5",
                             @"page":@(page)

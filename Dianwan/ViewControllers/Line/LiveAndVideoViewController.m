@@ -11,6 +11,7 @@
 #import "VideoListViewController.h"
 #import "AddLineViewController.h"
 #import "LivePlayerViewController.h"
+#import "PreviewViewController.h"
 @interface LiveAndVideoViewController ()
 
 @end
@@ -44,7 +45,7 @@
 }
 
 - (NSArray<NSString *> *)buttonTitleArray{
-    return @[@"直播",@"视频"];
+    return @[@"直播",@"预告",@"视频"];
 }
 
 -(UIColor *)BtnbackgroundColor{
@@ -95,6 +96,10 @@
             [self addChildViewController:controller];
             self.currentController = controller;
         }else if (i == 1){
+            PreviewViewController *subController = [[PreviewViewController alloc] init];
+            controller = subController;
+            [self addChildViewController:controller];
+        }else if (i == 2){
             VideoListViewController *subController = [[VideoListViewController alloc] init];
             controller = subController;
             [self addChildViewController:controller];

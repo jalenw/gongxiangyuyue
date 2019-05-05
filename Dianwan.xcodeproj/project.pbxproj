@@ -469,6 +469,18 @@
 		8EEF4C15211D8CB500DE1E36 /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF4BA5211D8CB500DE1E36 /* EaseUIResource.bundle */; };
 		8EEF4C3A211D8DC700DE1E36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF4C39211D8DBE00DE1E36 /* MobileCoreServices.framework */; };
 		8EEF4C3C211D8DDE00DE1E36 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */; };
+		8EF4E102227D426D00870327 /* ServiceCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E100227D426D00870327 /* ServiceCenterViewController.m */; };
+		8EF4E103227D426D00870327 /* ServiceCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E101227D426D00870327 /* ServiceCenterViewController.xib */; };
+		8EF4E108227D45D000870327 /* AdvanceNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E106227D45D000870327 /* AdvanceNoticeViewController.m */; };
+		8EF4E109227D45D000870327 /* AdvanceNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E107227D45D000870327 /* AdvanceNoticeViewController.xib */; };
+		8EF4E10D227D494700870327 /* AdvanceNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E10B227D494700870327 /* AdvanceNoticeTableViewCell.m */; };
+		8EF4E10E227D494700870327 /* AdvanceNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E10C227D494700870327 /* AdvanceNoticeTableViewCell.xib */; };
+		8EF4E112227D4B5E00870327 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E110227D4B5E00870327 /* PreviewViewController.m */; };
+		8EF4E113227D4B5E00870327 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E111227D4B5E00870327 /* PreviewViewController.xib */; };
+		8EF4E117227D4C2500870327 /* MineAndHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E115227D4C2500870327 /* MineAndHistoryViewController.m */; };
+		8EF4E118227D4C2500870327 /* MineAndHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E116227D4C2500870327 /* MineAndHistoryViewController.xib */; };
+		8EF4E11C227D4C3800870327 /* MineHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4E11A227D4C3800870327 /* MineHistoryViewController.m */; };
+		8EF4E11D227D4C3800870327 /* MineHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF4E11B227D4C3800870327 /* MineHistoryViewController.xib */; };
 		8EFC60D61F25864A0088E00A /* AdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC60D51F25864A0088E00A /* AdView.m */; };
 		90A2F2101D8E7CB600AB04CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90A2F20F1D8E7CB600AB04CF /* Assets.xcassets */; };
 		9816D9691F258E39000FCD7E /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9816D9641F258E39000FCD7E /* FriendListCell.m */; };
@@ -1378,6 +1390,24 @@
 		8EEF4BA5211D8CB500DE1E36 /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		8EEF4C39211D8DBE00DE1E36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8EEF4C3B211D8DD800DE1E36 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8EF4E0FF227D426D00870327 /* ServiceCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceCenterViewController.h; sourceTree = "<group>"; };
+		8EF4E100227D426D00870327 /* ServiceCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceCenterViewController.m; sourceTree = "<group>"; };
+		8EF4E101227D426D00870327 /* ServiceCenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCenterViewController.xib; sourceTree = "<group>"; };
+		8EF4E105227D45D000870327 /* AdvanceNoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeViewController.h; sourceTree = "<group>"; };
+		8EF4E106227D45D000870327 /* AdvanceNoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeViewController.m; sourceTree = "<group>"; };
+		8EF4E107227D45D000870327 /* AdvanceNoticeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvanceNoticeViewController.xib; sourceTree = "<group>"; };
+		8EF4E10A227D494700870327 /* AdvanceNoticeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeTableViewCell.h; sourceTree = "<group>"; };
+		8EF4E10B227D494700870327 /* AdvanceNoticeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeTableViewCell.m; sourceTree = "<group>"; };
+		8EF4E10C227D494700870327 /* AdvanceNoticeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvanceNoticeTableViewCell.xib; sourceTree = "<group>"; };
+		8EF4E10F227D4B5E00870327 /* PreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		8EF4E110227D4B5E00870327 /* PreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		8EF4E111227D4B5E00870327 /* PreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		8EF4E114227D4C2500870327 /* MineAndHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineAndHistoryViewController.h; sourceTree = "<group>"; };
+		8EF4E115227D4C2500870327 /* MineAndHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineAndHistoryViewController.m; sourceTree = "<group>"; };
+		8EF4E116227D4C2500870327 /* MineAndHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineAndHistoryViewController.xib; sourceTree = "<group>"; };
+		8EF4E119227D4C3800870327 /* MineHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHistoryViewController.h; sourceTree = "<group>"; };
+		8EF4E11A227D4C3800870327 /* MineHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHistoryViewController.m; sourceTree = "<group>"; };
+		8EF4E11B227D4C3800870327 /* MineHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHistoryViewController.xib; sourceTree = "<group>"; };
 		8EFC60D41F25864A0088E00A /* AdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdView.h; sourceTree = "<group>"; };
 		8EFC60D51F25864A0088E00A /* AdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdView.m; sourceTree = "<group>"; };
 		90A2F20F1D8E7CB600AB04CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1836,6 +1866,12 @@
 		2F3F855B223AB9DF00A46086 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				8EF4E114227D4C2500870327 /* MineAndHistoryViewController.h */,
+				8EF4E115227D4C2500870327 /* MineAndHistoryViewController.m */,
+				8EF4E116227D4C2500870327 /* MineAndHistoryViewController.xib */,
+				8EF4E119227D4C3800870327 /* MineHistoryViewController.h */,
+				8EF4E11A227D4C3800870327 /* MineHistoryViewController.m */,
+				8EF4E11B227D4C3800870327 /* MineHistoryViewController.xib */,
 				2F3F855C223AB9DF00A46086 /* MineViewController.h */,
 				2F3F855D223AB9DF00A46086 /* MineViewController.m */,
 				2F3F855E223AB9DF00A46086 /* MineViewController.xib */,
@@ -1897,7 +1933,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2F6AE60C223BFEB1002400CF /* View */ = {
+		2F6AE60C223BFEB1002400CF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				2F6AE60D223BFEDD002400CF /* LiveListTableViewCell.h */,
@@ -1906,8 +1942,11 @@
 				2F6AE617223C0B92002400CF /* ClassListTableViewCell.h */,
 				2F6AE618223C0B92002400CF /* ClassListTableViewCell.m */,
 				2F6AE619223C0B92002400CF /* ClassListTableViewCell.xib */,
+				8EF4E10A227D494700870327 /* AdvanceNoticeTableViewCell.h */,
+				8EF4E10B227D494700870327 /* AdvanceNoticeTableViewCell.m */,
+				8EF4E10C227D494700870327 /* AdvanceNoticeTableViewCell.xib */,
 			);
-			name = View;
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		8E1823872247603C001511ED /* Class */ = {
@@ -2330,6 +2369,9 @@
 				8E3C775D225435D70050E5DA /* VideoListViewController.h */,
 				8E3C775E225435D70050E5DA /* VideoListViewController.m */,
 				8E3C775F225435D70050E5DA /* VideoListViewController.xib */,
+				8EF4E10F227D4B5E00870327 /* PreviewViewController.h */,
+				8EF4E110227D4B5E00870327 /* PreviewViewController.m */,
+				8EF4E111227D4B5E00870327 /* PreviewViewController.xib */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -2381,9 +2423,11 @@
 		8EDA41441F22F82C000CBA40 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				8EF4E104227D459700870327 /* AdvanceNotice */,
+				8EF4E0FE227D425200870327 /* ServiceCenter */,
 				2F23C53D2240CACD0044C0F4 /* MessageCenter */,
 				2F23C52C224099B70044C0F4 /* citrySelect */,
-				2F6AE60C223BFEB1002400CF /* View */,
+				2F6AE60C223BFEB1002400CF /* Cell */,
 				2F3F8553223AB8F100A46086 /* YYImageClipViewController.h */,
 				2F3F8554223AB8F200A46086 /* YYImageClipViewController.m */,
 				8ED4A870211197A10038E719 /* MyViewController.h */,
@@ -3170,6 +3214,26 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		8EF4E0FE227D425200870327 /* ServiceCenter */ = {
+			isa = PBXGroup;
+			children = (
+				8EF4E0FF227D426D00870327 /* ServiceCenterViewController.h */,
+				8EF4E100227D426D00870327 /* ServiceCenterViewController.m */,
+				8EF4E101227D426D00870327 /* ServiceCenterViewController.xib */,
+			);
+			name = ServiceCenter;
+			sourceTree = "<group>";
+		};
+		8EF4E104227D459700870327 /* AdvanceNotice */ = {
+			isa = PBXGroup;
+			children = (
+				8EF4E105227D45D000870327 /* AdvanceNoticeViewController.h */,
+				8EF4E106227D45D000870327 /* AdvanceNoticeViewController.m */,
+				8EF4E107227D45D000870327 /* AdvanceNoticeViewController.xib */,
+			);
+			name = AdvanceNotice;
+			sourceTree = "<group>";
+		};
 		8EFC60D31F25864A0088E00A /* AdView */ = {
 			isa = PBXGroup;
 			children = (
@@ -3686,6 +3750,7 @@
 				9816D96A1F258E39000FCD7E /* FriendListCell.xib in Resources */,
 				8EB4E51921201FAE00BC563B /* chatBar_more_cameraSelected@2x.png in Resources */,
 				2F17D9F5223E5FBA008E0E94 /* IQKeyboardManager.bundle in Resources */,
+				8EF4E103227D426D00870327 /* ServiceCenterViewController.xib in Resources */,
 				2F6AE62F223CD881002400CF /* ReaelseCollectionViewCell.xib in Resources */,
 				8E7ABFD2211AE3FB00EADF76 /* ModifyPwViewController.xib in Resources */,
 				2F6B3068223D000D00BD686B /* PaySucessViewController.xib in Resources */,
@@ -3700,6 +3765,7 @@
 				8EB4E51E21201FAE00BC563B /* chatBar_more_location@2x.png in Resources */,
 				2F6AE61B223C0B92002400CF /* ClassListTableViewCell.xib in Resources */,
 				8EEF4A91211D8C9600DE1E36 /* EaseMob.bundle in Resources */,
+				8EF4E113227D4B5E00870327 /* PreviewViewController.xib in Resources */,
 				8EB4E4E121201FAE00BC563B /* chatBar_more_face.png in Resources */,
 				8E3C7766225439ED0050E5DA /* VideoTableViewCell.xib in Resources */,
 				8EB4E53221201FAE00BC563B /* chatBar_colorMore_videoCallSelected@2x.png in Resources */,
@@ -3724,7 +3790,9 @@
 				8EB4E4E721201FAE00BC563B /* call_out@2x.png in Resources */,
 				8EB4E4F521201FAE00BC563B /* VoiceSearchFeedback019.png in Resources */,
 				2F3A649122551E0E0048CC56 /* PostYueJiaViewController.xib in Resources */,
+				8EF4E10E227D494700870327 /* AdvanceNoticeTableViewCell.xib in Resources */,
 				8EC2CC1A2240A332002B0D86 /* LivePlayerViewController.xib in Resources */,
+				8EF4E11D227D4C3800870327 /* MineHistoryViewController.xib in Resources */,
 				8EB4E52721201FAE00BC563B /* chatBar_recordSelected.png in Resources */,
 				2F3F8727223AB9E500A46086 /* MineViewController.xib in Resources */,
 				8EB4E4F721201FAE00BC563B /* VoiceSearchFeedback018.png in Resources */,
@@ -3746,6 +3814,7 @@
 				8ED4A874211197A10038E719 /* MyViewController.xib in Resources */,
 				8EB4E54621201FAE00BC563B /* call_silence_h@2x.png in Resources */,
 				8EB4E4D621201FAE00BC563B /* chat_receiver_audio_playing_full@2x.png in Resources */,
+				8EF4E109227D45D000870327 /* AdvanceNoticeViewController.xib in Resources */,
 				8EB4E4CD21201FAE00BC563B /* chat_location_detail_disclosure@2x.png in Resources */,
 				8EB4E4FC21201FAE00BC563B /* VoiceSearchFeedback020.png in Resources */,
 				8EB4E4D421201FAE00BC563B /* chat_receiver_bg.png in Resources */,
@@ -3778,6 +3847,7 @@
 				8EB4E52821201FAE00BC563B /* chatBar_recordBg@2x.png in Resources */,
 				2F232DE4225262D200B327A9 /* JPVideoPlayer.bundle in Resources */,
 				90A2F2101D8E7CB600AB04CF /* Assets.xcassets in Resources */,
+				8EF4E118227D4C2500870327 /* MineAndHistoryViewController.xib in Resources */,
 				8EB4E50321201FAE00BC563B /* VoiceSearchFeedback010.png in Resources */,
 				8EB4E4CE21201FAE00BC563B /* chat_location_detail_disclosure.png in Resources */,
 				8EB4E4FD21201FAE00BC563B /* VoiceSearchFeedback009.png in Resources */,
@@ -3925,6 +3995,7 @@
 				8EC2CC1122409866002B0D86 /* AddLineViewController.m in Sources */,
 				8E980B5E211035FC00C7B6DA /* SystemMsgViewController.m in Sources */,
 				2F17D97D223E2B13008E0E94 /* AlertBuyTableViewCell.m in Sources */,
+				8EF4E11C227D4C3800870327 /* MineHistoryViewController.m in Sources */,
 				8EEF4BF8211D8CB500DE1E36 /* EaseUsersListViewController.m in Sources */,
 				2F232DF1225262D200B327A9 /* UICollectionView+WebVideoCache.m in Sources */,
 				8EB4E3F9212009AD00BC563B /* UIImage+EMMultiFormat.m in Sources */,
@@ -3992,6 +4063,7 @@
 				8E4664EE2169BFD70022DF94 /* MKAnnotation.m in Sources */,
 				8EEF4BD6211D8CB500DE1E36 /* PSTCollectionViewController.m in Sources */,
 				2F6AE615223C0AA9002400CF /* AlreadybuyViewController.m in Sources */,
+				8EF4E108227D45D000870327 /* AdvanceNoticeViewController.m in Sources */,
 				8EB4E3EF212009AD00BC563B /* MKAnnotationView+EMWebCache.m in Sources */,
 				04395EE51F233EC10074865E /* UIView+Layout.m in Sources */,
 				8EEF4C07211D8CB500DE1E36 /* EaseRecordView.m in Sources */,
@@ -4036,6 +4108,7 @@
 				8EEF4C0A211D8CB500DE1E36 /* EaseBubbleView+Location.m in Sources */,
 				2F232DF3225262D200B327A9 /* UITableView+WebVideoCache.m in Sources */,
 				8EB4E3FA212009AD00BC563B /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				8EF4E10D227D494700870327 /* AdvanceNoticeTableViewCell.m in Sources */,
 				8EEF4BC7211D8CB500DE1E36 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				CDC890761D8698C000CE03CE /* Tooles.m in Sources */,
 				8EB4E3EB212009AD00BC563B /* EMSDWebImageDownloader.m in Sources */,
@@ -4050,6 +4123,7 @@
 				04395EE31F233EC10074865E /* TZProgressView.m in Sources */,
 				8EDA41401F22F731000CBA40 /* LoginViewController.m in Sources */,
 				9816D9691F258E39000FCD7E /* FriendListCell.m in Sources */,
+				8EF4E112227D4B5E00870327 /* PreviewViewController.m in Sources */,
 				8EEF4BD3211D8CB500DE1E36 /* MWGridViewController.m in Sources */,
 				8EEF4BAC211D8CB500DE1E36 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				8EEF4C00211D8CB500DE1E36 /* EaseBaseMessageCell.m in Sources */,
@@ -4093,6 +4167,7 @@
 				CDC890001D8698BF00CE03CE /* AFURLResponseSerialization.m in Sources */,
 				2F3F854A223AB8D200A46086 /* PlatformAnnouncementCell.m in Sources */,
 				2F6AE62E223CD881002400CF /* ReaelseCollectionViewCell.m in Sources */,
+				8EF4E117227D4C2500870327 /* MineAndHistoryViewController.m in Sources */,
 				04395EE41F233EC10074865E /* TZVideoPlayerController.m in Sources */,
 				8EEF4C0C211D8CB500DE1E36 /* EaseBubbleView.m in Sources */,
 				8EC2CC192240A332002B0D86 /* LivePlayerViewController.m in Sources */,
@@ -4162,6 +4237,7 @@
 				8E412B861F23572100A40CE6 /* ForgetViewController.m in Sources */,
 				8EEF4BE2211D8CB500DE1E36 /* PSTGridLayoutItem.m in Sources */,
 				8EB4E42A21201CC500BC563B /* CustomMessageCell.m in Sources */,
+				8EF4E102227D426D00870327 /* ServiceCenterViewController.m in Sources */,
 				8EC2CC1F224231CE002B0D86 /* LiveMsgTableViewCell.m in Sources */,
 				8EB4E42621201CC500BC563B /* InvitationManager.m in Sources */,
 				8EEF4C01211D8CB500DE1E36 /* EaseChatBarMoreView.m in Sources */,

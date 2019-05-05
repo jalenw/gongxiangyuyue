@@ -16,6 +16,8 @@
 #import "OrderParentViewcontroller.h"
 #import "ChatViewController.h"
 #import "LivePlayerViewController.h"
+#import "ServiceCenterViewController.h"
+#import "AdvanceNoticeViewController.h"
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
 @property (weak, nonatomic) IBOutlet UIView *settingBtn;
@@ -176,7 +178,14 @@
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
     }
-  
+    if (sender.tag==112) {//客服中心
+        ServiceCenterViewController *commonweb =[[ServiceCenterViewController alloc]init];
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==113) {//我的预告
+        AdvanceNoticeViewController *commonweb =[[AdvanceNoticeViewController alloc]init];
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
 }
 
 

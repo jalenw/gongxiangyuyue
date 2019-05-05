@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRCodeViewController">
             <connections>
                 <outlet property="codeImageview" destination="Gb0-uO-YVF" id="pLQ-s5-YYG"/>
-                <outlet property="imgView" destination="Gb0-uO-YVF" id="4Ox-JO-5uK"/>
                 <outlet property="recommendedCodeLabel" destination="L08-fH-Bzg" id="YhA-gE-rpC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
