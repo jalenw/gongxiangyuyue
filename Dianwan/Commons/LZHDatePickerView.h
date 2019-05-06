@@ -18,5 +18,5 @@ typedef void (^LZHDateChooseBlock)(NSDate *date);
 - (void)setBlock:(LZHDateChooseBlock)block;
 - (void)showPicker;
 - (void)hidePicker;
-
+-(void)setDatePickerMode:(UIDatePickerMode)mode;
 @end

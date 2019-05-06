@@ -14,7 +14,7 @@
 #import "EaseConversationListViewController.h"
 #import "ChatHistoryViewController.h"
 #import "ChatViewController.h"
-#import "MineViewController.h"
+#import "MineAndHistoryViewController.h"
 #import "MarketViewController.h"
 @interface MainViewController ()<IChatManagerDelegate,EaseConversationListViewControllerDelegate>
 {
@@ -31,7 +31,7 @@
     ChatHistoryViewController *chatVc = [[ChatHistoryViewController alloc] init];
     chatVc.delegate = self;
     [self addChildVc:chatVc title:@"聊天" image:@"tabbar_menu3_normal" selectedImage:@"tabbar_menu3_selected"];
-    [self addChildVc:[[MineViewController alloc] init]  title:@"挖矿" image:@"tabbar_menu4_normal" selectedImage:@"tabbar_menu4_selected"];
+    [self addChildVc:[[MineAndHistoryViewController alloc] init]  title:@"挖矿" image:@"tabbar_menu4_normal" selectedImage:@"tabbar_menu4_selected"];
     [self addChildVc:[[MyViewController alloc] init] title:@"我的" image:@"tabbar_menu5_normal" selectedImage:@"tabbar_menu5_selected"];
     
 //   tabbar中间按钮

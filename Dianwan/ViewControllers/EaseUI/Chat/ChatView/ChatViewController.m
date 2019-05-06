@@ -19,6 +19,7 @@
 #import "FriendsViewController.h"
 #import "LivePlayerViewController.h"
 #import "PostYueJiaViewController.h"
+#import "GroupMemberListViewController.h"
 @interface ChatViewController ()<UIAlertViewDelegate>
 {
     UIMenuItem *_copyMenuItem;
@@ -128,7 +129,15 @@
     }
     else{//群聊
         self.title = @"群聊";
+        [self setRightBarButtonWithTitle:@"群成员"];
     }
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    GroupMemberListViewController *vc = [[GroupMemberListViewController alloc]init];
+    vc.group_id = self.conversation.chatter;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -289,7 +298,7 @@
     }
     if (index==4) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-        controller.address = [NSString stringWithFormat:@"%@dist/course",web_url];
+        controller.address = [NSString stringWithFormat:@"%@dist/course/personalCourse.html?store_id=%ld",web_url,(long)store_id];
         [self.navigationController pushViewController:controller animated:YES];
     }
     if (index==5) {

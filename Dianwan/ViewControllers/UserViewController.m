@@ -47,7 +47,7 @@
     [self requestUserinfo];
     self.index = 1;
     [self getCityData:@""];
-    self.maskView.frame =self.view.bounds;
+    self.maskView.frame = ScreenBounds;
     self.maskView.hidden = YES;
     [self.view addSubview:_maskView];
     self.province_id=@"";

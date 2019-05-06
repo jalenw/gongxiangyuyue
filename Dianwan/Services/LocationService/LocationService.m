@@ -141,7 +141,7 @@
 
 
 - (void)getLocation{
-    if (_isGettingLocationString) {
+    if (self.uploadLocation) {
         return;
     }
     if ([[LocationService sharedInstance] lastLocation])
@@ -149,48 +149,47 @@
         if (self.lastLocation.coordinate.latitude == 0 && self.lastLocation.coordinate.longitude == 0) {
             return;
         }
-        CLGeocoder *revGeo = [[CLGeocoder alloc] init];
-        //反向地理编码
-        _isGettingLocationString = YES;
-        [revGeo reverseGeocodeLocation:[LocationService sharedInstance].lastLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            _isGettingLocationString = NO;
-            if (!error && [placemarks count] > 0)
-            {
-                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
-                
-                //NSLog(@"%@",dict);
-                NSString *locString = @"";
-                if ([dict hasObjectForKey:@"City"]) {
-                    locString = [locString stringByAppendingString:dict[@"City"]];
-                    if(locString.length > 0){
-                        self.lastCity = locString;
-                    }
-                    [[NSNotificationCenter defaultCenter]postNotificationName:@"kGetCityNotification" object:nil userInfo:nil];
+        
+        if (HTTPClientInstance.token) {
+            self.uploadLocation = YES;
+            [[ServiceForUser manager]postMethodName:@"member/setLocation" params:@{@"longitude":@([LocationService sharedInstance].lastLocation.coordinate.longitude),@"latitude":@([LocationService sharedInstance].lastLocation.coordinate.latitude)} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+                if (status) {
+                    [self stopUpdateLocation];
                 }
-                
-                
-                if ([dict hasObjectForKey:@"State"]) {
-                    self.lastProvince = dict[@"State"];
-                }
-                
-                
-                [self stopUpdateLocation];
-//                if ([dict hasObjectForKey:@"SubLocality"]) {
-//                    locString = [locString stringByAppendingString:dict[@"SubLocality"]];
+                else
+                    self.uploadLocation = NO;
+            }];
+        }
+        
+//        CLGeocoder *revGeo = [[CLGeocoder alloc] init];
+//        //反向地理编码
+//        [revGeo reverseGeocodeLocation:[LocationService sharedInstance].lastLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+//            _isGettingLocationString = NO;
+//            if (!error && [placemarks count] > 0)
+//            {
+//                NSDictionary *dict = [[placemarks objectAtIndex:0] addressDictionary];
+//
+//                //NSLog(@"%@",dict);
+//                NSString *locString = @"";
+//                if ([dict hasObjectForKey:@"City"]) {
+//                    locString = [locString stringByAppendingString:dict[@"City"]];
+//                    if(locString.length > 0){
+//                        self.lastCity = locString;
+//                    }
+//                    [[NSNotificationCenter defaultCenter]postNotificationName:@"kGetCityNotification" object:nil userInfo:nil];
 //                }
-//                if ([dict hasObjectForKey:@"Thoroughfare"]) {
-//                    locString = [locString stringByAppendingString:dict[@"Thoroughfare"]];
+//
+//
+//                if ([dict hasObjectForKey:@"State"]) {
+//                    self.lastProvince = dict[@"State"];
 //                }
-//                if ([dict hasObjectForKey:@"SubThoroughfare"]) {
-//                    locString = [locString stringByAppendingString:dict[@"SubThoroughfare"]];
-//                }
-//                if (![locString isEqualToString:_locationString]&&locString.length>0) {
-//                    self.locationString = locString;
-//                }
-            }else{
-                NSLog(@"ERROR: %@", error);
-            }
-        }];
+//
+//
+//                [self stopUpdateLocation];
+//            }else{
+//                NSLog(@"ERROR: %@", error);
+//            }
+//        }];
     }
 }
 

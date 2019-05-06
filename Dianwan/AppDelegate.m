@@ -177,6 +177,9 @@ didFinishLaunchingWithOptions:launchOptions
             NSLog(@"登录成功");
         }
     } onQueue:nil];
+    
+    [[LocationService sharedInstance] startUpdateLocation];
+    [LocationService sharedInstance].uploadLocation = NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MineHistoryViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UITableView *digTableview;
 
 @end
 

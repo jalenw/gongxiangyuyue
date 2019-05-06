@@ -1,14 +1,14 @@
 //
-//  AdvanceNoticeTableViewCell.m
+//  MyDemandTableViewCell.m
 //  Dianwan
 //
-//  Created by 黄哲麟 on 2019/5/4.
+//  Created by 黄哲麟 on 2019/5/6.
 //  Copyright © 2019年 intexh. All rights reserved.
 //
 
-#import "AdvanceNoticeTableViewCell.h"
+#import "MyDemandTableViewCell.h"
 
-@implementation AdvanceNoticeTableViewCell
+@implementation MyDemandTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -18,10 +18,13 @@
 -(void)setDict:(NSDictionary *)dict
 {
     _dict = dict;
+    self.type.text = [dict safeStringForKey:@"cat_name"];
+    [self.type sizeToFit];
     [self.pic sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"cover"]]];
     self.name.text = [dict safeStringForKey:@"title"];
-    self.type.text = [dict safeStringForKey:@"class_name"];
-    self.desc.text = [NSString stringWithFormat:@"直播时间:%@", [dict safeStringForKey:@"channel_time"]];
+    self.desc.text = [dict safeStringForKey:@"content"];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"member_avatar"]]];
+    self.userName.text = [dict safeStringForKey:@"member_name"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

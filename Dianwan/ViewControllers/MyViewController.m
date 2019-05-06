@@ -18,6 +18,7 @@
 #import "LivePlayerViewController.h"
 #import "ServiceCenterViewController.h"
 #import "AdvanceNoticeViewController.h"
+#import "MyDemandViewController.h"
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView *qrcodeBtn;
 @property (weak, nonatomic) IBOutlet UIView *settingBtn;
@@ -184,6 +185,10 @@
     }
     if (sender.tag==113) {//我的预告
         AdvanceNoticeViewController *commonweb =[[AdvanceNoticeViewController alloc]init];
+        [self.navigationController pushViewController:commonweb animated:YES];
+    }
+    if (sender.tag==114) {//我的需求
+        MyDemandViewController *commonweb =[[MyDemandViewController alloc]init];
         [self.navigationController pushViewController:commonweb animated:YES];
     }
 }

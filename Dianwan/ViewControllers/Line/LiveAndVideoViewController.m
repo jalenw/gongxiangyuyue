@@ -74,7 +74,7 @@
 }
 
 - (CGFloat)indicatorOffset{
-    return (ScreenWidth/2-80)/2;
+    return (ScreenWidth/3-80)/3;
 }
 
 - (void)setupControllers{

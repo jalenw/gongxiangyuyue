@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString *locationString;
 @property (nonatomic, strong) NSString *lastCity;
 @property (nonatomic, strong) NSString *lastProvince;
-
+@property (nonatomic) BOOL uploadLocation;
 + (LocationService *)sharedInstance;
 - (void)startUpdateLocation;
 - (void)startMonitoringSignificantLocationChanges;

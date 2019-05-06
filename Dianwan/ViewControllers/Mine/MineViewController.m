@@ -46,36 +46,36 @@
 }
 
 //重写右按钮
-- (UIButton*)setRightBarButtonWithTitle:(NSString*)title{
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:title];
-    [attrString addAttribute:NSForegroundColorAttributeName value:ThemeColor range:NSMakeRange(5,attrString.length-6)];
-    [button setAttributedTitle:attrString forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(rightbarButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = DefaultFontOfSize(15);
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    [self.navigationItem sx_setRightBarButtonItems:@[rightBarItem]];
-    return button;
-}
+//- (UIButton*)setRightBarButtonWithTitle:(NSString*)title{
+//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
+//    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:title];
+//    [attrString addAttribute:NSForegroundColorAttributeName value:ThemeColor range:NSMakeRange(5,attrString.length-6)];
+//    [button setAttributedTitle:attrString forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(rightbarButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+//    button.titleLabel.font = DefaultFontOfSize(15);
+//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+//    [self.navigationItem sx_setRightBarButtonItems:@[rightBarItem]];
+//    return button;
+//}
 
 
--(void)rightbarButtonDidTap:(UIButton *)button{
-//    MillDetailsViewController *mydig=[[MillDetailsViewController alloc]init];
-//    MyDigViewController *mydig = [[MyDigViewController alloc]init];
-//    [self.navigationController pushViewController:mydig animated:YES];
-   if (![HTTPClientInstance isLogin]) {
-        [AppDelegateInstance showLoginView];
-    }
-    else
-    {
-        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
-        commonweb.address =[NSString stringWithFormat:@"%@dist/dig/mill",web_url];
-        commonweb.showNav = NO;
-        [self.navigationController pushViewController:commonweb animated:YES];
-    }
-    
-}
+//-(void)rightbarButtonDidTap:(UIButton *)button{
+////    MillDetailsViewController *mydig=[[MillDetailsViewController alloc]init];
+////    MyDigViewController *mydig = [[MyDigViewController alloc]init];
+////    [self.navigationController pushViewController:mydig animated:YES];
+//   if (![HTTPClientInstance isLogin]) {
+//        [AppDelegateInstance showLoginView];
+//    }
+//    else
+//    {
+//        CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
+//        commonweb.address =[NSString stringWithFormat:@"%@dist/dig/mill",web_url];
+//        commonweb.showNav = NO;
+//        [self.navigationController pushViewController:commonweb animated:YES];
+//    }
+//    
+//}
 
 -(void)requestMarkdataAct{
     NSDictionary *params = @{ @"page":@(page)};
@@ -86,7 +86,7 @@
         if (status) {
             [dataList removeAllObjects];
             [dataList addObjectsFromArray:[[data safeDictionaryForKey:@"result"] safeArrayForKey:@"mine_machine_list"]];
-             [self setRightBarButtonWithTitle:[NSString stringWithFormat:@"我的矿机(%d)",[[data safeDictionaryForKey:@"result"] safeIntForKey:@"num"]]];
+//             [self setRightBarButtonWithTitle:[NSString stringWithFormat:@"我的矿机(%d)",[[data safeDictionaryForKey:@"result"] safeIntForKey:@"num"]]];
             [self.digTableview reloadData];
         }else{
             [AlertHelper showAlertWithTitle:error];

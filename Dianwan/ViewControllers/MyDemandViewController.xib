@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineHistoryViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyDemandViewController">
             <connections>
-                <outlet property="digTableview" destination="osb-Fg-Eui" id="GOg-rd-dCI"/>
+                <outlet property="tableView" destination="dud-P9-qlM" id="olD-5j-FDP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,22 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="osb-Fg-Eui">
-                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dud-P9-qlM">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="zk9-HM-aBY"/>
-                        <outlet property="delegate" destination="-1" id="MDT-2U-DjM"/>
+                        <outlet property="dataSource" destination="-1" id="ODZ-3F-3Vd"/>
+                        <outlet property="delegate" destination="-1" id="iIt-Ez-AIT"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="osb-Fg-Eui" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="7C1-sw-kN0"/>
-                <constraint firstItem="osb-Fg-Eui" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="44" id="KwZ-4w-9Qs"/>
-                <constraint firstItem="osb-Fg-Eui" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ZF6-kq-DxG"/>
-                <constraint firstItem="osb-Fg-Eui" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="gxE-pl-ET1"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
