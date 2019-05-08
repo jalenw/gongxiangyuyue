@@ -165,6 +165,8 @@
 		8E7ABFD2211AE3FB00EADF76 /* ModifyPwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFD0211AE3FB00EADF76 /* ModifyPwViewController.xib */; };
 		8E7ABFD6211AECE800EADF76 /* SetPayPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFD4211AECE800EADF76 /* SetPayPwViewController.m */; };
 		8E7ABFD7211AECE800EADF76 /* SetPayPwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFD5211AECE800EADF76 /* SetPayPwViewController.xib */; };
+		8E7EDC9922812C0F00A54FF1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7EDC9722812C0F00A54FF1 /* SearchViewController.m */; };
+		8E7EDC9A22812C0F00A54FF1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7EDC9822812C0F00A54FF1 /* SearchViewController.xib */; };
 		8E980B5E211035FC00C7B6DA /* SystemMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E980B5C211035FC00C7B6DA /* SystemMsgViewController.m */; };
 		8E980B5F211035FC00C7B6DA /* SystemMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E980B5D211035FC00C7B6DA /* SystemMsgViewController.xib */; };
 		8E980B632110373100C7B6DA /* SystemMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E980B612110373100C7B6DA /* SystemMsgTableViewCell.m */; };
@@ -853,6 +855,9 @@
 		8E7ABFD3211AECE800EADF76 /* SetPayPwViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPayPwViewController.h; sourceTree = "<group>"; };
 		8E7ABFD4211AECE800EADF76 /* SetPayPwViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPayPwViewController.m; sourceTree = "<group>"; };
 		8E7ABFD5211AECE800EADF76 /* SetPayPwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPayPwViewController.xib; sourceTree = "<group>"; };
+		8E7EDC9622812C0F00A54FF1 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		8E7EDC9722812C0F00A54FF1 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		8E7EDC9822812C0F00A54FF1 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		8E980B5B211035FC00C7B6DA /* SystemMsgViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMsgViewController.h; sourceTree = "<group>"; };
 		8E980B5C211035FC00C7B6DA /* SystemMsgViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemMsgViewController.m; sourceTree = "<group>"; };
 		8E980B5D211035FC00C7B6DA /* SystemMsgViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SystemMsgViewController.xib; sourceTree = "<group>"; };
@@ -2397,6 +2402,9 @@
 				8EE1FB1B2280772A00E50A16 /* PreviewDetailViewController.h */,
 				8EE1FB1C2280772A00E50A16 /* PreviewDetailViewController.m */,
 				8EE1FB1D2280772A00E50A16 /* PreviewDetailViewController.xib */,
+				8E7EDC9622812C0F00A54FF1 /* SearchViewController.h */,
+				8E7EDC9722812C0F00A54FF1 /* SearchViewController.m */,
+				8E7EDC9822812C0F00A54FF1 /* SearchViewController.xib */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -3934,6 +3942,7 @@
 				8EB4E4CC21201FAE00BC563B /* chat_location_annotation_someone@2x.png in Resources */,
 				8EC2CC1222409866002B0D86 /* AddLineViewController.xib in Resources */,
 				8EB4E4EA21201FAE00BC563B /* chat_sender_bg.png in Resources */,
+				8E7EDC9A22812C0F00A54FF1 /* SearchViewController.xib in Resources */,
 				8EB4E4FB21201FAE00BC563B /* VoiceSearchFeedback008.png in Resources */,
 				8EB4E50621201FAE00BC563B /* VoiceSearchFeedback005.png in Resources */,
 				8EB4E51D21201FAE00BC563B /* chatBar_more_cameraSelected.png in Resources */,
@@ -4046,6 +4055,7 @@
 				2F17D97D223E2B13008E0E94 /* AlertBuyTableViewCell.m in Sources */,
 				8EF4E11C227D4C3800870327 /* MineHistoryViewController.m in Sources */,
 				8EEF4BF8211D8CB500DE1E36 /* EaseUsersListViewController.m in Sources */,
+				8E7EDC9922812C0F00A54FF1 /* SearchViewController.m in Sources */,
 				2F232DF1225262D200B327A9 /* UICollectionView+WebVideoCache.m in Sources */,
 				8EB4E3F9212009AD00BC563B /* UIImage+EMMultiFormat.m in Sources */,
 				985A8B0C1F94AD7C00B5DDB9 /* UIBarButtonItem+SXCreate.m in Sources */,

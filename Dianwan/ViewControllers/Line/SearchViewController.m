@@ -1,62 +1,68 @@
 //
-//  LiveListViewController.m
+//  SearchViewController.m
 //  Dianwan
 //
-//  Created by Yang on 2019/3/15.
-//  Copyright © 2019 intexh. All rights reserved.
+//  Created by 黄哲麟 on 2019/5/7.
+//  Copyright © 2019年 intexh. All rights reserved.
 //
 
-#import "LiveListViewController.h"
+#import "SearchViewController.h"
 #import "LiveListTableViewCell.h"
 #import "LivePlayerViewController.h"
-#import "LZHAlertView.h"
 #import "WaitPayViewController.h"
-#import "SearchViewController.h"
-@interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
     NSMutableArray *dataList;
 }
-@property (weak, nonatomic) IBOutlet UITableView *listTableview;
-
 @end
 
-@implementation LiveListViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    page =1 ;
+    self.navigationItem.titleView = self.searchView;
+    [self setupForDismissKeyboard];
+    page = 1;
     dataList = [[NSMutableArray alloc]init];
-    
-    [self requestLiveListAct];
-    self.listTableview.dataSource =self;
-    self.listTableview.delegate =self;
-    self.listTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
     [self.listTableview registerNib:[UINib nibWithNibName:@"LiveListTableViewCell" bundle:nil] forCellReuseIdentifier:@"LiveListTableViewCell"];
     [self.listTableview addLegendFooterWithRefreshingBlock:^{
         page ++;
         [self requestLiveListAct];
     }];
     [self.listTableview addLegendHeaderWithRefreshingBlock:^{
-        page =1;
+        page = 1;
         [self requestLiveListAct];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshLiveList" object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setRightBarButtonWithTitle:@"搜索"];
+}
+
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    [self refresh];
+}
+
 -(void)refresh
 {
-    page =1;
+    page = 1;
     [self requestLiveListAct];
 }
 
 -(void)requestLiveListAct{
     NSDictionary *params =@{
                             @"pagesize":@"5",
-                            @"page":@(page)
+                            @"page":@(page),
+                            @"title":self.content.text
                             };
-    [[ServiceForUser manager]postMethodName:@"Channels/getLive" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager]postMethodName:@"Channels/search" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [dataList removeAllObjects];
             [self.listTableview.header endRefreshing];
@@ -67,6 +73,9 @@
             NSArray *livedata = [[data  safeDictionaryForKey:@"result"] safeArrayForKey:@"data"];
             [dataList addObjectsFromArray:livedata];
             [self.listTableview reloadData];
+            if ([[data  safeDictionaryForKey:@"result"] safeIntForKey:@"total"]==0) {
+                [AlertHelper showAlertWithTitle:@"暂没有数据"];
+            }
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
@@ -110,10 +119,5 @@
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (IBAction)toSearchViewAct:(UIButton *)sender {
-    SearchViewController *vc = [[SearchViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
