@@ -241,9 +241,9 @@
     </objects>
     <resources>
         <image name="back" width="24" height="24"/>
-        <image name="login_password" width="46" height="46"/>
+        <image name="login_password" width="23" height="23"/>
         <image name="login_qq" width="50" height="50"/>
-        <image name="login_user" width="44" height="50"/>
+        <image name="login_user" width="22" height="25"/>
         <image name="login_wechat" width="50" height="50"/>
     </resources>
 </document>

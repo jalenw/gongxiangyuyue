@@ -19,11 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITextField *priceTf;
 @property (weak, nonatomic) IBOutlet UITextField *costTf;
+@property (weak, nonatomic) IBOutlet UITextField *typeTf;
+@property (weak, nonatomic) IBOutlet UIView *typeView;
 - (IBAction)addImgAct:(UIButton *)sender;
 - (IBAction)backAct:(UIButton *)sender;
 - (IBAction)doneAct:(UIButton *)sender;
 - (IBAction)menuAct:(UIButton *)sender;
 - (IBAction)liveProtocol:(UIButton *)sender;
+- (IBAction)changeTypeAct:(UIButton *)sender;
+- (IBAction)closeTypeViewAct:(id)sender;
+- (IBAction)confirmTypeViewAct:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 NS_ASSUME_NONNULL_END

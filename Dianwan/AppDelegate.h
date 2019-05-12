@@ -28,6 +28,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic) BOOL showUserCenter;
 - (void)showMainPage;//进入主界面
 - (void)showLoginView;//打开登录页
 - (void)saveContext;//保存数据库

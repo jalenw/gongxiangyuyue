@@ -21,6 +21,10 @@
 #import "AliPayManager.h"
 #import "WXApiManager.h"
 @interface AppDelegate ()<UIAlertViewDelegate,WXApiDelegate>
+{
+    NSString *_updateUrlString;
+    NSString *_updateMessage;
+}
 @property (strong,nonatomic) UINavigationController* mainNavController;
 @end
 
@@ -87,7 +91,34 @@ didFinishLaunchingWithOptions:launchOptions
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
     
+    [self checkVersion];
     return YES;
+}
+
+-(void)checkVersion
+{
+    NSMutableDictionary *para = [HTTPClientInstance newDefaultParameters];
+    [para setObject:@"ios" forKey:@"client"];
+    [[ServiceForUser manager] postMethodName:@"index/version" params:para block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+            if ([version floatValue]<[[data safeStringForKey:@"result"] floatValue]) {
+                NSString *msg = [NSString stringWithFormat:@"发现新版本(V%@)，必须更新使用",[data safeStringForKey:@"result"]];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"升级提示" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"现在升级",nil];
+                [alert show];
+            }
+        }
+    }];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_updateUrlString]];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"升级提示!" message:_updateMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"现在升级",nil];
+    [alert show];
 }
 
 //初始化ShareSDK
@@ -177,7 +208,10 @@ didFinishLaunchingWithOptions:launchOptions
             NSLog(@"登录成功");
         }
     } onQueue:nil];
-    
+    if (self.showUserCenter) {
+        self.mainViewController.selectedIndex = 4;
+        self.showUserCenter = false;
+    }
     [[LocationService sharedInstance] startUpdateLocation];
     [LocationService sharedInstance].uploadLocation = NO;
 }

@@ -41,7 +41,7 @@
     [super viewDidLoad];
     self.title=@"发布广告";
 
-    self.remainingBtn.selected = YES;
+    self.goldCoinBtn.selected = YES;
     _imagesArr = [NSMutableArray arrayWithObjects:[UIImage imageNamed:@"add"], nil];
     _imagesStr = [[NSMutableString alloc]init];
     [self setRightBarButtonWithTitle:@"发布"];
@@ -63,7 +63,7 @@
     self.imageCollectionView.showsHorizontalScrollIndicator =NO;
     [self.imageCollectionView registerNib:[UINib nibWithNibName:@"ReaelseCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReaelseCollectionViewCell"];
     
-   
+    self.pay_type = 0;
     self.pwInputView.frame = self.view.bounds;
     self.pwInputView.hidden = YES;
     [self.view addSubview:self.pwInputView];
@@ -153,6 +153,10 @@
         [AlertHelper showAlertWithTitle:@"请输入红包个数"];
         return;
     }
+    if([self.redEnvelope.text integerValue] == 0){
+        [AlertHelper showAlertWithTitle:@"红包个数必须大于0"];
+        return;
+    }
     if( self.remainingCountTF.text.length == 0){
         [AlertHelper showAlertWithTitle:@"请输入金额"];
         return;
@@ -161,7 +165,7 @@
         [AlertHelper showAlertWithTitle:@"金币数量必须大于0"];
         return;
     }
-    if( self.imagesArr.count == 0){
+    if( self.imagesArr.count < 2){
         [AlertHelper showAlertWithTitle:@"请添加封面图片"];
         return;
     }

@@ -63,6 +63,7 @@
     [[ServiceForUser manager]postMethodName:@"Login/index.html" params:@{@"username":self.phone.text,@"password":self.passWord.text,@"client":@"ios"} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
+            AppDelegateInstance.showUserCenter = true;
             [HTTPClientInstance saveToken:[[data safeDictionaryForKey:@"result"] safeStringForKey:@"key"] uid:[[data safeDictionaryForKey:@"result"] safeStringForKey:@"userid"]];
             AppDelegateInstance.defaultUser = [User insertOrReplaceWithDictionary:[data safeDictionaryForKey:@"result"] context:AppDelegateInstance.managedObjectContext];
             [AppDelegateInstance showMainPage];

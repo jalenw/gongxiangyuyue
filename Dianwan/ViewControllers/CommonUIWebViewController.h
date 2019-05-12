@@ -46,5 +46,11 @@
 
 //第三方支付充值
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
+
+//加好友
+-(void)addFriend:(NSString* )chartId :(NSString *)avatar :(NSString *)userName;
+
+-(void)uploadImg;
+
 - (IBAction)closePwView:(UIButton *)sender;
 @end

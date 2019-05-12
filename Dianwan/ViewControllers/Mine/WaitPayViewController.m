@@ -157,8 +157,7 @@
                 }
             }
             else if ([self.pay_type isEqualToString:@"alipay_app"]) {
-                NSDictionary *dict = [data safeDictionaryForKey:@"result"];
-                NSString *signStr = [dict safeStringForKey:@"content"];
+                NSString *signStr = [data safeStringForKey:@"result"];
                 NSString *appScheme = URL_SCHEME;
                 [[AlipaySDK defaultService] payOrder:signStr fromScheme:appScheme callback:^(NSDictionary *resultDic) {
                     long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
@@ -296,15 +295,15 @@
         self.pwInputView.hidden = YES;
         [SVProgressHUD dismiss];
         if (status) {
-            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-            paysuc.btText = @"查看购买订单";
-            [paysuc setBlock:^{
+//            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+//            paysuc.btText = @"查看购买订单";
+//            [paysuc setBlock:^{
                 CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
                 commonweb.address =[NSString stringWithFormat:@"%@wap/member/order_list.html?",web_url];
                 commonweb.showNav = NO;
                 [self.navigationController pushViewController:commonweb animated:YES];
-            }];
-            [self.navigationController pushViewController:paysuc animated:YES];
+//            }];
+//            [self.navigationController pushViewController:paysuc animated:YES];
         }else{
             [AlertHelper showAlertWithTitle:error];
         }
@@ -504,15 +503,15 @@
     }
     else
     {
-    PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-    paysuc.btText = @"查看购买订单";
-    [paysuc setBlock:^{
+//    PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+//    paysuc.btText = @"查看购买订单";
+//    [paysuc setBlock:^{
         CommonUIWebViewController *commonweb =[[CommonUIWebViewController alloc]init];
         commonweb.address =[NSString stringWithFormat:@"%@wap/member/order_list.html?",web_url];
         commonweb.showNav = NO;
         [self.navigationController pushViewController:commonweb animated:YES];
-    }];
-    [self.navigationController pushViewController:paysuc animated:YES];
+//    }];
+//    [self.navigationController pushViewController:paysuc animated:YES];
     }
 }
 

@@ -54,6 +54,10 @@
 
 -(void)resetPay:(NSString*)sn :(NSString*)payment_code;
 
+-(void)addFriend:(NSString* )chartId :(NSString *)avatar :(NSString *)userName;
+
+-(void)uploadImg;
+
 -(void)goPage;
 
 - (void)tochat:(NSString*)toUserId :(NSString*)toUserNickName :(NSString*)toUserAvatar :(NSString*)toUserChatId;
@@ -151,6 +155,20 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.webViewController resetPay:sn :payment_code];
+    });
+}
+
+-(void)addFriend:(NSString* )chartId :(NSString *)avatar :(NSString *)userName
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController addFriend:chartId :avatar :userName];
+    });
+}
+
+-(void)uploadImg
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webViewController uploadImg];
     });
 }
 
@@ -425,6 +443,8 @@
     long long errorCode = [resultDic safeLongLongForKey:@"resultStatus"];
     if (errorCode == 9000) {
         [AlertHelper showAlertWithTitle:@"支付成功"];
+        [self.webView goBack];
+        [self reloadWebview];
     }else{
         if (errorCode == 6001){
             [AlertHelper showAlertWithTitle:@"支付失败"];
@@ -546,6 +566,7 @@
         //服务器端查询支付通知或查询API返回的结果再提示成功
         //NSLog(@"支付成功");
         [AlertHelper showAlertWithTitle:@"支付成功"];
+        [self.webView goBack];
         [self reloadWebview];
     }else{
         //NSLog(@"支付失败，retcode=%d",response.errCode);
@@ -731,6 +752,101 @@
             [AlertHelper showAlertWithTitle:error];
         }
     }];
+}
+
+-(void)addFriend:(NSString* )chartId :(NSString *)avatar :(NSString *)userName
+{
+    LZHAlertView *alertView = [LZHAlertView createWithTitleArray:@[@"取消",@"确定"]];
+    alertView.titleLabel.text = @"添加好友";
+    alertView.contentLabel.text = [NSString stringWithFormat:@"是否添加%@为好友?",userName];
+    __weak LZHAlertView *weakAlertView = alertView;
+    [alertView setBlock:^(NSInteger index, NSString *title) {
+        if (index == 1) {
+            [[ServiceForUser manager] postMethodName:@"friend/apply_for" params:@{@"receive":chartId} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+                if (status) {
+                    [AlertHelper showAlertWithTitle:@"已发出添加邀请"];
+                }else{
+                    [AlertHelper showAlertWithTitle:error];
+                }
+            }];
+        }
+        [weakAlertView hide];
+    }];
+    [alertView show];
+}
+
+-(void)uploadImg
+{
+    UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"相机", @"从手机相册选择", nil];
+    [choiceSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // 拍照，&& [self doesCameraSupportTakingPhotos] 支持c相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+            controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+            if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {//设置后摄像头
+                controller.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+            }
+            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
+            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
+            controller.mediaTypes = mediaTypes;
+            controller.delegate = self;
+            [self presentViewController:controller
+                               animated:YES
+                             completion:^(void){
+                                 NSLog(@"Picker View Controller is presented");
+                             }];
+        }
+        
+    } else if (buttonIndex == 1) {
+        // 从相册中选取
+        if ([UIImagePickerController isSourceTypeAvailable:
+             UIImagePickerControllerSourceTypePhotoLibrary]) {
+            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+            controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
+            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
+            controller.mediaTypes = mediaTypes;
+            controller.delegate = self;
+            [self presentViewController:controller
+                               animated:YES
+                             completion:^(void){
+                                 NSLog(@"Picker View Controller is presented");
+                             }];
+        }
+    }
+}
+
+#pragma mark - UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    NSData *imgData = UIImageJPEGRepresentation(portraitImg, 1);
+    [SVProgressHUD show];
+    [[ServiceForUser manager] postFileWithActionOp:@"common/upload_header_img" andData:imgData andUploadFileName:[Tooles getUploadImageName] andUploadKeyName:@"img" and:@"image/jpeg" params:@{} progress:^(NSProgress *uploadProgress) {
+        NSLog(@"%f",1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+    } block:^(NSDictionary *responseObject, NSString *error, BOOL status, NSError *requestFailed) {
+        [SVProgressHUD dismiss];
+        if (status) {
+            NSString *url = [[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"];
+            [self dismissViewControllerAnimated:YES completion:^{
+                NSString *script = [NSString stringWithFormat:@"javascript:uploadImg(\'%@\')",url];
+                [self.jsContext evaluateScript: script];
+            }];
+        }
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)closePwView:(UIButton *)sender {

@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UIView *userCoverimageView;
 @property (weak, nonatomic) IBOutlet UILabel *offlineLabel;//下线
 @property (weak, nonatomic) IBOutlet UILabel *rentLabel;//租用
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

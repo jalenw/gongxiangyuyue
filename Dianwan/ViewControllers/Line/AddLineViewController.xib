@@ -17,6 +17,9 @@
                 <outlet property="img" destination="ZbP-D2-sx8" id="J4F-zV-xDY"/>
                 <outlet property="nameTf" destination="Nh2-Tz-Umv" id="hdQ-p3-Gwb"/>
                 <outlet property="priceTf" destination="RFl-3R-raG" id="ETW-2Z-eGx"/>
+                <outlet property="tableView" destination="c8e-k0-UnY" id="FcM-Nl-B3v"/>
+                <outlet property="typeTf" destination="TFy-q3-26A" id="8Y0-ml-HVC"/>
+                <outlet property="typeView" destination="DnE-0i-8Lc" id="ioV-9U-1Ub"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="bts" destination="CON-Ey-Wlu" id="zPf-YH-MWE"/>
                 <outletCollection property="bts" destination="eju-SJ-xbR" id="KIG-Nw-P1y"/>
@@ -91,7 +94,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CON-Ey-Wlu">
-                    <rect key="frame" x="16" y="316" width="100" height="43"/>
+                    <rect key="frame" x="16" y="372" width="100" height="43"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.4823529412" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,7 +111,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eju-SJ-xbR">
-                    <rect key="frame" x="138" y="316" width="100" height="43"/>
+                    <rect key="frame" x="138" y="372" width="100" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,7 +128,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kk5-c4-6Ip">
-                    <rect key="frame" x="259" y="316" width="100" height="43"/>
+                    <rect key="frame" x="259" y="372" width="100" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,7 +145,7 @@
                     </connections>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" id="Ac5-f6-PoR">
-                    <rect key="frame" x="16" y="367" width="343" height="114"/>
+                    <rect key="frame" x="16" y="423" width="343" height="114"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入开播费用" minimumFontSize="17" id="RFl-3R-raG">
@@ -178,7 +181,7 @@
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" id="0HA-Lg-Nnv">
-                    <rect key="frame" x="16" y="367" width="343" height="128"/>
+                    <rect key="frame" x="16" y="423" width="343" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ze-xy-qip">
@@ -233,13 +236,95 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选直播分类" minimumFontSize="17" id="TFy-q3-26A">
+                    <rect key="frame" x="16" y="318" width="283" height="30"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" id="NYW-96-Tht">
+                    <rect key="frame" x="302" y="314" width="57" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85s-MA-xSw">
+                    <rect key="frame" x="16" y="309" width="343" height="48"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <action selector="changeTypeAct:" destination="-1" eventType="touchUpInside" id="EET-xk-D43"/>
+                    </connections>
+                </button>
+                <view alpha="0.5" contentMode="scaleToFill" id="vEN-0Y-jCY">
+                    <rect key="frame" x="16" y="355" width="343" height="2"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" id="DnE-0i-8Lc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="Qmz-ay-Zfm">
+                            <rect key="frame" x="0.0" y="344" width="375" height="323"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择直播分类" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Gk-jj-PhZ">
+                                    <rect key="frame" x="74" y="17" width="227" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aJQ-b0-eqd">
+                                    <rect key="frame" x="15" y="15" width="24" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="close"/>
+                                    <connections>
+                                        <action selector="closeTypeViewAct:" destination="-1" eventType="touchUpInside" id="Ipa-x0-wUh"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1WZ-GB-FbF">
+                                    <rect key="frame" x="16" y="266" width="343" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <color key="backgroundColor" red="1" green="0.4823529412" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="确认">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="confirmTypeViewAct:" destination="-1" eventType="touchUpInside" id="1Mo-4y-wNU"/>
+                                    </connections>
+                                </button>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="c8e-k0-UnY">
+                                    <rect key="frame" x="0.0" y="55" width="375" height="260"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="oYy-S1-7uf"/>
+                                        <outlet property="delegate" destination="-1" id="asT-yM-IEg"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="132" y="118.29085457271366"/>
         </view>
     </objects>
     <resources>
+        <image name="arrow_down" width="24" height="24"/>
         <image name="back_white" width="18" height="16"/>
+        <image name="close" width="32" height="32"/>
         <image name="create_room_bg" width="562" height="1000"/>
         <image name="live_photo" width="32" height="32"/>
     </resources>

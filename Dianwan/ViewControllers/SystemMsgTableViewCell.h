@@ -10,7 +10,8 @@
 
 @interface SystemMsgTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UIButton *bt;
+@property (weak, nonatomic) IBOutlet UIButton *bt2;
 @property (weak, nonatomic) IBOutlet UILabel *content;
-+(CGFloat)heightForSystemMsgTableViewCell:(NSString*)content;
 @end

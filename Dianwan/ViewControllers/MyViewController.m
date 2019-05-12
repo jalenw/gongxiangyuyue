@@ -32,25 +32,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    
+    [self.scrollView setContentSize:CGSizeMake(ScreenWidth, 667)];
     //适配大屏幕
-    if(IS_IPHONE_Xr||IS_IPHONE_X||IS_IPHONE_Xs_Max){
-        CGRect frome = self.userCoverimageView.frame;
-        frome.origin.y =  85;
-        self.userCoverimageView.frame = frome;
-        
-        CGRect codebtnfrome = self.qrcodeBtn.frame;
-        codebtnfrome.origin.y = 49;
-        self.qrcodeBtn.frame = codebtnfrome;
-        
-        CGRect setbtnfrome = self.settingBtn.frame;
-        setbtnfrome.origin.y = 49;
-        self.settingBtn.frame = setbtnfrome;
-        
-        CGRect nameLabelFrame = self.nameLabel.frame;
-        nameLabelFrame.origin.y = self.userCoverimageView.bottom +16;
-        self.nameLabel.frame = nameLabelFrame;
-    }
+//    if(IS_IPHONE_Xr||IS_IPHONE_X||IS_IPHONE_Xs_Max){
+//        CGRect frome = self.userCoverimageView.frame;
+//        frome.origin.y =  85;
+//        self.userCoverimageView.frame = frome;
+//        
+//        CGRect codebtnfrome = self.qrcodeBtn.frame;
+//        codebtnfrome.origin.y = 49;
+//        self.qrcodeBtn.frame = codebtnfrome;
+//        
+//        CGRect setbtnfrome = self.settingBtn.frame;
+//        setbtnfrome.origin.y = 49;
+//        self.settingBtn.frame = setbtnfrome;
+//        
+//        CGRect nameLabelFrame = self.nameLabel.frame;
+//        nameLabelFrame.origin.y = self.userCoverimageView.bottom +16;
+//        self.nameLabel.frame = nameLabelFrame;
+//    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

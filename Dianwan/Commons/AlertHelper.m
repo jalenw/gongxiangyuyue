@@ -40,7 +40,7 @@
 + (void)showAlertWithTitle:(NSString*)title
 {
     
-    if ([title isEqualToString:@"请登陆"]) {
+    if ([title isEqualToString:@"请登录"]) {
         LZHAlertView *alertView = [LZHAlertView shareInstanceForLogin];
         alertView.contentLabel.text = @"登录凭证失效，请重新登录";
         alertView.titleLabel.text = @"提示";

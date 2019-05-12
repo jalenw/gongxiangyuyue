@@ -53,11 +53,14 @@
         _timeTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timeTimerAction:) userInfo:nil repeats:YES];
         [[ServiceForUser manager] postMethodName:@"channels/enterLiveRoom" params:@{@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             if (status) {
+                NSDictionary *result = [data safeDictionaryForKey:@"result"];
+                self.name.text = [result safeStringForKey:@"member_name"];
+                [self.img sd_setImageWithURL:[NSURL URLWithString:[result safeStringForKey:@"member_avatar"]]];
             }else{
                 [AlertHelper showAlertWithTitle:error];
             }
         }];
-        self.msgContentView.width = ScreenWidth-62;
+        self.msgContentView.width = ScreenWidth-70;
         self.rewardBt.hidden = NO;
     }
     msgList = [NSMutableArray new];
@@ -169,7 +172,14 @@
         EMTextMessageBody *body = message.messageBodies.firstObject;
         NSString *text = body.text;
         NSDictionary *dict = [Tooles stringToJson:text];
-        cell.contentLb.text = [NSString stringWithFormat:@"%@:%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"content"]];
+        if ([[dict safeStringForKey:@"content"] containsString:@"进入直播间"]) {
+            cell.contentLb.text = [dict safeStringForKey:@"content"];
+        }
+        else if ([[dict safeStringForKey:@"content"] containsString:@"赠送了"]) {
+            cell.contentLb.text = [dict safeStringForKey:@"content"];
+        }
+        else
+            cell.contentLb.text = [NSString stringWithFormat:@"%@:%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"content"]];
         [cell.contentLb sizeToFit];
         if (cell.contentLb.width>=ScreenWidth-32) {
             cell.contentLb.width = ScreenWidth-32;
@@ -215,7 +225,10 @@
 
 - (IBAction)sendAct:(UIButton *)sender {
     [self.contentTf resignFirstResponder];
-    
+    if (self.contentTf.text.length==0) {
+        [AlertHelper showAlertWithTitle:@"不能发送空消息"];
+        return;
+    }
     NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
     [parm setValue:@(AppDelegateInstance.defaultUser.user_id) forKey:@"userId"];
     [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
@@ -241,10 +254,12 @@
     if (sender.selected) {
         [self.rewardTf becomeFirstResponder];
         self.rewardContentView.hidden = NO;
+        self.msgContentView.hidden = YES;
     }
     else
     {
         self.rewardContentView.hidden = YES;
+        self.msgContentView.hidden = NO;
         [SVProgressHUD show];
         [[ServiceForUser manager] postMethodName:@"channels/give_gold" params:@{@"gold":self.rewardTf.text,@"room_id":[self.dict safeStringForKey:@"room_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             [SVProgressHUD dismiss];

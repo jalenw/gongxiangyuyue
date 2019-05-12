@@ -10,6 +10,8 @@
 #import "LivePlayerViewController.h"
 @interface AddLineViewController ()
 {
+    NSArray *classList;
+    NSDictionary *classDict;
     NSString *pic_url;
     NSInteger type;
 }
@@ -20,6 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupForDismissKeyboard];
+    [self getClassList];
+}
+
+-(void)getClassList
+{
+    [[ServiceForUser manager]postMethodName:@"channelclass/getClassList" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            classList = [data  safeArrayForKey:@"result"];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -112,7 +125,7 @@
     type = sender.tag;
     sender.backgroundColor = ThemeColor;
     if (sender.tag==0) {
-        self.bottomView.top = 367;
+        self.bottomView.top = 423;
         self.costView.hidden = true;
     }
     else
@@ -129,6 +142,45 @@
     [self.navigationController pushViewController:commonweb animated:YES];
 }
 
+- (IBAction)changeTypeAct:(UIButton *)sender {
+    self.typeView.hidden = NO;
+}
+
+- (IBAction)closeTypeViewAct:(id)sender {
+    self.typeView.hidden = YES;
+}
+
+- (IBAction)confirmTypeViewAct:(UIButton *)sender {
+    self.typeView.hidden = YES;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return classList.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"typeCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"typeCell"];
+    }
+    if (classList.count>0) {
+        NSDictionary *dict = [classList objectAtIndex:indexPath.row];
+        cell.textLabel.text = [dict safeStringForKey:@"class_name"];
+    }
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *dict = [classList objectAtIndex:indexPath.row];
+    classDict = dict;
+    self.typeView.hidden = YES;
+    self.typeTf.text = [classDict safeStringForKey:@"class_name"];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
 
 - (IBAction)doneAct:(UIButton *)sender {
     if (pic_url.length==0) {
@@ -148,7 +200,7 @@
         return;
     }
     [SVProgressHUD show];
-    [[ServiceForUser manager] postMethodName:@"channels/startLive" params:@{@"title":self.nameTf.text,@"cover":pic_url,@"channel_type":@(type+1),@"channel_price":self.priceTf.text,@"cost_price":self.costTf.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"channels/startLive" params:@{@"title":self.nameTf.text,@"cover":pic_url,@"channel_type":@(type+1),@"channel_price":self.priceTf.text,@"cost_price":self.costTf.text,@"channel_class_id":[classDict safeStringForKey:@"channels_class_id"]} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
             [self.navigationController popViewControllerAnimated:NO];

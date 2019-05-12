@@ -26,7 +26,6 @@
     page =0 ;
     dataList = [[NSMutableArray alloc]init];
     
-    [self requestListAct];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyDemandTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyDemandTableViewCell"];
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         page ++;
@@ -42,9 +41,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.tableView headerBeginRefreshing];
 }
 
 -(void)rightbarButtonDidTap:(UIButton*)button{
+    CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
+    controller.address = [NSString stringWithFormat:@"%@dist/appointment/releaseDemand",web_url];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(void)requestListAct

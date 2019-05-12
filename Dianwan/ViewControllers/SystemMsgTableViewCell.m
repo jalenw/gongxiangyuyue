@@ -20,11 +20,4 @@
 
     // Configure the view for the selected state
 }
-
-+(CGFloat)heightForSystemMsgTableViewCell:(NSString*)content
-{
-    CGFloat height = 66;
-    height = height + [Tooles calculateTextHeight:ScreenWidth-16 Content:content fontSize:15];
-    return height;
-}
 @end

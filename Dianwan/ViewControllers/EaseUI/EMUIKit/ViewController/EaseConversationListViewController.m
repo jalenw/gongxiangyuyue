@@ -119,7 +119,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 0;
+        return 64;
     }
     return [EaseConversationCell cellHeightWithModel:nil];
 }
@@ -184,7 +184,7 @@
             model = [[EaseConversationModel alloc] initWithConversation:converstion];
         }
 
-        if (model&&model.conversation.latestMessage) {
+        if (model&&model.conversation.latestMessage&&model.conversation.conversationType ==eConversationTypeChat) {
             [self.dataArray addObject:model];
         }
     }
