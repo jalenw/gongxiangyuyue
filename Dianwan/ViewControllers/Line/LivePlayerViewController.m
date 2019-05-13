@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [UIApplication sharedApplication].idleTimerDisabled=YES;
     [self setupForDismissKeyboard];
     if (self.forPush) {
         TXLivePushConfig* _config = [[TXLivePushConfig alloc] init];
@@ -66,7 +67,24 @@
     msgList = [NSMutableArray new];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     [[EaseMob sharedInstance].chatManager asyncJoinChatroom:[self.dict safeStringForKey:@"chatroom_id"] completion:^(EMChatroom *chatroom, EMError *error) {
+        NSMutableDictionary *parm = [[NSMutableDictionary alloc]init];
+        [parm setValue:@(AppDelegateInstance.defaultUser.user_id) forKey:@"userId"];
+        [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
+        [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
+        [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
+        [parm setValue:[NSString stringWithFormat:@"%@进入直播间",AppDelegateInstance.defaultUser.nickname] forKey:@"content"];
+        [parm setValue:[self.dict safeStringForKey:@"chatroom_id"] forKey:@"room_id"];
+        [parm setValue:@"connect" forKey:@"type"];
+        NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
+        EMMessage *message = [EaseSDKHelper sendTextMessage:[Tooles jsonToString:parm]
+                                                         to:[self.dict safeStringForKey:@"chatroom_id"]
+                                                messageType:eMessageTypeChatRoom
+                                          requireEncryption:NO
+                                                 messageExt:p];
         
+        [msgList addObject:message];
+        [self.tableView reloadData];
+        [self scrollToBottom];
     }];
 
     self.bottomView.bottom = ScreenHeight;
@@ -92,6 +110,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].idleTimerDisabled=NO;
     if (self.forPush) {
         [self stopRtmpPublish];
         if (_timeTimer) {
@@ -172,11 +191,11 @@
         EMTextMessageBody *body = message.messageBodies.firstObject;
         NSString *text = body.text;
         NSDictionary *dict = [Tooles stringToJson:text];
-        if ([[dict safeStringForKey:@"content"] containsString:@"进入直播间"]) {
+        if ([[dict safeStringForKey:@"type"] containsString:@"connect"]) {
             cell.contentLb.text = [dict safeStringForKey:@"content"];
         }
-        else if ([[dict safeStringForKey:@"content"] containsString:@"赠送了"]) {
-            cell.contentLb.text = [dict safeStringForKey:@"content"];
+        else if ([[dict safeStringForKey:@"type"] containsString:@"exceptional"]) {
+            cell.contentLb.text = [NSString stringWithFormat:@"%@打赏了%@",[dict safeStringForKey:@"nickName"], [dict safeStringForKey:@"content"]];
         }
         else
             cell.contentLb.text = [NSString stringWithFormat:@"%@:%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"content"]];
@@ -236,6 +255,7 @@
     [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
     [parm setValue:self.contentTf.text forKey:@"content"];
     [parm setValue:[self.dict safeStringForKey:@"chatroom_id"] forKey:@"room_id"];
+    [parm setValue:@"send" forKey:@"type"];
     NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
     EMMessage *message = [EaseSDKHelper sendTextMessage:[Tooles jsonToString:parm]
                                                      to:[self.dict safeStringForKey:@"chatroom_id"]
@@ -270,7 +290,8 @@
                 [parm setValue:AppDelegateInstance.defaultUser.chat_id forKey:@"chatId"];
                 [parm setValue:AppDelegateInstance.defaultUser.nickname forKey:@"nickName"];
                 [parm setValue:AppDelegateInstance.defaultUser.avatar forKey:@"avatar"];
-                [parm setValue:[NSString stringWithFormat:@"%@赠送了%@金币",AppDelegateInstance.defaultUser.nickname,self.rewardTf.text] forKey:@"content"];
+                [parm setValue:@"exceptional" forKey:@"type"];
+                [parm setValue:[NSString stringWithFormat:@"%@金币",self.rewardTf.text] forKey:@"content"];
                 [parm setValue:[self.dict safeStringForKey:@"chatroom_id"] forKey:@"room_id"];
                 NSMutableDictionary *p = [[NSMutableDictionary alloc]initWithDictionary:@{@"ext":[Tooles jsonToString:parm]}];
                 EMMessage *message = [EaseSDKHelper sendTextMessage:[Tooles jsonToString:parm]

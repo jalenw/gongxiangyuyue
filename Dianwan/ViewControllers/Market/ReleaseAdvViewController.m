@@ -473,12 +473,14 @@
         self.pay_type=0;
         self.showUnitLb.text = @"金币";
         self.unitLb.text = @"个";
+        self.remainingCountTF.placeholder = @"每个红包的金币数量";
     }else{
         self.goldCoinBtn.selected = NO;
         self.remainingBtn.selected =YES;
         self.pay_type=1;
         self.showUnitLb.text = @"金额";
         self.unitLb.text = @"元";
+        self.remainingCountTF.placeholder = @"每个红包的金额数量";
     }
 }
 - (SYPasswordView *)pasView{

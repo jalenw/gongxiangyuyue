@@ -176,6 +176,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (HTTPClientInstance.token==nil) {
+        [AppDelegateInstance showLoginView];
+        return;
+    }
     NSDictionary *dict = menuList[indexPath.row];
     NSString *link = [dict safeStringForKey:@"adv_link"];
     if (link.length>0) {
