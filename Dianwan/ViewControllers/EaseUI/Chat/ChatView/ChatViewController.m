@@ -298,7 +298,7 @@
     }
     if (index==4) {
         CommonUIWebViewController *controller = [[CommonUIWebViewController alloc] init];
-        controller.address = [NSString stringWithFormat:@"%@dist/course/personalCourse.html?store_id=%ld",web_url,(long)store_id];
+        controller.address = [NSString stringWithFormat:@"%@dist/course/personalCourse?store_id=%ld",web_url,(long)store_id];
         [self.navigationController pushViewController:controller animated:YES];
     }
     if (index==5) {

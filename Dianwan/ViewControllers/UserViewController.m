@@ -479,7 +479,7 @@
             [AppDelegateInstance saveContext];
             [self.avatar sd_setImageWithURL:[NSURL URLWithString:AppDelegateInstance.defaultUser.avatar]];
             self.name.text = AppDelegateInstance.defaultUser.nickname;
-            self.realName.text=AppDelegateInstance.defaultUser.nickname;
+            self.realName.text=[result safeStringForKey:@"realname"];
             self.phone.text=AppDelegateInstance.defaultUser.phone;
             NSLog(@"%@",AppDelegateInstance.defaultUser.area);
             [self.cityBtn setTitle:AppDelegateInstance.defaultUser.area forState:UIControlStateNormal];

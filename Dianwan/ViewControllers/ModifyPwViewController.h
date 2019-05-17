@@ -9,7 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ModifyPwViewController : BaseViewController
-@property (nonatomic)BOOL forPayPw;
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UITextField *npw;
 @property (weak, nonatomic) IBOutlet UITextField *reNewPw;

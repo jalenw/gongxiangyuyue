@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *costTf;
 @property (weak, nonatomic) IBOutlet UITextField *typeTf;
 @property (weak, nonatomic) IBOutlet UIView *typeView;
+@property (weak, nonatomic) IBOutlet UIButton *addImgBt;
 - (IBAction)addImgAct:(UIButton *)sender;
 - (IBAction)backAct:(UIButton *)sender;
 - (IBAction)doneAct:(UIButton *)sender;

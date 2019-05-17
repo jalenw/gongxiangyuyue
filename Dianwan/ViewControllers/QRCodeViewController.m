@@ -38,7 +38,7 @@
             [self.codeImageview setImage:[self sencond_getHDImgWithCIImage:outPutImage size:self.codeImageview.size]];
             self.recommendedCodeLabel.text =[NSString stringWithFormat:@"推荐码：%@", [[data safeDictionaryForKey:@"result"] safeStringForKey:@"code"]];
             self.url =[[data safeDictionaryForKey:@"result"] safeStringForKey:@"url"];
-            
+            self.desc.text = [[data safeDictionaryForKey:@"result"] safeStringForKey:@"share_msg"];
         }
         else
             [AlertHelper showAlertWithTitle:error];

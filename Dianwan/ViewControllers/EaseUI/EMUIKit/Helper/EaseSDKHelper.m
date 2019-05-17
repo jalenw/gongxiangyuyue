@@ -303,7 +303,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 {
     // 表情映射。
-    NSString *willSendText = [EaseConvertToCommonEmoticonsHelper convertToCommonEmoticons:text];
+//    NSString *willSendText = [EaseConvertToCommonEmoticonsHelper convertToCommonEmoticons:text];
+    NSString *willSendText = text;
     EMChatText *textChat = [[EMChatText alloc] initWithText:willSendText];
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:textChat];
     EMMessage *message = [[EMMessage alloc] initWithReceiver:toUser bodies:[NSArray arrayWithObject:body]];

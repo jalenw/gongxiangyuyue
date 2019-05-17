@@ -12,6 +12,7 @@
 #import "HMScannerController.h"
 #import "QRCodeViewController.h"
 #import "LiveAndVideoViewController.h"
+#import "ServiceCenterViewController.h"
 @interface FirstViewController ()<GYRollingNoticeViewDataSource, GYRollingNoticeViewDelegate>
 {
     NSArray *adArray;
@@ -45,10 +46,14 @@
     [self setupNoticeView];
     [self setupGoldView];
     
-    [self.smView setArray: @[@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
+    [self.smView setArray: @[@{@"name":@"平台客服",@"image":@"first_service"},@{@"name":@"我的推荐码",@"image":@"first_code"},@{@"name":@"平台说明",@"image":@"first_?"}]];
     [self.smView setBlock:^(NSInteger index) {
         self.maskView.hidden = YES;
         if (index==0) {
+            ServiceCenterViewController *commonweb =[[ServiceCenterViewController alloc]init];
+            [self.navigationController pushViewController:commonweb animated:YES];
+        }
+        else if (index==1) {
             QRCodeViewController *vc = [[QRCodeViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
         }

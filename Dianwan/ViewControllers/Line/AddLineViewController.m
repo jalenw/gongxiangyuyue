@@ -99,6 +99,8 @@
     } block:^(NSDictionary *responseObject, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
         if (status) {
+            [self.addImgBt setTitle:@"" forState:UIControlStateNormal];
+            [self.addImgBt setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             pic_url = [[responseObject safeDictionaryForKey:@"result"] safeStringForKey:@"img_name"];
             [self dismissViewControllerAnimated:YES completion:^{
                 [self.img sd_setImageWithURL:[NSURL URLWithString:pic_url]];

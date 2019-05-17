@@ -103,12 +103,8 @@
                             };
     [[ServiceForUser manager]postMethodName:@"Appointdemand/delDemand" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         [SVProgressHUD dismiss];
-        if (status) {
             [dataList removeObjectAtIndex:sender.tag];
             [self.tableView reloadData];
-        }else{
-            [AlertHelper showAlertWithTitle:error];
-        }
     }];
 }
 @end

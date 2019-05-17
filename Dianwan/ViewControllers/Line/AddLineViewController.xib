@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddLineViewController">
             <connections>
+                <outlet property="addImgBt" destination="Rri-qw-WxA" id="pXP-xk-wSJ"/>
                 <outlet property="bottomView" destination="0HA-Lg-Nnv" id="KIn-s9-boT"/>
                 <outlet property="costTf" destination="YEC-Dh-WHf" id="FVU-nS-FHl"/>
                 <outlet property="costView" destination="Ac5-f6-PoR" id="br4-Nm-mJS"/>

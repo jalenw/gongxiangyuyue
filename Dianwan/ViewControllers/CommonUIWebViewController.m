@@ -233,6 +233,7 @@
     webView.scalesPageToFit = YES;
     webView.scrollView.bounces = NO;
     webView.backgroundColor = [UIColor whiteColor];
+    webView.clipsToBounds = YES;
     self.webView = webView;
 
     if (self.H5Content.length > 0) {

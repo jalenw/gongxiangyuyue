@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QRCodeViewController : BaseViewController
-
-@property (weak, nonatomic) IBOutlet UILabel *code;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
 
 @end

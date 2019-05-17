@@ -17,14 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupForDismissKeyboard];
-    if (self.forPayPw) {
-        self.title = @"修改支付密码";
-    }
-    else{
+
         self.title = @"修改登录密码";
-       
-    }
-    
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -63,7 +58,7 @@
         [AlertHelper showAlertWithTitle:@"密码不一致"];
         return;
     }
-    if (self.forPayPw) {
+
         [SVProgressHUD show];
         [[ServiceForUser manager]postMethodName:@"Memberaccount/modify_password_step5.html" params:@{@"password":self.npw.text,@"password1":self.reNewPw.text,@"auth_code":self.codeTF.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
             [SVProgressHUD dismiss];
@@ -73,18 +68,6 @@
             }
             else [AlertHelper showAlertWithTitle:error];
         }];
-    }
-    else
-    {
-        [SVProgressHUD show];
-        [[ServiceForUser manager]postMethodName:@"Memberaccount/modify_password_step5.html" params:@{@"password":self.npw.text,@"password1":self.reNewPw.text} block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-            [SVProgressHUD dismiss];
-            if (status) {
-                [AlertHelper showAlertWithTitle:@"修改成功"];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-            else [AlertHelper showAlertWithTitle:error];
-        }];
-    }
+    
 }
 @end

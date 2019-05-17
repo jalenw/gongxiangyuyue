@@ -99,11 +99,13 @@ didFinishLaunchingWithOptions:launchOptions
 {
     NSMutableDictionary *para = [HTTPClientInstance newDefaultParameters];
     [para setObject:@"ios" forKey:@"client"];
-    [[ServiceForUser manager] postMethodName:@"index/version" params:para block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    [[ServiceForUser manager] postMethodName:@"index/version_new" params:para block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (status) {
-            NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
-            if ([version floatValue]<[[data safeStringForKey:@"result"] floatValue]) {
-                NSString *msg = [NSString stringWithFormat:@"发现新版本(V%@)，必须更新使用",[data safeStringForKey:@"result"]];
+            NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+            if ([version floatValue]<[[[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_version"]floatValue]) {
+                NSString *msg = [NSString stringWithFormat:@"发现新版本(V%@)，必须更新使用",[[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_version"]];
+                _updateMessage = msg;
+                _updateUrlString = [[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_url"];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"升级提示" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"现在升级",nil];
                 [alert show];
             }
