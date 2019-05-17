@@ -87,7 +87,7 @@
     [whiteView addSubview:sepView];
     
     
-    CGFloat buttonWidth = self.width/5;
+    CGFloat buttonWidth = self.width/3;
     CGFloat buttonTop = ScreenHeight-100;
     UIColor *labelColor = GrayColor2;
     
@@ -131,7 +131,7 @@
     UIButton *_weiboButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonWidth*3, buttonTop, buttonWidth, 50)];
     [_weiboButton addTarget:self action:@selector(shareToWeibo) forControlEvents:UIControlEventTouchUpInside];
     [_weiboButton setImage:[UIImage imageNamed:@"weiboShare"] forState:UIControlStateNormal];
-    [self addSubview:_weiboButton];
+//    [self addSubview:_weiboButton];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0, 55, buttonWidth, 18)];
     label.textColor = labelColor;
@@ -144,7 +144,7 @@
     UIButton *_copyButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonWidth*4, buttonTop, buttonWidth, 50)];
     [_copyButton addTarget:self action:@selector(copyLink) forControlEvents:UIControlEventTouchUpInside];
     [_copyButton setImage:[UIImage imageNamed:@"copyShare"] forState:UIControlStateNormal];
-    [self addSubview:_copyButton];
+//    [self addSubview:_copyButton];
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0, 55, buttonWidth, 18)];
     label.textColor = labelColor;

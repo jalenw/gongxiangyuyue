@@ -37,7 +37,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1106550856</string>
+				<string>tencent1108250751</string>
 			</array>
 		</dict>
 		<dict>
@@ -45,7 +45,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb1842117588</string>
+				<string>QQ420E907F</string>
 			</array>
 		</dict>
 		<dict>
@@ -131,9 +131,9 @@
 	<key>key_jpush</key>
 	<string>bc21098e976c3e9dca04ab26</string>
 	<key>key_qq_appid</key>
-	<string>1106550856</string>
+	<string>1108250751</string>
 	<key>key_qq_appkey</key>
-	<string>8sVESEfPdSe1YZ79</string>
+	<string>OLplkTyoKBgHiv86</string>
 	<key>key_wechat_appid</key>
 	<string>wxfe0f187c2f075717</string>
 	<key>key_wechat_secret</key>

@@ -16,7 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *digCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneryLabel;
+@property (weak, nonatomic) IBOutlet UIButton *bt;
+@property (weak, nonatomic) IBOutlet UILabel *sellLb;
+@property (weak, nonatomic) IBOutlet UILabel *lb1;
+@property (weak, nonatomic) IBOutlet UILabel *lb2;
+@property (weak, nonatomic) IBOutlet UILabel *lb3;
 
 @end
 

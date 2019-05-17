@@ -87,7 +87,7 @@
     
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [ShareHelper showShareCommonViewWithTitle:@"我的二维码" content:@"" images: @[self.codeImageview.image] description:@"和约" url:self.url andViewTitle:@"和约" andViewDes:@"合约" result:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+        [ShareHelper showShareCommonViewWithTitle:@"和约" content:self.desc.text images: @[[UIImage imageNamed:@"logo"]] description:self.desc.text url:self.url andViewTitle:@"和约" andViewDes:self.desc.text result:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
         switch (state) {
             case SSDKResponseStateSuccess:
             {

@@ -102,6 +102,9 @@
                 memberList = [data safeArrayForKey:@"result"];
                 self.ower = [memberList firstObject];
                 self.title = [self.ower safeStringForKey:@"member_name"];
+                if (self.name) {
+                    self.title = self.name;
+                }
             }
         }];
         

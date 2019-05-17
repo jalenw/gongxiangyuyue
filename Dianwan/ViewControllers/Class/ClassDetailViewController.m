@@ -10,9 +10,11 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "WaitPayViewController.h"
 #import "JPVideoPlayerKit.h"
+#import "ChatViewController.h"
 @interface ClassDetailViewController ()<JPVideoPlayerControlViewDelegate>
 {
     NSDictionary *dict;
+    NSTimer *timer;
 }
 @end
 
@@ -51,6 +53,7 @@
 }
 
 - (IBAction)playAct:(UIButton *)sender {
+    timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(timeTimerAction:) userInfo:nil repeats:NO];
     sender.hidden = YES;
     NSURL *url = [NSURL URLWithString:[dict safeStringForKey:@"courses_video"]];
     JPVideoPlayerControlView *contentView =  [[JPVideoPlayerControlView alloc] initWithControlBar:nil blurImage:nil];
@@ -61,20 +64,29 @@
                                  controlView:contentView
                                 progressView:nil
                                configuration:nil];
-//    MPMoviePlayerViewController *mPMoviePlayerViewController;
-//    mPMoviePlayerViewController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[dict safeStringForKey:@"course_video"]]];
-//    mPMoviePlayerViewController.view.frame = ScreenBounds;
-//    [self presentViewController:mPMoviePlayerViewController animated:YES completion:nil];
 }
 
 -(void)playerControlViewBtnClick{
     [self.img jp_pause];
 }
 
+- (void)timeTimerAction:(id)sender
+{
+    self.maskLb.hidden = NO;
+    [self.img jp_stopPlay];
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
 
 - (void)dealloc {
     if (self.img) {
         [self.img jp_stopPlay];
+    }
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
     }
 }
 
@@ -92,5 +104,11 @@
             [AlertHelper showAlertWithTitle:error];
         }
     }];
+}
+
+- (IBAction)toServiceAct:(UIButton *)sender {
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:[[dict safeDictionaryForKey:@"kefu"]  safeStringForKey:@"chat_id"] conversationType:eConversationTypeChat];
+    chatController.name = [[dict safeDictionaryForKey:@"kefu"]  safeStringForKey:@"member_name"];
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 @end

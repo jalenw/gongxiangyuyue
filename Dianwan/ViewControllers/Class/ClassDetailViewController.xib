@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="contentLb" destination="T5S-G4-ZSx" id="QVi-9o-uXh"/>
                 <outlet property="img" destination="iz3-dG-TK5" id="6wa-dg-s9D"/>
+                <outlet property="maskLb" destination="hwx-OU-73F" id="Ovc-Ab-sem"/>
                 <outlet property="nameLb" destination="IUU-p7-Gwe" id="Zc6-9a-fPu"/>
                 <outlet property="playView" destination="9CG-FL-SwO" id="SbE-C6-JUp"/>
                 <outlet property="priceLb" destination="n3v-st-rYH" id="FjW-Tp-6Je"/>
@@ -69,6 +70,17 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hwx-OU-73F">
+                            <rect key="frame" x="8" y="74" width="359" height="180"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <string key="text">尊敬的用户：
+试看已经结束，请点击下方
+“购买”观看完整视频</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3v-st-rYH">
                             <rect key="frame" x="8" y="218" width="359" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,8 +98,8 @@
                     </subviews>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eKq-aN-NCA">
-                    <rect key="frame" x="16" y="618" width="343" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="16" y="618" width="162" height="43"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="1" green="0.4823529412" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="立即购买">
@@ -100,6 +112,23 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="buyAct:" destination="-1" eventType="touchUpInside" id="u3C-yq-5xw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qSq-YS-xYX">
+                    <rect key="frame" x="197" y="618" width="162" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.4823529412" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="客服">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="toServiceAct:" destination="-1" eventType="touchUpInside" id="qDg-rC-zOZ"/>
                     </connections>
                 </button>
             </subviews>

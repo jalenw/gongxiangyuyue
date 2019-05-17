@@ -105,7 +105,7 @@ didFinishLaunchingWithOptions:launchOptions
             if ([version floatValue]<[[[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_version"]floatValue]) {
                 NSString *msg = [NSString stringWithFormat:@"发现新版本(V%@)，必须更新使用",[[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_version"]];
                 _updateMessage = msg;
-                _updateUrlString = [[data safeDictionaryForKey:@"result"] safeStringForKey:@"client_url"];
+                _updateUrlString = [NSString stringWithFormat:@"%@%@",web_url,@"dist/load/load"];
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"升级提示" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:@"现在升级",nil];
                 [alert show];
             }

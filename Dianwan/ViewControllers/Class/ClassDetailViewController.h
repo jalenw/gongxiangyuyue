@@ -19,8 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet UILabel *priceLb;
 @property (weak, nonatomic) IBOutlet UILabel *contentLb;
+@property (weak, nonatomic) IBOutlet UILabel *maskLb;
 - (IBAction)playAct:(UIButton *)sender;
 - (IBAction)buyAct:(UIButton *)sender;
+- (IBAction)toServiceAct:(UIButton *)sender;
 @end
 
 NS_ASSUME_NONNULL_END
