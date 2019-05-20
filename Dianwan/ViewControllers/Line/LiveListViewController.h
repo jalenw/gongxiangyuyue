@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LiveListViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIButton *liveBt;
 @property (strong, nonatomic) IBOutlet UIView *searchView;
 - (IBAction)toSearchViewAct:(UIButton *)sender;
+- (IBAction)liveAct:(UIButton *)sender;
 
 @end
 

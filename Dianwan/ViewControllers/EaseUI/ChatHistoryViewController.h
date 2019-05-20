@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ChatHistoryViewController : EaseConversationListViewController
 @property (weak, nonatomic) IBOutlet UIView *maskView;
 @property (weak, nonatomic) IBOutlet SliderMenuView *smView;
+- (IBAction)removeMaskViewAct:(UIButton *)sender;
 
 @end
 

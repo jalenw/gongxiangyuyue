@@ -147,6 +147,9 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        return;
+    }
     
     CGFloat topHeaderWidth = [self topHeaderWidth];
     if (topHeaderWidth == 0) {

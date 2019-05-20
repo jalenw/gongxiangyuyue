@@ -229,4 +229,8 @@
     controller.address = [NSString stringWithFormat:@"%@wap/mall/text_ul.html",web_url];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+- (IBAction)removeMaskViewAct:(UIButton *)sender {
+    self.maskView.hidden = YES;
+}
 @end

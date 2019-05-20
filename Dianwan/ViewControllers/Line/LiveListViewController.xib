@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveListViewController">
             <connections>
                 <outlet property="listTableview" destination="myy-4X-0IL" id="noe-Cq-qdw"/>
+                <outlet property="liveBt" destination="xeD-Hl-eFg" id="lm7-Lr-6g4"/>
                 <outlet property="searchView" destination="Zrj-rg-IjM" id="pZs-ZS-VMm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -69,6 +70,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xeD-Hl-eFg">
+                    <rect key="frame" x="299" y="554" width="60" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <state key="normal" image="woyaokaibo"/>
+                    <connections>
+                        <action selector="liveAct:" destination="-1" eventType="touchUpInside" id="1Rt-7n-4SP"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="132" y="118.29085457271366"/>
@@ -76,5 +85,6 @@
     </objects>
     <resources>
         <image name="search" width="17" height="17"/>
+        <image name="woyaokaibo" width="60" height="60"/>
     </resources>
 </document>

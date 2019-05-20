@@ -86,7 +86,11 @@
 
 -(void)setupUI{
     self.title =[self.result safeStringForKey:@"title"];
-    self.moneryLabel.text = [NSString stringWithFormat:@"%@元",[self.result safeStringForKey:@"price"]];
+    if ([self.result safeIntForKey:@"adv_type"]==0) {
+        self.moneryLabel.text = [NSString stringWithFormat:@"%d个",[self.result safeIntForKey:@"price"]];
+    }
+    else
+        self.moneryLabel.text = [NSString stringWithFormat:@"%@元",[self.result safeStringForKey:@"price"]];
 //    AdView *view= [[AdView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40)];
 ////    view.frame =CGRectMake(0, 0, ScreenWidth, (ScreenWidth - 50) * 0.53125 + 40);
 //    [self.mainScrollview addSubview:view];
@@ -113,7 +117,7 @@
         for (int i = 0; i < self.AdsData.count; i++)
         {
             UIImageView *shadowView = [[UIImageView alloc] init];
-            //        shadowView.backgroundColor = [UIColor redColor];
+            shadowView.contentMode = UIViewContentModeScaleAspectFit;
             shadowView.frame = CGRectMake(25 + (ScreenWidth - 40) * i, 15, ScreenWidth - 50, (ScreenWidth - 50) * 0.53125);
             shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
             shadowView.layer.shadowRadius = 5.0;

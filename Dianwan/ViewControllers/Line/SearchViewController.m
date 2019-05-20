@@ -73,9 +73,6 @@
             NSArray *livedata = [[data  safeDictionaryForKey:@"result"] safeArrayForKey:@"data"];
             [dataList addObjectsFromArray:livedata];
             [self.listTableview reloadData];
-            if ([[data  safeDictionaryForKey:@"result"] safeIntForKey:@"total"]==0) {
-                [AlertHelper showAlertWithTitle:@"暂没有数据"];
-            }
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

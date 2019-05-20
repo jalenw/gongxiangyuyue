@@ -53,4 +53,7 @@
 {
      self.maskView.hidden = !self.maskView.hidden;
 }
+- (IBAction)removeMaskViewAct:(UIButton *)sender {
+    self.maskView.hidden = YES;
+}
 @end

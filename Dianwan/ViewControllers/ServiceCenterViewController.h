@@ -12,9 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ServiceCenterViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *lb1;
 @property (weak, nonatomic) IBOutlet UILabel *wxLb;
+@property (weak, nonatomic) IBOutlet UILabel *lb2;
 @property (weak, nonatomic) IBOutlet UILabel *qqLb;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLb;
+@property (weak, nonatomic) IBOutlet UILabel *lb3;
 
 @end
 

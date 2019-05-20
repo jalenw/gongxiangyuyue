@@ -1,29 +1,29 @@
 //
-//  PreviewViewController.m
+//  SearchPreViewController.m
 //  Dianwan
 //
-//  Created by 黄哲麟 on 2019/5/4.
+//  Created by 黄哲麟 on 2019/5/19.
 //  Copyright © 2019年 intexh. All rights reserved.
 //
 
-#import "PreviewViewController.h"
+#import "SearchPreViewController.h"
 #import "PreviewTableViewCell.h"
 #import "PreviewDetailViewController.h"
-#import "SearchPreViewController.h"
-@interface PreviewViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SearchPreViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
     NSMutableArray *dataList;
 }
 @end
 
-@implementation PreviewViewController
+@implementation SearchPreViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     page =0 ;
     dataList = [[NSMutableArray alloc]init];
-    
+    self.navigationItem.titleView = self.searchView;
+    [self setupForDismissKeyboard];
     [self requestLiveListAct];
     [self.listTableview registerNib:[UINib nibWithNibName:@"PreviewTableViewCell" bundle:nil] forCellReuseIdentifier:@"PreviewTableViewCell"];
     [self.listTableview addLegendFooterWithRefreshingBlock:^{
@@ -34,25 +34,15 @@
         page =0;
         [self requestLiveListAct];
     }];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshLiveList" object:nil];
-}
-
--(void)refresh
-{
-    page =0;
-    [self requestLiveListAct];
 }
 
 -(void)requestLiveListAct{
-    NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{
+    NSDictionary *params =@{
                             @"pagesize":@"5",
                             @"page":@(page),
-                            @"my_list":@"0"
-                            }];
-    if (AppDelegateInstance.classId!=nil) {
-        [params addEntriesFromDictionary:@{@"channel_class_id":AppDelegateInstance.classId}];
-    }
+                            @"my_list":@"0",
+                            @"search":self.content.text
+                            };
     [[ServiceForUser manager]postMethodName:@"channelforeshow/foreshowList" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 0) {
             [dataList removeAllObjects];
@@ -68,6 +58,12 @@
             [AlertHelper showAlertWithTitle:error];
         }
     }];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setRightBarButtonWithTitle:@"搜索"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -91,13 +87,14 @@
     return 201;
 }
 
-- (IBAction)toSearchAct:(UIButton *)sender {
-    SearchPreViewController *vc = [[SearchPreViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+-(void)rightbarButtonDidTap:(UIButton *)button
+{
+    [self refresh];
 }
 
--(void)dealloc
+-(void)refresh
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    page =0;
+    [self requestLiveListAct];
 }
 @end

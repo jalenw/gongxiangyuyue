@@ -87,6 +87,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if (self.conversation.conversationType == eConversationTypeChat) {
+    }
+    else{
+        [self setRightBarButtonWithTitle:@"群成员"];
+    }
 }
 
 #pragma mark - setup subviews
@@ -132,7 +137,6 @@
     }
     else{//群聊
         self.title = @"群聊";
-        [self setRightBarButtonWithTitle:@"群成员"];
     }
 }
 
@@ -381,7 +385,7 @@
 
 - (void)messageViewController:(EaseMessageViewController *)viewController didFailSendingMessageModel:(id<IMessageModel>)messageModel error:(EMError *)error
 {
-    [self showHint:NSLocalizedString(@"reconnection.fail", @"reconnection failure, later will continue to reconnection")];
+    [self showHint:error.description];
 }
 
 
@@ -712,7 +716,7 @@
     if (![[EaseMob sharedInstance].chatManager isConnected])
     {
         //连接断开
-        [self showHint:NSLocalizedString(@"reconnection.fail", @"reconnection failure, later will continue to reconnection")];
+        [self showHint:@"连接断开"];
         return;
     }
     //执行删除，并穿透传消息

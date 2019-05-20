@@ -13,7 +13,10 @@
 #import "LivePlayerViewController.h"
 #import "PreviewViewController.h"
 @interface LiveAndVideoViewController ()
-
+{
+    NSMutableArray *classList;
+    NSDictionary *classDict;
+}
 @end
 
 @implementation LiveAndVideoViewController
@@ -21,27 +24,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"直播视频";
+    classList = [[NSMutableArray alloc]init];
+    [classList addObject:@"全部"];
+    [self getClassList];
+}
+
+-(void)getClassList
+{
+    [[ServiceForUser manager]postMethodName:@"channelclass/getClassList" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            [classList addObjectsFromArray:[data  safeArrayForKey:@"result"]];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    if (AppDelegateInstance.defaultUser.viptype==2) {
-        [self setRightBarButtonWithTitle:@"我要开播"];
-    }
+    [self setRightBarButtonWithTitle:@"筛选"];
 }
 
 -(void)rightbarButtonDidTap:(UIButton *)button
 {
-    AddLineViewController *vc = [[AddLineViewController alloc]init];
-    [vc setBlock:^(NSDictionary * _Nonnull dict) {
-        LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
-        vc.forPush = true;
-        vc.url = [[dict safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
-        vc.dict = [dict safeDictionaryForKey:@"result"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    [self.navigationController pushViewController:vc animated:YES];
+    self.typeView.hidden = NO;
 }
 
 - (NSArray<NSString *> *)buttonTitleArray{
@@ -117,6 +123,7 @@
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
     [topView addSubview:self.topHeaderView];
     [self.view addSubview:topView];
+    [self.view addSubview:self.typeView];
 }
 
 - (CGFloat)topHeaderWidth{
@@ -129,5 +136,47 @@
     return view;
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return classList.count;
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"typeCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"typeCell"];
+    }
+    if (classList.count>0) {
+        if (indexPath.row==0) {
+            cell.textLabel.text = [classList firstObject];
+        }
+        else
+        {
+            NSDictionary *dict = [classList objectAtIndex:indexPath.row];
+            cell.textLabel.text = [dict safeStringForKey:@"class_name"];
+        }
+    }
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row==0) {
+        classDict = nil;
+        AppDelegateInstance.classId = nil;
+    }else
+    {
+        NSDictionary *dict = [classList objectAtIndex:indexPath.row];
+        classDict = dict;
+        AppDelegateInstance.classId = [classDict safeStringForKey:@"channels_class_id"];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kRefreshLiveList" object:nil];
+    self.typeView.hidden = YES;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
+- (IBAction)closeTypeViewAct:(UIButton *)sender {
+    self.typeView.hidden = YES;
+}
 @end

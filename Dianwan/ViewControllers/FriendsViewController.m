@@ -164,4 +164,31 @@
     return 0;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section==1) {
+        return YES;
+    }
+    else return 0;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *dict =dataList[indexPath.row];
+        NSDictionary *params =@{
+                                @"friend_id":[dict safeStringForKey:@"friend_id"]
+                                };
+        [[ServiceForUser manager]postMethodName:@"friend/rachel" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+            if (status) {
+                [dataList removeObjectAtIndex:indexPath.row];
+                [self.tableView reloadData];
+            }else{
+                [AlertHelper showAlertWithTitle:error];
+            }
+        }];
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"拉黑";
+}
 @end

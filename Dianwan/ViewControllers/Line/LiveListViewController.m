@@ -12,6 +12,8 @@
 #import "LZHAlertView.h"
 #import "WaitPayViewController.h"
 #import "SearchViewController.h"
+#import "AddLineViewController.h"
+#import "LivePlayerViewController.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -45,6 +47,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"kRefreshLiveList" object:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (AppDelegateInstance.defaultUser.viptype==2) {
+        self.liveBt.hidden = NO;
+    }
+}
+
 -(void)refresh
 {
     page =1;
@@ -52,11 +61,14 @@
 }
 
 -(void)requestLiveListAct{
-    NSDictionary *params =@{
-                            @"pagesize":@"5",
-                            @"page":@(page)
-                            };
-    [[ServiceForUser manager]postMethodName:@"Channels/getLive" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]initWithDictionary:@{
+                                                                                   @"pagesize":@"5",
+                                                                                   @"page":@(page)
+                                                                                   }];
+    if (AppDelegateInstance.classId!=nil) {
+        [params addEntriesFromDictionary:@{@"channel_class_id":AppDelegateInstance.classId}];
+    }
+    [[ServiceForUser manager]postMethodName:@"Channels/search" params:params block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
         if (page == 1) {
             [dataList removeAllObjects];
             [self.listTableview.header endRefreshing];
@@ -114,6 +126,18 @@
 
 - (IBAction)toSearchViewAct:(UIButton *)sender {
     SearchViewController *vc = [[SearchViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)liveAct:(UIButton *)sender {
+    AddLineViewController *vc = [[AddLineViewController alloc]init];
+    [vc setBlock:^(NSDictionary * _Nonnull dict) {
+        LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+        vc.forPush = true;
+        vc.url = [[dict safeDictionaryForKey:@"result"]safeStringForKey:@"push_rtmp"];
+        vc.dict = [dict safeDictionaryForKey:@"result"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

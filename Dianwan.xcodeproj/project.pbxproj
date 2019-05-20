@@ -366,6 +366,8 @@
 		8EDA41411F22F731000CBA40 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA413F1F22F731000CBA40 /* LoginViewController.xib */; };
 		8EDA41521F22F85C000CBA40 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA41501F22F85C000CBA40 /* FriendsViewController.m */; };
 		8EDA41531F22F85C000CBA40 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */; };
+		8EDFF5B12290E8E10083460F /* SearchPreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDFF5AF2290E8E10083460F /* SearchPreViewController.m */; };
+		8EDFF5B22290E8E10083460F /* SearchPreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDFF5B02290E8E10083460F /* SearchPreViewController.xib */; };
 		8EE1FB1E2280772A00E50A16 /* PreviewDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1FB1C2280772A00E50A16 /* PreviewDetailViewController.m */; };
 		8EE1FB1F2280772A00E50A16 /* PreviewDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1FB1D2280772A00E50A16 /* PreviewDetailViewController.xib */; };
 		8EE1FB23228080D000E50A16 /* GroupMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1FB21228080D000E50A16 /* GroupMemberListViewController.m */; };
@@ -1101,6 +1103,9 @@
 		8EDA414F1F22F85C000CBA40 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		8EDA41501F22F85C000CBA40 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		8EDA41511F22F85C000CBA40 /* FriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
+		8EDFF5AE2290E8E10083460F /* SearchPreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPreViewController.h; sourceTree = "<group>"; };
+		8EDFF5AF2290E8E10083460F /* SearchPreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPreViewController.m; sourceTree = "<group>"; };
+		8EDFF5B02290E8E10083460F /* SearchPreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPreViewController.xib; sourceTree = "<group>"; };
 		8EE1FB1B2280772A00E50A16 /* PreviewDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewDetailViewController.h; sourceTree = "<group>"; };
 		8EE1FB1C2280772A00E50A16 /* PreviewDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreviewDetailViewController.m; sourceTree = "<group>"; };
 		8EE1FB1D2280772A00E50A16 /* PreviewDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewDetailViewController.xib; sourceTree = "<group>"; };
@@ -2405,6 +2410,9 @@
 				8E7EDC9622812C0F00A54FF1 /* SearchViewController.h */,
 				8E7EDC9722812C0F00A54FF1 /* SearchViewController.m */,
 				8E7EDC9822812C0F00A54FF1 /* SearchViewController.xib */,
+				8EDFF5AE2290E8E10083460F /* SearchPreViewController.h */,
+				8EDFF5AF2290E8E10083460F /* SearchPreViewController.m */,
+				8EDFF5B02290E8E10083460F /* SearchPreViewController.xib */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -3808,6 +3816,7 @@
 				2F6B3068223D000D00BD686B /* PaySucessViewController.xib in Resources */,
 				8EB4E50521201FAE00BC563B /* VoiceSearchFeedback002@2x.png in Resources */,
 				8EB4E50921201FAE00BC563B /* VoiceSearchFeedback015.png in Resources */,
+				8EDFF5B22290E8E10083460F /* SearchPreViewController.xib in Resources */,
 				8EB4E4F621201FAE00BC563B /* VoiceSearchFeedback005@2x.png in Resources */,
 				8EB4E4C921201FAE00BC563B /* call_silence@2x.png in Resources */,
 				2F6B306D223D003000BD686B /* WaitPayViewController.xib in Resources */,
@@ -4161,6 +4170,7 @@
 				2F6AE629223CA51E002400CF /* AdvDetailsViewController.m in Sources */,
 				04395EDC1F233EC10074865E /* TZImageCropManager.m in Sources */,
 				8EEF4BC3211D8CB500DE1E36 /* wav.mm in Sources */,
+				8EDFF5B12290E8E10083460F /* SearchPreViewController.m in Sources */,
 				8E9FE2D3212E72B900D26955 /* MJRefreshComponent.m in Sources */,
 				8E9FE2D4212E72B900D26955 /* UIView+MJExtension.m in Sources */,
 				8EEF4BDD211D8CB500DE1E36 /* PSTGridLayoutSection.m in Sources */,

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PreviewViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *listTableview;
+- (IBAction)toSearchAct:(UIButton *)sender;
 
 @end
 

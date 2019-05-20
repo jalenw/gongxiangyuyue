@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LiveAndVideoViewController : LZHTabScrollViewController
+@property (weak, nonatomic) IBOutlet UIView *typeView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)closeTypeViewAct:(UIButton *)sender;
 
 @end
 

@@ -26,28 +26,30 @@
                 [wx appendString:str];
                 [wx appendString:@"\n"];
             }
-            self.wxLb.text =[NSString stringWithFormat:@"微信号：%@", wx];
+            self.wxLb.text =[NSString stringWithFormat:@"%@", wx];
             [self.wxLb sizeToFit];
             self.wxLb.width = ScreenWidth-48-48;
+            self.lb1.top = self.wxLb.top;
             NSMutableString *qq = [[NSMutableString alloc]init];
             for (NSString *str in [[data safeDictionaryForKey:@"result"] safeArrayForKey:@"qq"]) {
                 [qq appendString:str];
                 [qq appendString:@"\n"];
             }
-            self.qqLb.text =[NSString stringWithFormat:@"QQ号：%@", qq];
+            self.qqLb.text =[NSString stringWithFormat:@"%@", qq];
             [self.qqLb sizeToFit];
              self.qqLb.width = ScreenWidth-48-48;
             self.qqLb.top = self.wxLb.bottom + 8;
-            
+            self.lb2.top = self.qqLb.top;
             NSMutableString *mobile = [[NSMutableString alloc]init];
             for (NSString *str in [[data safeDictionaryForKey:@"result"] safeArrayForKey:@"mobile"]) {
                 [mobile appendString:str];
                 [mobile appendString:@"\n"];
             }
-            self.phoneLb.text =[NSString stringWithFormat:@"手机号：%@", mobile];
+            self.phoneLb.text =[NSString stringWithFormat:@"%@", mobile];
             [self.phoneLb sizeToFit];
              self.phoneLb.width = ScreenWidth-48-48;
             self.phoneLb.top = self.qqLb.bottom + 8;
+            self.lb3.top = self.phoneLb.top;
         }
         else
             [AlertHelper showAlertWithTitle:error];

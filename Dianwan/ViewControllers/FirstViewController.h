@@ -23,4 +23,5 @@
 
 - (IBAction)noticeAct:(UIButton *)sender;
 - (IBAction)goldAct:(UIButton *)sender;
+- (IBAction)removeMaskViewAct:(UIButton *)sender;
 @end

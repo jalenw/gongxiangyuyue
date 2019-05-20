@@ -22,6 +22,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate,JPUSHRegisterDelegate>
 @property (strong, nonatomic) User *defaultUser;//保存登录用户信息
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *classId;
 @property (strong,nonatomic) NSOperationQueue *operationQueue;
 @property (strong, nonatomic) UINavigationController *currentNavigationController;//当前导航栏
 @property (strong, nonatomic) MainViewController* mainViewController;//主界面
