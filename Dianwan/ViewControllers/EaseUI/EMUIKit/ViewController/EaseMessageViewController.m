@@ -1721,11 +1721,11 @@
         [parm setValue:[self.ower safeStringForKey:@"member_avatar"] forKey:@"toAvatar"];
         [parm setValue:[self.ower safeStringForKey:@"member_name"] forKey:@"toNickName"];
     }
-    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
-    [parm setValue:viptype forKey:@"vipType"];
+    NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"VIP":AppDelegateInstance.defaultUser.viptype==2?@"约服务":@"";
+    [parm setValue:@(AppDelegateInstance.defaultUser.viptype) forKey:@"viptType"];
 
-        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
-         [parm setValue:string forKey:@"toVipType"];
+        NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"VIP":self.toViptype==2?@"约服务":@"";
+         [parm setValue:@(self.toViptype) forKey:@"toVipType"];
 
         [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];
 
@@ -1761,7 +1761,7 @@
     NSString *viptype = AppDelegateInstance.defaultUser.viptype==0?@"会员":AppDelegateInstance.defaultUser.viptype==1?@"vip":AppDelegateInstance.defaultUser.viptype==2?@"租用":@"";
     [parm setValue:viptype forKey:@"vipType"];
     
-    NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"vip":self.toViptype==2?@"租用":@"";
+    NSString *string = self.toViptype==0?@"会员":self.toViptype==1?@"VIP":self.toViptype==2?@"约服务":@"";
     [parm setValue:string forKey:@"toVipType"];
     
     [parm setValue:@(self.toSubordinat) forKey:@"toSubordinat"];

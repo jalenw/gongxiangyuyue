@@ -10,6 +10,7 @@
 #import "LiveListTableViewCell.h"
 #import "LivePlayerViewController.h"
 #import "WaitPayViewController.h"
+#import "PaySucessViewController.h"
 @interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -70,6 +71,10 @@
             [self.listTableview.footer endRefreshing];
         }
         if (status) {
+            if ([[data  safeDictionaryForKey:@"result"] safeIntForKey:@"total"]==0) {
+                [AlertHelper showAlertWithTitle:@"暂无搜索结果"];
+                return;
+            }
             NSArray *livedata = [[data  safeDictionaryForKey:@"result"] safeArrayForKey:@"data"];
             [dataList addObjectsFromArray:livedata];
             [self.listTableview reloadData];
@@ -101,6 +106,17 @@
     else
     {
         WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+        [waitpay setBlock:^(NSDictionary * _Nonnull dict) {
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买直播";
+            [paysuc setBlock:^{
+                LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+                vc.url = [dict safeStringForKey:@"play"];
+                vc.dict = dict;
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }];
         waitpay.dict = dict;
         waitpay.type = 4;
         waitpay.moneryNum =[dict safeStringForKey:@"channel_price"];

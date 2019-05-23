@@ -24,7 +24,6 @@
     dataList = [[NSMutableArray alloc]init];
     self.navigationItem.titleView = self.searchView;
     [self setupForDismissKeyboard];
-    [self requestLiveListAct];
     [self.listTableview registerNib:[UINib nibWithNibName:@"PreviewTableViewCell" bundle:nil] forCellReuseIdentifier:@"PreviewTableViewCell"];
     [self.listTableview addLegendFooterWithRefreshingBlock:^{
         page ++;
@@ -51,6 +50,10 @@
             [self.listTableview.footer endRefreshing];
         }
         if (status) {
+            if ([[data  safeDictionaryForKey:@"result"] safeIntForKey:@"total"]==0) {
+                [AlertHelper showAlertWithTitle:@"暂无搜索结果"];
+                return;
+            }
             NSArray *livedata = [data  safeArrayForKey:@"result"];
             [dataList addObjectsFromArray:livedata];
             [self.listTableview reloadData];

@@ -14,6 +14,7 @@
 #import "SearchViewController.h"
 #import "AddLineViewController.h"
 #import "LivePlayerViewController.h"
+#import "PaySucessViewController.h"
 @interface LiveListViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     int page;
@@ -49,6 +50,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     if (AppDelegateInstance.defaultUser.viptype==2) {
         self.liveBt.hidden = NO;
     }
@@ -107,6 +109,17 @@
     else
     {
         WaitPayViewController *waitpay = [[WaitPayViewController alloc]init];
+        [waitpay setBlock:^(NSDictionary * _Nonnull dict) {
+            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
+            paysuc.btText = @"查看购买直播";
+            [paysuc setBlock:^{
+                LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
+                vc.url = [dict safeStringForKey:@"play"];
+                vc.dict = dict;
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            [self.navigationController pushViewController:paysuc animated:YES];
+        }];
         waitpay.dict = dict;
         waitpay.type = 4;
         waitpay.moneryNum =[dict safeStringForKey:@"channel_price"];

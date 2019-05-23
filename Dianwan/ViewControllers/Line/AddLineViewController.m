@@ -7,7 +7,7 @@
 //
 
 #import "AddLineViewController.h"
-#import "LivePlayerViewController.h"
+
 @interface AddLineViewController ()
 {
     NSArray *classList;

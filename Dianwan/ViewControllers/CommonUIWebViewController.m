@@ -226,14 +226,14 @@
     
     self.navigationItem.leftBarButtonItems = @[leftSpace,backBarItem];
     
-    UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.frame];
-    webView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight |UIViewAutoresizingFlexibleBottomMargin;
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 20, ScreenWidth, ScreenHeight-20)];
     [self.view addSubview:webView];
     webView.delegate = self;
     webView.scalesPageToFit = YES;
     webView.scrollView.bounces = NO;
     webView.backgroundColor = [UIColor whiteColor];
     webView.clipsToBounds = YES;
+    webView.scrollView.clipsToBounds = YES;
     self.webView = webView;
 
     if (self.H5Content.length > 0) {
@@ -261,6 +261,7 @@
     
     self.pwInputView.frame = ScreenBounds;
     self.pwInputView.hidden = YES;
+    self.view.clipsToBounds = YES;
     [self.view addSubview:self.pwInputView];
 }
 

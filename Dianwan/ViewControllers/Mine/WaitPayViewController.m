@@ -38,6 +38,10 @@
     if (self.payType==2) {
         self.typeLb.text = @"金币支付";
     }
+    if ([self.dict safeIntForKey:@"channel_type"]==3) {
+        self.typeLb.text = @"金币支付";
+        self.pay_type = @"gold";
+    }
     if (self.type==1||self.type==7||self.type==5) {
         self.aliView.hidden = NO;
         self.wechatView.hidden = NO;
@@ -263,15 +267,8 @@
         [SVProgressHUD dismiss];
         if (status) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kRefreshLiveList" object:nil];
-            PaySucessViewController *paysuc = [[PaySucessViewController alloc]init];
-            paysuc.btText = @"查看购买直播";
-            [paysuc setBlock:^{
-                LivePlayerViewController *vc = [[LivePlayerViewController alloc]init];
-                vc.url = [self.dict safeStringForKey:@"play"];
-                vc.dict = self.dict;
-                [self.navigationController pushViewController:vc animated:YES];
-            }];
-            [self.navigationController pushViewController:paysuc animated:YES];
+             [self.navigationController popViewControllerAnimated:NO];
+            self.block(self.dict);
         }else{
             [AlertHelper showAlertWithTitle:error];
         }

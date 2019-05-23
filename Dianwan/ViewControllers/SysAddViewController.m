@@ -6,40 +6,39 @@
 //  Copyright © 2018年 intexh. All rights reserved.
 //
 
-#import "SystemMsgViewController.h"
+#import "SysAddViewController.h"
 #import "SystemMsgTableViewCell.h"
 
-@interface SystemMsgViewController ()
+@interface SysAddViewController ()
 {
     NSMutableArray *array;
 }
 @end
 
-@implementation SystemMsgViewController
+@implementation SysAddViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"系统消息";
     array = [[NSMutableArray alloc]init];
     [self refresh];
 }
 
 -(void)refresh
 {
-    [array removeAllObjects];
-    [[ServiceForUser manager]postMethodName:@"friend/apply_for_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
-        if (status) {
-            [array addObjectsFromArray:[data safeArrayForKey:@"result"]];
-            [self.tableView reloadData];
-        }
-    }];
-    
-//    [[ServiceForUser manager]postMethodName:@"friend/apply_for_list1" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+//    [array removeAllObjects];
+//    [[ServiceForUser manager]postMethodName:@"friend/apply_for_list" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
 //        if (status) {
 //            [array addObjectsFromArray:[data safeArrayForKey:@"result"]];
 //            [self.tableView reloadData];
 //        }
 //    }];
+    
+    [[ServiceForUser manager]postMethodName:@"friend/apply_for_list1" params:nil block:^(NSDictionary *data, NSString *error, BOOL status, NSError *requestFailed) {
+        if (status) {
+            [array addObjectsFromArray:[data safeArrayForKey:@"result"]];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

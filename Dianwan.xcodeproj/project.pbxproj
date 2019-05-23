@@ -159,6 +159,10 @@
 		8E4664F3216A2EC90022DF94 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E4664F0216A2EC90022DF94 /* UserViewController.xib */; };
 		8E4664F4216A2EC90022DF94 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4664F2216A2EC90022DF94 /* UserViewController.m */; };
 		8E5589D12237AE930058EE80 /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */; };
+		8E6B19C022969CDD00EC5905 /* SysTotalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B19BE22969CDD00EC5905 /* SysTotalViewController.m */; };
+		8E6B19C122969CDD00EC5905 /* SysTotalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B19BF22969CDD00EC5905 /* SysTotalViewController.xib */; };
+		8E6B19C522969D7D00EC5905 /* SysAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B19C222969D7D00EC5905 /* SysAddViewController.m */; };
+		8E6B19C622969D7D00EC5905 /* SysAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B19C322969D7D00EC5905 /* SysAddViewController.xib */; };
 		8E7ABFC7211AD9CC00EADF76 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC5211AD9CC00EADF76 /* SettingViewController.m */; };
 		8E7ABFC8211AD9CC00EADF76 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7ABFC6211AD9CC00EADF76 /* SettingViewController.xib */; };
 		8E7ABFD1211AE3FB00EADF76 /* ModifyPwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7ABFCF211AE3FB00EADF76 /* ModifyPwViewController.m */; };
@@ -847,6 +851,12 @@
 		8E4664F1216A2EC90022DF94 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		8E4664F2216A2EC90022DF94 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		8E5589D02237AE930058EE80 /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
+		8E6B19BD22969CDD00EC5905 /* SysTotalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SysTotalViewController.h; sourceTree = "<group>"; };
+		8E6B19BE22969CDD00EC5905 /* SysTotalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SysTotalViewController.m; sourceTree = "<group>"; };
+		8E6B19BF22969CDD00EC5905 /* SysTotalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SysTotalViewController.xib; sourceTree = "<group>"; };
+		8E6B19C222969D7D00EC5905 /* SysAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysAddViewController.m; sourceTree = "<group>"; };
+		8E6B19C322969D7D00EC5905 /* SysAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysAddViewController.xib; sourceTree = "<group>"; };
+		8E6B19C422969D7D00EC5905 /* SysAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysAddViewController.h; sourceTree = "<group>"; };
 		8E7ABFB6211AD30F00EADF76 /* Dianwan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dianwan.entitlements; sourceTree = "<group>"; };
 		8E7ABFC4211AD9CB00EADF76 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		8E7ABFC5211AD9CC00EADF76 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
@@ -2460,9 +2470,15 @@
 				8E980B5B211035FC00C7B6DA /* SystemMsgViewController.h */,
 				8E980B5C211035FC00C7B6DA /* SystemMsgViewController.m */,
 				8E980B5D211035FC00C7B6DA /* SystemMsgViewController.xib */,
+				8E6B19C422969D7D00EC5905 /* SysAddViewController.h */,
+				8E6B19C222969D7D00EC5905 /* SysAddViewController.m */,
+				8E6B19C322969D7D00EC5905 /* SysAddViewController.xib */,
 				8EE1FB20228080D000E50A16 /* GroupMemberListViewController.h */,
 				8EE1FB21228080D000E50A16 /* GroupMemberListViewController.m */,
 				8EE1FB22228080D000E50A16 /* GroupMemberListViewController.xib */,
+				8E6B19BD22969CDD00EC5905 /* SysTotalViewController.h */,
+				8E6B19BE22969CDD00EC5905 /* SysTotalViewController.m */,
+				8E6B19BF22969CDD00EC5905 /* SysTotalViewController.xib */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -3835,6 +3851,7 @@
 				8EE2DCD0223A2D4B00DF2DFE /* QRCodeViewController.xib in Resources */,
 				CDC88E4E1D8691E000CE03CE /* LaunchScreen.storyboard in Resources */,
 				8E7ABFD7211AECE800EADF76 /* SetPayPwViewController.xib in Resources */,
+				8E6B19C622969D7D00EC5905 /* SysAddViewController.xib in Resources */,
 				8EB4E52E21201FAE00BC563B /* chatBar_colorMore_location@2x.png in Resources */,
 				8EB4E54821201FAE00BC563B /* messageSendFail@2x.png in Resources */,
 				8EB4E4FE21201FAE00BC563B /* VoiceSearchFeedback007.png in Resources */,
@@ -3901,6 +3918,7 @@
 				8EB4E52421201FAE00BC563B /* chatBar_more_locationSelected@2x.png in Resources */,
 				8EB4E52021201FAE00BC563B /* chatBar_more_photo.png in Resources */,
 				8EB4E50821201FAE00BC563B /* VoiceSearchFeedback012@2x.png in Resources */,
+				8E6B19C122969CDD00EC5905 /* SysTotalViewController.xib in Resources */,
 				2F17D97E223E2B13008E0E94 /* AlertBuyTableViewCell.xib in Resources */,
 				CD6323C31EE54C1100D033F4 /* WeiboSDK.bundle in Resources */,
 				8EB4E54521201FAE00BC563B /* call_out_h.png in Resources */,
@@ -4079,6 +4097,7 @@
 				0413AA4A1F2879C5006F2743 /* ShareCommonView.m in Sources */,
 				8E7ABFD1211AE3FB00EADF76 /* ModifyPwViewController.m in Sources */,
 				CD6B83031E542F420082F5EB /* JsonHelper.m in Sources */,
+				8E6B19C022969CDD00EC5905 /* SysTotalViewController.m in Sources */,
 				CD06662A1E8CB53700CCD49A /* MainViewController.m in Sources */,
 				2F6B3069223D000D00BD686B /* PaySucessViewController.m in Sources */,
 				04EBFC381F25D79C00C4DE83 /* LZHAreaPickerView.m in Sources */,
@@ -4248,6 +4267,7 @@
 				8EEF4BF5211D8CB500DE1E36 /* MBProgressHUD+Add.m in Sources */,
 				8EEF4BF6211D8CB500DE1E36 /* EaseLocationViewController.m in Sources */,
 				8EEF4C14211D8CB500DE1E36 /* EaseUI.m in Sources */,
+				8E6B19C522969D7D00EC5905 /* SysAddViewController.m in Sources */,
 				2F3F8549223AB8D200A46086 /* PlatformAnnouncementController.m in Sources */,
 				8EEF4BCA211D8CB500DE1E36 /* EMAudioRecorderUtil.m in Sources */,
 				04395ED91F233EC10074865E /* TZAssetCell.m in Sources */,

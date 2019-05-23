@@ -597,15 +597,15 @@
     }
     
     if (_deleteMenuItem == nil) {
-        _deleteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"delete", @"Delete") action:@selector(deleteMenuAction:)];
+        _deleteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"删除", @"删除") action:@selector(deleteMenuAction:)];
     }
     
     if (_copyMenuItem == nil) {
-        _copyMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"copy", @"Copy") action:@selector(copyMenuAction:)];
+        _copyMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"复制", @"复制") action:@selector(copyMenuAction:)];
     }
     
     if (_transpondMenuItem == nil) {
-        _transpondMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"transpond", @"Transpond") action:@selector(transpondMenuAction:)];
+        _transpondMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"翻译", @"翻译") action:@selector(transpondMenuAction:)];
     }
     
     NSMutableArray *menuArray = [NSMutableArray arrayWithObjects:_deleteMenuItem, nil];
@@ -613,7 +613,7 @@
     if ([self canRevokeMessage]  &&
         self.conversation.conversationType != eConversationTypeChatRoom) {
         if (_revokeMenuItem == nil) {
-            _revokeMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"revoke", @"Revoke") action:@selector(revokeMessageAction:)];
+            _revokeMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"回撤", @"回撤") action:@selector(revokeMessageAction:)];
         }
         [menuArray addObject:_revokeMenuItem];
     }

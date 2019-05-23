@@ -16,7 +16,7 @@
 #import "NSDate+Category.h"
 #import "EaseMessageHelper.h"
 #import "MsgTableViewCell.h"
-#import "SystemMsgViewController.h"
+#import "SysTotalViewController.h"
 @interface EaseConversationListViewController () <IChatManagerDelegate>
 
 @end
@@ -128,7 +128,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row==0) {
-        SystemMsgViewController *vc = [[SystemMsgViewController alloc]init];
+        SysTotalViewController *vc = [[SysTotalViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

@@ -136,6 +136,18 @@
     return view;
 }
 
+- (BOOL)currentControllerShouldChangeWithIndex:(NSInteger)index
+{
+    if (index==2) {
+        [[self setRightBarButtonWithTitle:@"筛选"] removeFromSuperview];
+    }
+    else
+    {
+        [self setRightBarButtonWithTitle:@"筛选"];
+    }
+    return true;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return classList.count;
 }

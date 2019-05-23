@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WaitPayViewController : BaseViewController
+@property (nonatomic,copy) void (^block)(NSDictionary *dict);
 @property(nonatomic,strong)NSDictionary *dict;
 @property(nonatomic,strong)NSString *moneryNum;
 @property(nonatomic,strong)NSString *order_id;

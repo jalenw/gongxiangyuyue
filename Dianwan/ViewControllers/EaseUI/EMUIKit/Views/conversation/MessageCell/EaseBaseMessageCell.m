@@ -217,7 +217,8 @@
     NSDictionary *dict =  model.message.ext;//[Tooles stringToJson:[model.message.ext safeStringForKey:@"ext"]];
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:[dict safeStringForKey:@"avatar"]] placeholderImage:model.avatarImage];
     if ([dict safeStringForKey:@"vipType"]) {
-        _nameLabel.text = [NSString stringWithFormat:@"%@_%@_%@",[dict safeStringForKey:@"nickName"],[dict safeStringForKey:@"vipType"],[dict safeStringForKey:@"subordinat"]];
+        NSString *viptype = [dict safeIntForKey:@"viptType"]==0?@"":[dict safeIntForKey:@"viptType"]==1?@"VIP":[dict safeIntForKey:@"viptType"]==2?@"约服务":@"";
+        _nameLabel.text = [NSString stringWithFormat:@"%@_%@_%@",[dict safeStringForKey:@"nickName"],viptype,[dict safeStringForKey:@"subordinat"]];
     }
     else
     {

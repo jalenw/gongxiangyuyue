@@ -23,6 +23,7 @@
 
 - (IBAction)toWhereAct:(UIButton *)sender {
     if (self.block) {
+        [self.navigationController popViewControllerAnimated:YES];
         self.block();
     }
     else {
